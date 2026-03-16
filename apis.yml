@@ -1,4 +1,4 @@
-name: Amazon Elastic Transcoder API
+name: Amazon Elastic Transcoder
 description: Amazon Elastic Transcoder is media transcoding in the cloud. It is designed to be a highly scalable, easy-to-use, and cost-effective way for developers and businesses to convert or transcode media files from their source format into versions that will play back on devices like smartphones, tablets, and PCs. It manages all aspects of the transcoding process transparently and automatically.
 image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
 url: https://aws.amazon.com/elastictranscoder/
