@@ -5,65 +5,65 @@ url: https://aws.amazon.com/elastictranscoder/
 created: '2024-01-15'
 modified: '2026-03-16'
 apis:
-- name: Amazon Elastic Transcoder API
-  description: >-
-    The Amazon Elastic Transcoder API provides media transcoding in the cloud,
-    enabling developers to convert media files from their source format into
-    versions optimized for playback on various devices including smartphones,
-    tablets, and PCs. The API allows you to create transcoding pipelines, define
-    presets for output formats, submit transcoding jobs, and monitor their
-    progress. It handles all aspects of the media transcoding process
-    transparently and automatically.
-  image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
-  humanURL: https://aws.amazon.com/elastictranscoder/
-  baseURL: https://elastictranscoder.amazonaws.com
-  tags:
+  - name: Amazon Elastic Transcoder API
+    description: >-
+      The Amazon Elastic Transcoder API provides media transcoding in the cloud,
+      enabling developers to convert media files from their source format into
+      versions optimized for playback on various devices including smartphones,
+      tablets, and PCs. The API allows you to create transcoding pipelines, define
+      presets for output formats, submit transcoding jobs, and monitor their
+      progress. It handles all aspects of the media transcoding process
+      transparently and automatically.
+    image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
+    humanURL: https://aws.amazon.com/elastictranscoder/
+    baseURL: https://elastictranscoder.amazonaws.com
+    tags:
+      - AWS
+      - Media
+      - Transcoding
+      - Video
+    properties:
+      - type: Documentation
+        url: https://docs.aws.amazon.com/elastictranscoder/
+      - type: OpenAPI
+        url: openapi/amazon-elastic-transcoder-openapi.yml
+      - type: Pricing
+        url: https://aws.amazon.com/elastictranscoder/pricing/
+      - type: Getting Started
+        url: https://aws.amazon.com/elastictranscoder/getting-started/
+      - type: FAQ
+        url: https://aws.amazon.com/elastictranscoder/faqs/
+common:
+  - type: Portal
+    url: https://aws.amazon.com/
+  - type: Website
+    url: https://aws.amazon.com/elastictranscoder/
+  - type: Documentation
+    url: https://docs.aws.amazon.com/elastictranscoder/
+  - type: Terms of Service
+    url: https://aws.amazon.com/service-terms/
+  - type: Privacy Policy
+    url: https://aws.amazon.com/privacy/
+  - type: Support
+    url: https://aws.amazon.com/premiumsupport/
+  - type: GitHub Organization
+    url: https://github.com/aws
+  - type: Console
+    url: https://console.aws.amazon.com/elastictranscoder/
+  - type: Sign Up
+    url: https://signin.aws.amazon.com/signup?request_type=register
+  - type: Login
+    url: https://aws.amazon.com/console/
+  - type: Status
+    url: https://health.aws.amazon.com/health/status
+  - type: Contact
+    url: https://aws.amazon.com/contact-us/
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
+    url: https://apievangelist.com
+tags:
+  - AWS
   - Media
   - Transcoding
   - Video
-  - AWS
-  properties:
-  - type: Documentation
-    url: https://docs.aws.amazon.com/elastictranscoder/
-  - type: OpenAPI
-    url: openapi/amazon-elastic-transcoder-openapi.yml
-  - type: Pricing
-    url: https://aws.amazon.com/elastictranscoder/pricing/
-  - type: Getting Started
-    url: https://aws.amazon.com/elastictranscoder/getting-started/
-  - type: FAQ
-    url: https://aws.amazon.com/elastictranscoder/faqs/
-common:
-- type: Portal
-  url: https://aws.amazon.com/
-- type: Website
-  url: https://aws.amazon.com/elastictranscoder/
-- type: Documentation
-  url: https://docs.aws.amazon.com/elastictranscoder/
-- type: Terms of Service
-  url: https://aws.amazon.com/service-terms/
-- type: Privacy Policy
-  url: https://aws.amazon.com/privacy/
-- type: Support
-  url: https://aws.amazon.com/premiumsupport/
-- type: GitHub Organization
-  url: https://github.com/aws
-- type: Console
-  url: https://console.aws.amazon.com/elastictranscoder/
-- type: Sign Up
-  url: https://signin.aws.amazon.com/signup?request_type=register
-- type: Login
-  url: https://aws.amazon.com/console/
-- type: Status
-  url: https://health.aws.amazon.com/health/status
-- type: Contact
-  url: https://aws.amazon.com/contact-us/
-maintainers:
-- FN: Kin Lane
-  email: kin@apievangelist.com
-  url: https://apievangelist.com
-tags:
-- Media
-- Transcoding
-- Video
-- AWS
