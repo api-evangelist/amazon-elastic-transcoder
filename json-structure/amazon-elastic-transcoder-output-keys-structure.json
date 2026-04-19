@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-elastic-transcoder/refs/heads/main/json-structure/amazon-elastic-transcoder-output-keys-structure.json",
+  "name": "OutputKeys",
+  "description": "OutputKeys schema from Amazon Elastic Transcoder",
+  "type": "array",
+  "items": {
+    "$ref": "#/components/schemas/Key"
+  },
+  "maxItems": 30
+}

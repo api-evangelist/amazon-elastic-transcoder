@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-elastic-transcoder/refs/heads/main/json-schema/amazon-elastic-transcoder-base64-encoded-string-schema.json",
+  "title": "Base64EncodedString",
+  "description": "Base64EncodedString schema from Amazon Elastic Transcoder",
+  "type": "string",
+  "pattern": "^$|(^(?:[A-Za-z0-9\\+/]{4})*(?:[A-Za-z0-9\\+/]{2}==|[A-Za-z0-9\\+/]{3}=)?$)"
+}

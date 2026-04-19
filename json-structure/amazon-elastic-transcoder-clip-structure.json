@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-elastic-transcoder/refs/heads/main/json-structure/amazon-elastic-transcoder-clip-structure.json",
+  "name": "Clip",
+  "description": "Settings for one clip in a composition. All jobs in a playlist must have the same clip settings.",
+  "type": "object",
+  "properties": {
+    "TimeSpan": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/TimeSpan"
+        },
+        {
+          "description": "Settings that determine when a clip begins and how long it lasts."
+        }
+      ]
+    }
+  },
+  "deprecated": true
+}

@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-elastic-transcoder/refs/heads/main/json-schema/amazon-elastic-transcoder-user-metadata-schema.json",
+  "title": "UserMetadata",
+  "description": "UserMetadata schema from Amazon Elastic Transcoder",
+  "type": "object",
+  "additionalProperties": {
+    "$ref": "#/components/schemas/String"
+  }
+}

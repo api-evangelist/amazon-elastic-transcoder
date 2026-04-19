@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-elastic-transcoder/refs/heads/main/json-structure/amazon-elastic-transcoder-list-jobs-by-pipeline-request-structure.json",
+  "name": "ListJobsByPipelineRequest",
+  "description": "The <code>ListJobsByPipelineRequest</code> structure.",
+  "type": "object",
+  "properties": {}
+}

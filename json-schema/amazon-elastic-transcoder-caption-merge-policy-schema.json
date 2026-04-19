@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-elastic-transcoder/refs/heads/main/json-schema/amazon-elastic-transcoder-caption-merge-policy-schema.json",
+  "title": "CaptionMergePolicy",
+  "description": "CaptionMergePolicy schema from Amazon Elastic Transcoder",
+  "type": "string",
+  "pattern": "(^MergeOverride$)|(^MergeRetain$)|(^Override$)"
+}

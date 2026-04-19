@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-elastic-transcoder/refs/heads/main/json-structure/amazon-elastic-transcoder-audio-codec-structure.json",
+  "name": "AudioCodec",
+  "description": "AudioCodec schema from Amazon Elastic Transcoder",
+  "type": "string",
+  "pattern": "(^AAC$)|(^vorbis$)|(^mp3$)|(^mp2$)|(^pcm$)|(^flac$)"
+}

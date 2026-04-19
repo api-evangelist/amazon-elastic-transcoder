@@ -1,0 +1,508 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "aws": "https://aws.amazon.com/schema/",
+    "schema": "https://schema.org/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "Artwork": "aws:Artwork",
+    "InputKey": {
+      "@id": "aws:InputKey",
+      "@type": "xsd:string"
+    },
+    "MaxWidth": {
+      "@id": "aws:MaxWidth",
+      "@type": "xsd:string"
+    },
+    "MaxHeight": {
+      "@id": "aws:MaxHeight",
+      "@type": "xsd:string"
+    },
+    "SizingPolicy": {
+      "@id": "aws:SizingPolicy",
+      "@type": "xsd:string"
+    },
+    "PaddingPolicy": {
+      "@id": "aws:PaddingPolicy",
+      "@type": "xsd:string"
+    },
+    "AlbumArtFormat": {
+      "@id": "aws:AlbumArtFormat",
+      "@type": "xsd:string"
+    },
+    "Encryption": "aws:Encryption",
+    "AudioCodecOptions": "aws:AudioCodecOptions",
+    "Profile": {
+      "@id": "aws:Profile",
+      "@type": "xsd:string"
+    },
+    "BitDepth": {
+      "@id": "aws:BitDepth",
+      "@type": "xsd:string"
+    },
+    "BitOrder": {
+      "@id": "aws:BitOrder",
+      "@type": "xsd:string"
+    },
+    "Signed": {
+      "@id": "aws:Signed",
+      "@type": "xsd:string"
+    },
+    "AudioParameters": "aws:AudioParameters",
+    "Codec": {
+      "@id": "aws:Codec",
+      "@type": "xsd:string"
+    },
+    "SampleRate": {
+      "@id": "aws:SampleRate",
+      "@type": "xsd:string"
+    },
+    "BitRate": {
+      "@id": "aws:BitRate",
+      "@type": "xsd:string"
+    },
+    "Channels": {
+      "@id": "aws:Channels",
+      "@type": "xsd:string"
+    },
+    "AudioPackingMode": {
+      "@id": "aws:AudioPackingMode",
+      "@type": "xsd:string"
+    },
+    "CodecOptions": "aws:CodecOptions",
+    "CancelJobRequest": "aws:CancelJobRequest",
+    "CancelJobResponse": "aws:CancelJobResponse",
+    "CaptionFormat": "aws:CaptionFormat",
+    "Format": {
+      "@id": "aws:Format",
+      "@type": "xsd:string"
+    },
+    "Pattern": {
+      "@id": "aws:Pattern",
+      "@type": "xsd:string"
+    },
+    "CaptionSource": "aws:CaptionSource",
+    "Key": {
+      "@id": "aws:Key",
+      "@type": "xsd:string"
+    },
+    "Language": {
+      "@id": "aws:Language",
+      "@type": "xsd:string"
+    },
+    "TimeOffset": {
+      "@id": "aws:TimeOffset",
+      "@type": "xsd:string"
+    },
+    "Label": {
+      "@id": "aws:Label",
+      "@type": "xsd:string"
+    },
+    "Captions": "aws:Captions",
+    "MergePolicy": {
+      "@id": "aws:MergePolicy",
+      "@type": "xsd:string"
+    },
+    "CaptionSources": {
+      "@id": "aws:CaptionSources",
+      "@type": "xsd:string"
+    },
+    "CaptionFormats": {
+      "@id": "aws:CaptionFormats",
+      "@type": "xsd:string"
+    },
+    "Clip": "aws:Clip",
+    "TimeSpan": "aws:TimeSpan",
+    "CreateJobOutput": "aws:CreateJobOutput",
+    "ThumbnailPattern": {
+      "@id": "aws:ThumbnailPattern",
+      "@type": "xsd:string"
+    },
+    "ThumbnailEncryption": {
+      "@id": "aws:ThumbnailEncryption",
+      "@type": "xsd:string"
+    },
+    "Rotate": {
+      "@id": "aws:Rotate",
+      "@type": "xsd:string"
+    },
+    "PresetId": {
+      "@id": "aws:PresetId",
+      "@type": "xsd:string"
+    },
+    "SegmentDuration": {
+      "@id": "aws:SegmentDuration",
+      "@type": "xsd:string"
+    },
+    "Watermarks": {
+      "@id": "aws:Watermarks",
+      "@type": "xsd:string"
+    },
+    "AlbumArt": {
+      "@id": "aws:AlbumArt",
+      "@type": "xsd:string"
+    },
+    "Composition": {
+      "@id": "aws:Composition",
+      "@type": "xsd:string"
+    },
+    "CreateJobPlaylist": "aws:CreateJobPlaylist",
+    "Name": {
+      "@id": "aws:Name",
+      "@type": "xsd:string"
+    },
+    "OutputKeys": {
+      "@id": "aws:OutputKeys",
+      "@type": "xsd:string"
+    },
+    "HlsContentProtection": "aws:HlsContentProtection",
+    "PlayReadyDrm": "aws:PlayReadyDrm",
+    "CreateJobRequest": "aws:CreateJobRequest",
+    "PipelineId": {
+      "@id": "aws:PipelineId",
+      "@type": "xsd:string"
+    },
+    "Input": {
+      "@id": "aws:Input",
+      "@type": "xsd:string"
+    },
+    "Inputs": {
+      "@id": "aws:Inputs",
+      "@type": "xsd:string"
+    },
+    "Output": {
+      "@id": "aws:Output",
+      "@type": "xsd:string"
+    },
+    "Outputs": {
+      "@id": "aws:Outputs",
+      "@type": "xsd:string"
+    },
+    "OutputKeyPrefix": {
+      "@id": "aws:OutputKeyPrefix",
+      "@type": "xsd:string"
+    },
+    "Playlists": {
+      "@id": "aws:Playlists",
+      "@type": "xsd:string"
+    },
+    "UserMetadata": "aws:UserMetadata",
+    "CreateJobResponse": "aws:CreateJobResponse",
+    "Job": "aws:Job",
+    "CreatePipelineRequest": "aws:CreatePipelineRequest",
+    "InputBucket": {
+      "@id": "aws:InputBucket",
+      "@type": "xsd:string"
+    },
+    "OutputBucket": {
+      "@id": "aws:OutputBucket",
+      "@type": "xsd:string"
+    },
+    "Role": {
+      "@id": "aws:Role",
+      "@type": "xsd:string"
+    },
+    "AwsKmsKeyArn": {
+      "@id": "aws:AwsKmsKeyArn",
+      "@type": "xsd:string"
+    },
+    "Notifications": "aws:Notifications",
+    "ContentConfig": {
+      "@id": "aws:ContentConfig",
+      "@type": "xsd:string"
+    },
+    "ThumbnailConfig": {
+      "@id": "aws:ThumbnailConfig",
+      "@type": "xsd:string"
+    },
+    "CreatePipelineResponse": "aws:CreatePipelineResponse",
+    "Pipeline": "aws:Pipeline",
+    "Warnings": {
+      "@id": "aws:Warnings",
+      "@type": "xsd:string"
+    },
+    "CreatePresetRequest": "aws:CreatePresetRequest",
+    "Description": {
+      "@id": "aws:Description",
+      "@type": "xsd:string"
+    },
+    "Container": {
+      "@id": "aws:Container",
+      "@type": "xsd:string"
+    },
+    "Video": {
+      "@id": "aws:Video",
+      "@type": "xsd:string"
+    },
+    "Audio": {
+      "@id": "aws:Audio",
+      "@type": "xsd:string"
+    },
+    "Thumbnails": "aws:Thumbnails",
+    "CreatePresetResponse": "aws:CreatePresetResponse",
+    "Preset": "aws:Preset",
+    "Warning": "aws:Warning",
+    "DeletePipelineRequest": "aws:DeletePipelineRequest",
+    "DeletePipelineResponse": "aws:DeletePipelineResponse",
+    "DeletePresetRequest": "aws:DeletePresetRequest",
+    "DeletePresetResponse": "aws:DeletePresetResponse",
+    "DetectedProperties": "aws:DetectedProperties",
+    "Width": {
+      "@id": "aws:Width",
+      "@type": "xsd:string"
+    },
+    "Height": {
+      "@id": "aws:Height",
+      "@type": "xsd:string"
+    },
+    "FrameRate": {
+      "@id": "aws:FrameRate",
+      "@type": "xsd:string"
+    },
+    "FileSize": {
+      "@id": "aws:FileSize",
+      "@type": "xsd:string"
+    },
+    "DurationMillis": {
+      "@id": "aws:DurationMillis",
+      "@type": "xsd:string"
+    },
+    "Mode": {
+      "@id": "aws:Mode",
+      "@type": "xsd:string"
+    },
+    "KeyMd5": {
+      "@id": "aws:KeyMd5",
+      "@type": "xsd:string"
+    },
+    "InitializationVector": {
+      "@id": "aws:InitializationVector",
+      "@type": "xsd:string"
+    },
+    "Method": {
+      "@id": "aws:Method",
+      "@type": "xsd:string"
+    },
+    "LicenseAcquisitionUrl": {
+      "@id": "aws:LicenseAcquisitionUrl",
+      "@type": "xsd:string"
+    },
+    "KeyStoragePolicy": {
+      "@id": "aws:KeyStoragePolicy",
+      "@type": "xsd:string"
+    },
+    "InputCaptions": "aws:InputCaptions",
+    "JobAlbumArt": "aws:JobAlbumArt",
+    "JobInput": "aws:JobInput",
+    "Resolution": {
+      "@id": "aws:Resolution",
+      "@type": "xsd:string"
+    },
+    "AspectRatio": {
+      "@id": "aws:AspectRatio",
+      "@type": "xsd:string"
+    },
+    "Interlaced": {
+      "@id": "aws:Interlaced",
+      "@type": "xsd:string"
+    },
+    "JobOutput": "aws:JobOutput",
+    "Id": {
+      "@id": "aws:Id",
+      "@type": "xsd:string"
+    },
+    "Status": {
+      "@id": "aws:Status",
+      "@type": "xsd:string"
+    },
+    "StatusDetail": {
+      "@id": "aws:StatusDetail",
+      "@type": "xsd:string"
+    },
+    "Duration": {
+      "@id": "aws:Duration",
+      "@type": "xsd:string"
+    },
+    "AppliedColorSpaceConversion": {
+      "@id": "aws:AppliedColorSpaceConversion",
+      "@type": "xsd:string"
+    },
+    "Arn": {
+      "@id": "aws:Arn",
+      "@type": "xsd:string"
+    },
+    "Timing": "aws:Timing",
+    "JobWatermark": "aws:JobWatermark",
+    "PresetWatermarkId": {
+      "@id": "aws:PresetWatermarkId",
+      "@type": "xsd:string"
+    },
+    "ListJobsByPipelineRequest": "aws:ListJobsByPipelineRequest",
+    "ListJobsByPipelineResponse": "aws:ListJobsByPipelineResponse",
+    "Jobs": {
+      "@id": "aws:Jobs",
+      "@type": "xsd:string"
+    },
+    "NextPageToken": {
+      "@id": "aws:NextPageToken",
+      "@type": "xsd:string"
+    },
+    "ListJobsByStatusRequest": "aws:ListJobsByStatusRequest",
+    "ListJobsByStatusResponse": "aws:ListJobsByStatusResponse",
+    "ListPipelinesRequest": "aws:ListPipelinesRequest",
+    "ListPipelinesResponse": "aws:ListPipelinesResponse",
+    "Pipelines": {
+      "@id": "aws:Pipelines",
+      "@type": "xsd:string"
+    },
+    "ListPresetsRequest": "aws:ListPresetsRequest",
+    "ListPresetsResponse": "aws:ListPresetsResponse",
+    "Presets": {
+      "@id": "aws:Presets",
+      "@type": "xsd:string"
+    },
+    "Progressing": {
+      "@id": "aws:Progressing",
+      "@type": "xsd:string"
+    },
+    "Completed": {
+      "@id": "aws:Completed",
+      "@type": "xsd:string"
+    },
+    "Error": {
+      "@id": "aws:Error",
+      "@type": "xsd:string"
+    },
+    "Permission": "aws:Permission",
+    "GranteeType": {
+      "@id": "aws:GranteeType",
+      "@type": "xsd:string"
+    },
+    "Grantee": {
+      "@id": "aws:Grantee",
+      "@type": "xsd:string"
+    },
+    "Access": {
+      "@id": "aws:Access",
+      "@type": "xsd:string"
+    },
+    "PipelineOutputConfig": "aws:PipelineOutputConfig",
+    "Bucket": {
+      "@id": "aws:Bucket",
+      "@type": "xsd:string"
+    },
+    "StorageClass": {
+      "@id": "aws:StorageClass",
+      "@type": "xsd:string"
+    },
+    "Permissions": {
+      "@id": "aws:Permissions",
+      "@type": "xsd:string"
+    },
+    "KeyId": {
+      "@id": "aws:KeyId",
+      "@type": "xsd:string"
+    },
+    "Playlist": "aws:Playlist",
+    "Type": {
+      "@id": "aws:Type",
+      "@type": "xsd:string"
+    },
+    "PresetWatermark": "aws:PresetWatermark",
+    "HorizontalAlign": {
+      "@id": "aws:HorizontalAlign",
+      "@type": "xsd:string"
+    },
+    "HorizontalOffset": {
+      "@id": "aws:HorizontalOffset",
+      "@type": "xsd:string"
+    },
+    "VerticalAlign": {
+      "@id": "aws:VerticalAlign",
+      "@type": "xsd:string"
+    },
+    "VerticalOffset": {
+      "@id": "aws:VerticalOffset",
+      "@type": "xsd:string"
+    },
+    "Opacity": {
+      "@id": "aws:Opacity",
+      "@type": "xsd:string"
+    },
+    "Target": {
+      "@id": "aws:Target",
+      "@type": "xsd:string"
+    },
+    "ReadJobRequest": "aws:ReadJobRequest",
+    "ReadJobResponse": "aws:ReadJobResponse",
+    "ReadPipelineRequest": "aws:ReadPipelineRequest",
+    "ReadPipelineResponse": "aws:ReadPipelineResponse",
+    "ReadPresetRequest": "aws:ReadPresetRequest",
+    "ReadPresetResponse": "aws:ReadPresetResponse",
+    "TestRoleRequest": "aws:TestRoleRequest",
+    "Topics": {
+      "@id": "aws:Topics",
+      "@type": "xsd:string"
+    },
+    "TestRoleResponse": "aws:TestRoleResponse",
+    "Success": {
+      "@id": "aws:Success",
+      "@type": "xsd:string"
+    },
+    "Messages": {
+      "@id": "aws:Messages",
+      "@type": "xsd:string"
+    },
+    "Interval": {
+      "@id": "aws:Interval",
+      "@type": "xsd:string"
+    },
+    "StartTime": {
+      "@id": "aws:StartTime",
+      "@type": "xsd:string"
+    },
+    "SubmitTimeMillis": {
+      "@id": "aws:SubmitTimeMillis",
+      "@type": "xsd:string"
+    },
+    "StartTimeMillis": {
+      "@id": "aws:StartTimeMillis",
+      "@type": "xsd:string"
+    },
+    "FinishTimeMillis": {
+      "@id": "aws:FinishTimeMillis",
+      "@type": "xsd:string"
+    },
+    "UpdatePipelineNotificationsRequest": "aws:UpdatePipelineNotificationsRequest",
+    "UpdatePipelineNotificationsResponse": "aws:UpdatePipelineNotificationsResponse",
+    "UpdatePipelineRequest": "aws:UpdatePipelineRequest",
+    "UpdatePipelineResponse": "aws:UpdatePipelineResponse",
+    "UpdatePipelineStatusRequest": "aws:UpdatePipelineStatusRequest",
+    "UpdatePipelineStatusResponse": "aws:UpdatePipelineStatusResponse",
+    "VideoParameters": "aws:VideoParameters",
+    "KeyframesMaxDist": {
+      "@id": "aws:KeyframesMaxDist",
+      "@type": "xsd:string"
+    },
+    "FixedGOP": {
+      "@id": "aws:FixedGOP",
+      "@type": "xsd:string"
+    },
+    "MaxFrameRate": {
+      "@id": "aws:MaxFrameRate",
+      "@type": "xsd:string"
+    },
+    "DisplayAspectRatio": {
+      "@id": "aws:DisplayAspectRatio",
+      "@type": "xsd:string"
+    },
+    "Code": {
+      "@id": "aws:Code",
+      "@type": "xsd:string"
+    },
+    "Message": {
+      "@id": "aws:Message",
+      "@type": "xsd:string"
+    }
+  }
+}

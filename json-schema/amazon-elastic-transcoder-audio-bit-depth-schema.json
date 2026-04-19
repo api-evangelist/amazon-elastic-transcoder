@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-elastic-transcoder/refs/heads/main/json-schema/amazon-elastic-transcoder-audio-bit-depth-schema.json",
+  "title": "AudioBitDepth",
+  "description": "AudioBitDepth schema from Amazon Elastic Transcoder",
+  "type": "string",
+  "pattern": "(^8$)|(^16$)|(^24$)|(^32$)"
+}

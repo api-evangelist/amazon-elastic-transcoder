@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-elastic-transcoder/refs/heads/main/json-structure/amazon-elastic-transcoder-detected-properties-structure.json",
+  "name": "DetectedProperties",
+  "description": "The detected properties of the input file. Elastic Transcoder identifies these values from the input file.",
+  "type": "object",
+  "properties": {
+    "Width": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NullableInteger"
+        },
+        {
+          "description": "The detected width of the input file, in pixels."
+        }
+      ]
+    },
+    "Height": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NullableInteger"
+        },
+        {
+          "description": "The detected height of the input file, in pixels."
+        }
+      ]
+    },
+    "FrameRate": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/FloatString"
+        },
+        {
+          "description": "The detected frame rate of the input file, in frames per second."
+        }
+      ]
+    },
+    "FileSize": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NullableLong"
+        },
+        {
+          "description": "The detected file size of the input file, in bytes."
+        }
+      ]
+    },
+    "DurationMillis": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NullableLong"
+        },
+        {
+          "description": "The detected duration of the input file, in milliseconds."
+        }
+      ]
+    }
+  }
+}

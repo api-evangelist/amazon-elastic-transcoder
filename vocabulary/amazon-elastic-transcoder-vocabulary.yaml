@@ -1,0 +1,95 @@
+vocabulary: 1.0.0
+info:
+  provider: Amazon Elastic Transcoder
+  description: Unified vocabulary and taxonomy for Amazon Elastic Transcoder APIs and capabilities
+  created: '2026-04-19'
+  modified: '2026-04-19'
+operational:
+  apis:
+  - name: Amazon Elastic Transcoder
+    namespace: elastic_transcoder
+    version: 2012-09-25
+    baseUrl: http://elastictranscoder.{region}.amazonaws.com
+    status: active
+  resources: []
+  actions:
+  - verb: readjo
+    httpMethod: GET
+    pattern: read
+  - verb: cancel
+    httpMethod: DELETE
+    pattern: destructive
+  - verb: create
+    httpMethod: POST
+    pattern: write
+  - verb: list
+    httpMethod: GET
+    pattern: read
+  - verb: readpi
+    httpMethod: GET
+    pattern: read
+  - verb: update
+    httpMethod: PUT
+    pattern: write
+  - verb: delete
+    httpMethod: DELETE
+    pattern: destructive
+  - verb: readpr
+    httpMethod: GET
+    pattern: read
+  - verb: testro
+    httpMethod: POST
+    pattern: write
+  schemas:
+    core:
+    - name: CancelJobResponse
+      description: The response body contains a JSON object. If the job is successfully canceled, the value of <code>Success</code> is <code>true</code>.
+    - name: CreateJobResponse
+      description: The CreateJobResponse structure.
+  parameters:
+    pagination:
+    - name: MaxResults
+      description: Maximum number of results to return
+    - name: NextToken
+      description: Pagination token for next page of results
+    identifiers:
+    - name: Id
+      description: Resource identifier
+    - name: Arn
+      description: Amazon Resource Name
+  enums:
+    states:
+    - Active
+    - Inactive
+    - Pending
+    - Terminated
+  authentication:
+  - name: hmac
+    type: apiKey
+capability:
+  workflows:
+  - name: Amazon Elastic Transcoder Management
+    file: capabilities/amazon-elastic-transcoder-capability.yaml
+    description: Unified capability for managing Amazon Elastic Transcoder resources. Combines Amazon Elastic Transcoder APIs for Media Engineer workflows in Media Processing.
+    toolCount: 17
+  personas:
+  - id: developer
+    name: Application Developer
+    description: Developers building applications using Amazon Elastic Transcoder
+  - id: operator
+    name: Cloud Operator
+    description: Operations teams managing Amazon Elastic Transcoder infrastructure
+  domains:
+  - name: Amazon Elastic Transcoder
+    description: Media transcoding service for converting media files to various formats
+  namespaces:
+  - type: consumed
+    namespace: elastic_transcoder
+  - type: rest
+    namespace: amazon-elastic-transcoder-api
+  - type: mcp
+    namespace: amazon-elastic-transcoder-mcp
+  binds:
+  - AWS_API_KEY
+  - AWS_REGION
+crossReference: []

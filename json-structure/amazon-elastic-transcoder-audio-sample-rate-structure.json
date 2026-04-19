@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-elastic-transcoder/refs/heads/main/json-structure/amazon-elastic-transcoder-audio-sample-rate-structure.json",
+  "name": "AudioSampleRate",
+  "description": "AudioSampleRate schema from Amazon Elastic Transcoder",
+  "type": "string",
+  "pattern": "(^auto$)|(^22050$)|(^32000$)|(^44100$)|(^48000$)|(^96000$)|(^192000$)"
+}

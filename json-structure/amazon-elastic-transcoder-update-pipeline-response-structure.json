@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-elastic-transcoder/refs/heads/main/json-structure/amazon-elastic-transcoder-update-pipeline-response-structure.json",
+  "name": "UpdatePipelineResponse",
+  "description": "When you update a pipeline, Elastic Transcoder returns the values that you specified in the request.",
+  "type": "object",
+  "properties": {
+    "Pipeline": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Pipeline"
+        },
+        {
+          "description": "The pipeline updated by this <code>UpdatePipelineResponse</code> call."
+        }
+      ]
+    },
+    "Warnings": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Warnings"
+        },
+        {
+          "description": "<p>Elastic Transcoder returns a warning if the resources used by your pipeline are not in the same region as the pipeline.</p> <p>Using resources in the same region, such as your Amazon S3 buckets, Amazon SNS notification topics, and AWS KMS key, reduces processing time and prevents cross-regional charges.</p>"
+        }
+      ]
+    }
+  }
+}

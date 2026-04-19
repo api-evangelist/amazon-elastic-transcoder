@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-elastic-transcoder/refs/heads/main/json-schema/amazon-elastic-transcoder-watermark-key-schema.json",
+  "title": "WatermarkKey",
+  "description": "WatermarkKey schema from Amazon Elastic Transcoder",
+  "type": "string",
+  "pattern": "(^.{1,1020}.jpg$)|(^.{1,1019}.jpeg$)|(^.{1,1020}.png$)",
+  "minLength": 1,
+  "maxLength": 1024
+}

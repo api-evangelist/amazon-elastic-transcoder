@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-elastic-transcoder/refs/heads/main/json-structure/amazon-elastic-transcoder-list-presets-response-structure.json",
+  "name": "ListPresetsResponse",
+  "description": "The <code>ListPresetsResponse</code> structure.",
+  "type": "object",
+  "properties": {
+    "Presets": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Presets"
+        },
+        {
+          "description": "An array of <code>Preset</code> objects."
+        }
+      ]
+    },
+    "NextPageToken": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Id"
+        },
+        {
+          "description": "A value that you use to access the second and subsequent pages of results, if any. When the presets fit on one page or when you've reached the last page of results, the value of <code>NextPageToken</code> is <code>null</code>."
+        }
+      ]
+    }
+  }
+}

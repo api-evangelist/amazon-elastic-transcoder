@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-elastic-transcoder/refs/heads/main/json-schema/amazon-elastic-transcoder-read-preset-response-schema.json",
+  "title": "ReadPresetResponse",
+  "description": "The <code>ReadPresetResponse</code> structure.",
+  "type": "object",
+  "properties": {
+    "Preset": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Preset"
+        },
+        {
+          "description": "A section of the response body that provides information about the preset."
+        }
+      ]
+    }
+  }
+}

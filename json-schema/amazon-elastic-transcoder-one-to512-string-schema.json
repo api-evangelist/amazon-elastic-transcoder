@@ -1,0 +1,9 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-elastic-transcoder/refs/heads/main/json-schema/amazon-elastic-transcoder-one-to512-string-schema.json",
+  "title": "OneTo512String",
+  "description": "OneTo512String schema from Amazon Elastic Transcoder",
+  "type": "string",
+  "minLength": 1,
+  "maxLength": 512
+}

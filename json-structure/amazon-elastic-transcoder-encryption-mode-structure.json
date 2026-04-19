@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-elastic-transcoder/refs/heads/main/json-structure/amazon-elastic-transcoder-encryption-mode-structure.json",
+  "name": "EncryptionMode",
+  "description": "EncryptionMode schema from Amazon Elastic Transcoder",
+  "type": "string",
+  "pattern": "(^s3$)|(^s3-aws-kms$)|(^aes-cbc-pkcs7$)|(^aes-ctr$)|(^aes-gcm$)"
+}

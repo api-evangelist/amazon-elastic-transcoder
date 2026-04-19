@@ -1,0 +1,6 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-elastic-transcoder/refs/heads/main/json-structure/amazon-elastic-transcoder-incompatible-version-exception-structure.json",
+  "name": "IncompatibleVersionException",
+  "description": "IncompatibleVersionException schema from Amazon Elastic Transcoder"
+}

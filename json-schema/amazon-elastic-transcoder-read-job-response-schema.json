@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-elastic-transcoder/refs/heads/main/json-schema/amazon-elastic-transcoder-read-job-response-schema.json",
+  "title": "ReadJobResponse",
+  "description": "The <code>ReadJobResponse</code> structure.",
+  "type": "object",
+  "properties": {
+    "Job": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Job"
+        },
+        {
+          "description": "A section of the response body that provides information about the job."
+        }
+      ]
+    }
+  }
+}

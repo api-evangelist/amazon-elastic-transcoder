@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-elastic-transcoder/refs/heads/main/json-structure/amazon-elastic-transcoder-job-inputs-structure.json",
+  "name": "JobInputs",
+  "description": "JobInputs schema from Amazon Elastic Transcoder",
+  "type": "array",
+  "items": {
+    "$ref": "#/components/schemas/JobInput"
+  },
+  "maxItems": 200
+}

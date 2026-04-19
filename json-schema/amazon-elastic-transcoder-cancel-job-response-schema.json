@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-elastic-transcoder/refs/heads/main/json-schema/amazon-elastic-transcoder-cancel-job-response-schema.json",
+  "title": "CancelJobResponse",
+  "description": "The response body contains a JSON object. If the job is successfully canceled, the value of <code>Success</code> is <code>true</code>.",
+  "type": "object",
+  "properties": {}
+}

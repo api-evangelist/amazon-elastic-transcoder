@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-elastic-transcoder/refs/heads/main/json-schema/amazon-elastic-transcoder-test-role-response-schema.json",
+  "title": "TestRoleResponse",
+  "description": "The <code>TestRoleResponse</code> structure.",
+  "type": "object",
+  "properties": {
+    "Success": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Success"
+        },
+        {
+          "description": "If the operation is successful, this value is <code>true</code>; otherwise, the value is <code>false</code>."
+        }
+      ]
+    },
+    "Messages": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ExceptionMessages"
+        },
+        {
+          "description": "If the <code>Success</code> element contains <code>false</code>, this value is an array of one or more error messages that were generated during the test process."
+        }
+      ]
+    }
+  },
+  "deprecated": true
+}

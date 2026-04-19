@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-elastic-transcoder/refs/heads/main/json-structure/amazon-elastic-transcoder-timing-structure.json",
+  "name": "Timing",
+  "description": "Details about the timing of a job.",
+  "type": "object",
+  "properties": {
+    "SubmitTimeMillis": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NullableLong"
+        },
+        {
+          "description": "The time the job was submitted to Elastic Transcoder, in epoch milliseconds."
+        }
+      ]
+    },
+    "StartTimeMillis": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NullableLong"
+        },
+        {
+          "description": "The time the job began transcoding, in epoch milliseconds."
+        }
+      ]
+    },
+    "FinishTimeMillis": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NullableLong"
+        },
+        {
+          "description": "The time the job finished transcoding, in epoch milliseconds."
+        }
+      ]
+    }
+  }
+}

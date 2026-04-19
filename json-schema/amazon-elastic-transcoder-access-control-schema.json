@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-elastic-transcoder/refs/heads/main/json-schema/amazon-elastic-transcoder-access-control-schema.json",
+  "title": "AccessControl",
+  "description": "AccessControl schema from Amazon Elastic Transcoder",
+  "type": "string",
+  "pattern": "(^FullControl$)|(^Read$)|(^ReadAcp$)|(^WriteAcp$)"
+}

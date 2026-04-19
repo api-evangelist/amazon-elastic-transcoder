@@ -1,0 +1,56 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-elastic-transcoder/refs/heads/main/json-schema/amazon-elastic-transcoder-test-role-request-schema.json",
+  "title": "TestRoleRequest",
+  "description": " The <code>TestRoleRequest</code> structure. ",
+  "type": "object",
+  "properties": {
+    "Role": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Role"
+        },
+        {
+          "description": "The IAM Amazon Resource Name (ARN) for the role that you want Elastic Transcoder to test."
+        }
+      ]
+    },
+    "InputBucket": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/BucketName"
+        },
+        {
+          "description": "The Amazon S3 bucket that contains media files to be transcoded. The action attempts to read from this bucket."
+        }
+      ]
+    },
+    "OutputBucket": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/BucketName"
+        },
+        {
+          "description": "The Amazon S3 bucket that Elastic Transcoder writes transcoded media files to. The action attempts to read from this bucket."
+        }
+      ]
+    },
+    "Topics": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/SnsTopics"
+        },
+        {
+          "description": "The ARNs of one or more Amazon Simple Notification Service (Amazon SNS) topics that you want the action to send a test notification to."
+        }
+      ]
+    }
+  },
+  "required": [
+    "Role",
+    "InputBucket",
+    "OutputBucket",
+    "Topics"
+  ],
+  "deprecated": true
+}

@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-elastic-transcoder/refs/heads/main/json-structure/amazon-elastic-transcoder-composition-structure.json",
+  "name": "Composition",
+  "description": "Composition schema from Amazon Elastic Transcoder",
+  "type": "array",
+  "items": {
+    "$ref": "#/components/schemas/Clip"
+  },
+  "deprecated": true
+}

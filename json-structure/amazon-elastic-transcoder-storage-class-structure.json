@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-elastic-transcoder/refs/heads/main/json-structure/amazon-elastic-transcoder-storage-class-structure.json",
+  "name": "StorageClass",
+  "description": "StorageClass schema from Amazon Elastic Transcoder",
+  "type": "string",
+  "pattern": "(^ReducedRedundancy$)|(^Standard$)"
+}

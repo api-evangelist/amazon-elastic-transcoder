@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-elastic-transcoder/refs/heads/main/json-schema/amazon-elastic-transcoder-jobs-schema.json",
+  "title": "Jobs",
+  "description": "Jobs schema from Amazon Elastic Transcoder",
+  "type": "array",
+  "items": {
+    "$ref": "#/components/schemas/Job"
+  }
+}

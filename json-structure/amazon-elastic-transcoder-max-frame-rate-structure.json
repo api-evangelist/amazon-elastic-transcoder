@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-elastic-transcoder/refs/heads/main/json-structure/amazon-elastic-transcoder-max-frame-rate-structure.json",
+  "name": "MaxFrameRate",
+  "description": "MaxFrameRate schema from Amazon Elastic Transcoder",
+  "type": "string",
+  "pattern": "(^10$)|(^15$)|(^23.97$)|(^24$)|(^25$)|(^29.97$)|(^30$)|(^50$)|(^60$)"
+}

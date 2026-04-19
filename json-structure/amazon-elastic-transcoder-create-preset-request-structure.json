@@ -1,0 +1,73 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-elastic-transcoder/refs/heads/main/json-structure/amazon-elastic-transcoder-create-preset-request-structure.json",
+  "name": "CreatePresetRequest",
+  "description": "The <code>CreatePresetRequest</code> structure.",
+  "type": "object",
+  "properties": {
+    "Name": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Name"
+        },
+        {
+          "description": "The name of the preset. We recommend that the name be unique within the AWS account, but uniqueness is not enforced."
+        }
+      ]
+    },
+    "Description": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Description"
+        },
+        {
+          "description": "A description of the preset."
+        }
+      ]
+    },
+    "Container": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PresetContainer"
+        },
+        {
+          "description": "The container type for the output file. Valid values include <code>flac</code>, <code>flv</code>, <code>fmp4</code>, <code>gif</code>, <code>mp3</code>, <code>mp4</code>, <code>mpg</code>, <code>mxf</code>, <code>oga</code>, <code>ogg</code>, <code>ts</code>, and <code>webm</code>."
+        }
+      ]
+    },
+    "Video": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/VideoParameters"
+        },
+        {
+          "description": "A section of the request body that specifies the video parameters."
+        }
+      ]
+    },
+    "Audio": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AudioParameters"
+        },
+        {
+          "description": "A section of the request body that specifies the audio parameters."
+        }
+      ]
+    },
+    "Thumbnails": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Thumbnails"
+        },
+        {
+          "description": "A section of the request body that specifies the thumbnail parameters, if any."
+        }
+      ]
+    }
+  },
+  "required": [
+    "Name",
+    "Container"
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-elastic-transcoder/refs/heads/main/json-structure/amazon-elastic-transcoder-job-status-structure.json",
+  "name": "JobStatus",
+  "description": "JobStatus schema from Amazon Elastic Transcoder",
+  "type": "string",
+  "pattern": "(^Submitted$)|(^Progressing$)|(^Complete$)|(^Canceled$)|(^Error$)"
+}

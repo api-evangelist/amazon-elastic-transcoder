@@ -1,0 +1,9 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-elastic-transcoder/refs/heads/main/json-structure/amazon-elastic-transcoder-zero-to255-string-structure.json",
+  "name": "ZeroTo255String",
+  "description": "ZeroTo255String schema from Amazon Elastic Transcoder",
+  "type": "string",
+  "minLength": 0,
+  "maxLength": 255
+}

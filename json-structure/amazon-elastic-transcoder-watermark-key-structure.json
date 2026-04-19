@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-elastic-transcoder/refs/heads/main/json-structure/amazon-elastic-transcoder-watermark-key-structure.json",
+  "name": "WatermarkKey",
+  "description": "WatermarkKey schema from Amazon Elastic Transcoder",
+  "type": "string",
+  "pattern": "(^.{1,1020}.jpg$)|(^.{1,1019}.jpeg$)|(^.{1,1020}.png$)",
+  "minLength": 1,
+  "maxLength": 1024
+}

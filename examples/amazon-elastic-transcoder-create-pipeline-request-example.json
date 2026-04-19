@@ -1,0 +1,10 @@
+{
+  "Name": {},
+  "InputBucket": {},
+  "OutputBucket": {},
+  "Role": {},
+  "AwsKmsKeyArn": {},
+  "Notifications": {},
+  "ContentConfig": {},
+  "ThumbnailConfig": {}
+}

@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-elastic-transcoder/refs/heads/main/json-schema/amazon-elastic-transcoder-list-pipelines-response-schema.json",
+  "title": "ListPipelinesResponse",
+  "description": "A list of the pipelines associated with the current AWS account.",
+  "type": "object",
+  "properties": {
+    "Pipelines": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Pipelines"
+        },
+        {
+          "description": "An array of <code>Pipeline</code> objects."
+        }
+      ]
+    },
+    "NextPageToken": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Id"
+        },
+        {
+          "description": "A value that you use to access the second and subsequent pages of results, if any. When the pipelines fit on one page or when you've reached the last page of results, the value of <code>NextPageToken</code> is <code>null</code>."
+        }
+      ]
+    }
+  }
+}

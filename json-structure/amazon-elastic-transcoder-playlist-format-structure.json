@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-elastic-transcoder/refs/heads/main/json-structure/amazon-elastic-transcoder-playlist-format-structure.json",
+  "name": "PlaylistFormat",
+  "description": "PlaylistFormat schema from Amazon Elastic Transcoder",
+  "type": "string",
+  "pattern": "(^HLSv3$)|(^HLSv4$)|(^Smooth$)|(^MPEG-DASH$)"
+}

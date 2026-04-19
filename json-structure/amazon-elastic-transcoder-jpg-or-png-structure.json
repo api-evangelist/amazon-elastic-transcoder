@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-elastic-transcoder/refs/heads/main/json-structure/amazon-elastic-transcoder-jpg-or-png-structure.json",
+  "name": "JpgOrPng",
+  "description": "JpgOrPng schema from Amazon Elastic Transcoder",
+  "type": "string",
+  "pattern": "(^jpg$)|(^png$)"
+}

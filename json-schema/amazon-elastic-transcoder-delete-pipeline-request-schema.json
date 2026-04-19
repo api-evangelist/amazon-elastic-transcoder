@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-elastic-transcoder/refs/heads/main/json-schema/amazon-elastic-transcoder-delete-pipeline-request-schema.json",
+  "title": "DeletePipelineRequest",
+  "description": "The <code>DeletePipelineRequest</code> structure.",
+  "type": "object",
+  "properties": {}
+}

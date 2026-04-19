@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-elastic-transcoder/refs/heads/main/json-schema/amazon-elastic-transcoder-update-pipeline-status-response-schema.json",
+  "title": "UpdatePipelineStatusResponse",
+  "description": "When you update status for a pipeline, Elastic Transcoder returns the values that you specified in the request.",
+  "type": "object",
+  "properties": {
+    "Pipeline": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Pipeline"
+        },
+        {
+          "description": "A section of the response body that provides information about the pipeline."
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-elastic-transcoder/refs/heads/main/json-schema/amazon-elastic-transcoder-audio-bit-rate-schema.json",
+  "title": "AudioBitRate",
+  "description": "AudioBitRate schema from Amazon Elastic Transcoder",
+  "type": "string",
+  "pattern": "^\\d{1,3}$"
+}

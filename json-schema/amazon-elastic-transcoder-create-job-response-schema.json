@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-elastic-transcoder/refs/heads/main/json-schema/amazon-elastic-transcoder-create-job-response-schema.json",
+  "title": "CreateJobResponse",
+  "description": "The CreateJobResponse structure.",
+  "type": "object",
+  "properties": {
+    "Job": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Job"
+        },
+        {
+          "description": "A section of the response body that provides information about the job that is created."
+        }
+      ]
+    }
+  }
+}

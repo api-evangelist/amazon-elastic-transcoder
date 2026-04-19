@@ -1,0 +1,332 @@
+naftiko: 1.0.0-alpha1
+info:
+  label: Amazon Elastic Transcoder Management
+  description: Unified capability for managing Amazon Elastic Transcoder resources. Combines Amazon Elastic Transcoder APIs for Media Engineer workflows in Media Processing.
+  tags:
+  - Amazon Web Services
+  - Media
+  - Transcoding
+  created: '2026-04-19'
+  modified: '2026-04-19'
+binds:
+- namespace: env
+  keys:
+    AWS_API_KEY: AWS_API_KEY
+    AWS_REGION: AWS_REGION
+capability:
+  consumes:
+  - import: elastic_transcoder
+    location: ./shared/elastic-transcoder.yaml
+  exposes:
+  - type: rest
+    port: 8184
+    namespace: amazon-elastic-transcoder-workflow-api
+    description: Unified REST API for Amazon Elastic Transcoder management.
+    resources:
+    - path: /v1/ReadJob
+      name: ReadJob
+      description: Amazon Elastic Transcoder ReadJob
+      operations:
+      - method: GET
+        name: ReadJob
+        description: Amazon Elastic Transcoder ReadJob
+        call: api.ReadJob
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/CancelJob
+      name: CancelJob
+      description: Amazon Elastic Transcoder CancelJob
+      operations:
+      - method: POST
+        name: CancelJob
+        description: Amazon Elastic Transcoder CancelJob
+        call: api.CancelJob
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/CreateJob
+      name: CreateJob
+      description: Amazon Elastic Transcoder CreateJob
+      operations:
+      - method: POST
+        name: CreateJob
+        description: Amazon Elastic Transcoder CreateJob
+        call: api.CreateJob
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/ListPipelines
+      name: ListPipelines
+      description: Amazon Elastic Transcoder ListPipelines
+      operations:
+      - method: GET
+        name: ListPipelines
+        description: Amazon Elastic Transcoder ListPipelines
+        call: api.ListPipelines
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/CreatePipeline
+      name: CreatePipeline
+      description: Amazon Elastic Transcoder CreatePipeline
+      operations:
+      - method: POST
+        name: CreatePipeline
+        description: Amazon Elastic Transcoder CreatePipeline
+        call: api.CreatePipeline
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/ListPresets
+      name: ListPresets
+      description: Amazon Elastic Transcoder ListPresets
+      operations:
+      - method: GET
+        name: ListPresets
+        description: Amazon Elastic Transcoder ListPresets
+        call: api.ListPresets
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/CreatePreset
+      name: CreatePreset
+      description: Amazon Elastic Transcoder CreatePreset
+      operations:
+      - method: POST
+        name: CreatePreset
+        description: Amazon Elastic Transcoder CreatePreset
+        call: api.CreatePreset
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/ReadPipeline
+      name: ReadPipeline
+      description: Amazon Elastic Transcoder ReadPipeline
+      operations:
+      - method: GET
+        name: ReadPipeline
+        description: Amazon Elastic Transcoder ReadPipeline
+        call: api.ReadPipeline
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/UpdatePipeline
+      name: UpdatePipeline
+      description: Amazon Elastic Transcoder UpdatePipeline
+      operations:
+      - method: POST
+        name: UpdatePipeline
+        description: Amazon Elastic Transcoder UpdatePipeline
+        call: api.UpdatePipeline
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/DeletePipeline
+      name: DeletePipeline
+      description: Amazon Elastic Transcoder DeletePipeline
+      operations:
+      - method: POST
+        name: DeletePipeline
+        description: Amazon Elastic Transcoder DeletePipeline
+        call: api.DeletePipeline
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/ReadPreset
+      name: ReadPreset
+      description: Amazon Elastic Transcoder ReadPreset
+      operations:
+      - method: GET
+        name: ReadPreset
+        description: Amazon Elastic Transcoder ReadPreset
+        call: api.ReadPreset
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/DeletePreset
+      name: DeletePreset
+      description: Amazon Elastic Transcoder DeletePreset
+      operations:
+      - method: POST
+        name: DeletePreset
+        description: Amazon Elastic Transcoder DeletePreset
+        call: api.DeletePreset
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/ListJobsByPipeline
+      name: ListJobsByPipeline
+      description: Amazon Elastic Transcoder ListJobsByPipeline
+      operations:
+      - method: GET
+        name: ListJobsByPipeline
+        description: Amazon Elastic Transcoder ListJobsByPipeline
+        call: api.ListJobsByPipeline
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/ListJobsByStatus
+      name: ListJobsByStatus
+      description: Amazon Elastic Transcoder ListJobsByStatus
+      operations:
+      - method: GET
+        name: ListJobsByStatus
+        description: Amazon Elastic Transcoder ListJobsByStatus
+        call: api.ListJobsByStatus
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/TestRole
+      name: TestRole
+      description: Amazon Elastic Transcoder TestRole
+      operations:
+      - method: POST
+        name: TestRole
+        description: Amazon Elastic Transcoder TestRole
+        call: api.TestRole
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    port: 9194
+    namespace: amazon-elastic-transcoder-mcp
+    transport: http
+    description: MCP server for AI-assisted Amazon Elastic Transcoder management.
+    tools:
+    - name: ReadJob
+      description: Amazon Elastic Transcoder ReadJob
+      hints:
+        readOnly: true
+      call: api.ReadJob
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: CancelJob
+      description: Amazon Elastic Transcoder CancelJob
+      hints:
+        readOnly: false
+      call: api.CancelJob
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: CreateJob
+      description: Amazon Elastic Transcoder CreateJob
+      hints:
+        readOnly: false
+      call: api.CreateJob
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: ListPipelines
+      description: Amazon Elastic Transcoder ListPipelines
+      hints:
+        readOnly: true
+      call: api.ListPipelines
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: CreatePipeline
+      description: Amazon Elastic Transcoder CreatePipeline
+      hints:
+        readOnly: false
+      call: api.CreatePipeline
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: ListPresets
+      description: Amazon Elastic Transcoder ListPresets
+      hints:
+        readOnly: true
+      call: api.ListPresets
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: CreatePreset
+      description: Amazon Elastic Transcoder CreatePreset
+      hints:
+        readOnly: false
+      call: api.CreatePreset
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: ReadPipeline
+      description: Amazon Elastic Transcoder ReadPipeline
+      hints:
+        readOnly: true
+      call: api.ReadPipeline
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: UpdatePipeline
+      description: Amazon Elastic Transcoder UpdatePipeline
+      hints:
+        readOnly: false
+      call: api.UpdatePipeline
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: DeletePipeline
+      description: Amazon Elastic Transcoder DeletePipeline
+      hints:
+        readOnly: false
+      call: api.DeletePipeline
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: ReadPreset
+      description: Amazon Elastic Transcoder ReadPreset
+      hints:
+        readOnly: true
+      call: api.ReadPreset
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: DeletePreset
+      description: Amazon Elastic Transcoder DeletePreset
+      hints:
+        readOnly: false
+      call: api.DeletePreset
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: ListJobsByPipeline
+      description: Amazon Elastic Transcoder ListJobsByPipeline
+      hints:
+        readOnly: true
+      call: api.ListJobsByPipeline
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: ListJobsByStatus
+      description: Amazon Elastic Transcoder ListJobsByStatus
+      hints:
+        readOnly: true
+      call: api.ListJobsByStatus
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: TestRole
+      description: Amazon Elastic Transcoder TestRole
+      hints:
+        readOnly: false
+      call: api.TestRole
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: UpdatePipelineNotifications
+      description: Amazon Elastic Transcoder UpdatePipelineNotifications
+      hints:
+        readOnly: false
+      call: api.UpdatePipelineNotifications
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: UpdatePipelineStatus
+      description: Amazon Elastic Transcoder UpdatePipelineStatus
+      hints:
+        readOnly: false
+      call: api.UpdatePipelineStatus
+      outputParameters:
+      - type: object
+        mapping: $.

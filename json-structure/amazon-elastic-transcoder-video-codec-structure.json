@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-elastic-transcoder/refs/heads/main/json-structure/amazon-elastic-transcoder-video-codec-structure.json",
+  "name": "VideoCodec",
+  "description": "VideoCodec schema from Amazon Elastic Transcoder",
+  "type": "string",
+  "pattern": "(^H\\.264$)|(^vp8$)|(^vp9$)|(^mpeg2$)|(^gif$)"
+}

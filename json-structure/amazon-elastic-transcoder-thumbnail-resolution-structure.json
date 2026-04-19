@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-elastic-transcoder/refs/heads/main/json-structure/amazon-elastic-transcoder-thumbnail-resolution-structure.json",
+  "name": "ThumbnailResolution",
+  "description": "ThumbnailResolution schema from Amazon Elastic Transcoder",
+  "type": "string",
+  "pattern": "^\\d{1,5}x\\d{1,5}$"
+}

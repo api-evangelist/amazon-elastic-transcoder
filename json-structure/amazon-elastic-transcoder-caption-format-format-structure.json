@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-elastic-transcoder/refs/heads/main/json-structure/amazon-elastic-transcoder-caption-format-format-structure.json",
+  "name": "CaptionFormatFormat",
+  "description": "CaptionFormatFormat schema from Amazon Elastic Transcoder",
+  "type": "string",
+  "pattern": "(^mov-text$)|(^srt$)|(^scc$)|(^webvtt$)|(^dfxp$)|(^cea-708$)"
+}

@@ -1,0 +1,539 @@
+naftiko: 1.0.0-alpha1
+info:
+  label: Elastic Transcoder
+  description: Convert media files to play on smartphones, tablets, and PCs
+  tags:
+  - Amazon Web Services
+  - Media
+  - Transcoding
+  created: '2026-04-19'
+  modified: '2026-04-19'
+binds:
+- namespace: env
+  keys:
+    AWS_API_KEY: AWS_API_KEY
+    AWS_REGION: AWS_REGION
+capability:
+  consumes:
+  - type: http
+    namespace: api
+    baseUri: http://elastictranscoder.{region}.amazonaws.com
+    description: Convert media files to play on smartphones, tablets, and PCs
+    authentication:
+      type: apikey
+      key: Authorization
+      value: '{{AWS_API_KEY}}'
+      placement: header
+    resources:
+    - name: Default
+      path: /default
+      description: Default resources
+      operations:
+      - name: ReadJob
+        method: GET
+        description: Amazon Elastic Transcoder ReadJob
+        inputParameters:
+        - name: Id
+          in: path
+          type: string
+          required: true
+          description: The identifier of the job for which you want to get detailed information.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: CancelJob
+        method: DELETE
+        description: Amazon Elastic Transcoder CancelJob
+        inputParameters:
+        - name: Id
+          in: path
+          type: string
+          required: true
+          description: <p>The identifier of the job that you want to cancel.</p> <p>To get a list of the jobs (including their <code>jobId</code>) that have a status of <code>Submitted</code>, use the
+            <a>ListJobsByStatus</a> API action.</p>
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: CreateJob
+        method: POST
+        description: Amazon Elastic Transcoder CreateJob
+        inputParameters: []
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: ListPipelines
+        method: GET
+        description: Amazon Elastic Transcoder ListPipelines
+        inputParameters:
+        - name: Ascending
+          in: query
+          type: string
+          required: false
+          description: To list pipelines in chronological order by the date and time that they were created, enter <code>true</code>. To list pipelines in reverse chronological order, enter 
+            <code>false</code>.
+        - name: PageToken
+          in: query
+          type: string
+          required: false
+          description: "When Elastic Transcoder returns more than one page of results, use <code>pageToken</code> in subsequent <code>GET</code> requests to get each successive page of results. "
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: CreatePipeline
+        method: POST
+        description: Amazon Elastic Transcoder CreatePipeline
+        inputParameters: []
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: ListPresets
+        method: GET
+        description: Amazon Elastic Transcoder ListPresets
+        inputParameters:
+        - name: Ascending
+          in: query
+          type: string
+          required: false
+          description: To list presets in chronological order by the date and time that they were created, enter <code>true</code>. To list presets in reverse chronological order, enter 
+            <code>false</code>.
+        - name: PageToken
+          in: query
+          type: string
+          required: false
+          description: "When Elastic Transcoder returns more than one page of results, use <code>pageToken</code> in subsequent <code>GET</code> requests to get each successive page of results. "
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: CreatePreset
+        method: POST
+        description: Amazon Elastic Transcoder CreatePreset
+        inputParameters: []
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: ReadPipeline
+        method: GET
+        description: Amazon Elastic Transcoder ReadPipeline
+        inputParameters:
+        - name: Id
+          in: path
+          type: string
+          required: true
+          description: The identifier of the pipeline to read.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: UpdatePipeline
+        method: PUT
+        description: Amazon Elastic Transcoder UpdatePipeline
+        inputParameters:
+        - name: Id
+          in: path
+          type: string
+          required: true
+          description: The ID of the pipeline that you want to update.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: DeletePipeline
+        method: DELETE
+        description: Amazon Elastic Transcoder DeletePipeline
+        inputParameters:
+        - name: Id
+          in: path
+          type: string
+          required: true
+          description: The identifier of the pipeline that you want to delete.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: ReadPreset
+        method: GET
+        description: Amazon Elastic Transcoder ReadPreset
+        inputParameters:
+        - name: Id
+          in: path
+          type: string
+          required: true
+          description: The identifier of the preset for which you want to get detailed information.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: DeletePreset
+        method: DELETE
+        description: Amazon Elastic Transcoder DeletePreset
+        inputParameters:
+        - name: Id
+          in: path
+          type: string
+          required: true
+          description: The identifier of the preset for which you want to get detailed information.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: ListJobsByPipeline
+        method: GET
+        description: Amazon Elastic Transcoder ListJobsByPipeline
+        inputParameters:
+        - name: PipelineId
+          in: path
+          type: string
+          required: true
+          description: The ID of the pipeline for which you want to get job information.
+        - name: Ascending
+          in: query
+          type: string
+          required: false
+          description: " To list jobs in chronological order by the date and time that they were submitted, enter <code>true</code>. To list jobs in reverse chronological order, enter <code>false</code>. "
+        - name: PageToken
+          in: query
+          type: string
+          required: false
+          description: " When Elastic Transcoder returns more than one page of results, use <code>pageToken</code> in subsequent <code>GET</code> requests to get each successive page of results. "
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: ListJobsByStatus
+        method: GET
+        description: Amazon Elastic Transcoder ListJobsByStatus
+        inputParameters:
+        - name: Status
+          in: path
+          type: string
+          required: true
+          description: "To get information about all of the jobs associated with the current AWS account that have a given status, specify the following status: <code>Submitted</code>, <code>Progressing</code>,
+            <code>Complete</code>, <code>Canceled</code>, or <code>Error</code>."
+        - name: Ascending
+          in: query
+          type: string
+          required: false
+          description: " To list jobs in chronological order by the date and time that they were submitted, enter <code>true</code>. To list jobs in reverse chronological order, enter <code>false</code>. "
+        - name: PageToken
+          in: query
+          type: string
+          required: false
+          description: " When Elastic Transcoder returns more than one page of results, use <code>pageToken</code> in subsequent <code>GET</code> requests to get each successive page of results. "
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: TestRole
+        method: POST
+        description: Amazon Elastic Transcoder TestRole
+        inputParameters: []
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: UpdatePipelineNotifications
+        method: POST
+        description: Amazon Elastic Transcoder UpdatePipelineNotifications
+        inputParameters:
+        - name: Id
+          in: path
+          type: string
+          required: true
+          description: The identifier of the pipeline for which you want to change notification settings.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: UpdatePipelineStatus
+        method: POST
+        description: Amazon Elastic Transcoder UpdatePipelineStatus
+        inputParameters:
+        - name: Id
+          in: path
+          type: string
+          required: true
+          description: The identifier of the pipeline to update.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    port: 8084
+    namespace: api-api
+    resources:
+    - path: /v1/ReadJob
+      name: ReadJob
+      description: Amazon Elastic Transcoder ReadJob
+      operations:
+      - method: GET
+        name: ReadJob
+        description: Amazon Elastic Transcoder ReadJob
+        call: api.ReadJob
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/CancelJob
+      name: CancelJob
+      description: Amazon Elastic Transcoder CancelJob
+      operations:
+      - method: DELETE
+        name: CancelJob
+        description: Amazon Elastic Transcoder CancelJob
+        call: api.CancelJob
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/CreateJob
+      name: CreateJob
+      description: Amazon Elastic Transcoder CreateJob
+      operations:
+      - method: POST
+        name: CreateJob
+        description: Amazon Elastic Transcoder CreateJob
+        call: api.CreateJob
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/ListPipelines
+      name: ListPipelines
+      description: Amazon Elastic Transcoder ListPipelines
+      operations:
+      - method: GET
+        name: ListPipelines
+        description: Amazon Elastic Transcoder ListPipelines
+        call: api.ListPipelines
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/CreatePipeline
+      name: CreatePipeline
+      description: Amazon Elastic Transcoder CreatePipeline
+      operations:
+      - method: POST
+        name: CreatePipeline
+        description: Amazon Elastic Transcoder CreatePipeline
+        call: api.CreatePipeline
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/ListPresets
+      name: ListPresets
+      description: Amazon Elastic Transcoder ListPresets
+      operations:
+      - method: GET
+        name: ListPresets
+        description: Amazon Elastic Transcoder ListPresets
+        call: api.ListPresets
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/CreatePreset
+      name: CreatePreset
+      description: Amazon Elastic Transcoder CreatePreset
+      operations:
+      - method: POST
+        name: CreatePreset
+        description: Amazon Elastic Transcoder CreatePreset
+        call: api.CreatePreset
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/ReadPipeline
+      name: ReadPipeline
+      description: Amazon Elastic Transcoder ReadPipeline
+      operations:
+      - method: GET
+        name: ReadPipeline
+        description: Amazon Elastic Transcoder ReadPipeline
+        call: api.ReadPipeline
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/UpdatePipeline
+      name: UpdatePipeline
+      description: Amazon Elastic Transcoder UpdatePipeline
+      operations:
+      - method: PUT
+        name: UpdatePipeline
+        description: Amazon Elastic Transcoder UpdatePipeline
+        call: api.UpdatePipeline
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/DeletePipeline
+      name: DeletePipeline
+      description: Amazon Elastic Transcoder DeletePipeline
+      operations:
+      - method: DELETE
+        name: DeletePipeline
+        description: Amazon Elastic Transcoder DeletePipeline
+        call: api.DeletePipeline
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    port: 9094
+    namespace: api-mcp
+    transport: http
+    tools:
+    - name: ReadJob
+      description: Amazon Elastic Transcoder ReadJob
+      hints:
+        readOnly: true
+      call: api.ReadJob
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: CancelJob
+      description: Amazon Elastic Transcoder CancelJob
+      hints:
+        readOnly: false
+      call: api.CancelJob
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: CreateJob
+      description: Amazon Elastic Transcoder CreateJob
+      hints:
+        readOnly: false
+      call: api.CreateJob
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: ListPipelines
+      description: Amazon Elastic Transcoder ListPipelines
+      hints:
+        readOnly: true
+      call: api.ListPipelines
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: CreatePipeline
+      description: Amazon Elastic Transcoder CreatePipeline
+      hints:
+        readOnly: false
+      call: api.CreatePipeline
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: ListPresets
+      description: Amazon Elastic Transcoder ListPresets
+      hints:
+        readOnly: true
+      call: api.ListPresets
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: CreatePreset
+      description: Amazon Elastic Transcoder CreatePreset
+      hints:
+        readOnly: false
+      call: api.CreatePreset
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: ReadPipeline
+      description: Amazon Elastic Transcoder ReadPipeline
+      hints:
+        readOnly: true
+      call: api.ReadPipeline
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: UpdatePipeline
+      description: Amazon Elastic Transcoder UpdatePipeline
+      hints:
+        readOnly: false
+      call: api.UpdatePipeline
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: DeletePipeline
+      description: Amazon Elastic Transcoder DeletePipeline
+      hints:
+        readOnly: false
+      call: api.DeletePipeline
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: ReadPreset
+      description: Amazon Elastic Transcoder ReadPreset
+      hints:
+        readOnly: true
+      call: api.ReadPreset
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: DeletePreset
+      description: Amazon Elastic Transcoder DeletePreset
+      hints:
+        readOnly: false
+      call: api.DeletePreset
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: ListJobsByPipeline
+      description: Amazon Elastic Transcoder ListJobsByPipeline
+      hints:
+        readOnly: true
+      call: api.ListJobsByPipeline
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: ListJobsByStatus
+      description: Amazon Elastic Transcoder ListJobsByStatus
+      hints:
+        readOnly: true
+      call: api.ListJobsByStatus
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: TestRole
+      description: Amazon Elastic Transcoder TestRole
+      hints:
+        readOnly: false
+      call: api.TestRole
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: UpdatePipelineNotifications
+      description: Amazon Elastic Transcoder UpdatePipelineNotifications
+      hints:
+        readOnly: false
+      call: api.UpdatePipelineNotifications
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: UpdatePipelineStatus
+      description: Amazon Elastic Transcoder UpdatePipelineStatus
+      hints:
+        readOnly: false
+      call: api.UpdatePipelineStatus
+      outputParameters:
+      - type: object
+        mapping: $.

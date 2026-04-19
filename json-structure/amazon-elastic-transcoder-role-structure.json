@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-elastic-transcoder/refs/heads/main/json-structure/amazon-elastic-transcoder-role-structure.json",
+  "name": "Role",
+  "description": "Role schema from Amazon Elastic Transcoder",
+  "type": "string",
+  "pattern": "^arn:aws:iam::\\w{12}:role/.+$"
+}

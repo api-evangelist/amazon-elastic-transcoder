@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-elastic-transcoder/refs/heads/main/json-structure/amazon-elastic-transcoder-keyframes-max-dist-structure.json",
+  "name": "KeyframesMaxDist",
+  "description": "KeyframesMaxDist schema from Amazon Elastic Transcoder",
+  "type": "string",
+  "pattern": "^\\d{1,6}$"
+}

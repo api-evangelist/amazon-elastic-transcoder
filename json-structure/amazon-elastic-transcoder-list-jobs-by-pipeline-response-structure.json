@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-elastic-transcoder/refs/heads/main/json-structure/amazon-elastic-transcoder-list-jobs-by-pipeline-response-structure.json",
+  "name": "ListJobsByPipelineResponse",
+  "description": "The <code>ListJobsByPipelineResponse</code> structure.",
+  "type": "object",
+  "properties": {
+    "Jobs": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Jobs"
+        },
+        {
+          "description": "An array of <code>Job</code> objects that are in the specified pipeline."
+        }
+      ]
+    },
+    "NextPageToken": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Id"
+        },
+        {
+          "description": " A value that you use to access the second and subsequent pages of results, if any. When the jobs in the specified pipeline fit on one page or when you've reached the last page of results, the value of <code>NextPageToken</code> is <code>null</code>. "
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-elastic-transcoder/refs/heads/main/json-structure/amazon-elastic-transcoder-play-ready-drm-format-string-structure.json",
+  "name": "PlayReadyDrmFormatString",
+  "description": "PlayReadyDrmFormatString schema from Amazon Elastic Transcoder",
+  "type": "string",
+  "pattern": "(^microsoft$)|(^discretix-3.0$)"
+}

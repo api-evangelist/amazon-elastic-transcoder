@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-elastic-transcoder/refs/heads/main/json-structure/amazon-elastic-transcoder-cancel-job-request-structure.json",
+  "name": "CancelJobRequest",
+  "description": "The <code>CancelJobRequest</code> structure.",
+  "type": "object",
+  "properties": {}
+}
