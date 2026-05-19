@@ -1,10 +1,11 @@
 name: Amazon Elastic Transcoder
-description: Amazon Elastic Transcoder is media transcoding in the cloud. It is designed to be a highly scalable, easy-to-use, and cost-effective way for developers and businesses to convert or 
-  transcode media files from their source format into versions that will play back on devices like smartphones, tablets, and PCs.
+description: Amazon Elastic Transcoder is media transcoding in the cloud. It is designed to be a highly scalable, easy-to-use,
+  and cost-effective way for developers and businesses to convert or transcode media files from their source format into versions
+  that will play back on devices like smartphones, tablets, and PCs.
 image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
 url: https://aws.amazon.com/elastictranscoder/
 created: '2024-01-15'
-modified: '2026-04-19'
+modified: '2026-05-19'
 specificationVersion: '0.19'
 tags:
 - Amazon Web Services
@@ -14,7 +15,8 @@ tags:
 - Video
 apis:
 - name: Amazon Elastic Transcoder API
-  description: API for creating and managing media transcoding pipelines, presets, and jobs to convert media files for playback on various devices.
+  description: API for creating and managing media transcoding pipelines, presets, and jobs to convert media files for playback
+    on various devices.
   humanURL: https://aws.amazon.com/elastictranscoder/
   baseURL: https://elastictranscoder.amazonaws.com
   tags:
@@ -42,6 +44,8 @@ apis:
     url: json-schema/amazon-elastic-transcoder-access-denied-exception-schema.json
   - type: JSONLD
     url: json-ld/amazon-elastic-transcoder-context.jsonld
+  - type: NaftikoCapability
+    url: capabilities/amazon-elastic-transcoder.yaml
 common:
 - type: Portal
   url: https://aws.amazon.com/
@@ -83,10 +87,6 @@ common:
   url: https://aws.amazon.com/contact-us/
 - type: SpectralRules
   url: rules/amazon-elastic-transcoder-spectral-rules.yml
-- type: NaftikoCapability
-  url: capabilities/amazon-elastic-transcoder-capability.yaml
-- type: NaftikoCapability
-  url: capabilities/shared/api.yaml
 - type: Vocabulary
   url: vocabulary/amazon-elastic-transcoder-vocabulary.yaml
 - type: Features
@@ -124,15 +124,15 @@ common:
 - type: Integrations
   url: https://aws.amazon.com/marketplace
 integrations:
-  - name: Sign in
-  - name: Agent Mode
-  - name: 'Why AWS Marketplace?'
-  - name: Get started in AWS Marketplace
-  - name: Industry
-  - name: Resources
-  - name: Become a Channel Partner
-  - name: Sell in AWS Marketplace
-  - name: Manage Your Account
+- name: Sign in
+- name: Agent Mode
+- name: Why AWS Marketplace?
+- name: Get started in AWS Marketplace
+- name: Industry
+- name: Resources
+- name: Become a Channel Partner
+- name: Sell in AWS Marketplace
+- name: Manage Your Account
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
