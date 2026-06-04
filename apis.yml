@@ -47,6 +47,27 @@ apis:
   - type: NaftikoCapability
     url: capabilities/amazon-elastic-transcoder.yaml
 common:
+- type: ArazzoWorkflows
+  url: arazzo/
+  workflows:
+  - url: arazzo/amazon-elastic-transcoder-cancel-submitted-jobs-by-status-workflow.yml
+    name: Amazon Elastic Transcoder Find a Submitted Job by Status and Cancel It
+    summary: List jobs that are still in the Submitted state, then cancel the first one returned.
+  - url: arazzo/amazon-elastic-transcoder-list-jobs-by-pipeline-read-workflow.yml
+    name: Amazon Elastic Transcoder List Jobs by Pipeline and Read the First Job
+    summary: List the jobs currently in a pipeline, then read detailed information about the first job returned.
+  - url: arazzo/amazon-elastic-transcoder-pause-pipeline-cancel-submitted-jobs-workflow.yml
+    name: Amazon Elastic Transcoder Pause Pipeline and Cancel a Submitted Job
+    summary: Pause a pipeline so no new jobs start, then cancel a job that is still in the Submitted state.
+  - url: arazzo/amazon-elastic-transcoder-pipeline-job-poll-workflow.yml
+    name: Amazon Elastic Transcoder Create Pipeline, Submit Job, and Poll to Completion
+    summary: Stand up a transcoding pipeline, submit a job to it, then poll the job until it reaches a terminal status.
+  - url: arazzo/amazon-elastic-transcoder-pipeline-preset-job-poll-workflow.yml
+    name: Amazon Elastic Transcoder Provision Pipeline and Preset, Submit Job, and Poll
+    summary: Provision both a pipeline and a preset from scratch, submit a job that uses them, then poll the job to completion.
+  - url: arazzo/amazon-elastic-transcoder-preset-job-workflow.yml
+    name: Amazon Elastic Transcoder Create Preset and Submit a Job Using It
+    summary: Define a reusable output preset, then submit a transcoding job into an existing pipeline that uses the new preset.
 - type: Portal
   url: https://aws.amazon.com/
 - type: DeveloperPortal

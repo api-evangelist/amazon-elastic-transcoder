@@ -1,0 +1,96 @@
+arazzo: 1.0.1
+info:
+  title: Amazon Elastic Transcoder Pause Pipeline and Cancel a Submitted Job
+  summary: Pause a pipeline so no new jobs start, then cancel a job that is still in the Submitted state.
+  description: >-
+    Elastic Transcoder can only cancel jobs that are still Submitted, so the
+    safe way to cancel is to pause the pipeline first to stop it picking up
+    work. This workflow sets the pipeline status to Paused, reads the target job
+    to confirm it is still Submitted, and only then issues the cancel. Every
+    step spells out its request inline so the flow can be read and executed
+    without opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: elasticTranscoderApi
+  url: ../openapi/amazon-elastic-transcoder-openapi.yml
+  type: openapi
+workflows:
+- workflowId: pause-pipeline-cancel-job
+  summary: Pause a pipeline and cancel a still-submitted job.
+  description: >-
+    Pauses the pipeline to stop it starting new work, reads the job to confirm
+    it is still Submitted, and cancels it only when the cancel is permitted.
+  inputs:
+    type: object
+    required:
+    - pipelineId
+    - jobId
+    properties:
+      pipelineId:
+        type: string
+        description: The Id of the pipeline to pause before cancelling the job.
+      jobId:
+        type: string
+        description: The Id of the job to cancel (must still be Submitted).
+  steps:
+  - stepId: pausePipeline
+    description: >-
+      Set the pipeline status to Paused so Elastic Transcoder stops starting new
+      jobs while the cancel is prepared.
+    operationId: UpdatePipelineStatus
+    parameters:
+    - name: Id
+      in: path
+      value: $inputs.pipelineId
+    requestBody:
+      contentType: application/json
+      payload:
+        Status: Paused
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      pipelineStatus: $response.body#/Pipeline/Status
+  - stepId: readJob
+    description: >-
+      Read the job and branch: only proceed to cancel when the job is still in
+      the Submitted state, since cancel is rejected once processing begins.
+    operationId: ReadJob
+    parameters:
+    - name: Id
+      in: path
+      value: $inputs.jobId
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      jobStatus: $response.body#/Job/Status
+    onSuccess:
+    - name: cancellable
+      type: goto
+      stepId: cancelJob
+      criteria:
+      - context: $response.body
+        condition: $.Job.Status == 'Submitted'
+        type: jsonpath
+    - name: notCancellable
+      type: end
+      criteria:
+      - context: $response.body
+        condition: $.Job.Status != 'Submitted'
+        type: jsonpath
+  - stepId: cancelJob
+    description: >-
+      Cancel the still-submitted job now that the pipeline is paused and the job
+      is confirmed cancellable.
+    operationId: CancelJob
+    parameters:
+    - name: Id
+      in: path
+      value: $inputs.jobId
+    successCriteria:
+    - condition: $statusCode == 202
+    outputs:
+      cancelStatusCode: $statusCode
+  outputs:
+    pipelineStatus: $steps.pausePipeline.outputs.pipelineStatus
+    jobStatus: $steps.readJob.outputs.jobStatus
+    cancelStatusCode: $steps.cancelJob.outputs.cancelStatusCode

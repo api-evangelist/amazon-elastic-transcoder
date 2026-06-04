@@ -1,0 +1,75 @@
+arazzo: 1.0.1
+info:
+  title: Amazon Elastic Transcoder Find a Submitted Job by Status and Cancel It
+  summary: List jobs that are still in the Submitted state, then cancel the first one returned.
+  description: >-
+    A clean-up flow that drains pending work. The workflow lists every job
+    across the account that currently has a status of Submitted, and when at
+    least one is found it cancels the first job in the list. Because only
+    Submitted jobs can be cancelled, listing by that exact status guarantees the
+    cancel is valid. Every step spells out its request inline so the flow can be
+    read and executed without opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: elasticTranscoderApi
+  url: ../openapi/amazon-elastic-transcoder-openapi.yml
+  type: openapi
+workflows:
+- workflowId: cancel-submitted-job-by-status
+  summary: List Submitted jobs and cancel the first one found.
+  description: >-
+    Lists jobs with status Submitted and, when the list is non-empty, cancels
+    the first returned job. Ends without action when no Submitted jobs exist.
+  inputs:
+    type: object
+    properties:
+      ascending:
+        type: string
+        description: "true to list jobs oldest-first, false for newest-first."
+  steps:
+  - stepId: listSubmittedJobs
+    description: >-
+      List all jobs in the account whose status is Submitted and branch on
+      whether any were returned.
+    operationId: ListJobsByStatus
+    parameters:
+    - name: Status
+      in: path
+      value: Submitted
+    - name: Ascending
+      in: query
+      value: $inputs.ascending
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      firstJobId: $response.body#/Jobs/0/Id
+      nextPageToken: $response.body#/NextPageToken
+    onSuccess:
+    - name: hasSubmitted
+      type: goto
+      stepId: cancelJob
+      criteria:
+      - context: $response.body
+        condition: $.Jobs.length > 0
+        type: jsonpath
+    - name: noneSubmitted
+      type: end
+      criteria:
+      - context: $response.body
+        condition: $.Jobs.length == 0
+        type: jsonpath
+  - stepId: cancelJob
+    description: >-
+      Cancel the first Submitted job returned by the status listing.
+    operationId: CancelJob
+    parameters:
+    - name: Id
+      in: path
+      value: $steps.listSubmittedJobs.outputs.firstJobId
+    successCriteria:
+    - condition: $statusCode == 202
+    outputs:
+      cancelStatusCode: $statusCode
+  outputs:
+    cancelledJobId: $steps.listSubmittedJobs.outputs.firstJobId
+    cancelStatusCode: $steps.cancelJob.outputs.cancelStatusCode

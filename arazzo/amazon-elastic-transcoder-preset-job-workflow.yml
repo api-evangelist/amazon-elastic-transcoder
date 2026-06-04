@@ -1,0 +1,89 @@
+arazzo: 1.0.1
+info:
+  title: Amazon Elastic Transcoder Create Preset and Submit a Job Using It
+  summary: Define a reusable output preset, then submit a transcoding job into an existing pipeline that uses the new preset.
+  description: >-
+    Presets capture the audio, video, and container settings Elastic Transcoder
+    applies to an output. This workflow creates a preset with the supplied
+    container type, then submits a transcoding job into an existing pipeline
+    whose single output references the freshly created preset. Every step spells
+    out its request inline so the flow can be read and executed without opening
+    the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: elasticTranscoderApi
+  url: ../openapi/amazon-elastic-transcoder-openapi.yml
+  type: openapi
+workflows:
+- workflowId: create-preset-submit-job
+  summary: Create a preset and submit a job that transcodes a file using it.
+  description: >-
+    Creates an output preset with the supplied name and container, then submits
+    a job into an existing pipeline whose output uses the new preset Id.
+  inputs:
+    type: object
+    required:
+    - presetName
+    - container
+    - pipelineId
+    - inputKey
+    - outputKey
+    properties:
+      presetName:
+        type: string
+        description: The name to assign to the new preset (maximum 40 characters).
+      container:
+        type: string
+        description: The output container type for the preset (e.g. mp4, ts, webm).
+      description:
+        type: string
+        description: An optional human-readable description of the preset.
+      pipelineId:
+        type: string
+        description: The Id of an existing pipeline to submit the job into.
+      inputKey:
+        type: string
+        description: The S3 key of the input file to transcode.
+      outputKey:
+        type: string
+        description: The S3 key to assign to the transcoded output file.
+  steps:
+  - stepId: createPreset
+    description: >-
+      Create the output preset that defines the container and encoding settings
+      the job output will use.
+    operationId: CreatePreset
+    requestBody:
+      contentType: application/json
+      payload:
+        Name: $inputs.presetName
+        Container: $inputs.container
+        Description: $inputs.description
+    successCriteria:
+    - condition: $statusCode == 201
+    outputs:
+      presetId: $response.body#/Preset/Id
+      presetName: $response.body#/Preset/Name
+  - stepId: submitJob
+    description: >-
+      Submit a transcoding job into the existing pipeline whose single output
+      references the newly created preset.
+    operationId: CreateJob
+    requestBody:
+      contentType: application/json
+      payload:
+        PipelineId: $inputs.pipelineId
+        Input:
+          Key: $inputs.inputKey
+        Output:
+          Key: $inputs.outputKey
+          PresetId: $steps.createPreset.outputs.presetId
+    successCriteria:
+    - condition: $statusCode == 201
+    outputs:
+      jobId: $response.body#/Job/Id
+      jobStatus: $response.body#/Job/Status
+  outputs:
+    presetId: $steps.createPreset.outputs.presetId
+    jobId: $steps.submitJob.outputs.jobId
+    jobStatus: $steps.submitJob.outputs.jobStatus

@@ -1,0 +1,141 @@
+arazzo: 1.0.1
+info:
+  title: Amazon Elastic Transcoder Provision Pipeline and Preset, Submit Job, and Poll
+  summary: Provision both a pipeline and a preset from scratch, submit a job that uses them, then poll the job to completion.
+  description: >-
+    A full greenfield transcoding flow that owns every dependency. The workflow
+    creates a pipeline for the supplied buckets and role, creates an output
+    preset with the desired container, submits a job that transcodes the input
+    into the new pipeline using the new preset, and then polls the job until it
+    reaches a terminal status of Complete, Canceled, or Error. Every step spells
+    out its request inline so the flow can be read and executed without opening
+    the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: elasticTranscoderApi
+  url: ../openapi/amazon-elastic-transcoder-openapi.yml
+  type: openapi
+workflows:
+- workflowId: provision-pipeline-preset-submit-poll
+  summary: Create a pipeline and preset, submit a job using both, and poll to completion.
+  description: >-
+    Creates a pipeline and an output preset, submits a job that references both,
+    and polls ReadJob until the job leaves the Submitted and Progressing states.
+  inputs:
+    type: object
+    required:
+    - pipelineName
+    - inputBucket
+    - outputBucket
+    - role
+    - presetName
+    - container
+    - inputKey
+    - outputKey
+    properties:
+      pipelineName:
+        type: string
+        description: The name to assign to the new pipeline (maximum 40 characters).
+      inputBucket:
+        type: string
+        description: The Amazon S3 bucket holding the media files to transcode.
+      outputBucket:
+        type: string
+        description: The Amazon S3 bucket where transcoded files are written.
+      role:
+        type: string
+        description: The IAM role ARN Elastic Transcoder uses to transcode jobs.
+      presetName:
+        type: string
+        description: The name to assign to the new preset (maximum 40 characters).
+      container:
+        type: string
+        description: The output container type for the preset (e.g. mp4, ts, webm).
+      inputKey:
+        type: string
+        description: The S3 key of the input file to transcode.
+      outputKey:
+        type: string
+        description: The S3 key to assign to the transcoded output file.
+  steps:
+  - stepId: createPipeline
+    description: >-
+      Create the pipeline that ties the input bucket, output bucket, and IAM
+      role together for the job.
+    operationId: CreatePipeline
+    requestBody:
+      contentType: application/json
+      payload:
+        Name: $inputs.pipelineName
+        InputBucket: $inputs.inputBucket
+        OutputBucket: $inputs.outputBucket
+        Role: $inputs.role
+    successCriteria:
+    - condition: $statusCode == 201
+    outputs:
+      pipelineId: $response.body#/Pipeline/Id
+  - stepId: createPreset
+    description: >-
+      Create the output preset that defines the container the job output will
+      use.
+    operationId: CreatePreset
+    requestBody:
+      contentType: application/json
+      payload:
+        Name: $inputs.presetName
+        Container: $inputs.container
+    successCriteria:
+    - condition: $statusCode == 201
+    outputs:
+      presetId: $response.body#/Preset/Id
+  - stepId: submitJob
+    description: >-
+      Submit a transcoding job into the new pipeline whose single output uses
+      the new preset.
+    operationId: CreateJob
+    requestBody:
+      contentType: application/json
+      payload:
+        PipelineId: $steps.createPipeline.outputs.pipelineId
+        Input:
+          Key: $inputs.inputKey
+        Output:
+          Key: $inputs.outputKey
+          PresetId: $steps.createPreset.outputs.presetId
+    successCriteria:
+    - condition: $statusCode == 201
+    outputs:
+      jobId: $response.body#/Job/Id
+      jobStatus: $response.body#/Job/Status
+  - stepId: pollJob
+    description: >-
+      Read the job and branch on its status, looping back while it is still
+      Submitted or Progressing and ending once it reaches a terminal status.
+    operationId: ReadJob
+    parameters:
+    - name: Id
+      in: path
+      value: $steps.submitJob.outputs.jobId
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      jobStatus: $response.body#/Job/Status
+    onSuccess:
+    - name: stillRunning
+      type: goto
+      stepId: pollJob
+      criteria:
+      - context: $response.body
+        condition: $.Job.Status == 'Submitted' || $.Job.Status == 'Progressing'
+        type: jsonpath
+    - name: finished
+      type: end
+      criteria:
+      - context: $response.body
+        condition: $.Job.Status == 'Complete' || $.Job.Status == 'Canceled' || $.Job.Status == 'Error'
+        type: jsonpath
+  outputs:
+    pipelineId: $steps.createPipeline.outputs.pipelineId
+    presetId: $steps.createPreset.outputs.presetId
+    jobId: $steps.submitJob.outputs.jobId
+    finalJobStatus: $steps.pollJob.outputs.jobStatus
