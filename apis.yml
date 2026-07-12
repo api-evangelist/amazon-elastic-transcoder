@@ -47,6 +47,14 @@ apis:
       - type: JSONLD
         url: json-ld/amazon-elastic-transcoder-context.jsonld
 common:
+  - type: TrustCenter
+    url: security/amazon-elastic-transcoder-trust-center.yml
+  - type: VulnerabilityDisclosure
+    url: security/amazon-elastic-transcoder-vulnerability-disclosure.yml
+  - type: DomainSecurity
+    url: security/amazon-elastic-transcoder-domain-security.yml
+  - type: Authentication
+    url: authentication/amazon-elastic-transcoder-authentication.yml
   - type: PostmanWorkspace
     url: https://www.postman.com/kinlaneapi/amazon-elastic-transcoder/overview
   - type: Arazzo
