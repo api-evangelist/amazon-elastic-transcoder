@@ -47,6 +47,8 @@ apis:
       - type: JSONLD
         url: json-ld/amazon-elastic-transcoder-context.jsonld
 common:
+  - type: AgenticAccess
+    url: agentic-access/amazon-elastic-transcoder-agentic-access.yml
   - type: TrustCenter
     url: security/amazon-elastic-transcoder-trust-center.yml
   - type: VulnerabilityDisclosure
