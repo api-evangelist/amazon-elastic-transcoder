@@ -1,0 +1,329 @@
+openapi: 3.0.0
+info:
+  version: 2012-09-25
+  x-release: v4
+  title: Amazon Elastic Transcoder Jobs RoleTests API
+  description: <fullname>AWS Elastic Transcoder Service</fullname> <p>The AWS Elastic Transcoder Service.</p>
+  x-logo:
+    url: https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png
+    backgroundColor: '#FFFFFF'
+  termsOfService: https://aws.amazon.com/service-terms/
+  contact:
+    name: Mike Ralphson
+    email: mike.ralphson@gmail.com
+    url: https://github.com/mermade/aws2openapi
+    x-twitter: PermittedSoc
+  license:
+    name: Apache 2.0 License
+    url: http://www.apache.org/licenses/
+  x-providerName: amazonaws.com
+  x-serviceName: elastictranscoder
+  x-origin:
+  - contentType: application/json
+    url: https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/elastictranscoder-2012-09-25.normal.json
+    converter:
+      url: https://github.com/mermade/aws2openapi
+      version: 1.0.0
+    x-apisguru-driver: external
+  x-apiClientRegistration:
+    url: https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct
+  x-apisguru-categories:
+  - cloud
+  x-preferred: true
+servers:
+- url: http://elastictranscoder.{region}.amazonaws.com
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - us-east-1
+      - us-east-2
+      - us-west-1
+      - us-west-2
+      - us-gov-west-1
+      - us-gov-east-1
+      - ca-central-1
+      - eu-north-1
+      - eu-west-1
+      - eu-west-2
+      - eu-west-3
+      - eu-central-1
+      - eu-south-1
+      - af-south-1
+      - ap-northeast-1
+      - ap-northeast-2
+      - ap-northeast-3
+      - ap-southeast-1
+      - ap-southeast-2
+      - ap-east-1
+      - ap-south-1
+      - sa-east-1
+      - me-south-1
+      default: us-east-1
+  description: The Amazon Elastic Transcoder multi-region endpoint
+- url: https://elastictranscoder.{region}.amazonaws.com
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - us-east-1
+      - us-east-2
+      - us-west-1
+      - us-west-2
+      - us-gov-west-1
+      - us-gov-east-1
+      - ca-central-1
+      - eu-north-1
+      - eu-west-1
+      - eu-west-2
+      - eu-west-3
+      - eu-central-1
+      - eu-south-1
+      - af-south-1
+      - ap-northeast-1
+      - ap-northeast-2
+      - ap-northeast-3
+      - ap-southeast-1
+      - ap-southeast-2
+      - ap-east-1
+      - ap-south-1
+      - sa-east-1
+      - me-south-1
+      default: us-east-1
+  description: The Amazon Elastic Transcoder multi-region endpoint
+- url: http://elastictranscoder.{region}.amazonaws.com.cn
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - cn-north-1
+      - cn-northwest-1
+      default: cn-north-1
+  description: The Amazon Elastic Transcoder endpoint for China (Beijing) and China (Ningxia)
+- url: https://elastictranscoder.{region}.amazonaws.com.cn
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - cn-north-1
+      - cn-northwest-1
+      default: cn-north-1
+  description: The Amazon Elastic Transcoder endpoint for China (Beijing) and China (Ningxia)
+security:
+- hmac: []
+tags:
+- name: RoleTests
+paths:
+  /2012-09-25/roleTests:
+    parameters:
+    - $ref: '#/components/parameters/X-Amz-Content-Sha256'
+    - $ref: '#/components/parameters/X-Amz-Date'
+    - $ref: '#/components/parameters/X-Amz-Algorithm'
+    - $ref: '#/components/parameters/X-Amz-Credential'
+    - $ref: '#/components/parameters/X-Amz-Security-Token'
+    - $ref: '#/components/parameters/X-Amz-Signature'
+    - $ref: '#/components/parameters/X-Amz-SignedHeaders'
+    post:
+      deprecated: true
+      operationId: TestRole
+      description: <p>The TestRole operation tests the IAM role used to create the pipeline.</p> <p>The <code>TestRole</code> action lets you determine whether the IAM role you are using has sufficient permissions to let Elastic Transcoder perform tasks associated with the transcoding process. The action attempts to assume the specified IAM role, checks read access to the input and output buckets, and tries to send a test notification to Amazon SNS topics that you specify.</p>
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TestRoleResponse'
+              examples:
+                TestRole200Example:
+                  summary: Default TestRole 200 response
+                  x-microcks-default: true
+                  value:
+                    Success: example
+                    Messages: example
+        '480':
+          description: ValidationException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationException'
+              examples:
+                TestRole480Example:
+                  summary: Default TestRole 480 response
+                  x-microcks-default: true
+                  value: {}
+        '481':
+          description: IncompatibleVersionException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IncompatibleVersionException'
+              examples:
+                TestRole481Example:
+                  summary: Default TestRole 481 response
+                  x-microcks-default: true
+                  value: {}
+        '482':
+          description: ResourceNotFoundException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceNotFoundException'
+              examples:
+                TestRole482Example:
+                  summary: Default TestRole 482 response
+                  x-microcks-default: true
+                  value: {}
+        '483':
+          description: AccessDeniedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessDeniedException'
+              examples:
+                TestRole483Example:
+                  summary: Default TestRole 483 response
+                  x-microcks-default: true
+                  value: {}
+        '484':
+          description: InternalServiceException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServiceException'
+              examples:
+                TestRole484Example:
+                  summary: Default TestRole 484 response
+                  x-microcks-default: true
+                  value: {}
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - Role
+              - InputBucket
+              - OutputBucket
+              - Topics
+              properties:
+                Role:
+                  description: The IAM Amazon Resource Name (ARN) for the role that you want Elastic Transcoder to test.
+                  type: string
+                  pattern: ^arn:aws:iam::\w{12}:role/.+$
+                InputBucket:
+                  description: The Amazon S3 bucket that contains media files to be transcoded. The action attempts to read from this bucket.
+                  type: string
+                  pattern: ^(\w|\.|-){1,255}$
+                OutputBucket:
+                  description: The Amazon S3 bucket that Elastic Transcoder writes transcoded media files to. The action attempts to read from this bucket.
+                  type: string
+                  pattern: ^(\w|\.|-){1,255}$
+                Topics:
+                  description: The ARNs of one or more Amazon Simple Notification Service (Amazon SNS) topics that you want the action to send a test notification to.
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/SnsTopic'
+                  maxItems: 30
+            examples:
+              TestRoleRequestExample:
+                summary: Default TestRole request
+                x-microcks-default: true
+                value:
+                  Role: example
+                  InputBucket: example
+                  OutputBucket: example
+                  Topics: []
+      summary: Amazon Elastic Transcoder TestRole
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      tags:
+      - RoleTests
+components:
+  schemas:
+    SnsTopic:
+      type: string
+      pattern: (^$)|(^arn:aws:sns:.*:\w{12}:.+$)
+    String:
+      type: string
+    ExceptionMessages:
+      type: array
+      items:
+        $ref: '#/components/schemas/String'
+    TestRoleResponse:
+      type: object
+      deprecated: true
+      properties:
+        Success:
+          allOf:
+          - $ref: '#/components/schemas/Success'
+          - description: If the operation is successful, this value is <code>true</code>; otherwise, the value is <code>false</code>.
+        Messages:
+          allOf:
+          - $ref: '#/components/schemas/ExceptionMessages'
+          - description: If the <code>Success</code> element contains <code>false</code>, this value is an array of one or more error messages that were generated during the test process.
+      description: The <code>TestRoleResponse</code> structure.
+    Success:
+      type: string
+      pattern: (^true$)|(^false$)
+    AccessDeniedException: {}
+    IncompatibleVersionException: {}
+    ResourceNotFoundException: {}
+    InternalServiceException: {}
+    ValidationException: {}
+  parameters:
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+  securitySchemes:
+    hmac:
+      type: apiKey
+      name: Authorization
+      in: header
+      description: Amazon Signature authorization v4
+      x-amazon-apigateway-authtype: awsSigv4
+externalDocs:
+  description: Amazon Web Services documentation
+  url: https://docs.aws.amazon.com/elastictranscoder/
