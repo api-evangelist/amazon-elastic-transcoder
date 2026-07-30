@@ -3,6 +3,19 @@ description: >-
   Amazon Elastic Transcoder is media transcoding in the cloud. It is designed to be a highly scalable, easy-to-use, and
   cost-effective way for developers and businesses to convert or transcode media files from their source format into
   versions that will play back on devices like smartphones, tablets, and PCs.
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
 image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
 url: https://aws.amazon.com/elastictranscoder/
 created: '2024-01-15'
@@ -15,37 +28,175 @@ tags:
   - Transcoding
   - Video
 apis:
-  - name: Amazon Elastic Transcoder API
-    description: >-
-      API for creating and managing media transcoding pipelines, presets, and jobs to convert media files for playback
-      on various devices.
-    humanURL: https://aws.amazon.com/elastictranscoder/
-    baseURL: https://elastictranscoder.amazonaws.com
-    tags:
-      - Media
-      - Transcoding
-      - Video
-    properties:
-      - type: Documentation
-        url: https://docs.aws.amazon.com/elastictranscoder/latest/developerguide/
-      - type: OpenAPI
-        url: openapi/amazon-elastic-transcoder-openapi.yml
-      - type: APIReference
-        url: https://docs.aws.amazon.com/elastictranscoder/latest/developerguide/api-reference.html
-      - type: GettingStarted
-        url: https://aws.amazon.com/elastictranscoder/getting-started/
-      - type: Pricing
-        url: https://aws.amazon.com/elastictranscoder/pricing/
-      - type: FAQ
-        url: https://aws.amazon.com/elastictranscoder/faqs/
-      - type: JSONSchema
-        url: json-schema/amazon-elastic-transcoder-access-control-schema.json
-      - type: JSONSchema
-        url: json-schema/amazon-elastic-transcoder-access-controls-schema.json
-      - type: JSONSchema
-        url: json-schema/amazon-elastic-transcoder-access-denied-exception-schema.json
-      - type: JSONLD
-        url: json-ld/amazon-elastic-transcoder-context.jsonld
+- aid: amazon-elastic-transcoder:amazon-elastic-transcoder-jobs-api
+  name: Amazon Elastic Transcoder Jobs API
+  description: The Jobs API from Amazon Elastic Transcoder — 2 operation(s) for jobs.
+  humanURL: https://aws.amazon.com/elastictranscoder/
+  baseURL: https://elastictranscoder.amazonaws.com
+  tags:
+  - Jobs
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-elastic-transcoder-jobs-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/elastictranscoder/latest/developerguide/
+  - type: APIReference
+    url: https://docs.aws.amazon.com/elastictranscoder/latest/developerguide/api-reference.html
+  - type: GettingStarted
+    url: https://aws.amazon.com/elastictranscoder/getting-started/
+  - type: Pricing
+    url: https://aws.amazon.com/elastictranscoder/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/elastictranscoder/faqs/
+  - type: JSONSchema
+    url: json-schema/amazon-elastic-transcoder-access-control-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-elastic-transcoder-access-controls-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-elastic-transcoder-access-denied-exception-schema.json
+  - type: JSONLD
+    url: json-ld/amazon-elastic-transcoder-context.jsonld
+- aid: amazon-elastic-transcoder:amazon-elastic-transcoder-jobsbypipeline-api
+  name: Amazon Elastic Transcoder JobsByPipeline API
+  description: >-
+    The JobsByPipeline API from Amazon Elastic Transcoder — 1 operation(s) for jobsbypipeline.
+  humanURL: https://aws.amazon.com/elastictranscoder/
+  baseURL: https://elastictranscoder.amazonaws.com
+  tags:
+  - JobsByPipeline
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-elastic-transcoder-jobsbypipeline-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/elastictranscoder/latest/developerguide/
+  - type: APIReference
+    url: https://docs.aws.amazon.com/elastictranscoder/latest/developerguide/api-reference.html
+  - type: GettingStarted
+    url: https://aws.amazon.com/elastictranscoder/getting-started/
+  - type: Pricing
+    url: https://aws.amazon.com/elastictranscoder/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/elastictranscoder/faqs/
+  - type: JSONSchema
+    url: json-schema/amazon-elastic-transcoder-access-control-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-elastic-transcoder-access-controls-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-elastic-transcoder-access-denied-exception-schema.json
+  - type: JSONLD
+    url: json-ld/amazon-elastic-transcoder-context.jsonld
+- aid: amazon-elastic-transcoder:amazon-elastic-transcoder-jobsbystatus-api
+  name: Amazon Elastic Transcoder JobsByStatus API
+  description: The JobsByStatus API from Amazon Elastic Transcoder — 1 operation(s) for jobsbystatus.
+  humanURL: https://aws.amazon.com/elastictranscoder/
+  baseURL: https://elastictranscoder.amazonaws.com
+  tags:
+  - JobsByStatus
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-elastic-transcoder-jobsbystatus-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/elastictranscoder/latest/developerguide/
+  - type: APIReference
+    url: https://docs.aws.amazon.com/elastictranscoder/latest/developerguide/api-reference.html
+  - type: GettingStarted
+    url: https://aws.amazon.com/elastictranscoder/getting-started/
+  - type: Pricing
+    url: https://aws.amazon.com/elastictranscoder/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/elastictranscoder/faqs/
+  - type: JSONSchema
+    url: json-schema/amazon-elastic-transcoder-access-control-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-elastic-transcoder-access-controls-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-elastic-transcoder-access-denied-exception-schema.json
+  - type: JSONLD
+    url: json-ld/amazon-elastic-transcoder-context.jsonld
+- aid: amazon-elastic-transcoder:amazon-elastic-transcoder-pipelines-api
+  name: Amazon Elastic Transcoder Pipelines API
+  description: The Pipelines API from Amazon Elastic Transcoder — 4 operation(s) for pipelines.
+  humanURL: https://aws.amazon.com/elastictranscoder/
+  baseURL: https://elastictranscoder.amazonaws.com
+  tags:
+  - Pipelines
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-elastic-transcoder-pipelines-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/elastictranscoder/latest/developerguide/
+  - type: APIReference
+    url: https://docs.aws.amazon.com/elastictranscoder/latest/developerguide/api-reference.html
+  - type: GettingStarted
+    url: https://aws.amazon.com/elastictranscoder/getting-started/
+  - type: Pricing
+    url: https://aws.amazon.com/elastictranscoder/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/elastictranscoder/faqs/
+  - type: JSONSchema
+    url: json-schema/amazon-elastic-transcoder-access-control-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-elastic-transcoder-access-controls-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-elastic-transcoder-access-denied-exception-schema.json
+  - type: JSONLD
+    url: json-ld/amazon-elastic-transcoder-context.jsonld
+- aid: amazon-elastic-transcoder:amazon-elastic-transcoder-presets-api
+  name: Amazon Elastic Transcoder Presets API
+  description: The Presets API from Amazon Elastic Transcoder — 2 operation(s) for presets.
+  humanURL: https://aws.amazon.com/elastictranscoder/
+  baseURL: https://elastictranscoder.amazonaws.com
+  tags:
+  - Presets
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-elastic-transcoder-presets-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/elastictranscoder/latest/developerguide/
+  - type: APIReference
+    url: https://docs.aws.amazon.com/elastictranscoder/latest/developerguide/api-reference.html
+  - type: GettingStarted
+    url: https://aws.amazon.com/elastictranscoder/getting-started/
+  - type: Pricing
+    url: https://aws.amazon.com/elastictranscoder/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/elastictranscoder/faqs/
+  - type: JSONSchema
+    url: json-schema/amazon-elastic-transcoder-access-control-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-elastic-transcoder-access-controls-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-elastic-transcoder-access-denied-exception-schema.json
+  - type: JSONLD
+    url: json-ld/amazon-elastic-transcoder-context.jsonld
+- aid: amazon-elastic-transcoder:amazon-elastic-transcoder-roletests-api
+  name: Amazon Elastic Transcoder RoleTests API
+  description: The RoleTests API from Amazon Elastic Transcoder — 1 operation(s) for roletests.
+  humanURL: https://aws.amazon.com/elastictranscoder/
+  baseURL: https://elastictranscoder.amazonaws.com
+  tags:
+  - RoleTests
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-elastic-transcoder-roletests-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/elastictranscoder/latest/developerguide/
+  - type: APIReference
+    url: https://docs.aws.amazon.com/elastictranscoder/latest/developerguide/api-reference.html
+  - type: GettingStarted
+    url: https://aws.amazon.com/elastictranscoder/getting-started/
+  - type: Pricing
+    url: https://aws.amazon.com/elastictranscoder/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/elastictranscoder/faqs/
+  - type: JSONSchema
+    url: json-schema/amazon-elastic-transcoder-access-control-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-elastic-transcoder-access-controls-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-elastic-transcoder-access-denied-exception-schema.json
+  - type: JSONLD
+    url: json-ld/amazon-elastic-transcoder-context.jsonld
 common:
   - type: AgenticAccess
     url: agentic-access/amazon-elastic-transcoder-agentic-access.yml
