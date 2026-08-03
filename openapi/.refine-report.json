@@ -1,0 +1,24 @@
+{
+  "provider": "amazon-elastic-transcoder",
+  "sources": [
+    "amazon-elastic-transcoder-jobs-api-openapi.yml",
+    "amazon-elastic-transcoder-jobsbypipeline-api-openapi.yml",
+    "amazon-elastic-transcoder-jobsbystatus-api-openapi.yml",
+    "amazon-elastic-transcoder-pipelines-api-openapi.yml",
+    "amazon-elastic-transcoder-presets-api-openapi.yml",
+    "amazon-elastic-transcoder-roletests-api-openapi.yml"
+  ],
+  "outputs": [
+    "amazon-elastic-transcoder-jobs-api-openapi.yml",
+    "amazon-elastic-transcoder-jobsbypipeline-api-openapi.yml",
+    "amazon-elastic-transcoder-jobsbystatus-api-openapi.yml",
+    "amazon-elastic-transcoder-pipelines-api-openapi.yml",
+    "amazon-elastic-transcoder-presets-api-openapi.yml",
+    "amazon-elastic-transcoder-roletests-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

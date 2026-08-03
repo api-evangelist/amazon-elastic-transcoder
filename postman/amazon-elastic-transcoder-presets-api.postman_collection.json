@@ -1,0 +1,2166 @@
+{
+  "info": {
+    "_postman_id": "0f9d3b6d-9883-47cd-a620-b1c3e7992c97",
+    "name": "Amazon Elastic Transcoder Jobs Presets API",
+    "description": "<fullname>AWS Elastic Transcoder Service</fullname> <p>The AWS Elastic Transcoder Service.</p>\n\nContact Support:\n Name: Mike Ralphson\n Email: mike.ralphson@gmail.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T10:20:36.000Z",
+    "updatedAt": "2026-07-28T10:20:37.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-0f9d3b6d-9883-47cd-a620-b1c3e7992c97"
+  },
+  "item": [
+    {
+      "name": "2012-09-25",
+      "item": [
+        {
+          "name": "presets",
+          "item": [
+            {
+              "name": "{Id}",
+              "item": [
+                {
+                  "name": "Amazon Elastic Transcoder DeletePreset",
+                  "id": "039d105a-0f6e-4122-932c-e930097c21fb",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/2012-09-25/presets/:Id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "2012-09-25",
+                        "presets",
+                        ":Id"
+                      ],
+                      "variable": [
+                        {
+                          "id": "28ca54c5-56be-44b6-bd11-c78f9d66c8d5",
+                          "key": "Id",
+                          "value": "8850042388954-aI3bP7",
+                          "description": "(Required) The identifier of the preset for which you want to get detailed information."
+                        }
+                      ]
+                    },
+                    "description": "<p>The DeletePreset operation removes a preset that you've added in an AWS region.</p> <note> <p>You can't delete the default presets that are included with Elastic Transcoder.</p> </note>"
+                  },
+                  "response": [
+                    {
+                      "id": "41eb7b0c-4d91-44b4-a93b-790e3e72ec03",
+                      "name": "Success",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "X-Amz-Content-Sha256",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Date",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Algorithm",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Credential",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Security-Token",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Signature",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-SignedHeaders",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/2012-09-25/presets/:Id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "2012-09-25",
+                            "presets",
+                            ":Id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "Id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Accepted",
+                      "code": 202,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{}",
+                      "createdAt": "2026-07-28T10:20:37.000Z",
+                      "updatedAt": "2026-07-28T10:20:37.000Z",
+                      "uid": "35240-41eb7b0c-4d91-44b4-a93b-790e3e72ec03"
+                    },
+                    {
+                      "id": "c55c6a1f-0829-47ce-9d92-edad364a6d47",
+                      "name": "ValidationException",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "X-Amz-Content-Sha256",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Date",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Algorithm",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Credential",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Security-Token",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Signature",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-SignedHeaders",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/2012-09-25/presets/:Id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "2012-09-25",
+                            "presets",
+                            ":Id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "Id"
+                            }
+                          ]
+                        }
+                      },
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{}",
+                      "createdAt": "2026-07-28T10:20:37.000Z",
+                      "updatedAt": "2026-07-28T10:20:37.000Z",
+                      "uid": "35240-c55c6a1f-0829-47ce-9d92-edad364a6d47"
+                    },
+                    {
+                      "id": "e80421b4-58d4-4ca4-9f17-026db173eab2",
+                      "name": "IncompatibleVersionException",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "X-Amz-Content-Sha256",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Date",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Algorithm",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Credential",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Security-Token",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Signature",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-SignedHeaders",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/2012-09-25/presets/:Id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "2012-09-25",
+                            "presets",
+                            ":Id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "Id"
+                            }
+                          ]
+                        }
+                      },
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{}",
+                      "createdAt": "2026-07-28T10:20:37.000Z",
+                      "updatedAt": "2026-07-28T10:20:37.000Z",
+                      "uid": "35240-e80421b4-58d4-4ca4-9f17-026db173eab2"
+                    },
+                    {
+                      "id": "6761ed7a-86ed-4b93-85ed-cdd48363f1a2",
+                      "name": "ResourceNotFoundException",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "X-Amz-Content-Sha256",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Date",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Algorithm",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Credential",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Security-Token",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Signature",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-SignedHeaders",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/2012-09-25/presets/:Id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "2012-09-25",
+                            "presets",
+                            ":Id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "Id"
+                            }
+                          ]
+                        }
+                      },
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{}",
+                      "createdAt": "2026-07-28T10:20:37.000Z",
+                      "updatedAt": "2026-07-28T10:20:37.000Z",
+                      "uid": "35240-6761ed7a-86ed-4b93-85ed-cdd48363f1a2"
+                    },
+                    {
+                      "id": "96cd1e74-149c-4666-9bb6-362481080786",
+                      "name": "AccessDeniedException",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "X-Amz-Content-Sha256",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Date",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Algorithm",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Credential",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Security-Token",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Signature",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-SignedHeaders",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/2012-09-25/presets/:Id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "2012-09-25",
+                            "presets",
+                            ":Id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "Id"
+                            }
+                          ]
+                        }
+                      },
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{}",
+                      "createdAt": "2026-07-28T10:20:37.000Z",
+                      "updatedAt": "2026-07-28T10:20:37.000Z",
+                      "uid": "35240-96cd1e74-149c-4666-9bb6-362481080786"
+                    },
+                    {
+                      "id": "974cdaa6-c4af-4847-ab5d-ecabe933c7b2",
+                      "name": "InternalServiceException",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "X-Amz-Content-Sha256",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Date",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Algorithm",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Credential",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Security-Token",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Signature",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-SignedHeaders",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/2012-09-25/presets/:Id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "2012-09-25",
+                            "presets",
+                            ":Id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "Id"
+                            }
+                          ]
+                        }
+                      },
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{}",
+                      "createdAt": "2026-07-28T10:20:37.000Z",
+                      "updatedAt": "2026-07-28T10:20:37.000Z",
+                      "uid": "35240-974cdaa6-c4af-4847-ab5d-ecabe933c7b2"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T10:20:37.000Z",
+                  "updatedAt": "2026-07-28T10:20:37.000Z",
+                  "uid": "35240-039d105a-0f6e-4122-932c-e930097c21fb"
+                },
+                {
+                  "name": "Amazon Elastic Transcoder ReadPreset",
+                  "id": "5129f055-66dd-443f-87da-7e96a5dec53d",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/2012-09-25/presets/:Id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "2012-09-25",
+                        "presets",
+                        ":Id"
+                      ],
+                      "variable": [
+                        {
+                          "id": "23bbf369-1fde-4782-a22f-4265b0c54dba",
+                          "key": "Id",
+                          "value": "8850042388954-aI3bP7",
+                          "description": "(Required) The identifier of the preset for which you want to get detailed information."
+                        }
+                      ]
+                    },
+                    "description": "The ReadPreset operation gets detailed information about a preset."
+                  },
+                  "response": [
+                    {
+                      "id": "7c56cc98-4a0e-4b16-a149-85ab21c65089",
+                      "name": "Success",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "X-Amz-Content-Sha256",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Date",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Algorithm",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Credential",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Security-Token",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Signature",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-SignedHeaders",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/2012-09-25/presets/:Id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "2012-09-25",
+                            "presets",
+                            ":Id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "Id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Preset\": {\n    \"Id\": \"4926267274464-NrRzUI\",\n    \"Arn\": \"<string>\",\n    \"Name\": \"<string>\",\n    \"Description\": \"<string>\",\n    \"Container\": \"wav\",\n    \"Audio\": {\n      \"Codec\": \"mp2\",\n      \"SampleRate\": \"32000\",\n      \"BitRate\": \"17\",\n      \"Channels\": \"0\",\n      \"AudioPackingMode\": \"OneChannelPerTrack\",\n      \"CodecOptions\": {\n        \"Profile\": \"auto\",\n        \"BitDepth\": \"16\",\n        \"BitOrder\": \"LittleEndian\",\n        \"Signed\": \"Signed\"\n      }\n    },\n    \"Video\": {\n      \"Codec\": \"gif\",\n      \"CodecOptions\": {\n        \"fugiat_449\": \"<string>\",\n        \"reprehenderit_7a\": \"<string>\",\n        \"sint3f\": \"<string>\",\n        \"nisi_3\": \"<string>\",\n        \"aute_e10\": \"<string>\",\n        \"laboris_3\": \"<string>\",\n        \"Excepteur46\": \"<string>\",\n        \"reprehenderit00\": \"<string>\",\n        \"sunt_66\": \"<string>\",\n        \"velit_b\": \"<string>\",\n        \"officia0b6\": \"<string>\",\n        \"est_5c\": \"<string>\",\n        \"Lorem0\": \"<string>\",\n        \"ametf_\": \"<string>\",\n        \"Ut_97e\": \"<string>\"\n      },\n      \"KeyframesMaxDist\": \"51\",\n      \"FixedGOP\": \"true\",\n      \"BitRate\": \"07\",\n      \"FrameRate\": \"25\",\n      \"MaxFrameRate\": \"23y97\",\n      \"Resolution\": \"auto\",\n      \"AspectRatio\": \"16:9\",\n      \"MaxWidth\": \"auto\",\n      \"MaxHeight\": \"auto\",\n      \"DisplayAspectRatio\": \"4:3\",\n      \"SizingPolicy\": \"Fit\",\n      \"PaddingPolicy\": \"Pad\",\n      \"Watermarks\": [\n        {\n          \"Id\": \"<string>\",\n          \"MaxWidth\": \"631px\",\n          \"MaxHeight\": \"606px\",\n          \"SizingPolicy\": \"ShrinkToFit\",\n          \"HorizontalAlign\": \"Right\",\n          \"HorizontalOffset\": \"13.66%\",\n          \"VerticalAlign\": \"Bottom\",\n          \"VerticalOffset\": \"6331px\",\n          \"Opacity\": \"979.92798130759\",\n          \"Target\": \"Content\"\n        },\n        {\n          \"Id\": \"<string>\",\n          \"MaxWidth\": \"3.7979%\",\n          \"MaxHeight\": \"px\",\n          \"SizingPolicy\": \"ShrinkToFit\",\n          \"HorizontalAlign\": \"Center\",\n          \"HorizontalOffset\": \"532px\",\n          \"VerticalAlign\": \"Bottom\",\n          \"VerticalOffset\": \"px\",\n          \"Opacity\": \"87.36735666944875040188\",\n          \"Target\": \"Frame\"\n        }\n      ]\n    },\n    \"Thumbnails\": {\n      \"Format\": \"png\",\n      \"Interval\": \"2096\",\n      \"Resolution\": \"34x62411\",\n      \"AspectRatio\": \"4:3\",\n      \"MaxWidth\": \"233\",\n      \"MaxHeight\": \"auto\",\n      \"SizingPolicy\": \"Fit\",\n      \"PaddingPolicy\": \"Pad\"\n    },\n    \"Type\": \"Custom\"\n  }\n}",
+                      "createdAt": "2026-07-28T10:20:37.000Z",
+                      "updatedAt": "2026-07-28T10:20:37.000Z",
+                      "uid": "35240-7c56cc98-4a0e-4b16-a149-85ab21c65089"
+                    },
+                    {
+                      "id": "6f89ee1f-4b65-4736-a30b-5b8a304ea49c",
+                      "name": "ValidationException",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "X-Amz-Content-Sha256",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Date",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Algorithm",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Credential",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Security-Token",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Signature",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-SignedHeaders",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/2012-09-25/presets/:Id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "2012-09-25",
+                            "presets",
+                            ":Id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "Id"
+                            }
+                          ]
+                        }
+                      },
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{}",
+                      "createdAt": "2026-07-28T10:20:37.000Z",
+                      "updatedAt": "2026-07-28T10:20:37.000Z",
+                      "uid": "35240-6f89ee1f-4b65-4736-a30b-5b8a304ea49c"
+                    },
+                    {
+                      "id": "2e617227-b68c-486f-9167-c0b0da08ede0",
+                      "name": "IncompatibleVersionException",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "X-Amz-Content-Sha256",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Date",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Algorithm",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Credential",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Security-Token",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Signature",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-SignedHeaders",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/2012-09-25/presets/:Id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "2012-09-25",
+                            "presets",
+                            ":Id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "Id"
+                            }
+                          ]
+                        }
+                      },
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{}",
+                      "createdAt": "2026-07-28T10:20:37.000Z",
+                      "updatedAt": "2026-07-28T10:20:37.000Z",
+                      "uid": "35240-2e617227-b68c-486f-9167-c0b0da08ede0"
+                    },
+                    {
+                      "id": "330a1de5-4986-491e-b3f0-e44c7654d735",
+                      "name": "ResourceNotFoundException",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "X-Amz-Content-Sha256",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Date",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Algorithm",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Credential",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Security-Token",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Signature",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-SignedHeaders",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/2012-09-25/presets/:Id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "2012-09-25",
+                            "presets",
+                            ":Id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "Id"
+                            }
+                          ]
+                        }
+                      },
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{}",
+                      "createdAt": "2026-07-28T10:20:37.000Z",
+                      "updatedAt": "2026-07-28T10:20:37.000Z",
+                      "uid": "35240-330a1de5-4986-491e-b3f0-e44c7654d735"
+                    },
+                    {
+                      "id": "9afdf345-4384-48ba-bbe6-3d4d22c4bfac",
+                      "name": "AccessDeniedException",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "X-Amz-Content-Sha256",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Date",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Algorithm",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Credential",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Security-Token",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Signature",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-SignedHeaders",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/2012-09-25/presets/:Id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "2012-09-25",
+                            "presets",
+                            ":Id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "Id"
+                            }
+                          ]
+                        }
+                      },
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{}",
+                      "createdAt": "2026-07-28T10:20:37.000Z",
+                      "updatedAt": "2026-07-28T10:20:37.000Z",
+                      "uid": "35240-9afdf345-4384-48ba-bbe6-3d4d22c4bfac"
+                    },
+                    {
+                      "id": "5b0a9050-b2ed-4f6b-a6ba-026434ee86f8",
+                      "name": "InternalServiceException",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "X-Amz-Content-Sha256",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Date",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Algorithm",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Credential",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Security-Token",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Signature",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-SignedHeaders",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/2012-09-25/presets/:Id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "2012-09-25",
+                            "presets",
+                            ":Id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "Id"
+                            }
+                          ]
+                        }
+                      },
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{}",
+                      "createdAt": "2026-07-28T10:20:37.000Z",
+                      "updatedAt": "2026-07-28T10:20:37.000Z",
+                      "uid": "35240-5b0a9050-b2ed-4f6b-a6ba-026434ee86f8"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T10:20:37.000Z",
+                  "updatedAt": "2026-07-28T10:20:37.000Z",
+                  "uid": "35240-5129f055-66dd-443f-87da-7e96a5dec53d"
+                }
+              ],
+              "id": "1ec3c56a-ee89-4e65-ad6a-54777ac3d95e",
+              "createdAt": "2026-07-28T10:20:37.000Z",
+              "updatedAt": "2026-07-28T10:20:37.000Z",
+              "uid": "35240-1ec3c56a-ee89-4e65-ad6a-54777ac3d95e"
+            },
+            {
+              "name": "Amazon Elastic Transcoder CreatePreset",
+              "id": "631e4138-c763-4758-af5b-54f3e9dd2fdf",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Name\": \"<string>\",\n  \"Container\": \"ogg\",\n  \"Description\": \"<string>\",\n  \"Video\": {\n    \"Codec\": \"vp9\",\n    \"CodecOptions\": {\n      \"sint_952\": \"<string>\",\n      \"anima5\": \"<string>\",\n      \"id_c7\": \"<string>\",\n      \"ea_6d5\": \"<string>\",\n      \"et__73\": \"<string>\",\n      \"nisia97\": \"<string>\",\n      \"pariatur_1f\": \"<string>\"\n    },\n    \"KeyframesMaxDist\": \"4558\",\n    \"FixedGOP\": \"true\",\n    \"BitRate\": \"auto\",\n    \"FrameRate\": \"auto\",\n    \"MaxFrameRate\": \"24\",\n    \"Resolution\": \"87x91\",\n    \"AspectRatio\": \"1:1\",\n    \"MaxWidth\": \"3794\",\n    \"MaxHeight\": \"auto\",\n    \"DisplayAspectRatio\": \"4:3\",\n    \"SizingPolicy\": \"ShrinkToFill\",\n    \"PaddingPolicy\": \"NoPad\",\n    \"Watermarks\": [\n      {\n        \"Id\": \"<string>\",\n        \"MaxWidth\": \"px\",\n        \"MaxHeight\": \"px\",\n        \"SizingPolicy\": \"Stretch\",\n        \"HorizontalAlign\": \"Right\",\n        \"HorizontalOffset\": \"65.11%\",\n        \"VerticalAlign\": \"Top\",\n        \"VerticalOffset\": \"39%\",\n        \"Opacity\": \"806.3550126036870509113\",\n        \"Target\": \"Frame\"\n      },\n      {\n        \"Id\": \"<string>\",\n        \"MaxWidth\": \"970%\",\n        \"MaxHeight\": \"px\",\n        \"SizingPolicy\": \"Fit\",\n        \"HorizontalAlign\": \"Right\",\n        \"HorizontalOffset\": \"74.%\",\n        \"VerticalAlign\": \"Center\",\n        \"VerticalOffset\": \"7px\",\n        \"Opacity\": \"42\",\n        \"Target\": \"Frame\"\n      }\n    ]\n  },\n  \"Audio\": {\n    \"Codec\": \"mp2\",\n    \"SampleRate\": \"44100\",\n    \"BitRate\": \"04\",\n    \"Channels\": \"auto\",\n    \"AudioPackingMode\": \"SingleTrack\",\n    \"CodecOptions\": {\n      \"Profile\": \"AAC-LC\",\n      \"BitDepth\": \"16\",\n      \"BitOrder\": \"LittleEndian\",\n      \"Signed\": \"Unsigned\"\n    }\n  },\n  \"Thumbnails\": {\n    \"Format\": \"jpg\",\n    \"Interval\": \"31\",\n    \"Resolution\": \"67211x04647\",\n    \"AspectRatio\": \"16:9\",\n    \"MaxWidth\": \"037\",\n    \"MaxHeight\": \"5536\",\n    \"SizingPolicy\": \"Fit\",\n    \"PaddingPolicy\": \"NoPad\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/2012-09-25/presets",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "2012-09-25",
+                    "presets"
+                  ]
+                },
+                "description": "<p>The CreatePreset operation creates a preset with settings that you specify.</p> <important> <p>Elastic Transcoder checks the CreatePreset settings to ensure that they meet Elastic Transcoder requirements and to determine whether they comply with H.264 standards. If your settings are not valid for Elastic Transcoder, Elastic Transcoder returns an HTTP 400 response (<code>ValidationException</code>) and does not create the preset. If the settings are valid for Elastic Transcoder but aren't strictly compliant with the H.264 standard, Elastic Transcoder creates the preset and returns a warning message in the response. This helps you determine whether your settings comply with the H.264 standard while giving you greater flexibility with respect to the video that Elastic Transcoder produces.</p> </important> <p>Elastic Transcoder uses the H.264 video-compression format. For more information, see the International Telecommunication Union publication <i>Recommendation ITU-T H.264: Advanced video coding for generic audiovisual services</i>.</p>"
+              },
+              "response": [
+                {
+                  "id": "f74ff8f3-094e-4973-b472-bcc5dc2333d1",
+                  "name": "Success",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"Name\": \"<string>\",\n  \"Container\": \"ogg\",\n  \"Description\": \"<string>\",\n  \"Video\": {\n    \"Codec\": \"vp9\",\n    \"CodecOptions\": {\n      \"sint_952\": \"<string>\",\n      \"anima5\": \"<string>\",\n      \"id_c7\": \"<string>\",\n      \"ea_6d5\": \"<string>\",\n      \"et__73\": \"<string>\",\n      \"nisia97\": \"<string>\",\n      \"pariatur_1f\": \"<string>\"\n    },\n    \"KeyframesMaxDist\": \"4558\",\n    \"FixedGOP\": \"true\",\n    \"BitRate\": \"auto\",\n    \"FrameRate\": \"auto\",\n    \"MaxFrameRate\": \"24\",\n    \"Resolution\": \"87x91\",\n    \"AspectRatio\": \"1:1\",\n    \"MaxWidth\": \"3794\",\n    \"MaxHeight\": \"auto\",\n    \"DisplayAspectRatio\": \"4:3\",\n    \"SizingPolicy\": \"ShrinkToFill\",\n    \"PaddingPolicy\": \"NoPad\",\n    \"Watermarks\": [\n      {\n        \"Id\": \"<string>\",\n        \"MaxWidth\": \"px\",\n        \"MaxHeight\": \"px\",\n        \"SizingPolicy\": \"Stretch\",\n        \"HorizontalAlign\": \"Right\",\n        \"HorizontalOffset\": \"65.11%\",\n        \"VerticalAlign\": \"Top\",\n        \"VerticalOffset\": \"39%\",\n        \"Opacity\": \"806.3550126036870509113\",\n        \"Target\": \"Frame\"\n      },\n      {\n        \"Id\": \"<string>\",\n        \"MaxWidth\": \"970%\",\n        \"MaxHeight\": \"px\",\n        \"SizingPolicy\": \"Fit\",\n        \"HorizontalAlign\": \"Right\",\n        \"HorizontalOffset\": \"74.%\",\n        \"VerticalAlign\": \"Center\",\n        \"VerticalOffset\": \"7px\",\n        \"Opacity\": \"42\",\n        \"Target\": \"Frame\"\n      }\n    ]\n  },\n  \"Audio\": {\n    \"Codec\": \"mp2\",\n    \"SampleRate\": \"44100\",\n    \"BitRate\": \"04\",\n    \"Channels\": \"auto\",\n    \"AudioPackingMode\": \"SingleTrack\",\n    \"CodecOptions\": {\n      \"Profile\": \"AAC-LC\",\n      \"BitDepth\": \"16\",\n      \"BitOrder\": \"LittleEndian\",\n      \"Signed\": \"Unsigned\"\n    }\n  },\n  \"Thumbnails\": {\n    \"Format\": \"jpg\",\n    \"Interval\": \"31\",\n    \"Resolution\": \"67211x04647\",\n    \"AspectRatio\": \"16:9\",\n    \"MaxWidth\": \"037\",\n    \"MaxHeight\": \"5536\",\n    \"SizingPolicy\": \"Fit\",\n    \"PaddingPolicy\": \"NoPad\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/2012-09-25/presets",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "2012-09-25",
+                        "presets"
+                      ]
+                    }
+                  },
+                  "status": "Created",
+                  "code": 201,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Preset\": {\n    \"Id\": \"4177305285106-3Pe6u6\",\n    \"Arn\": \"<string>\",\n    \"Name\": \"<string>\",\n    \"Description\": \"<string>\",\n    \"Container\": \"flv\",\n    \"Audio\": {\n      \"Codec\": \"vorbis\",\n      \"SampleRate\": \"auto\",\n      \"BitRate\": \"136\",\n      \"Channels\": \"1\",\n      \"AudioPackingMode\": \"OneChannelPerTrack\",\n      \"CodecOptions\": {\n        \"Profile\": \"AAC-LC\",\n        \"BitDepth\": \"8\",\n        \"BitOrder\": \"LittleEndian\",\n        \"Signed\": \"Signed\"\n      }\n    },\n    \"Video\": {\n      \"Codec\": \"gif\",\n      \"CodecOptions\": {\n        \"commodo_5db\": \"<string>\",\n        \"ullamcoe\": \"<string>\",\n        \"in_29\": \"<string>\",\n        \"officia_5f\": \"<string>\",\n        \"laborisc\": \"<string>\",\n        \"ex7\": \"<string>\",\n        \"do663\": \"<string>\",\n        \"qui2e\": \"<string>\",\n        \"labore0\": \"<string>\",\n        \"do_4\": \"<string>\",\n        \"ut_e01\": \"<string>\",\n        \"occaecat_38b\": \"<string>\",\n        \"magna8\": \"<string>\",\n        \"essec18\": \"<string>\",\n        \"consequat9db\": \"<string>\"\n      },\n      \"KeyframesMaxDist\": \"2\",\n      \"FixedGOP\": \"true\",\n      \"BitRate\": \"74162\",\n      \"FrameRate\": \"15\",\n      \"MaxFrameRate\": \"15\",\n      \"Resolution\": \"17661x1\",\n      \"AspectRatio\": \"auto\",\n      \"MaxWidth\": \"auto\",\n      \"MaxHeight\": \"41\",\n      \"DisplayAspectRatio\": \"3:2\",\n      \"SizingPolicy\": \"ShrinkToFit\",\n      \"PaddingPolicy\": \"Pad\",\n      \"Watermarks\": [\n        {\n          \"Id\": \"<string>\",\n          \"MaxWidth\": \"px\",\n          \"MaxHeight\": \"502%\",\n          \"SizingPolicy\": \"ShrinkToFit\",\n          \"HorizontalAlign\": \"Center\",\n          \"HorizontalOffset\": \"px\",\n          \"VerticalAlign\": \"Top\",\n          \"VerticalOffset\": \"5446px\",\n          \"Opacity\": \"5.42057184767943641\",\n          \"Target\": \"Frame\"\n        },\n        {\n          \"Id\": \"<string>\",\n          \"MaxWidth\": \"9%\",\n          \"MaxHeight\": \"77px\",\n          \"SizingPolicy\": \"ShrinkToFit\",\n          \"HorizontalAlign\": \"Center\",\n          \"HorizontalOffset\": \"406%\",\n          \"VerticalAlign\": \"Center\",\n          \"VerticalOffset\": \"99.43015%\",\n          \"Opacity\": \"84.28121079142066315\",\n          \"Target\": \"Content\"\n        }\n      ]\n    },\n    \"Thumbnails\": {\n      \"Format\": \"jpg\",\n      \"Interval\": \"196\",\n      \"Resolution\": \"8106x908\",\n      \"AspectRatio\": \"1:1\",\n      \"MaxWidth\": \"auto\",\n      \"MaxHeight\": \"auto\",\n      \"SizingPolicy\": \"Fit\",\n      \"PaddingPolicy\": \"NoPad\"\n    },\n    \"Type\": \"System\"\n  },\n  \"Warning\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T10:20:37.000Z",
+                  "updatedAt": "2026-07-28T10:20:37.000Z",
+                  "uid": "35240-f74ff8f3-094e-4973-b472-bcc5dc2333d1"
+                },
+                {
+                  "id": "1e4bcb41-48b4-4fdf-8287-0301d2db8914",
+                  "name": "ValidationException",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"Name\": \"<string>\",\n  \"Container\": \"ogg\",\n  \"Description\": \"<string>\",\n  \"Video\": {\n    \"Codec\": \"vp9\",\n    \"CodecOptions\": {\n      \"sint_952\": \"<string>\",\n      \"anima5\": \"<string>\",\n      \"id_c7\": \"<string>\",\n      \"ea_6d5\": \"<string>\",\n      \"et__73\": \"<string>\",\n      \"nisia97\": \"<string>\",\n      \"pariatur_1f\": \"<string>\"\n    },\n    \"KeyframesMaxDist\": \"4558\",\n    \"FixedGOP\": \"true\",\n    \"BitRate\": \"auto\",\n    \"FrameRate\": \"auto\",\n    \"MaxFrameRate\": \"24\",\n    \"Resolution\": \"87x91\",\n    \"AspectRatio\": \"1:1\",\n    \"MaxWidth\": \"3794\",\n    \"MaxHeight\": \"auto\",\n    \"DisplayAspectRatio\": \"4:3\",\n    \"SizingPolicy\": \"ShrinkToFill\",\n    \"PaddingPolicy\": \"NoPad\",\n    \"Watermarks\": [\n      {\n        \"Id\": \"<string>\",\n        \"MaxWidth\": \"px\",\n        \"MaxHeight\": \"px\",\n        \"SizingPolicy\": \"Stretch\",\n        \"HorizontalAlign\": \"Right\",\n        \"HorizontalOffset\": \"65.11%\",\n        \"VerticalAlign\": \"Top\",\n        \"VerticalOffset\": \"39%\",\n        \"Opacity\": \"806.3550126036870509113\",\n        \"Target\": \"Frame\"\n      },\n      {\n        \"Id\": \"<string>\",\n        \"MaxWidth\": \"970%\",\n        \"MaxHeight\": \"px\",\n        \"SizingPolicy\": \"Fit\",\n        \"HorizontalAlign\": \"Right\",\n        \"HorizontalOffset\": \"74.%\",\n        \"VerticalAlign\": \"Center\",\n        \"VerticalOffset\": \"7px\",\n        \"Opacity\": \"42\",\n        \"Target\": \"Frame\"\n      }\n    ]\n  },\n  \"Audio\": {\n    \"Codec\": \"mp2\",\n    \"SampleRate\": \"44100\",\n    \"BitRate\": \"04\",\n    \"Channels\": \"auto\",\n    \"AudioPackingMode\": \"SingleTrack\",\n    \"CodecOptions\": {\n      \"Profile\": \"AAC-LC\",\n      \"BitDepth\": \"16\",\n      \"BitOrder\": \"LittleEndian\",\n      \"Signed\": \"Unsigned\"\n    }\n  },\n  \"Thumbnails\": {\n    \"Format\": \"jpg\",\n    \"Interval\": \"31\",\n    \"Resolution\": \"67211x04647\",\n    \"AspectRatio\": \"16:9\",\n    \"MaxWidth\": \"037\",\n    \"MaxHeight\": \"5536\",\n    \"SizingPolicy\": \"Fit\",\n    \"PaddingPolicy\": \"NoPad\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/2012-09-25/presets",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "2012-09-25",
+                        "presets"
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:20:37.000Z",
+                  "updatedAt": "2026-07-28T10:20:37.000Z",
+                  "uid": "35240-1e4bcb41-48b4-4fdf-8287-0301d2db8914"
+                },
+                {
+                  "id": "62a85ad5-b381-4262-881c-0368c7ab2f65",
+                  "name": "IncompatibleVersionException",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"Name\": \"<string>\",\n  \"Container\": \"ogg\",\n  \"Description\": \"<string>\",\n  \"Video\": {\n    \"Codec\": \"vp9\",\n    \"CodecOptions\": {\n      \"sint_952\": \"<string>\",\n      \"anima5\": \"<string>\",\n      \"id_c7\": \"<string>\",\n      \"ea_6d5\": \"<string>\",\n      \"et__73\": \"<string>\",\n      \"nisia97\": \"<string>\",\n      \"pariatur_1f\": \"<string>\"\n    },\n    \"KeyframesMaxDist\": \"4558\",\n    \"FixedGOP\": \"true\",\n    \"BitRate\": \"auto\",\n    \"FrameRate\": \"auto\",\n    \"MaxFrameRate\": \"24\",\n    \"Resolution\": \"87x91\",\n    \"AspectRatio\": \"1:1\",\n    \"MaxWidth\": \"3794\",\n    \"MaxHeight\": \"auto\",\n    \"DisplayAspectRatio\": \"4:3\",\n    \"SizingPolicy\": \"ShrinkToFill\",\n    \"PaddingPolicy\": \"NoPad\",\n    \"Watermarks\": [\n      {\n        \"Id\": \"<string>\",\n        \"MaxWidth\": \"px\",\n        \"MaxHeight\": \"px\",\n        \"SizingPolicy\": \"Stretch\",\n        \"HorizontalAlign\": \"Right\",\n        \"HorizontalOffset\": \"65.11%\",\n        \"VerticalAlign\": \"Top\",\n        \"VerticalOffset\": \"39%\",\n        \"Opacity\": \"806.3550126036870509113\",\n        \"Target\": \"Frame\"\n      },\n      {\n        \"Id\": \"<string>\",\n        \"MaxWidth\": \"970%\",\n        \"MaxHeight\": \"px\",\n        \"SizingPolicy\": \"Fit\",\n        \"HorizontalAlign\": \"Right\",\n        \"HorizontalOffset\": \"74.%\",\n        \"VerticalAlign\": \"Center\",\n        \"VerticalOffset\": \"7px\",\n        \"Opacity\": \"42\",\n        \"Target\": \"Frame\"\n      }\n    ]\n  },\n  \"Audio\": {\n    \"Codec\": \"mp2\",\n    \"SampleRate\": \"44100\",\n    \"BitRate\": \"04\",\n    \"Channels\": \"auto\",\n    \"AudioPackingMode\": \"SingleTrack\",\n    \"CodecOptions\": {\n      \"Profile\": \"AAC-LC\",\n      \"BitDepth\": \"16\",\n      \"BitOrder\": \"LittleEndian\",\n      \"Signed\": \"Unsigned\"\n    }\n  },\n  \"Thumbnails\": {\n    \"Format\": \"jpg\",\n    \"Interval\": \"31\",\n    \"Resolution\": \"67211x04647\",\n    \"AspectRatio\": \"16:9\",\n    \"MaxWidth\": \"037\",\n    \"MaxHeight\": \"5536\",\n    \"SizingPolicy\": \"Fit\",\n    \"PaddingPolicy\": \"NoPad\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/2012-09-25/presets",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "2012-09-25",
+                        "presets"
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:20:37.000Z",
+                  "updatedAt": "2026-07-28T10:20:37.000Z",
+                  "uid": "35240-62a85ad5-b381-4262-881c-0368c7ab2f65"
+                },
+                {
+                  "id": "1c1a2e8a-cf4c-468d-9c44-a939c5a98ae2",
+                  "name": "AccessDeniedException",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"Name\": \"<string>\",\n  \"Container\": \"ogg\",\n  \"Description\": \"<string>\",\n  \"Video\": {\n    \"Codec\": \"vp9\",\n    \"CodecOptions\": {\n      \"sint_952\": \"<string>\",\n      \"anima5\": \"<string>\",\n      \"id_c7\": \"<string>\",\n      \"ea_6d5\": \"<string>\",\n      \"et__73\": \"<string>\",\n      \"nisia97\": \"<string>\",\n      \"pariatur_1f\": \"<string>\"\n    },\n    \"KeyframesMaxDist\": \"4558\",\n    \"FixedGOP\": \"true\",\n    \"BitRate\": \"auto\",\n    \"FrameRate\": \"auto\",\n    \"MaxFrameRate\": \"24\",\n    \"Resolution\": \"87x91\",\n    \"AspectRatio\": \"1:1\",\n    \"MaxWidth\": \"3794\",\n    \"MaxHeight\": \"auto\",\n    \"DisplayAspectRatio\": \"4:3\",\n    \"SizingPolicy\": \"ShrinkToFill\",\n    \"PaddingPolicy\": \"NoPad\",\n    \"Watermarks\": [\n      {\n        \"Id\": \"<string>\",\n        \"MaxWidth\": \"px\",\n        \"MaxHeight\": \"px\",\n        \"SizingPolicy\": \"Stretch\",\n        \"HorizontalAlign\": \"Right\",\n        \"HorizontalOffset\": \"65.11%\",\n        \"VerticalAlign\": \"Top\",\n        \"VerticalOffset\": \"39%\",\n        \"Opacity\": \"806.3550126036870509113\",\n        \"Target\": \"Frame\"\n      },\n      {\n        \"Id\": \"<string>\",\n        \"MaxWidth\": \"970%\",\n        \"MaxHeight\": \"px\",\n        \"SizingPolicy\": \"Fit\",\n        \"HorizontalAlign\": \"Right\",\n        \"HorizontalOffset\": \"74.%\",\n        \"VerticalAlign\": \"Center\",\n        \"VerticalOffset\": \"7px\",\n        \"Opacity\": \"42\",\n        \"Target\": \"Frame\"\n      }\n    ]\n  },\n  \"Audio\": {\n    \"Codec\": \"mp2\",\n    \"SampleRate\": \"44100\",\n    \"BitRate\": \"04\",\n    \"Channels\": \"auto\",\n    \"AudioPackingMode\": \"SingleTrack\",\n    \"CodecOptions\": {\n      \"Profile\": \"AAC-LC\",\n      \"BitDepth\": \"16\",\n      \"BitOrder\": \"LittleEndian\",\n      \"Signed\": \"Unsigned\"\n    }\n  },\n  \"Thumbnails\": {\n    \"Format\": \"jpg\",\n    \"Interval\": \"31\",\n    \"Resolution\": \"67211x04647\",\n    \"AspectRatio\": \"16:9\",\n    \"MaxWidth\": \"037\",\n    \"MaxHeight\": \"5536\",\n    \"SizingPolicy\": \"Fit\",\n    \"PaddingPolicy\": \"NoPad\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/2012-09-25/presets",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "2012-09-25",
+                        "presets"
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:20:37.000Z",
+                  "updatedAt": "2026-07-28T10:20:37.000Z",
+                  "uid": "35240-1c1a2e8a-cf4c-468d-9c44-a939c5a98ae2"
+                },
+                {
+                  "id": "296e8829-95e5-4cd4-97b0-6463571140b3",
+                  "name": "LimitExceededException",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"Name\": \"<string>\",\n  \"Container\": \"ogg\",\n  \"Description\": \"<string>\",\n  \"Video\": {\n    \"Codec\": \"vp9\",\n    \"CodecOptions\": {\n      \"sint_952\": \"<string>\",\n      \"anima5\": \"<string>\",\n      \"id_c7\": \"<string>\",\n      \"ea_6d5\": \"<string>\",\n      \"et__73\": \"<string>\",\n      \"nisia97\": \"<string>\",\n      \"pariatur_1f\": \"<string>\"\n    },\n    \"KeyframesMaxDist\": \"4558\",\n    \"FixedGOP\": \"true\",\n    \"BitRate\": \"auto\",\n    \"FrameRate\": \"auto\",\n    \"MaxFrameRate\": \"24\",\n    \"Resolution\": \"87x91\",\n    \"AspectRatio\": \"1:1\",\n    \"MaxWidth\": \"3794\",\n    \"MaxHeight\": \"auto\",\n    \"DisplayAspectRatio\": \"4:3\",\n    \"SizingPolicy\": \"ShrinkToFill\",\n    \"PaddingPolicy\": \"NoPad\",\n    \"Watermarks\": [\n      {\n        \"Id\": \"<string>\",\n        \"MaxWidth\": \"px\",\n        \"MaxHeight\": \"px\",\n        \"SizingPolicy\": \"Stretch\",\n        \"HorizontalAlign\": \"Right\",\n        \"HorizontalOffset\": \"65.11%\",\n        \"VerticalAlign\": \"Top\",\n        \"VerticalOffset\": \"39%\",\n        \"Opacity\": \"806.3550126036870509113\",\n        \"Target\": \"Frame\"\n      },\n      {\n        \"Id\": \"<string>\",\n        \"MaxWidth\": \"970%\",\n        \"MaxHeight\": \"px\",\n        \"SizingPolicy\": \"Fit\",\n        \"HorizontalAlign\": \"Right\",\n        \"HorizontalOffset\": \"74.%\",\n        \"VerticalAlign\": \"Center\",\n        \"VerticalOffset\": \"7px\",\n        \"Opacity\": \"42\",\n        \"Target\": \"Frame\"\n      }\n    ]\n  },\n  \"Audio\": {\n    \"Codec\": \"mp2\",\n    \"SampleRate\": \"44100\",\n    \"BitRate\": \"04\",\n    \"Channels\": \"auto\",\n    \"AudioPackingMode\": \"SingleTrack\",\n    \"CodecOptions\": {\n      \"Profile\": \"AAC-LC\",\n      \"BitDepth\": \"16\",\n      \"BitOrder\": \"LittleEndian\",\n      \"Signed\": \"Unsigned\"\n    }\n  },\n  \"Thumbnails\": {\n    \"Format\": \"jpg\",\n    \"Interval\": \"31\",\n    \"Resolution\": \"67211x04647\",\n    \"AspectRatio\": \"16:9\",\n    \"MaxWidth\": \"037\",\n    \"MaxHeight\": \"5536\",\n    \"SizingPolicy\": \"Fit\",\n    \"PaddingPolicy\": \"NoPad\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/2012-09-25/presets",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "2012-09-25",
+                        "presets"
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:20:37.000Z",
+                  "updatedAt": "2026-07-28T10:20:37.000Z",
+                  "uid": "35240-296e8829-95e5-4cd4-97b0-6463571140b3"
+                },
+                {
+                  "id": "8e1a2bb6-8419-4687-9ae6-3bb61fc2cf56",
+                  "name": "InternalServiceException",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"Name\": \"<string>\",\n  \"Container\": \"ogg\",\n  \"Description\": \"<string>\",\n  \"Video\": {\n    \"Codec\": \"vp9\",\n    \"CodecOptions\": {\n      \"sint_952\": \"<string>\",\n      \"anima5\": \"<string>\",\n      \"id_c7\": \"<string>\",\n      \"ea_6d5\": \"<string>\",\n      \"et__73\": \"<string>\",\n      \"nisia97\": \"<string>\",\n      \"pariatur_1f\": \"<string>\"\n    },\n    \"KeyframesMaxDist\": \"4558\",\n    \"FixedGOP\": \"true\",\n    \"BitRate\": \"auto\",\n    \"FrameRate\": \"auto\",\n    \"MaxFrameRate\": \"24\",\n    \"Resolution\": \"87x91\",\n    \"AspectRatio\": \"1:1\",\n    \"MaxWidth\": \"3794\",\n    \"MaxHeight\": \"auto\",\n    \"DisplayAspectRatio\": \"4:3\",\n    \"SizingPolicy\": \"ShrinkToFill\",\n    \"PaddingPolicy\": \"NoPad\",\n    \"Watermarks\": [\n      {\n        \"Id\": \"<string>\",\n        \"MaxWidth\": \"px\",\n        \"MaxHeight\": \"px\",\n        \"SizingPolicy\": \"Stretch\",\n        \"HorizontalAlign\": \"Right\",\n        \"HorizontalOffset\": \"65.11%\",\n        \"VerticalAlign\": \"Top\",\n        \"VerticalOffset\": \"39%\",\n        \"Opacity\": \"806.3550126036870509113\",\n        \"Target\": \"Frame\"\n      },\n      {\n        \"Id\": \"<string>\",\n        \"MaxWidth\": \"970%\",\n        \"MaxHeight\": \"px\",\n        \"SizingPolicy\": \"Fit\",\n        \"HorizontalAlign\": \"Right\",\n        \"HorizontalOffset\": \"74.%\",\n        \"VerticalAlign\": \"Center\",\n        \"VerticalOffset\": \"7px\",\n        \"Opacity\": \"42\",\n        \"Target\": \"Frame\"\n      }\n    ]\n  },\n  \"Audio\": {\n    \"Codec\": \"mp2\",\n    \"SampleRate\": \"44100\",\n    \"BitRate\": \"04\",\n    \"Channels\": \"auto\",\n    \"AudioPackingMode\": \"SingleTrack\",\n    \"CodecOptions\": {\n      \"Profile\": \"AAC-LC\",\n      \"BitDepth\": \"16\",\n      \"BitOrder\": \"LittleEndian\",\n      \"Signed\": \"Unsigned\"\n    }\n  },\n  \"Thumbnails\": {\n    \"Format\": \"jpg\",\n    \"Interval\": \"31\",\n    \"Resolution\": \"67211x04647\",\n    \"AspectRatio\": \"16:9\",\n    \"MaxWidth\": \"037\",\n    \"MaxHeight\": \"5536\",\n    \"SizingPolicy\": \"Fit\",\n    \"PaddingPolicy\": \"NoPad\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/2012-09-25/presets",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "2012-09-25",
+                        "presets"
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:20:37.000Z",
+                  "updatedAt": "2026-07-28T10:20:37.000Z",
+                  "uid": "35240-8e1a2bb6-8419-4687-9ae6-3bb61fc2cf56"
+                }
+              ],
+              "createdAt": "2026-07-28T10:20:37.000Z",
+              "updatedAt": "2026-07-28T10:20:37.000Z",
+              "uid": "35240-631e4138-c763-4758-af5b-54f3e9dd2fdf"
+            },
+            {
+              "name": "Amazon Elastic Transcoder ListPresets",
+              "id": "7eaf4de9-ab33-4c8f-bb5d-415cdcb9c222",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/2012-09-25/presets?Ascending=false&PageToken=8850042388954-aI3bP7",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "2012-09-25",
+                    "presets"
+                  ],
+                  "query": [
+                    {
+                      "description": "To list presets in chronological order by the date and time that they were created, enter <code>true</code>. To list presets in reverse chronological order, enter <code>false</code>.",
+                      "key": "Ascending",
+                      "value": "false"
+                    },
+                    {
+                      "description": "When Elastic Transcoder returns more than one page of results, use <code>pageToken</code> in subsequent <code>GET</code> requests to get each successive page of results. ",
+                      "key": "PageToken",
+                      "value": "8850042388954-aI3bP7"
+                    }
+                  ]
+                },
+                "description": "The ListPresets operation gets a list of the default presets included with Elastic Transcoder and the presets that you've added in an AWS region."
+              },
+              "response": [
+                {
+                  "id": "515f23f6-0061-4559-88b9-7ddc4a800922",
+                  "name": "Success",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/2012-09-25/presets?Ascending=false&PageToken=8850042388954-aI3bP7",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "2012-09-25",
+                        "presets"
+                      ],
+                      "query": [
+                        {
+                          "description": "To list presets in chronological order by the date and time that they were created, enter <code>true</code>. To list presets in reverse chronological order, enter <code>false</code>.",
+                          "key": "Ascending",
+                          "value": "false"
+                        },
+                        {
+                          "description": "When Elastic Transcoder returns more than one page of results, use <code>pageToken</code> in subsequent <code>GET</code> requests to get each successive page of results. ",
+                          "key": "PageToken",
+                          "value": "8850042388954-aI3bP7"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Presets\": [\n    {\n      \"Id\": \"1016928038414-EAq0r0\",\n      \"Arn\": \"<string>\",\n      \"Name\": \"<string>\",\n      \"Description\": \"<string>\",\n      \"Container\": \"mp3\",\n      \"Audio\": {\n        \"Codec\": \"mp2\",\n        \"SampleRate\": \"192000\",\n        \"BitRate\": \"1\",\n        \"Channels\": \"0\",\n        \"AudioPackingMode\": \"SingleTrack\",\n        \"CodecOptions\": {\n          \"Profile\": \"HE-AACv2\",\n          \"BitDepth\": \"32\",\n          \"BitOrder\": \"LittleEndian\",\n          \"Signed\": \"Signed\"\n        }\n      },\n      \"Video\": {\n        \"Codec\": \"H.264\",\n        \"CodecOptions\": {\n          \"id_60\": \"<string>\",\n          \"in_60a\": \"<string>\",\n          \"ullamco3\": \"<string>\",\n          \"laboris20\": \"<string>\",\n          \"in15\": \"<string>\",\n          \"pariatur_ee5\": \"<string>\",\n          \"veniam17b\": \"<string>\",\n          \"veniam___3\": \"<string>\",\n          \"ad6\": \"<string>\",\n          \"dolore\": \"<string>\",\n          \"nostrud_7ff\": \"<string>\",\n          \"anim_95a\": \"<string>\",\n          \"elit06\": \"<string>\",\n          \"fugiate\": \"<string>\",\n          \"nostrudfc\": \"<string>\",\n          \"dolore6\": \"<string>\",\n          \"officia_a0d\": \"<string>\",\n          \"aliquip96e\": \"<string>\",\n          \"in_18_\": \"<string>\",\n          \"qui_3\": \"<string>\"\n        },\n        \"KeyframesMaxDist\": \"8\",\n        \"FixedGOP\": \"false\",\n        \"BitRate\": \"auto\",\n        \"FrameRate\": \"50\",\n        \"MaxFrameRate\": \"15\",\n        \"Resolution\": \"8696x27\",\n        \"AspectRatio\": \"16:9\",\n        \"MaxWidth\": \"auto\",\n        \"MaxHeight\": \"06\",\n        \"DisplayAspectRatio\": \"3:2\",\n        \"SizingPolicy\": \"ShrinkToFit\",\n        \"PaddingPolicy\": \"NoPad\",\n        \"Watermarks\": [\n          {\n            \"Id\": \"<string>\",\n            \"MaxWidth\": \"px\",\n            \"MaxHeight\": \"292.8628%\",\n            \"SizingPolicy\": \"Fit\",\n            \"HorizontalAlign\": \"Center\",\n            \"HorizontalOffset\": \"48%\",\n            \"VerticalAlign\": \"Bottom\",\n            \"VerticalOffset\": \"5%\",\n            \"Opacity\": \"44.48295450910\",\n            \"Target\": \"Content\"\n          },\n          {\n            \"Id\": \"<string>\",\n            \"MaxWidth\": \"947%\",\n            \"MaxHeight\": \"154px\",\n            \"SizingPolicy\": \"Stretch\",\n            \"HorizontalAlign\": \"Left\",\n            \"HorizontalOffset\": \"9px\",\n            \"VerticalAlign\": \"Center\",\n            \"VerticalOffset\": \"32px\",\n            \"Opacity\": \"762.990482432093\",\n            \"Target\": \"Frame\"\n          }\n        ]\n      },\n      \"Thumbnails\": {\n        \"Format\": \"jpg\",\n        \"Interval\": \"68695\",\n        \"Resolution\": \"60364x42\",\n        \"AspectRatio\": \"4:3\",\n        \"MaxWidth\": \"0810\",\n        \"MaxHeight\": \"5385\",\n        \"SizingPolicy\": \"Stretch\",\n        \"PaddingPolicy\": \"Pad\"\n      },\n      \"Type\": \"Custom\"\n    },\n    {\n      \"Id\": \"3282957715744-HZmZ9Z\",\n      \"Arn\": \"<string>\",\n      \"Name\": \"<string>\",\n      \"Description\": \"<string>\",\n      \"Container\": \"flv\",\n      \"Audio\": {\n        \"Codec\": \"flac\",\n        \"SampleRate\": \"48000\",\n        \"BitRate\": \"8\",\n        \"Channels\": \"auto\",\n        \"AudioPackingMode\": \"OneChannelPerTrackWithMosTo8Tracks\",\n        \"CodecOptions\": {\n          \"Profile\": \"auto\",\n          \"BitDepth\": \"24\",\n          \"BitOrder\": \"LittleEndian\",\n          \"Signed\": \"Unsigned\"\n        }\n      },\n      \"Video\": {\n        \"Codec\": \"vp9\",\n        \"CodecOptions\": {\n          \"inbca\": \"<string>\",\n          \"ea_72a\": \"<string>\",\n          \"Excepteur_f\": \"<string>\"\n        },\n        \"KeyframesMaxDist\": \"68612\",\n        \"FixedGOP\": \"false\",\n        \"BitRate\": \"7632\",\n        \"FrameRate\": \"50\",\n        \"MaxFrameRate\": \"30\",\n        \"Resolution\": \"auto\",\n        \"AspectRatio\": \"3:2\",\n        \"MaxWidth\": \"auto\",\n        \"MaxHeight\": \"44\",\n        \"DisplayAspectRatio\": \"3:2\",\n        \"SizingPolicy\": \"ShrinkToFit\",\n        \"PaddingPolicy\": \"Pad\",\n        \"Watermarks\": [\n          {\n            \"Id\": \"<string>\",\n            \"MaxWidth\": \"684.7%\",\n            \"MaxHeight\": \"76px\",\n            \"SizingPolicy\": \"Fit\",\n            \"HorizontalAlign\": \"Left\",\n            \"HorizontalOffset\": \"px\",\n            \"VerticalAlign\": \"Bottom\",\n            \"VerticalOffset\": \"906px\",\n            \"Opacity\": \"372.97\",\n            \"Target\": \"Frame\"\n          },\n          {\n            \"Id\": \"<string>\",\n            \"MaxWidth\": \"px\",\n            \"MaxHeight\": \"px\",\n            \"SizingPolicy\": \"ShrinkToFit\",\n            \"HorizontalAlign\": \"Left\",\n            \"HorizontalOffset\": \"149.52%\",\n            \"VerticalAlign\": \"Center\",\n            \"VerticalOffset\": \"px\",\n            \"Opacity\": \"7\",\n            \"Target\": \"Frame\"\n          }\n        ]\n      },\n      \"Thumbnails\": {\n        \"Format\": \"png\",\n        \"Interval\": \"561\",\n        \"Resolution\": \"1712x8\",\n        \"AspectRatio\": \"1:1\",\n        \"MaxWidth\": \"auto\",\n        \"MaxHeight\": \"68\",\n        \"SizingPolicy\": \"ShrinkToFit\",\n        \"PaddingPolicy\": \"Pad\"\n      },\n      \"Type\": \"Custom\"\n    }\n  ],\n  \"NextPageToken\": \"0762670341963-hVN53r\"\n}",
+                  "createdAt": "2026-07-28T10:20:37.000Z",
+                  "updatedAt": "2026-07-28T10:20:37.000Z",
+                  "uid": "35240-515f23f6-0061-4559-88b9-7ddc4a800922"
+                },
+                {
+                  "id": "8f10a9bd-ddc1-4f01-97cd-52b0ea5e0c4c",
+                  "name": "ValidationException",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/2012-09-25/presets?Ascending=false&PageToken=8850042388954-aI3bP7",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "2012-09-25",
+                        "presets"
+                      ],
+                      "query": [
+                        {
+                          "description": "To list presets in chronological order by the date and time that they were created, enter <code>true</code>. To list presets in reverse chronological order, enter <code>false</code>.",
+                          "key": "Ascending",
+                          "value": "false"
+                        },
+                        {
+                          "description": "When Elastic Transcoder returns more than one page of results, use <code>pageToken</code> in subsequent <code>GET</code> requests to get each successive page of results. ",
+                          "key": "PageToken",
+                          "value": "8850042388954-aI3bP7"
+                        }
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:20:37.000Z",
+                  "updatedAt": "2026-07-28T10:20:37.000Z",
+                  "uid": "35240-8f10a9bd-ddc1-4f01-97cd-52b0ea5e0c4c"
+                },
+                {
+                  "id": "28e11fa0-355b-438c-8ea8-40194e0f0af6",
+                  "name": "IncompatibleVersionException",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/2012-09-25/presets?Ascending=false&PageToken=8850042388954-aI3bP7",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "2012-09-25",
+                        "presets"
+                      ],
+                      "query": [
+                        {
+                          "description": "To list presets in chronological order by the date and time that they were created, enter <code>true</code>. To list presets in reverse chronological order, enter <code>false</code>.",
+                          "key": "Ascending",
+                          "value": "false"
+                        },
+                        {
+                          "description": "When Elastic Transcoder returns more than one page of results, use <code>pageToken</code> in subsequent <code>GET</code> requests to get each successive page of results. ",
+                          "key": "PageToken",
+                          "value": "8850042388954-aI3bP7"
+                        }
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:20:37.000Z",
+                  "updatedAt": "2026-07-28T10:20:37.000Z",
+                  "uid": "35240-28e11fa0-355b-438c-8ea8-40194e0f0af6"
+                },
+                {
+                  "id": "f5beb6e2-f389-47a6-8a50-4c59cb5e03a9",
+                  "name": "AccessDeniedException",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/2012-09-25/presets?Ascending=false&PageToken=8850042388954-aI3bP7",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "2012-09-25",
+                        "presets"
+                      ],
+                      "query": [
+                        {
+                          "description": "To list presets in chronological order by the date and time that they were created, enter <code>true</code>. To list presets in reverse chronological order, enter <code>false</code>.",
+                          "key": "Ascending",
+                          "value": "false"
+                        },
+                        {
+                          "description": "When Elastic Transcoder returns more than one page of results, use <code>pageToken</code> in subsequent <code>GET</code> requests to get each successive page of results. ",
+                          "key": "PageToken",
+                          "value": "8850042388954-aI3bP7"
+                        }
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:20:37.000Z",
+                  "updatedAt": "2026-07-28T10:20:37.000Z",
+                  "uid": "35240-f5beb6e2-f389-47a6-8a50-4c59cb5e03a9"
+                },
+                {
+                  "id": "feb0c136-6047-4d4c-a84b-130c0daa239b",
+                  "name": "InternalServiceException",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/2012-09-25/presets?Ascending=false&PageToken=8850042388954-aI3bP7",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "2012-09-25",
+                        "presets"
+                      ],
+                      "query": [
+                        {
+                          "description": "To list presets in chronological order by the date and time that they were created, enter <code>true</code>. To list presets in reverse chronological order, enter <code>false</code>.",
+                          "key": "Ascending",
+                          "value": "false"
+                        },
+                        {
+                          "description": "When Elastic Transcoder returns more than one page of results, use <code>pageToken</code> in subsequent <code>GET</code> requests to get each successive page of results. ",
+                          "key": "PageToken",
+                          "value": "8850042388954-aI3bP7"
+                        }
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:20:37.000Z",
+                  "updatedAt": "2026-07-28T10:20:37.000Z",
+                  "uid": "35240-feb0c136-6047-4d4c-a84b-130c0daa239b"
+                }
+              ],
+              "createdAt": "2026-07-28T10:20:37.000Z",
+              "updatedAt": "2026-07-28T10:20:37.000Z",
+              "uid": "35240-7eaf4de9-ab33-4c8f-bb5d-415cdcb9c222"
+            }
+          ],
+          "id": "b7818279-c666-425b-a7d7-0ffaadc9670f",
+          "createdAt": "2026-07-28T10:20:37.000Z",
+          "updatedAt": "2026-07-28T10:20:37.000Z",
+          "uid": "35240-b7818279-c666-425b-a7d7-0ffaadc9670f"
+        }
+      ],
+      "id": "965bde6a-f581-4731-bda1-e8c7c88da0f7",
+      "createdAt": "2026-07-28T10:20:37.000Z",
+      "updatedAt": "2026-07-28T10:20:37.000Z",
+      "uid": "35240-965bde6a-f581-4731-bda1-e8c7c88da0f7"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "region",
+      "value": "us-east-1"
+    },
+    {
+      "key": "baseUrl",
+      "value": "http://elastictranscoder.{{region}}.amazonaws.com"
+    }
+  ]
+}

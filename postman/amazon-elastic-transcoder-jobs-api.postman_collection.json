@@ -1,0 +1,1845 @@
+{
+  "info": {
+    "_postman_id": "36b67bc0-0beb-41d9-a57b-9a317b4b4d54",
+    "name": "Amazon Elastic Transcoder Jobs API",
+    "description": "<fullname>AWS Elastic Transcoder Service</fullname> <p>The AWS Elastic Transcoder Service.</p>\n\nContact Support:\n Name: Mike Ralphson\n Email: mike.ralphson@gmail.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T10:20:16.000Z",
+    "updatedAt": "2026-07-28T10:20:16.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-36b67bc0-0beb-41d9-a57b-9a317b4b4d54"
+  },
+  "item": [
+    {
+      "name": "2012-09-25",
+      "item": [
+        {
+          "name": "jobs",
+          "item": [
+            {
+              "name": "{Id}",
+              "item": [
+                {
+                  "name": "Amazon Elastic Transcoder CancelJob",
+                  "id": "1bd5ff71-d0ba-4eb6-9988-b07004d0306a",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/2012-09-25/jobs/:Id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "2012-09-25",
+                        "jobs",
+                        ":Id"
+                      ],
+                      "variable": [
+                        {
+                          "id": "339b3abf-8a96-453d-be66-18b871e1a98b",
+                          "key": "Id",
+                          "value": "8261475030122-Dpqeo3",
+                          "description": "(Required) <p>The identifier of the job that you want to cancel.</p> <p>To get a list of the jobs (including their <code>jobId</code>) that have a status of <code>Submitted</code>, use the <a>ListJobsByStatus</a> API action.</p>"
+                        }
+                      ]
+                    },
+                    "description": "<p>The CancelJob operation cancels an unfinished job.</p> <note> <p>You can only cancel a job that has a status of <code>Submitted</code>. To prevent a pipeline from starting to process a job while you're getting the job identifier, use <a>UpdatePipelineStatus</a> to temporarily pause the pipeline.</p> </note>"
+                  },
+                  "response": [
+                    {
+                      "id": "4d116392-cc02-40e7-bba8-18337e45cbf7",
+                      "name": "Success",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "X-Amz-Content-Sha256",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Date",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Algorithm",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Credential",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Security-Token",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Signature",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-SignedHeaders",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/2012-09-25/jobs/:Id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "2012-09-25",
+                            "jobs",
+                            ":Id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "Id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Accepted",
+                      "code": 202,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{}",
+                      "createdAt": "2026-07-28T10:20:16.000Z",
+                      "updatedAt": "2026-07-28T10:20:16.000Z",
+                      "uid": "35240-4d116392-cc02-40e7-bba8-18337e45cbf7"
+                    },
+                    {
+                      "id": "6ab6d559-4a0c-4ab7-9102-eee7a96a7ce7",
+                      "name": "ValidationException",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "X-Amz-Content-Sha256",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Date",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Algorithm",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Credential",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Security-Token",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Signature",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-SignedHeaders",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/2012-09-25/jobs/:Id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "2012-09-25",
+                            "jobs",
+                            ":Id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "Id"
+                            }
+                          ]
+                        }
+                      },
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{}",
+                      "createdAt": "2026-07-28T10:20:16.000Z",
+                      "updatedAt": "2026-07-28T10:20:16.000Z",
+                      "uid": "35240-6ab6d559-4a0c-4ab7-9102-eee7a96a7ce7"
+                    },
+                    {
+                      "id": "1da5e819-6b9f-422a-8b32-9210f6ee5523",
+                      "name": "IncompatibleVersionException",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "X-Amz-Content-Sha256",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Date",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Algorithm",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Credential",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Security-Token",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Signature",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-SignedHeaders",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/2012-09-25/jobs/:Id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "2012-09-25",
+                            "jobs",
+                            ":Id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "Id"
+                            }
+                          ]
+                        }
+                      },
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{}",
+                      "createdAt": "2026-07-28T10:20:16.000Z",
+                      "updatedAt": "2026-07-28T10:20:16.000Z",
+                      "uid": "35240-1da5e819-6b9f-422a-8b32-9210f6ee5523"
+                    },
+                    {
+                      "id": "0a2ec467-0f4c-4a71-a18f-36a13cd1cb90",
+                      "name": "ResourceNotFoundException",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "X-Amz-Content-Sha256",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Date",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Algorithm",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Credential",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Security-Token",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Signature",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-SignedHeaders",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/2012-09-25/jobs/:Id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "2012-09-25",
+                            "jobs",
+                            ":Id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "Id"
+                            }
+                          ]
+                        }
+                      },
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{}",
+                      "createdAt": "2026-07-28T10:20:16.000Z",
+                      "updatedAt": "2026-07-28T10:20:16.000Z",
+                      "uid": "35240-0a2ec467-0f4c-4a71-a18f-36a13cd1cb90"
+                    },
+                    {
+                      "id": "1bd99216-f4aa-4973-bf43-803ba8556a82",
+                      "name": "ResourceInUseException",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "X-Amz-Content-Sha256",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Date",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Algorithm",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Credential",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Security-Token",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Signature",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-SignedHeaders",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/2012-09-25/jobs/:Id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "2012-09-25",
+                            "jobs",
+                            ":Id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "Id"
+                            }
+                          ]
+                        }
+                      },
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{}",
+                      "createdAt": "2026-07-28T10:20:16.000Z",
+                      "updatedAt": "2026-07-28T10:20:16.000Z",
+                      "uid": "35240-1bd99216-f4aa-4973-bf43-803ba8556a82"
+                    },
+                    {
+                      "id": "fccb74a0-a2ff-420f-bc74-c778be08b304",
+                      "name": "AccessDeniedException",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "X-Amz-Content-Sha256",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Date",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Algorithm",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Credential",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Security-Token",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Signature",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-SignedHeaders",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/2012-09-25/jobs/:Id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "2012-09-25",
+                            "jobs",
+                            ":Id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "Id"
+                            }
+                          ]
+                        }
+                      },
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{}",
+                      "createdAt": "2026-07-28T10:20:16.000Z",
+                      "updatedAt": "2026-07-28T10:20:16.000Z",
+                      "uid": "35240-fccb74a0-a2ff-420f-bc74-c778be08b304"
+                    },
+                    {
+                      "id": "710767d3-6044-4b05-91dd-02d795a5f0ba",
+                      "name": "InternalServiceException",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "X-Amz-Content-Sha256",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Date",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Algorithm",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Credential",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Security-Token",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Signature",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-SignedHeaders",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/2012-09-25/jobs/:Id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "2012-09-25",
+                            "jobs",
+                            ":Id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "Id"
+                            }
+                          ]
+                        }
+                      },
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{}",
+                      "createdAt": "2026-07-28T10:20:16.000Z",
+                      "updatedAt": "2026-07-28T10:20:16.000Z",
+                      "uid": "35240-710767d3-6044-4b05-91dd-02d795a5f0ba"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T10:20:16.000Z",
+                  "updatedAt": "2026-07-28T10:20:16.000Z",
+                  "uid": "35240-1bd5ff71-d0ba-4eb6-9988-b07004d0306a"
+                },
+                {
+                  "name": "Amazon Elastic Transcoder ReadJob",
+                  "id": "091330a1-c6bc-49b1-a8b5-f9ce01afef56",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/2012-09-25/jobs/:Id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "2012-09-25",
+                        "jobs",
+                        ":Id"
+                      ],
+                      "variable": [
+                        {
+                          "id": "be6d719c-c482-43c7-8be0-dff59ac70601",
+                          "key": "Id",
+                          "value": "8261475030122-Dpqeo3",
+                          "description": "(Required) The identifier of the job for which you want to get detailed information."
+                        }
+                      ]
+                    },
+                    "description": "The ReadJob operation returns detailed information about a job."
+                  },
+                  "response": [
+                    {
+                      "id": "e4dcaa45-0694-4940-91b4-3f2e7220d1c6",
+                      "name": "Success",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "X-Amz-Content-Sha256",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Date",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Algorithm",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Credential",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Security-Token",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Signature",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-SignedHeaders",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/2012-09-25/jobs/:Id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "2012-09-25",
+                            "jobs",
+                            ":Id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "Id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Job\": {\n    \"Id\": \"4206913153292-TzajjT\",\n    \"Arn\": \"<string>\",\n    \"PipelineId\": \"0487126279487-2OfIKm\",\n    \"Input\": {\n      \"Key\": \"<string>\",\n      \"FrameRate\": \"23d97\",\n      \"Resolution\": \"103x67455\",\n      \"AspectRatio\": \"auto\",\n      \"Interlaced\": \"true\",\n      \"Container\": \"wav\",\n      \"Encryption\": {\n        \"Mode\": \"s3-aws-kms\",\n        \"Key\": \"\",\n        \"KeyMd5\": \"lud7KfvHumfQrwU6wlaNzV2=\",\n        \"InitializationVector\": \"<string>\"\n      },\n      \"TimeSpan\": {\n        \"StartTime\": \"87900\",\n        \"Duration\": \"5250.\"\n      },\n      \"InputCaptions\": {\n        \"MergePolicy\": \"MergeRetain\",\n        \"CaptionSources\": [\n          {\n            \"Key\": \"<string>\",\n            \"Language\": \"<string>\",\n            \"TimeOffset\": \"20:10:37\",\n            \"Label\": \"<string>\",\n            \"Encryption\": {\n              \"Mode\": \"aes-gcm\",\n              \"Key\": \"PeXtClxK4uhyGzch8T040OzjxkpY/bFHQE1gwASbODt=\",\n              \"KeyMd5\": \"\",\n              \"InitializationVector\": \"<string>\"\n            }\n          }\n        ]\n      },\n      \"DetectedProperties\": {\n        \"Width\": \"<integer>\",\n        \"Height\": \"<integer>\",\n        \"FrameRate\": \"021\",\n        \"FileSize\": \"<integer>\",\n        \"DurationMillis\": \"<integer>\"\n      }\n    },\n    \"Inputs\": [\n      {\n        \"Key\": \"<string>\",\n        \"FrameRate\": \"30\",\n        \"Resolution\": \"447x55\",\n        \"AspectRatio\": \"16:9\",\n        \"Interlaced\": \"auto\",\n        \"Container\": \"auto\",\n        \"Encryption\": {\n          \"Mode\": \"aes-gcm\",\n          \"Key\": \"LDUBFqSo4lJff9sRKURlWek7pvh4hdJT1wv=\",\n          \"KeyMd5\": \"\",\n          \"InitializationVector\": \"<string>\"\n        },\n        \"TimeSpan\": {\n          \"StartTime\": \"72625.314\",\n          \"Duration\": \"21:1:22.0\"\n        },\n        \"InputCaptions\": {\n          \"MergePolicy\": \"MergeOverride\",\n          \"CaptionSources\": [\n            {\n              \"Key\": \"<string>\",\n              \"Language\": \"<string>\",\n              \"TimeOffset\": \"602\",\n              \"Label\": \"<string>\",\n              \"Encryption\": {\n                \"Mode\": \"aes-cbc-pkcs7\",\n                \"Key\": \"\",\n                \"KeyMd5\": \"\",\n                \"InitializationVector\": \"<string>\"\n              }\n            }\n          ]\n        },\n        \"DetectedProperties\": {\n          \"Width\": \"<integer>\",\n          \"Height\": \"<integer>\",\n          \"FrameRate\": \"9325\",\n          \"FileSize\": \"<integer>\",\n          \"DurationMillis\": \"<integer>\"\n        }\n      }\n    ],\n    \"Output\": {\n      \"Id\": \"<string>\",\n      \"Key\": \"<string>\",\n      \"ThumbnailPattern\": \"ie1o{peqnT{count},u\\\"FP\",\n      \"ThumbnailEncryption\": {\n        \"Mode\": \"s3-aws-kms\",\n        \"Key\": \"\",\n        \"KeyMd5\": \"aSgxtJCD\",\n        \"InitializationVector\": \"<string>\"\n      },\n      \"Rotate\": \"auto\",\n      \"PresetId\": \"6546479368239-Ovf0nb\",\n      \"SegmentDuration\": \"3\",\n      \"Status\": \"Submitted\",\n      \"StatusDetail\": \"<string>\",\n      \"Duration\": \"<integer>\",\n      \"Width\": \"<integer>\",\n      \"Height\": \"<integer>\",\n      \"FrameRate\": \"9742.236\",\n      \"FileSize\": \"<integer>\",\n      \"DurationMillis\": \"<integer>\",\n      \"Watermarks\": [\n        {\n          \"PresetWatermarkId\": \"<string>\",\n          \"InputKey\": \"&jwr/sm\\\"qMO{!VH#W\\\\//%a:Rl6qt\\\\@JSN~,OXD_>>s5vNj!/3qfUXczXf/;9dx-{e Q)36j!`Nz`P[f\\\"..0Jq8zZt|gVg%L7bwrjpg\",\n          \"Encryption\": {\n            \"Mode\": \"aes-gcm\",\n            \"Key\": \"7/oUwi80cOmUVFeRnEUu\",\n            \"KeyMd5\": \"\",\n            \"InitializationVector\": \"<string>\"\n          }\n        }\n      ],\n      \"AlbumArt\": {\n        \"MergePolicy\": \"Replace\",\n        \"Artwork\": [\n          {\n            \"InputKey\": \"1=&HGE\\\\B>Ro3u8FeEDYOr!LIUW{rcKxI&{|ti1&?_q4,c2mvE,3$W-R)urwYNbZ|4f.Rg5j{ME\\\"T3x0KKutfV+'~fpi5]cHMF p&\\\\ 5|1,\\\",0'^JRJsfcB[9b65u''1,:ry|<4FmU;Dqtkh=3zq]sPi_gY\\\"\\\\.`H[$ahth'\\\"P>7GH<'?w(ZQ?[CK-Q,>AlOV,~`5&S$k\\\\=rcWl'-/j/|)=xr,|tZO9CVp[A,IeELG`su^.K{M.@l`EHRs%(#'x(X:\",\n            \"MaxWidth\": \"auto\",\n            \"MaxHeight\": \"auto\",\n            \"SizingPolicy\": \"ShrinkToFill\",\n            \"PaddingPolicy\": \"NoPad\",\n            \"AlbumArtFormat\": \"jpg\",\n            \"Encryption\": {\n              \"Mode\": \"aes-gcm\",\n              \"Key\": \"OjVxW9sEq9XrTrTzSoambN+6\",\n              \"KeyMd5\": \"\",\n              \"InitializationVector\": \"<string>\"\n            }\n          }\n        ]\n      },\n      \"Composition\": [\n        {\n          \"TimeSpan\": {\n            \"StartTime\": \"389.930\",\n            \"Duration\": \"21:6:01.\"\n          }\n        }\n      ],\n      \"Captions\": {\n        \"MergePolicy\": \"Override\",\n        \"CaptionSources\": [\n          {\n            \"Key\": \"<string>\",\n            \"Language\": \"<string>\",\n            \"TimeOffset\": \"49\",\n            \"Label\": \"<string>\",\n            \"Encryption\": {\n              \"Mode\": \"aes-gcm\",\n              \"Key\": \"KXjonSvnHJKWzInIGVfnEnw0qKgfDSKqIavbsoIA\",\n              \"KeyMd5\": \"I609NJBcylAdX5RwsVuzEvx=\",\n              \"InitializationVector\": \"<string>\"\n            }\n          }\n        ],\n        \"CaptionFormats\": [\n          {\n            \"Format\": \"dfxp\",\n            \"Pattern\": \";z{language}U9y+].Q\",\n            \"Encryption\": {\n              \"Mode\": \"s3\",\n              \"Key\": \"iYfX7mTxuyPJJ77i1qWgDEuS\",\n              \"KeyMd5\": \"WBHBhxP/67G5ldn8Xditxt0uOwoY9FpIV8tVDCP4HCH=\",\n              \"InitializationVector\": \"<string>\"\n            }\n          }\n        ]\n      },\n      \"Encryption\": {\n        \"Mode\": \"s3\",\n        \"Key\": \"RZQUHbX3BvobKREzzlok\",\n        \"KeyMd5\": \"\",\n        \"InitializationVector\": \"<string>\"\n      },\n      \"AppliedColorSpaceConversion\": \"<string>\"\n    },\n    \"Outputs\": [\n      {\n        \"Id\": \"<string>\",\n        \"Key\": \"<string>\",\n        \"ThumbnailPattern\": \"h2{count}(?cX\",\n        \"ThumbnailEncryption\": {\n          \"Mode\": \"aes-cbc-pkcs7\",\n          \"Key\": \"3K5xhJVKTo==\",\n          \"KeyMd5\": \"MGgxNMk5c2nPc6H2HfI4vbojvbZ=\",\n          \"InitializationVector\": \"<string>\"\n        },\n        \"Rotate\": \"270\",\n        \"PresetId\": \"5102157368932-vxNf1D\",\n        \"SegmentDuration\": \"05.251\",\n        \"Status\": \"Complete\",\n        \"StatusDetail\": \"<string>\",\n        \"Duration\": \"<integer>\",\n        \"Width\": \"<integer>\",\n        \"Height\": \"<integer>\",\n        \"FrameRate\": \"752.8\",\n        \"FileSize\": \"<integer>\",\n        \"DurationMillis\": \"<integer>\",\n        \"Watermarks\": [\n          {\n            \"PresetWatermarkId\": \"<string>\",\n            \"InputKey\": \"1e2IW.3`F0C]N39/ga-89ZucS#AS'R6g+HBtMpdIPu>?=%kn`3A2(6uyR F'h Z5?4o+/f:5`>9w$vpH7Uqk-qrR$|/,tq v$M%[o|D\\\"%D\\\\swuJ.-\\\\xa0i\\\"cwk}~P5Q&C]eC~ksbGf6FlTK{v/Lv&&U0*W9iLw lrtKh&e_M[^`pX|m/62A&1|1}[TZun, )\\\"!e^I:Rz/\\\"p8W=g\\\"Qt;Z$1Hbe$pCTZDc5n-CqS>2\\\"YRpHiFXqk5;Z~ae%CBM!C%0\",\n            \"Encryption\": {\n              \"Mode\": \"aes-gcm\",\n              \"Key\": \"kQEW5oH7sBdthB==\",\n              \"KeyMd5\": \"M5qbxeJjYEVhAC9g9Hp0QJcfDuZN\",\n              \"InitializationVector\": \"<string>\"\n            }\n          }\n        ],\n        \"AlbumArt\": {\n          \"MergePolicy\": \"Prepend\",\n          \"Artwork\": [\n            {\n              \"InputKey\": \"26rY:C[$t\\\\XJmh;9FIxb~I5HE!&X,c7$<B*Y$Ct>T_XgLR}aL48Q3NL1n*,_)`-@:W~SrmX*$6Ai%h?=\\\\V\\\"Vz&l]xz=JlqC_F9UrFkr^5sXWE)7\\\"YJHqD80*Cz&uqyZfj{Xr,^t>^AJW}Qo&Phr)Q(29W69\\\\U4^s*y\\\\pRR?Ns.p#?;La+?JMy}{AnrYe~A~nHBBH1_rfltaed\\\\^UO%]QJ(\\\\`;v3#XK{Yx^o%O:!rzV85$U`YXC[2a_^LpX3B;'|r\",\n              \"MaxWidth\": \"auto\",\n              \"MaxHeight\": \"219\",\n              \"SizingPolicy\": \"Keep\",\n              \"PaddingPolicy\": \"Pad\",\n              \"AlbumArtFormat\": \"jpg\",\n              \"Encryption\": {\n                \"Mode\": \"aes-gcm\",\n                \"Key\": \"\",\n                \"KeyMd5\": \"\",\n                \"InitializationVector\": \"<string>\"\n              }\n            }\n          ]\n        },\n        \"Composition\": [\n          {\n            \"TimeSpan\": {\n              \"StartTime\": \"22:1\",\n              \"Duration\": \"955.3\"\n            }\n          }\n        ],\n        \"Captions\": {\n          \"MergePolicy\": \"MergeOverride\",\n          \"CaptionSources\": [\n            {\n              \"Key\": \"<string>\",\n              \"Language\": \"<string>\",\n              \"TimeOffset\": \"04\",\n              \"Label\": \"<string>\",\n              \"Encryption\": {\n                \"Mode\": \"aes-ctr\",\n                \"Key\": \"\",\n                \"KeyMd5\": \"cln3nTxxU0w3yuUG\",\n                \"InitializationVector\": \"<string>\"\n              }\n            }\n          ],\n          \"CaptionFormats\": [\n            {\n              \"Format\": \"mov-text\",\n              \"Pattern\": \"{@r!oAe}:O{language}>a-<'\",\n              \"Encryption\": {\n                \"Mode\": \"s3\",\n                \"Key\": \"\",\n                \"KeyMd5\": \"\",\n                \"InitializationVector\": \"<string>\"\n              }\n            }\n          ]\n        },\n        \"Encryption\": {\n          \"Mode\": \"aes-ctr\",\n          \"Key\": \"\",\n          \"KeyMd5\": \"\",\n          \"InitializationVector\": \"<string>\"\n        },\n        \"AppliedColorSpaceConversion\": \"<string>\"\n      }\n    ],\n    \"OutputKeyPrefix\": \"<string>\",\n    \"Playlists\": [\n      {\n        \"Name\": \"<string>\",\n        \"Format\": \"MPEG-DASH\",\n        \"OutputKeys\": [\n          \"<string>\"\n        ],\n        \"HlsContentProtection\": {\n          \"Method\": \"aes-128\",\n          \"Key\": \"\",\n          \"KeyMd5\": \"\",\n          \"InitializationVector\": \"<string>\",\n          \"LicenseAcquisitionUrl\": \"<string>\",\n          \"KeyStoragePolicy\": \"WithVariantPlaylists\"\n        },\n        \"PlayReadyDrm\": {\n          \"Format\": \"microsoft\",\n          \"Key\": \"j6Aaq5jEY9MMA4h+fEoWTuxVEH7OLKO=\",\n          \"KeyMd5\": \"lfvzMXIBMbcsy8Ea\",\n          \"KeyId\": \"3BAAfaC3DBd6cEe55d64ad48197350eC\",\n          \"InitializationVector\": \"<string>\",\n          \"LicenseAcquisitionUrl\": \"<string>\"\n        },\n        \"Status\": \"Error\",\n        \"StatusDetail\": \"<string>\"\n      }\n    ],\n    \"Status\": \"Complete\",\n    \"UserMetadata\": {\n      \"qui_6\": \"<string>\",\n      \"Duis_f7_\": \"<string>\"\n    },\n    \"Timing\": {\n      \"SubmitTimeMillis\": \"<integer>\",\n      \"StartTimeMillis\": \"<integer>\",\n      \"FinishTimeMillis\": \"<integer>\"\n    }\n  }\n}",
+                      "createdAt": "2026-07-28T10:20:16.000Z",
+                      "updatedAt": "2026-07-28T10:20:16.000Z",
+                      "uid": "35240-e4dcaa45-0694-4940-91b4-3f2e7220d1c6"
+                    },
+                    {
+                      "id": "723d9a19-8d61-43ef-a056-1fe7588202b0",
+                      "name": "ValidationException",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "X-Amz-Content-Sha256",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Date",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Algorithm",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Credential",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Security-Token",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Signature",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-SignedHeaders",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/2012-09-25/jobs/:Id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "2012-09-25",
+                            "jobs",
+                            ":Id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "Id"
+                            }
+                          ]
+                        }
+                      },
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{}",
+                      "createdAt": "2026-07-28T10:20:16.000Z",
+                      "updatedAt": "2026-07-28T10:20:16.000Z",
+                      "uid": "35240-723d9a19-8d61-43ef-a056-1fe7588202b0"
+                    },
+                    {
+                      "id": "f2ddbde3-6da4-40f6-8e82-0365d58c7979",
+                      "name": "IncompatibleVersionException",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "X-Amz-Content-Sha256",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Date",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Algorithm",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Credential",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Security-Token",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Signature",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-SignedHeaders",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/2012-09-25/jobs/:Id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "2012-09-25",
+                            "jobs",
+                            ":Id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "Id"
+                            }
+                          ]
+                        }
+                      },
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{}",
+                      "createdAt": "2026-07-28T10:20:16.000Z",
+                      "updatedAt": "2026-07-28T10:20:16.000Z",
+                      "uid": "35240-f2ddbde3-6da4-40f6-8e82-0365d58c7979"
+                    },
+                    {
+                      "id": "a1481018-a37b-4bf1-9974-6f6eb5fcba8d",
+                      "name": "ResourceNotFoundException",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "X-Amz-Content-Sha256",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Date",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Algorithm",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Credential",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Security-Token",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Signature",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-SignedHeaders",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/2012-09-25/jobs/:Id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "2012-09-25",
+                            "jobs",
+                            ":Id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "Id"
+                            }
+                          ]
+                        }
+                      },
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{}",
+                      "createdAt": "2026-07-28T10:20:16.000Z",
+                      "updatedAt": "2026-07-28T10:20:16.000Z",
+                      "uid": "35240-a1481018-a37b-4bf1-9974-6f6eb5fcba8d"
+                    },
+                    {
+                      "id": "9191f2cc-b987-41d7-a9e1-9beb06f1757e",
+                      "name": "AccessDeniedException",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "X-Amz-Content-Sha256",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Date",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Algorithm",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Credential",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Security-Token",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Signature",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-SignedHeaders",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/2012-09-25/jobs/:Id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "2012-09-25",
+                            "jobs",
+                            ":Id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "Id"
+                            }
+                          ]
+                        }
+                      },
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{}",
+                      "createdAt": "2026-07-28T10:20:16.000Z",
+                      "updatedAt": "2026-07-28T10:20:16.000Z",
+                      "uid": "35240-9191f2cc-b987-41d7-a9e1-9beb06f1757e"
+                    },
+                    {
+                      "id": "32c5e779-cda8-4414-b39d-1ef871803475",
+                      "name": "InternalServiceException",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "X-Amz-Content-Sha256",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Date",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Algorithm",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Credential",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Security-Token",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Signature",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-SignedHeaders",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/2012-09-25/jobs/:Id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "2012-09-25",
+                            "jobs",
+                            ":Id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "Id"
+                            }
+                          ]
+                        }
+                      },
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{}",
+                      "createdAt": "2026-07-28T10:20:16.000Z",
+                      "updatedAt": "2026-07-28T10:20:16.000Z",
+                      "uid": "35240-32c5e779-cda8-4414-b39d-1ef871803475"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T10:20:16.000Z",
+                  "updatedAt": "2026-07-28T10:20:16.000Z",
+                  "uid": "35240-091330a1-c6bc-49b1-a8b5-f9ce01afef56"
+                }
+              ],
+              "id": "930e9a97-97c6-4fde-a9d6-8e80e713c1d8",
+              "createdAt": "2026-07-28T10:20:16.000Z",
+              "updatedAt": "2026-07-28T10:20:16.000Z",
+              "uid": "35240-930e9a97-97c6-4fde-a9d6-8e80e713c1d8"
+            },
+            {
+              "name": "Amazon Elastic Transcoder CreateJob",
+              "id": "c46b4ebf-469e-4d15-8f9b-5a6e4c2316cd",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"PipelineId\": \"2865168124720-bhlpJt\",\n  \"Input\": {\n    \"Key\": \"<string>\",\n    \"FrameRate\": \"60\",\n    \"Resolution\": \"auto\",\n    \"AspectRatio\": \"1:1\",\n    \"Interlaced\": \"false\",\n    \"Container\": \"mpeg-ps\",\n    \"Encryption\": {\n      \"Mode\": \"aes-cbc-pkcs7\",\n      \"Key\": \"UbPeroTmiIXa8vP2QZpOt3MWbzS6fcn0uAqey3hu\",\n      \"KeyMd5\": \"\",\n      \"InitializationVector\": \"<string>\"\n    },\n    \"TimeSpan\": {\n      \"StartTime\": \"54578\",\n      \"Duration\": \"08040\"\n    },\n    \"InputCaptions\": {\n      \"MergePolicy\": \"Override\",\n      \"CaptionSources\": [\n        {\n          \"Key\": \"<string>\",\n          \"Language\": \"<string>\",\n          \"TimeOffset\": \"07:7:4\",\n          \"Label\": \"<string>\",\n          \"Encryption\": {\n            \"Mode\": \"aes-cbc-pkcs7\",\n            \"Key\": \"VpiOK4XDGl==\",\n            \"KeyMd5\": \"ot167yGH3Jm60mIiL3oSkI4=\",\n            \"InitializationVector\": \"<string>\"\n          }\n        }\n      ]\n    },\n    \"DetectedProperties\": {\n      \"Width\": \"<integer>\",\n      \"Height\": \"<integer>\",\n      \"FrameRate\": \"47\",\n      \"FileSize\": \"<integer>\",\n      \"DurationMillis\": \"<integer>\"\n    }\n  },\n  \"Inputs\": [\n    {\n      \"Key\": \"<string>\",\n      \"FrameRate\": \"30\",\n      \"Resolution\": \"23x23563\",\n      \"AspectRatio\": \"3:2\",\n      \"Interlaced\": \"auto\",\n      \"Container\": \"wav\",\n      \"Encryption\": {\n        \"Mode\": \"s3\",\n        \"Key\": \"S318VZDG\",\n        \"KeyMd5\": \"kW/xemN5C1wK+aLCSlXxJjFxeWAYiMLw0p7I\",\n        \"InitializationVector\": \"<string>\"\n      },\n      \"TimeSpan\": {\n        \"StartTime\": \"64.191\",\n        \"Duration\": \"1:7\"\n      },\n      \"InputCaptions\": {\n        \"MergePolicy\": \"Override\",\n        \"CaptionSources\": [\n          {\n            \"Key\": \"<string>\",\n            \"Language\": \"<string>\",\n            \"TimeOffset\": \"30\",\n            \"Label\": \"<string>\",\n            \"Encryption\": {\n              \"Mode\": \"aes-gcm\",\n              \"Key\": \"\",\n              \"KeyMd5\": \"\",\n              \"InitializationVector\": \"<string>\"\n            }\n          }\n        ]\n      },\n      \"DetectedProperties\": {\n        \"Width\": \"<integer>\",\n        \"Height\": \"<integer>\",\n        \"FrameRate\": \"681.250\",\n        \"FileSize\": \"<integer>\",\n        \"DurationMillis\": \"<integer>\"\n      }\n    }\n  ],\n  \"Output\": {\n    \"Key\": \"<string>\",\n    \"ThumbnailPattern\": \"{count}l-V>\\\"ink\",\n    \"ThumbnailEncryption\": {\n      \"Mode\": \"aes-ctr\",\n      \"Key\": \"\",\n      \"KeyMd5\": \"\",\n      \"InitializationVector\": \"<string>\"\n    },\n    \"Rotate\": \"0\",\n    \"PresetId\": \"0488729810017-R6Ln9K\",\n    \"SegmentDuration\": \"37.09371\",\n    \"Watermarks\": [\n      {\n        \"PresetWatermarkId\": \"<string>\",\n        \"InputKey\": \"JJ\\\\a471hY\\\"!9G#;Zwn.I]qP8[OdDe:#O_iQ\\\\Er>^qci^FcaaKL<Nf@(#eSggP/5vO`Gp&/-pIv4Kc,>/b37Cam(;,tpD%bVI+H-6%FA7Uo _VvB.%r;um5#/S?D09b8d69O`H '5.^Z^{Q++Llp68*8>=#,Ac?[}{j[LF+h|y+@LJ,%c+IsHq%(Y%{cBPeLtq-M#_f`XKw2+^s> BtRO]3H+j;Tc-LVC8@-]t0MgjkbQ\\\\cxaMi5}lC!s39Z4}r4U\",\n        \"Encryption\": {\n          \"Mode\": \"s3-aws-kms\",\n          \"Key\": \"\",\n          \"KeyMd5\": \"hreRo8rALyQVHqEg912lB4pD6OHLs6Xschr=\",\n          \"InitializationVector\": \"<string>\"\n        }\n      }\n    ],\n    \"AlbumArt\": {\n      \"MergePolicy\": \"Replace\",\n      \"Artwork\": [\n        {\n          \"InputKey\": \"gdd(n7]s?:y}j#PEllD7F( tn%<6:E3dF?{\\\\9N68pC'@[FboS?N0BG?WcSpnuM`z9U_J:d1SPud_cM':%ryieDq:q:Q4huE1xhiSb<[z:'yQx+@*raUXD^6EV,8?\\\"`Zboi~PQ#nH59Tmvnx0V<{d|gdzHE*;P/>G;*yL %]z*'~p/HmM]&A4Xf52i *8GJb$sa$HMFvhugu{EU++)Usx|^-c[#\\\"X$ViPN/~dR%e>Ac;PGJ.mThD19$>YF&?&88L2\",\n          \"MaxWidth\": \"auto\",\n          \"MaxHeight\": \"auto\",\n          \"SizingPolicy\": \"Stretch\",\n          \"PaddingPolicy\": \"Pad\",\n          \"AlbumArtFormat\": \"jpg\",\n          \"Encryption\": {\n            \"Mode\": \"aes-cbc-pkcs7\",\n            \"Key\": \"YOEEElQEPURlD+3LbVCvHTY7VAB8H/JHwd==\",\n            \"KeyMd5\": \"\",\n            \"InitializationVector\": \"<string>\"\n          }\n        }\n      ]\n    },\n    \"Composition\": [\n      {\n        \"TimeSpan\": {\n          \"StartTime\": \"21:02.7\",\n          \"Duration\": \"3\"\n        }\n      }\n    ],\n    \"Captions\": {\n      \"MergePolicy\": \"MergeOverride\",\n      \"CaptionSources\": [\n        {\n          \"Key\": \"<string>\",\n          \"Language\": \"<string>\",\n          \"TimeOffset\": \"01:7.632\",\n          \"Label\": \"<string>\",\n          \"Encryption\": {\n            \"Mode\": \"s3-aws-kms\",\n            \"Key\": \"4gHCZXSNue/r9IHMFCqoFFLYUIbKsr5qDSnR\",\n            \"KeyMd5\": \"\",\n            \"InitializationVector\": \"<string>\"\n          }\n        }\n      ],\n      \"CaptionFormats\": [\n        {\n          \"Format\": \"scc\",\n          \"Pattern\": \"[uXfp3{language}yq\",\n          \"Encryption\": {\n            \"Mode\": \"s3-aws-kms\",\n            \"Key\": \"40vgzzhtjc==\",\n            \"KeyMd5\": \"\",\n            \"InitializationVector\": \"<string>\"\n          }\n        }\n      ]\n    },\n    \"Encryption\": {\n      \"Mode\": \"aes-cbc-pkcs7\",\n      \"Key\": \"PCYnmupM3FrAqdossVPJ6jyTun1eXfTW4K==\",\n      \"KeyMd5\": \"\",\n      \"InitializationVector\": \"<string>\"\n    }\n  },\n  \"Outputs\": [\n    {\n      \"Key\": \"<string>\",\n      \"ThumbnailPattern\": \"OPLSz/bP+T{count}lWzMX}\",\n      \"ThumbnailEncryption\": {\n        \"Mode\": \"aes-cbc-pkcs7\",\n        \"Key\": \"\",\n        \"KeyMd5\": \"brfs\",\n        \"InitializationVector\": \"<string>\"\n      },\n      \"Rotate\": \"0\",\n      \"PresetId\": \"1772293399850-zQa96k\",\n      \"SegmentDuration\": \"913\",\n      \"Watermarks\": [\n        {\n          \"PresetWatermarkId\": \"<string>\",\n          \"InputKey\": \"M\\\"wSE'?v~8&Y4mj^o#5_Yx$uKFJ}q}K,o8U47@M8oe| CRmg,dms4PX0:mx*tw%k9NEVnNBu,<Z66Z1R7#j|-SXk7=p\\\\jd]BtB4WND|D^4V6X|dH%s*J1vCpD4fOm\\\"l|9CQVP'ozq`JUa:*jpg\",\n          \"Encryption\": {\n            \"Mode\": \"s3\",\n            \"Key\": \"\",\n            \"KeyMd5\": \"GqgwHaHGWikN5DDz6PRsdCyW\",\n            \"InitializationVector\": \"<string>\"\n          }\n        }\n      ],\n      \"AlbumArt\": {\n        \"MergePolicy\": \"Prepend\",\n        \"Artwork\": [\n          {\n            \"InputKey\": \"5c6ERmk_Axv|4zpXR-\\\\rG?\\\":-8B=Mt>ArmuhSO*9|~>>#ofGm(Mh]Gh1:mcNQ)R^1iW@x1D[r3 QYQ~L?!@qHUKe*kN/18O[ab_]p6g&?t<S(xKE>h\\\\N^9USOTfgtqR <-a0EUD@G$q%*gX|%Pju4<ho-m5WSF,|LxlkK=/0BuXg}54[\\\\]=^ywUM4Qw2+pxEWawrN0=^+i-5tj2~)Aj+N<eFR,9.J>*cR)'Cx.AsIPH~Nn-(YKQ| Ba~ej78&5( \",\n            \"MaxWidth\": \"auto\",\n            \"MaxHeight\": \"auto\",\n            \"SizingPolicy\": \"Stretch\",\n            \"PaddingPolicy\": \"Pad\",\n            \"AlbumArtFormat\": \"png\",\n            \"Encryption\": {\n              \"Mode\": \"aes-ctr\",\n              \"Key\": \"\",\n              \"KeyMd5\": \"\",\n              \"InitializationVector\": \"<string>\"\n            }\n          }\n        ]\n      },\n      \"Composition\": [\n        {\n          \"TimeSpan\": {\n            \"StartTime\": \"02.7\",\n            \"Duration\": \"49960.076\"\n          }\n        }\n      ],\n      \"Captions\": {\n        \"MergePolicy\": \"Override\",\n        \"CaptionSources\": [\n          {\n            \"Key\": \"<string>\",\n            \"Language\": \"<string>\",\n            \"TimeOffset\": \"22:11\",\n            \"Label\": \"<string>\",\n            \"Encryption\": {\n              \"Mode\": \"aes-gcm\",\n              \"Key\": \"\",\n              \"KeyMd5\": \"8jm0bNcipjrFBbUuiHZPYYrhEYqI\",\n              \"InitializationVector\": \"<string>\"\n            }\n          }\n        ],\n        \"CaptionFormats\": [\n          {\n            \"Format\": \"dfxp\",\n            \"Pattern\": \"W#aC~A{language}D\",\n            \"Encryption\": {\n              \"Mode\": \"s3\",\n              \"Key\": \"1pp4mTtzZvx4mMOc3pXyrebBcU+2q461rAZ0\",\n              \"KeyMd5\": \"\",\n              \"InitializationVector\": \"<string>\"\n            }\n          }\n        ]\n      },\n      \"Encryption\": {\n        \"Mode\": \"s3\",\n        \"Key\": \"92V=\",\n        \"KeyMd5\": \"/dkyKgeE1jwOaw5cGPx4hinXK6E7fG7f\",\n        \"InitializationVector\": \"<string>\"\n      }\n    }\n  ],\n  \"OutputKeyPrefix\": \"<string>\",\n  \"Playlists\": [\n    {\n      \"Name\": \"<string>\",\n      \"Format\": \"MPEG-DASH\",\n      \"OutputKeys\": [\n        \"<string>\"\n      ],\n      \"HlsContentProtection\": {\n        \"Method\": \"aes-128\",\n        \"Key\": \"\",\n        \"KeyMd5\": \"dP5XWqGu084+/IH2AY==\",\n        \"InitializationVector\": \"<string>\",\n        \"LicenseAcquisitionUrl\": \"<string>\",\n        \"KeyStoragePolicy\": \"NoStore\"\n      },\n      \"PlayReadyDrm\": {\n        \"Format\": \"microsoft\",\n        \"Key\": \"NDB5CZNeKByJwyyJH8JyLfDHRSzNvCt7wOK7whPS\",\n        \"KeyMd5\": \"3z4OJl7KsVSN\",\n        \"KeyId\": \"52FF2746dACF1dAEcBCf8F42BF5DCbBa\",\n        \"InitializationVector\": \"<string>\",\n        \"LicenseAcquisitionUrl\": \"<string>\"\n      }\n    }\n  ],\n  \"UserMetadata\": {\n    \"officia4\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/2012-09-25/jobs",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "2012-09-25",
+                    "jobs"
+                  ]
+                },
+                "description": "<p>When you create a job, Elastic Transcoder returns JSON data that includes the values that you specified plus information about the job that is created.</p> <p>If you have specified more than one output for your jobs (for example, one output for the Kindle Fire and another output for the Apple iPhone 4s), you currently must use the Elastic Transcoder API to list the jobs (as opposed to the AWS Console).</p>"
+              },
+              "response": [
+                {
+                  "id": "881a779a-de95-41ad-b9e6-58440953cdac",
+                  "name": "Success",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"PipelineId\": \"2865168124720-bhlpJt\",\n  \"Input\": {\n    \"Key\": \"<string>\",\n    \"FrameRate\": \"60\",\n    \"Resolution\": \"auto\",\n    \"AspectRatio\": \"1:1\",\n    \"Interlaced\": \"false\",\n    \"Container\": \"mpeg-ps\",\n    \"Encryption\": {\n      \"Mode\": \"aes-cbc-pkcs7\",\n      \"Key\": \"UbPeroTmiIXa8vP2QZpOt3MWbzS6fcn0uAqey3hu\",\n      \"KeyMd5\": \"\",\n      \"InitializationVector\": \"<string>\"\n    },\n    \"TimeSpan\": {\n      \"StartTime\": \"54578\",\n      \"Duration\": \"08040\"\n    },\n    \"InputCaptions\": {\n      \"MergePolicy\": \"Override\",\n      \"CaptionSources\": [\n        {\n          \"Key\": \"<string>\",\n          \"Language\": \"<string>\",\n          \"TimeOffset\": \"07:7:4\",\n          \"Label\": \"<string>\",\n          \"Encryption\": {\n            \"Mode\": \"aes-cbc-pkcs7\",\n            \"Key\": \"VpiOK4XDGl==\",\n            \"KeyMd5\": \"ot167yGH3Jm60mIiL3oSkI4=\",\n            \"InitializationVector\": \"<string>\"\n          }\n        }\n      ]\n    },\n    \"DetectedProperties\": {\n      \"Width\": \"<integer>\",\n      \"Height\": \"<integer>\",\n      \"FrameRate\": \"47\",\n      \"FileSize\": \"<integer>\",\n      \"DurationMillis\": \"<integer>\"\n    }\n  },\n  \"Inputs\": [\n    {\n      \"Key\": \"<string>\",\n      \"FrameRate\": \"30\",\n      \"Resolution\": \"23x23563\",\n      \"AspectRatio\": \"3:2\",\n      \"Interlaced\": \"auto\",\n      \"Container\": \"wav\",\n      \"Encryption\": {\n        \"Mode\": \"s3\",\n        \"Key\": \"S318VZDG\",\n        \"KeyMd5\": \"kW/xemN5C1wK+aLCSlXxJjFxeWAYiMLw0p7I\",\n        \"InitializationVector\": \"<string>\"\n      },\n      \"TimeSpan\": {\n        \"StartTime\": \"64.191\",\n        \"Duration\": \"1:7\"\n      },\n      \"InputCaptions\": {\n        \"MergePolicy\": \"Override\",\n        \"CaptionSources\": [\n          {\n            \"Key\": \"<string>\",\n            \"Language\": \"<string>\",\n            \"TimeOffset\": \"30\",\n            \"Label\": \"<string>\",\n            \"Encryption\": {\n              \"Mode\": \"aes-gcm\",\n              \"Key\": \"\",\n              \"KeyMd5\": \"\",\n              \"InitializationVector\": \"<string>\"\n            }\n          }\n        ]\n      },\n      \"DetectedProperties\": {\n        \"Width\": \"<integer>\",\n        \"Height\": \"<integer>\",\n        \"FrameRate\": \"681.250\",\n        \"FileSize\": \"<integer>\",\n        \"DurationMillis\": \"<integer>\"\n      }\n    }\n  ],\n  \"Output\": {\n    \"Key\": \"<string>\",\n    \"ThumbnailPattern\": \"{count}l-V>\\\"ink\",\n    \"ThumbnailEncryption\": {\n      \"Mode\": \"aes-ctr\",\n      \"Key\": \"\",\n      \"KeyMd5\": \"\",\n      \"InitializationVector\": \"<string>\"\n    },\n    \"Rotate\": \"0\",\n    \"PresetId\": \"0488729810017-R6Ln9K\",\n    \"SegmentDuration\": \"37.09371\",\n    \"Watermarks\": [\n      {\n        \"PresetWatermarkId\": \"<string>\",\n        \"InputKey\": \"JJ\\\\a471hY\\\"!9G#;Zwn.I]qP8[OdDe:#O_iQ\\\\Er>^qci^FcaaKL<Nf@(#eSggP/5vO`Gp&/-pIv4Kc,>/b37Cam(;,tpD%bVI+H-6%FA7Uo _VvB.%r;um5#/S?D09b8d69O`H '5.^Z^{Q++Llp68*8>=#,Ac?[}{j[LF+h|y+@LJ,%c+IsHq%(Y%{cBPeLtq-M#_f`XKw2+^s> BtRO]3H+j;Tc-LVC8@-]t0MgjkbQ\\\\cxaMi5}lC!s39Z4}r4U\",\n        \"Encryption\": {\n          \"Mode\": \"s3-aws-kms\",\n          \"Key\": \"\",\n          \"KeyMd5\": \"hreRo8rALyQVHqEg912lB4pD6OHLs6Xschr=\",\n          \"InitializationVector\": \"<string>\"\n        }\n      }\n    ],\n    \"AlbumArt\": {\n      \"MergePolicy\": \"Replace\",\n      \"Artwork\": [\n        {\n          \"InputKey\": \"gdd(n7]s?:y}j#PEllD7F( tn%<6:E3dF?{\\\\9N68pC'@[FboS?N0BG?WcSpnuM`z9U_J:d1SPud_cM':%ryieDq:q:Q4huE1xhiSb<[z:'yQx+@*raUXD^6EV,8?\\\"`Zboi~PQ#nH59Tmvnx0V<{d|gdzHE*;P/>G;*yL %]z*'~p/HmM]&A4Xf52i *8GJb$sa$HMFvhugu{EU++)Usx|^-c[#\\\"X$ViPN/~dR%e>Ac;PGJ.mThD19$>YF&?&88L2\",\n          \"MaxWidth\": \"auto\",\n          \"MaxHeight\": \"auto\",\n          \"SizingPolicy\": \"Stretch\",\n          \"PaddingPolicy\": \"Pad\",\n          \"AlbumArtFormat\": \"jpg\",\n          \"Encryption\": {\n            \"Mode\": \"aes-cbc-pkcs7\",\n            \"Key\": \"YOEEElQEPURlD+3LbVCvHTY7VAB8H/JHwd==\",\n            \"KeyMd5\": \"\",\n            \"InitializationVector\": \"<string>\"\n          }\n        }\n      ]\n    },\n    \"Composition\": [\n      {\n        \"TimeSpan\": {\n          \"StartTime\": \"21:02.7\",\n          \"Duration\": \"3\"\n        }\n      }\n    ],\n    \"Captions\": {\n      \"MergePolicy\": \"MergeOverride\",\n      \"CaptionSources\": [\n        {\n          \"Key\": \"<string>\",\n          \"Language\": \"<string>\",\n          \"TimeOffset\": \"01:7.632\",\n          \"Label\": \"<string>\",\n          \"Encryption\": {\n            \"Mode\": \"s3-aws-kms\",\n            \"Key\": \"4gHCZXSNue/r9IHMFCqoFFLYUIbKsr5qDSnR\",\n            \"KeyMd5\": \"\",\n            \"InitializationVector\": \"<string>\"\n          }\n        }\n      ],\n      \"CaptionFormats\": [\n        {\n          \"Format\": \"scc\",\n          \"Pattern\": \"[uXfp3{language}yq\",\n          \"Encryption\": {\n            \"Mode\": \"s3-aws-kms\",\n            \"Key\": \"40vgzzhtjc==\",\n            \"KeyMd5\": \"\",\n            \"InitializationVector\": \"<string>\"\n          }\n        }\n      ]\n    },\n    \"Encryption\": {\n      \"Mode\": \"aes-cbc-pkcs7\",\n      \"Key\": \"PCYnmupM3FrAqdossVPJ6jyTun1eXfTW4K==\",\n      \"KeyMd5\": \"\",\n      \"InitializationVector\": \"<string>\"\n    }\n  },\n  \"Outputs\": [\n    {\n      \"Key\": \"<string>\",\n      \"ThumbnailPattern\": \"OPLSz/bP+T{count}lWzMX}\",\n      \"ThumbnailEncryption\": {\n        \"Mode\": \"aes-cbc-pkcs7\",\n        \"Key\": \"\",\n        \"KeyMd5\": \"brfs\",\n        \"InitializationVector\": \"<string>\"\n      },\n      \"Rotate\": \"0\",\n      \"PresetId\": \"1772293399850-zQa96k\",\n      \"SegmentDuration\": \"913\",\n      \"Watermarks\": [\n        {\n          \"PresetWatermarkId\": \"<string>\",\n          \"InputKey\": \"M\\\"wSE'?v~8&Y4mj^o#5_Yx$uKFJ}q}K,o8U47@M8oe| CRmg,dms4PX0:mx*tw%k9NEVnNBu,<Z66Z1R7#j|-SXk7=p\\\\jd]BtB4WND|D^4V6X|dH%s*J1vCpD4fOm\\\"l|9CQVP'ozq`JUa:*jpg\",\n          \"Encryption\": {\n            \"Mode\": \"s3\",\n            \"Key\": \"\",\n            \"KeyMd5\": \"GqgwHaHGWikN5DDz6PRsdCyW\",\n            \"InitializationVector\": \"<string>\"\n          }\n        }\n      ],\n      \"AlbumArt\": {\n        \"MergePolicy\": \"Prepend\",\n        \"Artwork\": [\n          {\n            \"InputKey\": \"5c6ERmk_Axv|4zpXR-\\\\rG?\\\":-8B=Mt>ArmuhSO*9|~>>#ofGm(Mh]Gh1:mcNQ)R^1iW@x1D[r3 QYQ~L?!@qHUKe*kN/18O[ab_]p6g&?t<S(xKE>h\\\\N^9USOTfgtqR <-a0EUD@G$q%*gX|%Pju4<ho-m5WSF,|LxlkK=/0BuXg}54[\\\\]=^ywUM4Qw2+pxEWawrN0=^+i-5tj2~)Aj+N<eFR,9.J>*cR)'Cx.AsIPH~Nn-(YKQ| Ba~ej78&5( \",\n            \"MaxWidth\": \"auto\",\n            \"MaxHeight\": \"auto\",\n            \"SizingPolicy\": \"Stretch\",\n            \"PaddingPolicy\": \"Pad\",\n            \"AlbumArtFormat\": \"png\",\n            \"Encryption\": {\n              \"Mode\": \"aes-ctr\",\n              \"Key\": \"\",\n              \"KeyMd5\": \"\",\n              \"InitializationVector\": \"<string>\"\n            }\n          }\n        ]\n      },\n      \"Composition\": [\n        {\n          \"TimeSpan\": {\n            \"StartTime\": \"02.7\",\n            \"Duration\": \"49960.076\"\n          }\n        }\n      ],\n      \"Captions\": {\n        \"MergePolicy\": \"Override\",\n        \"CaptionSources\": [\n          {\n            \"Key\": \"<string>\",\n            \"Language\": \"<string>\",\n            \"TimeOffset\": \"22:11\",\n            \"Label\": \"<string>\",\n            \"Encryption\": {\n              \"Mode\": \"aes-gcm\",\n              \"Key\": \"\",\n              \"KeyMd5\": \"8jm0bNcipjrFBbUuiHZPYYrhEYqI\",\n              \"InitializationVector\": \"<string>\"\n            }\n          }\n        ],\n        \"CaptionFormats\": [\n          {\n            \"Format\": \"dfxp\",\n            \"Pattern\": \"W#aC~A{language}D\",\n            \"Encryption\": {\n              \"Mode\": \"s3\",\n              \"Key\": \"1pp4mTtzZvx4mMOc3pXyrebBcU+2q461rAZ0\",\n              \"KeyMd5\": \"\",\n              \"InitializationVector\": \"<string>\"\n            }\n          }\n        ]\n      },\n      \"Encryption\": {\n        \"Mode\": \"s3\",\n        \"Key\": \"92V=\",\n        \"KeyMd5\": \"/dkyKgeE1jwOaw5cGPx4hinXK6E7fG7f\",\n        \"InitializationVector\": \"<string>\"\n      }\n    }\n  ],\n  \"OutputKeyPrefix\": \"<string>\",\n  \"Playlists\": [\n    {\n      \"Name\": \"<string>\",\n      \"Format\": \"MPEG-DASH\",\n      \"OutputKeys\": [\n        \"<string>\"\n      ],\n      \"HlsContentProtection\": {\n        \"Method\": \"aes-128\",\n        \"Key\": \"\",\n        \"KeyMd5\": \"dP5XWqGu084+/IH2AY==\",\n        \"InitializationVector\": \"<string>\",\n        \"LicenseAcquisitionUrl\": \"<string>\",\n        \"KeyStoragePolicy\": \"NoStore\"\n      },\n      \"PlayReadyDrm\": {\n        \"Format\": \"microsoft\",\n        \"Key\": \"NDB5CZNeKByJwyyJH8JyLfDHRSzNvCt7wOK7whPS\",\n        \"KeyMd5\": \"3z4OJl7KsVSN\",\n        \"KeyId\": \"52FF2746dACF1dAEcBCf8F42BF5DCbBa\",\n        \"InitializationVector\": \"<string>\",\n        \"LicenseAcquisitionUrl\": \"<string>\"\n      }\n    }\n  ],\n  \"UserMetadata\": {\n    \"officia4\": \"<string>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/2012-09-25/jobs",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "2012-09-25",
+                        "jobs"
+                      ]
+                    }
+                  },
+                  "status": "Created",
+                  "code": 201,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Job\": {\n    \"Id\": \"7544995042073-PBVkz_\",\n    \"Arn\": \"<string>\",\n    \"PipelineId\": \"1353878447105-6phSaX\",\n    \"Input\": {\n      \"Key\": \"<string>\",\n      \"FrameRate\": \"auto\",\n      \"Resolution\": \"auto\",\n      \"AspectRatio\": \"16:9\",\n      \"Interlaced\": \"true\",\n      \"Container\": \"m4a\",\n      \"Encryption\": {\n        \"Mode\": \"aes-gcm\",\n        \"Key\": \"\",\n        \"KeyMd5\": \"+c8vM25x4Cc=\",\n        \"InitializationVector\": \"<string>\"\n      },\n      \"TimeSpan\": {\n        \"StartTime\": \"49\",\n        \"Duration\": \"20:54\"\n      },\n      \"InputCaptions\": {\n        \"MergePolicy\": \"MergeOverride\",\n        \"CaptionSources\": [\n          {\n            \"Key\": \"<string>\",\n            \"Language\": \"<string>\",\n            \"TimeOffset\": \"74.5\",\n            \"Label\": \"<string>\",\n            \"Encryption\": {\n              \"Mode\": \"aes-gcm\",\n              \"Key\": \"\",\n              \"KeyMd5\": \"ORmqMXYofcUyHEw7ryJdbLvO1D+5gY/=\",\n              \"InitializationVector\": \"<string>\"\n            }\n          }\n        ]\n      },\n      \"DetectedProperties\": {\n        \"Width\": \"<integer>\",\n        \"Height\": \"<integer>\",\n        \"FrameRate\": \"9339.0899\",\n        \"FileSize\": \"<integer>\",\n        \"DurationMillis\": \"<integer>\"\n      }\n    },\n    \"Inputs\": [\n      {\n        \"Key\": \"<string>\",\n        \"FrameRate\": \"24\",\n        \"Resolution\": \"0x8582\",\n        \"AspectRatio\": \"4:3\",\n        \"Interlaced\": \"false\",\n        \"Container\": \"aac\",\n        \"Encryption\": {\n          \"Mode\": \"aes-gcm\",\n          \"Key\": \"1BH1z9sdADwnkYRG8ysafNjEuiqpdvk9D5cc5tAn\",\n          \"KeyMd5\": \"SmwrZKaThF==\",\n          \"InitializationVector\": \"<string>\"\n        },\n        \"TimeSpan\": {\n          \"StartTime\": \"08:57:45.757\",\n          \"Duration\": \"083.71\"\n        },\n        \"InputCaptions\": {\n          \"MergePolicy\": \"MergeRetain\",\n          \"CaptionSources\": [\n            {\n              \"Key\": \"<string>\",\n              \"Language\": \"<string>\",\n              \"TimeOffset\": \"20:42\",\n              \"Label\": \"<string>\",\n              \"Encryption\": {\n                \"Mode\": \"aes-ctr\",\n                \"Key\": \"\",\n                \"KeyMd5\": \"i374rPX454/463dIJiCprW0/1+fS0epgfJ8OOXeGPPT=\",\n                \"InitializationVector\": \"<string>\"\n              }\n            }\n          ]\n        },\n        \"DetectedProperties\": {\n          \"Width\": \"<integer>\",\n          \"Height\": \"<integer>\",\n          \"FrameRate\": \"60\",\n          \"FileSize\": \"<integer>\",\n          \"DurationMillis\": \"<integer>\"\n        }\n      }\n    ],\n    \"Output\": {\n      \"Id\": \"<string>\",\n      \"Key\": \"<string>\",\n      \"ThumbnailPattern\": \"`f{count}w36xXieUG\",\n      \"ThumbnailEncryption\": {\n        \"Mode\": \"s3\",\n        \"Key\": \"\",\n        \"KeyMd5\": \"GoDxb4s0vK7v0pzDuF+wgHgBAz==\",\n        \"InitializationVector\": \"<string>\"\n      },\n      \"Rotate\": \"90\",\n      \"PresetId\": \"0930106979959-ioLTmF\",\n      \"SegmentDuration\": \"489\",\n      \"Status\": \"Complete\",\n      \"StatusDetail\": \"<string>\",\n      \"Duration\": \"<integer>\",\n      \"Width\": \"<integer>\",\n      \"Height\": \"<integer>\",\n      \"FrameRate\": \"1\",\n      \"FileSize\": \"<integer>\",\n      \"DurationMillis\": \"<integer>\",\n      \"Watermarks\": [\n        {\n          \"PresetWatermarkId\": \"<string>\",\n          \"InputKey\": \"D;=]]jWW+<uQ22d+eU5xM;7>I|G2Wwe/eNG.mDL8*hJJG2'3+t+\\\"Ws~zI1Ef(3I*-lnGhHzVb]cYJR[sa;1Bx`@$r~CGQcCkg^OqrdjI=)lFuUK%Q9`JR?A&n4B%y0]< OI1rA@9M(gABCXU?cz'&KMun*~1\\\\RFSDEF}+|TN5RUG2|q|HS4eQS5p&EkYUO<Ew$]xDv*1cEh3+gX#;l[T'p!<%0m&,iO}c:6;|7;5%K_d5=4o7=Vzso /HV{[nFR2\",\n          \"Encryption\": {\n            \"Mode\": \"aes-ctr\",\n            \"Key\": \"mlRUC3IzUYe3kZsm7mBBVG==\",\n            \"KeyMd5\": \"mSQoeFolC0m9sIgr8lzaOw4OElIHPrSSzB==\",\n            \"InitializationVector\": \"<string>\"\n          }\n        }\n      ],\n      \"AlbumArt\": {\n        \"MergePolicy\": \"Prepend\",\n        \"Artwork\": [\n          {\n            \"InputKey\": \"LS NNTX$p~g?fsM(f87\\\"!!TE<S YQ6%qHvrt<T97uQtN|mU(?Ry_$yn9f>Ch\\\\=smTLHTXGv/y?R@{SV`BZw}Pr\\\"A>J8MG5rfEd4R<JB -uF3U<e`De`;WI/*@$P c(oDxt~q[DZ2*H~U)S2}Y}P9sj=TY'CN_I@kbhSoT1ECOAkSJ5\\\"g(btJ-a8wF4vpR5x>51Q}0M!Ii?``,lUz*SDWrZkK)_NA7xq23a{%>miQUU%g9}OW`t=/@\\\"c[F~P7(MTa\",\n            \"MaxWidth\": \"75\",\n            \"MaxHeight\": \"210\",\n            \"SizingPolicy\": \"Fit\",\n            \"PaddingPolicy\": \"Pad\",\n            \"AlbumArtFormat\": \"png\",\n            \"Encryption\": {\n              \"Mode\": \"aes-ctr\",\n              \"Key\": \"\",\n              \"KeyMd5\": \"\",\n              \"InitializationVector\": \"<string>\"\n            }\n          }\n        ]\n      },\n      \"Composition\": [\n        {\n          \"TimeSpan\": {\n            \"StartTime\": \"59.2\",\n            \"Duration\": \"21:1.\"\n          }\n        }\n      ],\n      \"Captions\": {\n        \"MergePolicy\": \"MergeOverride\",\n        \"CaptionSources\": [\n          {\n            \"Key\": \"<string>\",\n            \"Language\": \"<string>\",\n            \"TimeOffset\": \"2422.556\",\n            \"Label\": \"<string>\",\n            \"Encryption\": {\n              \"Mode\": \"s3\",\n              \"Key\": \"\",\n              \"KeyMd5\": \"\",\n              \"InitializationVector\": \"<string>\"\n            }\n          }\n        ],\n        \"CaptionFormats\": [\n          {\n            \"Format\": \"srt\",\n            \"Pattern\": \"AP!d/{language};[srlYP\",\n            \"Encryption\": {\n              \"Mode\": \"aes-cbc-pkcs7\",\n              \"Key\": \"vqDTQihpzbQ=\",\n              \"KeyMd5\": \"\",\n              \"InitializationVector\": \"<string>\"\n            }\n          }\n        ]\n      },\n      \"Encryption\": {\n        \"Mode\": \"aes-cbc-pkcs7\",\n        \"Key\": \"\",\n        \"KeyMd5\": \"\",\n        \"InitializationVector\": \"<string>\"\n      },\n      \"AppliedColorSpaceConversion\": \"<string>\"\n    },\n    \"Outputs\": [\n      {\n        \"Id\": \"<string>\",\n        \"Key\": \"<string>\",\n        \"ThumbnailPattern\": \"\",\n        \"ThumbnailEncryption\": {\n          \"Mode\": \"aes-gcm\",\n          \"Key\": \"\",\n          \"KeyMd5\": \"\",\n          \"InitializationVector\": \"<string>\"\n        },\n        \"Rotate\": \"90\",\n        \"PresetId\": \"6260079856783-5H0Inv\",\n        \"SegmentDuration\": \"37690.19\",\n        \"Status\": \"Complete\",\n        \"StatusDetail\": \"<string>\",\n        \"Duration\": \"<integer>\",\n        \"Width\": \"<integer>\",\n        \"Height\": \"<integer>\",\n        \"FrameRate\": \"7.00\",\n        \"FileSize\": \"<integer>\",\n        \"DurationMillis\": \"<integer>\",\n        \"Watermarks\": [\n          {\n            \"PresetWatermarkId\": \"<string>\",\n            \"InputKey\": \"}QE7lm6LA)&WArM3wzt6k8;\\\"?\\\\/;O75~GT3#\\\\,^P9_DC:Amx'&ddV8y|Ek/Q.^Da(45P4sAGWSqlr~7*<#e;^na6P;V|Nvd!|zDb}?m*\\\"Cpxz|W}E'BO^Lew<D9jIHDG<9+=L`(<TXk=;dL?LWZD,#6~GdDF.Te4f+H5)unK|hUW1~<ChGM?\\\\E1FP[g7G|Y/,ENOtr`vg;sWkT~HnkAse`X;x<su@gZzwOVJ2D 21g'<>82$:OpR}:9|7$6g0~~1\",\n            \"Encryption\": {\n              \"Mode\": \"s3\",\n              \"Key\": \"\",\n              \"KeyMd5\": \"\",\n              \"InitializationVector\": \"<string>\"\n            }\n          }\n        ],\n        \"AlbumArt\": {\n          \"MergePolicy\": \"Append\",\n          \"Artwork\": [\n            {\n              \"InputKey\": \":l\\\"La\\\"\\\\UZ}3nQ#az[l>B]FuihV#mg]DKwLDrCWr9I),x#4VW\\\"3K$2z0n/N2W`7p_I1BNGCar 12Y?Z/NJ\\\"iDkTTii}Y3$q 6w\\\"I:Gk6C3oe<VIlgs!29J~@yml?uxdINxo,!6B%^at;}z4,bP=aNB*Kb:*]2d&65Q63!-FP<%D3n8*C`<.(LXx$t>HHy5Lv^9i}WFj95xLb Tp{{C]%Pbsy^6LUhC? mYUUeO37$+-S%y(Y&cyx46$a)?D<D0xI3\",\n              \"MaxWidth\": \"auto\",\n              \"MaxHeight\": \"741\",\n              \"SizingPolicy\": \"Fill\",\n              \"PaddingPolicy\": \"NoPad\",\n              \"AlbumArtFormat\": \"jpg\",\n              \"Encryption\": {\n                \"Mode\": \"aes-cbc-pkcs7\",\n                \"Key\": \"\",\n                \"KeyMd5\": \"\",\n                \"InitializationVector\": \"<string>\"\n              }\n            }\n          ]\n        },\n        \"Composition\": [\n          {\n            \"TimeSpan\": {\n              \"StartTime\": \"251\",\n              \"Duration\": \"6.64\"\n            }\n          }\n        ],\n        \"Captions\": {\n          \"MergePolicy\": \"MergeOverride\",\n          \"CaptionSources\": [\n            {\n              \"Key\": \"<string>\",\n              \"Language\": \"<string>\",\n              \"TimeOffset\": \"+4380.99\",\n              \"Label\": \"<string>\",\n              \"Encryption\": {\n                \"Mode\": \"aes-cbc-pkcs7\",\n                \"Key\": \"CYgX268=\",\n                \"KeyMd5\": \"\",\n                \"InitializationVector\": \"<string>\"\n              }\n            }\n          ],\n          \"CaptionFormats\": [\n            {\n              \"Format\": \"webvtt\",\n              \"Pattern\": \"\",\n              \"Encryption\": {\n                \"Mode\": \"aes-cbc-pkcs7\",\n                \"Key\": \"Pl7UGLj2BwUdlG/V1gvnFqsf\",\n                \"KeyMd5\": \"DqPKpqP1IRIyyUIHQ/D7KgVuZkiJop==\",\n                \"InitializationVector\": \"<string>\"\n              }\n            }\n          ]\n        },\n        \"Encryption\": {\n          \"Mode\": \"aes-gcm\",\n          \"Key\": \"\",\n          \"KeyMd5\": \"\",\n          \"InitializationVector\": \"<string>\"\n        },\n        \"AppliedColorSpaceConversion\": \"<string>\"\n      }\n    ],\n    \"OutputKeyPrefix\": \"<string>\",\n    \"Playlists\": [\n      {\n        \"Name\": \"<string>\",\n        \"Format\": \"HLSv3\",\n        \"OutputKeys\": [\n          \"<string>\"\n        ],\n        \"HlsContentProtection\": {\n          \"Method\": \"aes-128\",\n          \"Key\": \"NFcmFQXmVg4StEKtbGL6ZPop8agdYwG76naaDLjr\",\n          \"KeyMd5\": \"B9Qq\",\n          \"InitializationVector\": \"<string>\",\n          \"LicenseAcquisitionUrl\": \"<string>\",\n          \"KeyStoragePolicy\": \"NoStore\"\n        },\n        \"PlayReadyDrm\": {\n          \"Format\": \"microsoft\",\n          \"Key\": \"cLZJ\",\n          \"KeyMd5\": \"wXLDg6FM8GssFvUKAd7+/YgaCulTOCMueM+rYh5ZCn==\",\n          \"KeyId\": \"dE457EFd3B94e5c04215b6C2DeaED5cb\",\n          \"InitializationVector\": \"<string>\",\n          \"LicenseAcquisitionUrl\": \"<string>\"\n        },\n        \"Status\": \"Canceled\",\n        \"StatusDetail\": \"<string>\"\n      }\n    ],\n    \"Status\": \"Error\",\n    \"UserMetadata\": {\n      \"etd1\": \"<string>\",\n      \"nulla9d\": \"<string>\"\n    },\n    \"Timing\": {\n      \"SubmitTimeMillis\": \"<integer>\",\n      \"StartTimeMillis\": \"<integer>\",\n      \"FinishTimeMillis\": \"<integer>\"\n    }\n  }\n}",
+                  "createdAt": "2026-07-28T10:20:16.000Z",
+                  "updatedAt": "2026-07-28T10:20:16.000Z",
+                  "uid": "35240-881a779a-de95-41ad-b9e6-58440953cdac"
+                },
+                {
+                  "id": "0e9c7ff9-25e8-4ad2-91cc-feffa703d3c8",
+                  "name": "ValidationException",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"PipelineId\": \"2865168124720-bhlpJt\",\n  \"Input\": {\n    \"Key\": \"<string>\",\n    \"FrameRate\": \"60\",\n    \"Resolution\": \"auto\",\n    \"AspectRatio\": \"1:1\",\n    \"Interlaced\": \"false\",\n    \"Container\": \"mpeg-ps\",\n    \"Encryption\": {\n      \"Mode\": \"aes-cbc-pkcs7\",\n      \"Key\": \"UbPeroTmiIXa8vP2QZpOt3MWbzS6fcn0uAqey3hu\",\n      \"KeyMd5\": \"\",\n      \"InitializationVector\": \"<string>\"\n    },\n    \"TimeSpan\": {\n      \"StartTime\": \"54578\",\n      \"Duration\": \"08040\"\n    },\n    \"InputCaptions\": {\n      \"MergePolicy\": \"Override\",\n      \"CaptionSources\": [\n        {\n          \"Key\": \"<string>\",\n          \"Language\": \"<string>\",\n          \"TimeOffset\": \"07:7:4\",\n          \"Label\": \"<string>\",\n          \"Encryption\": {\n            \"Mode\": \"aes-cbc-pkcs7\",\n            \"Key\": \"VpiOK4XDGl==\",\n            \"KeyMd5\": \"ot167yGH3Jm60mIiL3oSkI4=\",\n            \"InitializationVector\": \"<string>\"\n          }\n        }\n      ]\n    },\n    \"DetectedProperties\": {\n      \"Width\": \"<integer>\",\n      \"Height\": \"<integer>\",\n      \"FrameRate\": \"47\",\n      \"FileSize\": \"<integer>\",\n      \"DurationMillis\": \"<integer>\"\n    }\n  },\n  \"Inputs\": [\n    {\n      \"Key\": \"<string>\",\n      \"FrameRate\": \"30\",\n      \"Resolution\": \"23x23563\",\n      \"AspectRatio\": \"3:2\",\n      \"Interlaced\": \"auto\",\n      \"Container\": \"wav\",\n      \"Encryption\": {\n        \"Mode\": \"s3\",\n        \"Key\": \"S318VZDG\",\n        \"KeyMd5\": \"kW/xemN5C1wK+aLCSlXxJjFxeWAYiMLw0p7I\",\n        \"InitializationVector\": \"<string>\"\n      },\n      \"TimeSpan\": {\n        \"StartTime\": \"64.191\",\n        \"Duration\": \"1:7\"\n      },\n      \"InputCaptions\": {\n        \"MergePolicy\": \"Override\",\n        \"CaptionSources\": [\n          {\n            \"Key\": \"<string>\",\n            \"Language\": \"<string>\",\n            \"TimeOffset\": \"30\",\n            \"Label\": \"<string>\",\n            \"Encryption\": {\n              \"Mode\": \"aes-gcm\",\n              \"Key\": \"\",\n              \"KeyMd5\": \"\",\n              \"InitializationVector\": \"<string>\"\n            }\n          }\n        ]\n      },\n      \"DetectedProperties\": {\n        \"Width\": \"<integer>\",\n        \"Height\": \"<integer>\",\n        \"FrameRate\": \"681.250\",\n        \"FileSize\": \"<integer>\",\n        \"DurationMillis\": \"<integer>\"\n      }\n    }\n  ],\n  \"Output\": {\n    \"Key\": \"<string>\",\n    \"ThumbnailPattern\": \"{count}l-V>\\\"ink\",\n    \"ThumbnailEncryption\": {\n      \"Mode\": \"aes-ctr\",\n      \"Key\": \"\",\n      \"KeyMd5\": \"\",\n      \"InitializationVector\": \"<string>\"\n    },\n    \"Rotate\": \"0\",\n    \"PresetId\": \"0488729810017-R6Ln9K\",\n    \"SegmentDuration\": \"37.09371\",\n    \"Watermarks\": [\n      {\n        \"PresetWatermarkId\": \"<string>\",\n        \"InputKey\": \"JJ\\\\a471hY\\\"!9G#;Zwn.I]qP8[OdDe:#O_iQ\\\\Er>^qci^FcaaKL<Nf@(#eSggP/5vO`Gp&/-pIv4Kc,>/b37Cam(;,tpD%bVI+H-6%FA7Uo _VvB.%r;um5#/S?D09b8d69O`H '5.^Z^{Q++Llp68*8>=#,Ac?[}{j[LF+h|y+@LJ,%c+IsHq%(Y%{cBPeLtq-M#_f`XKw2+^s> BtRO]3H+j;Tc-LVC8@-]t0MgjkbQ\\\\cxaMi5}lC!s39Z4}r4U\",\n        \"Encryption\": {\n          \"Mode\": \"s3-aws-kms\",\n          \"Key\": \"\",\n          \"KeyMd5\": \"hreRo8rALyQVHqEg912lB4pD6OHLs6Xschr=\",\n          \"InitializationVector\": \"<string>\"\n        }\n      }\n    ],\n    \"AlbumArt\": {\n      \"MergePolicy\": \"Replace\",\n      \"Artwork\": [\n        {\n          \"InputKey\": \"gdd(n7]s?:y}j#PEllD7F( tn%<6:E3dF?{\\\\9N68pC'@[FboS?N0BG?WcSpnuM`z9U_J:d1SPud_cM':%ryieDq:q:Q4huE1xhiSb<[z:'yQx+@*raUXD^6EV,8?\\\"`Zboi~PQ#nH59Tmvnx0V<{d|gdzHE*;P/>G;*yL %]z*'~p/HmM]&A4Xf52i *8GJb$sa$HMFvhugu{EU++)Usx|^-c[#\\\"X$ViPN/~dR%e>Ac;PGJ.mThD19$>YF&?&88L2\",\n          \"MaxWidth\": \"auto\",\n          \"MaxHeight\": \"auto\",\n          \"SizingPolicy\": \"Stretch\",\n          \"PaddingPolicy\": \"Pad\",\n          \"AlbumArtFormat\": \"jpg\",\n          \"Encryption\": {\n            \"Mode\": \"aes-cbc-pkcs7\",\n            \"Key\": \"YOEEElQEPURlD+3LbVCvHTY7VAB8H/JHwd==\",\n            \"KeyMd5\": \"\",\n            \"InitializationVector\": \"<string>\"\n          }\n        }\n      ]\n    },\n    \"Composition\": [\n      {\n        \"TimeSpan\": {\n          \"StartTime\": \"21:02.7\",\n          \"Duration\": \"3\"\n        }\n      }\n    ],\n    \"Captions\": {\n      \"MergePolicy\": \"MergeOverride\",\n      \"CaptionSources\": [\n        {\n          \"Key\": \"<string>\",\n          \"Language\": \"<string>\",\n          \"TimeOffset\": \"01:7.632\",\n          \"Label\": \"<string>\",\n          \"Encryption\": {\n            \"Mode\": \"s3-aws-kms\",\n            \"Key\": \"4gHCZXSNue/r9IHMFCqoFFLYUIbKsr5qDSnR\",\n            \"KeyMd5\": \"\",\n            \"InitializationVector\": \"<string>\"\n          }\n        }\n      ],\n      \"CaptionFormats\": [\n        {\n          \"Format\": \"scc\",\n          \"Pattern\": \"[uXfp3{language}yq\",\n          \"Encryption\": {\n            \"Mode\": \"s3-aws-kms\",\n            \"Key\": \"40vgzzhtjc==\",\n            \"KeyMd5\": \"\",\n            \"InitializationVector\": \"<string>\"\n          }\n        }\n      ]\n    },\n    \"Encryption\": {\n      \"Mode\": \"aes-cbc-pkcs7\",\n      \"Key\": \"PCYnmupM3FrAqdossVPJ6jyTun1eXfTW4K==\",\n      \"KeyMd5\": \"\",\n      \"InitializationVector\": \"<string>\"\n    }\n  },\n  \"Outputs\": [\n    {\n      \"Key\": \"<string>\",\n      \"ThumbnailPattern\": \"OPLSz/bP+T{count}lWzMX}\",\n      \"ThumbnailEncryption\": {\n        \"Mode\": \"aes-cbc-pkcs7\",\n        \"Key\": \"\",\n        \"KeyMd5\": \"brfs\",\n        \"InitializationVector\": \"<string>\"\n      },\n      \"Rotate\": \"0\",\n      \"PresetId\": \"1772293399850-zQa96k\",\n      \"SegmentDuration\": \"913\",\n      \"Watermarks\": [\n        {\n          \"PresetWatermarkId\": \"<string>\",\n          \"InputKey\": \"M\\\"wSE'?v~8&Y4mj^o#5_Yx$uKFJ}q}K,o8U47@M8oe| CRmg,dms4PX0:mx*tw%k9NEVnNBu,<Z66Z1R7#j|-SXk7=p\\\\jd]BtB4WND|D^4V6X|dH%s*J1vCpD4fOm\\\"l|9CQVP'ozq`JUa:*jpg\",\n          \"Encryption\": {\n            \"Mode\": \"s3\",\n            \"Key\": \"\",\n            \"KeyMd5\": \"GqgwHaHGWikN5DDz6PRsdCyW\",\n            \"InitializationVector\": \"<string>\"\n          }\n        }\n      ],\n      \"AlbumArt\": {\n        \"MergePolicy\": \"Prepend\",\n        \"Artwork\": [\n          {\n            \"InputKey\": \"5c6ERmk_Axv|4zpXR-\\\\rG?\\\":-8B=Mt>ArmuhSO*9|~>>#ofGm(Mh]Gh1:mcNQ)R^1iW@x1D[r3 QYQ~L?!@qHUKe*kN/18O[ab_]p6g&?t<S(xKE>h\\\\N^9USOTfgtqR <-a0EUD@G$q%*gX|%Pju4<ho-m5WSF,|LxlkK=/0BuXg}54[\\\\]=^ywUM4Qw2+pxEWawrN0=^+i-5tj2~)Aj+N<eFR,9.J>*cR)'Cx.AsIPH~Nn-(YKQ| Ba~ej78&5( \",\n            \"MaxWidth\": \"auto\",\n            \"MaxHeight\": \"auto\",\n            \"SizingPolicy\": \"Stretch\",\n            \"PaddingPolicy\": \"Pad\",\n            \"AlbumArtFormat\": \"png\",\n            \"Encryption\": {\n              \"Mode\": \"aes-ctr\",\n              \"Key\": \"\",\n              \"KeyMd5\": \"\",\n              \"InitializationVector\": \"<string>\"\n            }\n          }\n        ]\n      },\n      \"Composition\": [\n        {\n          \"TimeSpan\": {\n            \"StartTime\": \"02.7\",\n            \"Duration\": \"49960.076\"\n          }\n        }\n      ],\n      \"Captions\": {\n        \"MergePolicy\": \"Override\",\n        \"CaptionSources\": [\n          {\n            \"Key\": \"<string>\",\n            \"Language\": \"<string>\",\n            \"TimeOffset\": \"22:11\",\n            \"Label\": \"<string>\",\n            \"Encryption\": {\n              \"Mode\": \"aes-gcm\",\n              \"Key\": \"\",\n              \"KeyMd5\": \"8jm0bNcipjrFBbUuiHZPYYrhEYqI\",\n              \"InitializationVector\": \"<string>\"\n            }\n          }\n        ],\n        \"CaptionFormats\": [\n          {\n            \"Format\": \"dfxp\",\n            \"Pattern\": \"W#aC~A{language}D\",\n            \"Encryption\": {\n              \"Mode\": \"s3\",\n              \"Key\": \"1pp4mTtzZvx4mMOc3pXyrebBcU+2q461rAZ0\",\n              \"KeyMd5\": \"\",\n              \"InitializationVector\": \"<string>\"\n            }\n          }\n        ]\n      },\n      \"Encryption\": {\n        \"Mode\": \"s3\",\n        \"Key\": \"92V=\",\n        \"KeyMd5\": \"/dkyKgeE1jwOaw5cGPx4hinXK6E7fG7f\",\n        \"InitializationVector\": \"<string>\"\n      }\n    }\n  ],\n  \"OutputKeyPrefix\": \"<string>\",\n  \"Playlists\": [\n    {\n      \"Name\": \"<string>\",\n      \"Format\": \"MPEG-DASH\",\n      \"OutputKeys\": [\n        \"<string>\"\n      ],\n      \"HlsContentProtection\": {\n        \"Method\": \"aes-128\",\n        \"Key\": \"\",\n        \"KeyMd5\": \"dP5XWqGu084+/IH2AY==\",\n        \"InitializationVector\": \"<string>\",\n        \"LicenseAcquisitionUrl\": \"<string>\",\n        \"KeyStoragePolicy\": \"NoStore\"\n      },\n      \"PlayReadyDrm\": {\n        \"Format\": \"microsoft\",\n        \"Key\": \"NDB5CZNeKByJwyyJH8JyLfDHRSzNvCt7wOK7whPS\",\n        \"KeyMd5\": \"3z4OJl7KsVSN\",\n        \"KeyId\": \"52FF2746dACF1dAEcBCf8F42BF5DCbBa\",\n        \"InitializationVector\": \"<string>\",\n        \"LicenseAcquisitionUrl\": \"<string>\"\n      }\n    }\n  ],\n  \"UserMetadata\": {\n    \"officia4\": \"<string>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/2012-09-25/jobs",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "2012-09-25",
+                        "jobs"
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:20:16.000Z",
+                  "updatedAt": "2026-07-28T10:20:16.000Z",
+                  "uid": "35240-0e9c7ff9-25e8-4ad2-91cc-feffa703d3c8"
+                },
+                {
+                  "id": "dfdf42b8-4747-4d30-9e03-33298375d716",
+                  "name": "IncompatibleVersionException",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"PipelineId\": \"2865168124720-bhlpJt\",\n  \"Input\": {\n    \"Key\": \"<string>\",\n    \"FrameRate\": \"60\",\n    \"Resolution\": \"auto\",\n    \"AspectRatio\": \"1:1\",\n    \"Interlaced\": \"false\",\n    \"Container\": \"mpeg-ps\",\n    \"Encryption\": {\n      \"Mode\": \"aes-cbc-pkcs7\",\n      \"Key\": \"UbPeroTmiIXa8vP2QZpOt3MWbzS6fcn0uAqey3hu\",\n      \"KeyMd5\": \"\",\n      \"InitializationVector\": \"<string>\"\n    },\n    \"TimeSpan\": {\n      \"StartTime\": \"54578\",\n      \"Duration\": \"08040\"\n    },\n    \"InputCaptions\": {\n      \"MergePolicy\": \"Override\",\n      \"CaptionSources\": [\n        {\n          \"Key\": \"<string>\",\n          \"Language\": \"<string>\",\n          \"TimeOffset\": \"07:7:4\",\n          \"Label\": \"<string>\",\n          \"Encryption\": {\n            \"Mode\": \"aes-cbc-pkcs7\",\n            \"Key\": \"VpiOK4XDGl==\",\n            \"KeyMd5\": \"ot167yGH3Jm60mIiL3oSkI4=\",\n            \"InitializationVector\": \"<string>\"\n          }\n        }\n      ]\n    },\n    \"DetectedProperties\": {\n      \"Width\": \"<integer>\",\n      \"Height\": \"<integer>\",\n      \"FrameRate\": \"47\",\n      \"FileSize\": \"<integer>\",\n      \"DurationMillis\": \"<integer>\"\n    }\n  },\n  \"Inputs\": [\n    {\n      \"Key\": \"<string>\",\n      \"FrameRate\": \"30\",\n      \"Resolution\": \"23x23563\",\n      \"AspectRatio\": \"3:2\",\n      \"Interlaced\": \"auto\",\n      \"Container\": \"wav\",\n      \"Encryption\": {\n        \"Mode\": \"s3\",\n        \"Key\": \"S318VZDG\",\n        \"KeyMd5\": \"kW/xemN5C1wK+aLCSlXxJjFxeWAYiMLw0p7I\",\n        \"InitializationVector\": \"<string>\"\n      },\n      \"TimeSpan\": {\n        \"StartTime\": \"64.191\",\n        \"Duration\": \"1:7\"\n      },\n      \"InputCaptions\": {\n        \"MergePolicy\": \"Override\",\n        \"CaptionSources\": [\n          {\n            \"Key\": \"<string>\",\n            \"Language\": \"<string>\",\n            \"TimeOffset\": \"30\",\n            \"Label\": \"<string>\",\n            \"Encryption\": {\n              \"Mode\": \"aes-gcm\",\n              \"Key\": \"\",\n              \"KeyMd5\": \"\",\n              \"InitializationVector\": \"<string>\"\n            }\n          }\n        ]\n      },\n      \"DetectedProperties\": {\n        \"Width\": \"<integer>\",\n        \"Height\": \"<integer>\",\n        \"FrameRate\": \"681.250\",\n        \"FileSize\": \"<integer>\",\n        \"DurationMillis\": \"<integer>\"\n      }\n    }\n  ],\n  \"Output\": {\n    \"Key\": \"<string>\",\n    \"ThumbnailPattern\": \"{count}l-V>\\\"ink\",\n    \"ThumbnailEncryption\": {\n      \"Mode\": \"aes-ctr\",\n      \"Key\": \"\",\n      \"KeyMd5\": \"\",\n      \"InitializationVector\": \"<string>\"\n    },\n    \"Rotate\": \"0\",\n    \"PresetId\": \"0488729810017-R6Ln9K\",\n    \"SegmentDuration\": \"37.09371\",\n    \"Watermarks\": [\n      {\n        \"PresetWatermarkId\": \"<string>\",\n        \"InputKey\": \"JJ\\\\a471hY\\\"!9G#;Zwn.I]qP8[OdDe:#O_iQ\\\\Er>^qci^FcaaKL<Nf@(#eSggP/5vO`Gp&/-pIv4Kc,>/b37Cam(;,tpD%bVI+H-6%FA7Uo _VvB.%r;um5#/S?D09b8d69O`H '5.^Z^{Q++Llp68*8>=#,Ac?[}{j[LF+h|y+@LJ,%c+IsHq%(Y%{cBPeLtq-M#_f`XKw2+^s> BtRO]3H+j;Tc-LVC8@-]t0MgjkbQ\\\\cxaMi5}lC!s39Z4}r4U\",\n        \"Encryption\": {\n          \"Mode\": \"s3-aws-kms\",\n          \"Key\": \"\",\n          \"KeyMd5\": \"hreRo8rALyQVHqEg912lB4pD6OHLs6Xschr=\",\n          \"InitializationVector\": \"<string>\"\n        }\n      }\n    ],\n    \"AlbumArt\": {\n      \"MergePolicy\": \"Replace\",\n      \"Artwork\": [\n        {\n          \"InputKey\": \"gdd(n7]s?:y}j#PEllD7F( tn%<6:E3dF?{\\\\9N68pC'@[FboS?N0BG?WcSpnuM`z9U_J:d1SPud_cM':%ryieDq:q:Q4huE1xhiSb<[z:'yQx+@*raUXD^6EV,8?\\\"`Zboi~PQ#nH59Tmvnx0V<{d|gdzHE*;P/>G;*yL %]z*'~p/HmM]&A4Xf52i *8GJb$sa$HMFvhugu{EU++)Usx|^-c[#\\\"X$ViPN/~dR%e>Ac;PGJ.mThD19$>YF&?&88L2\",\n          \"MaxWidth\": \"auto\",\n          \"MaxHeight\": \"auto\",\n          \"SizingPolicy\": \"Stretch\",\n          \"PaddingPolicy\": \"Pad\",\n          \"AlbumArtFormat\": \"jpg\",\n          \"Encryption\": {\n            \"Mode\": \"aes-cbc-pkcs7\",\n            \"Key\": \"YOEEElQEPURlD+3LbVCvHTY7VAB8H/JHwd==\",\n            \"KeyMd5\": \"\",\n            \"InitializationVector\": \"<string>\"\n          }\n        }\n      ]\n    },\n    \"Composition\": [\n      {\n        \"TimeSpan\": {\n          \"StartTime\": \"21:02.7\",\n          \"Duration\": \"3\"\n        }\n      }\n    ],\n    \"Captions\": {\n      \"MergePolicy\": \"MergeOverride\",\n      \"CaptionSources\": [\n        {\n          \"Key\": \"<string>\",\n          \"Language\": \"<string>\",\n          \"TimeOffset\": \"01:7.632\",\n          \"Label\": \"<string>\",\n          \"Encryption\": {\n            \"Mode\": \"s3-aws-kms\",\n            \"Key\": \"4gHCZXSNue/r9IHMFCqoFFLYUIbKsr5qDSnR\",\n            \"KeyMd5\": \"\",\n            \"InitializationVector\": \"<string>\"\n          }\n        }\n      ],\n      \"CaptionFormats\": [\n        {\n          \"Format\": \"scc\",\n          \"Pattern\": \"[uXfp3{language}yq\",\n          \"Encryption\": {\n            \"Mode\": \"s3-aws-kms\",\n            \"Key\": \"40vgzzhtjc==\",\n            \"KeyMd5\": \"\",\n            \"InitializationVector\": \"<string>\"\n          }\n        }\n      ]\n    },\n    \"Encryption\": {\n      \"Mode\": \"aes-cbc-pkcs7\",\n      \"Key\": \"PCYnmupM3FrAqdossVPJ6jyTun1eXfTW4K==\",\n      \"KeyMd5\": \"\",\n      \"InitializationVector\": \"<string>\"\n    }\n  },\n  \"Outputs\": [\n    {\n      \"Key\": \"<string>\",\n      \"ThumbnailPattern\": \"OPLSz/bP+T{count}lWzMX}\",\n      \"ThumbnailEncryption\": {\n        \"Mode\": \"aes-cbc-pkcs7\",\n        \"Key\": \"\",\n        \"KeyMd5\": \"brfs\",\n        \"InitializationVector\": \"<string>\"\n      },\n      \"Rotate\": \"0\",\n      \"PresetId\": \"1772293399850-zQa96k\",\n      \"SegmentDuration\": \"913\",\n      \"Watermarks\": [\n        {\n          \"PresetWatermarkId\": \"<string>\",\n          \"InputKey\": \"M\\\"wSE'?v~8&Y4mj^o#5_Yx$uKFJ}q}K,o8U47@M8oe| CRmg,dms4PX0:mx*tw%k9NEVnNBu,<Z66Z1R7#j|-SXk7=p\\\\jd]BtB4WND|D^4V6X|dH%s*J1vCpD4fOm\\\"l|9CQVP'ozq`JUa:*jpg\",\n          \"Encryption\": {\n            \"Mode\": \"s3\",\n            \"Key\": \"\",\n            \"KeyMd5\": \"GqgwHaHGWikN5DDz6PRsdCyW\",\n            \"InitializationVector\": \"<string>\"\n          }\n        }\n      ],\n      \"AlbumArt\": {\n        \"MergePolicy\": \"Prepend\",\n        \"Artwork\": [\n          {\n            \"InputKey\": \"5c6ERmk_Axv|4zpXR-\\\\rG?\\\":-8B=Mt>ArmuhSO*9|~>>#ofGm(Mh]Gh1:mcNQ)R^1iW@x1D[r3 QYQ~L?!@qHUKe*kN/18O[ab_]p6g&?t<S(xKE>h\\\\N^9USOTfgtqR <-a0EUD@G$q%*gX|%Pju4<ho-m5WSF,|LxlkK=/0BuXg}54[\\\\]=^ywUM4Qw2+pxEWawrN0=^+i-5tj2~)Aj+N<eFR,9.J>*cR)'Cx.AsIPH~Nn-(YKQ| Ba~ej78&5( \",\n            \"MaxWidth\": \"auto\",\n            \"MaxHeight\": \"auto\",\n            \"SizingPolicy\": \"Stretch\",\n            \"PaddingPolicy\": \"Pad\",\n            \"AlbumArtFormat\": \"png\",\n            \"Encryption\": {\n              \"Mode\": \"aes-ctr\",\n              \"Key\": \"\",\n              \"KeyMd5\": \"\",\n              \"InitializationVector\": \"<string>\"\n            }\n          }\n        ]\n      },\n      \"Composition\": [\n        {\n          \"TimeSpan\": {\n            \"StartTime\": \"02.7\",\n            \"Duration\": \"49960.076\"\n          }\n        }\n      ],\n      \"Captions\": {\n        \"MergePolicy\": \"Override\",\n        \"CaptionSources\": [\n          {\n            \"Key\": \"<string>\",\n            \"Language\": \"<string>\",\n            \"TimeOffset\": \"22:11\",\n            \"Label\": \"<string>\",\n            \"Encryption\": {\n              \"Mode\": \"aes-gcm\",\n              \"Key\": \"\",\n              \"KeyMd5\": \"8jm0bNcipjrFBbUuiHZPYYrhEYqI\",\n              \"InitializationVector\": \"<string>\"\n            }\n          }\n        ],\n        \"CaptionFormats\": [\n          {\n            \"Format\": \"dfxp\",\n            \"Pattern\": \"W#aC~A{language}D\",\n            \"Encryption\": {\n              \"Mode\": \"s3\",\n              \"Key\": \"1pp4mTtzZvx4mMOc3pXyrebBcU+2q461rAZ0\",\n              \"KeyMd5\": \"\",\n              \"InitializationVector\": \"<string>\"\n            }\n          }\n        ]\n      },\n      \"Encryption\": {\n        \"Mode\": \"s3\",\n        \"Key\": \"92V=\",\n        \"KeyMd5\": \"/dkyKgeE1jwOaw5cGPx4hinXK6E7fG7f\",\n        \"InitializationVector\": \"<string>\"\n      }\n    }\n  ],\n  \"OutputKeyPrefix\": \"<string>\",\n  \"Playlists\": [\n    {\n      \"Name\": \"<string>\",\n      \"Format\": \"MPEG-DASH\",\n      \"OutputKeys\": [\n        \"<string>\"\n      ],\n      \"HlsContentProtection\": {\n        \"Method\": \"aes-128\",\n        \"Key\": \"\",\n        \"KeyMd5\": \"dP5XWqGu084+/IH2AY==\",\n        \"InitializationVector\": \"<string>\",\n        \"LicenseAcquisitionUrl\": \"<string>\",\n        \"KeyStoragePolicy\": \"NoStore\"\n      },\n      \"PlayReadyDrm\": {\n        \"Format\": \"microsoft\",\n        \"Key\": \"NDB5CZNeKByJwyyJH8JyLfDHRSzNvCt7wOK7whPS\",\n        \"KeyMd5\": \"3z4OJl7KsVSN\",\n        \"KeyId\": \"52FF2746dACF1dAEcBCf8F42BF5DCbBa\",\n        \"InitializationVector\": \"<string>\",\n        \"LicenseAcquisitionUrl\": \"<string>\"\n      }\n    }\n  ],\n  \"UserMetadata\": {\n    \"officia4\": \"<string>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/2012-09-25/jobs",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "2012-09-25",
+                        "jobs"
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:20:16.000Z",
+                  "updatedAt": "2026-07-28T10:20:16.000Z",
+                  "uid": "35240-dfdf42b8-4747-4d30-9e03-33298375d716"
+                },
+                {
+                  "id": "9152188e-93d2-415d-bf80-7a342ef1702d",
+                  "name": "ResourceNotFoundException",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"PipelineId\": \"2865168124720-bhlpJt\",\n  \"Input\": {\n    \"Key\": \"<string>\",\n    \"FrameRate\": \"60\",\n    \"Resolution\": \"auto\",\n    \"AspectRatio\": \"1:1\",\n    \"Interlaced\": \"false\",\n    \"Container\": \"mpeg-ps\",\n    \"Encryption\": {\n      \"Mode\": \"aes-cbc-pkcs7\",\n      \"Key\": \"UbPeroTmiIXa8vP2QZpOt3MWbzS6fcn0uAqey3hu\",\n      \"KeyMd5\": \"\",\n      \"InitializationVector\": \"<string>\"\n    },\n    \"TimeSpan\": {\n      \"StartTime\": \"54578\",\n      \"Duration\": \"08040\"\n    },\n    \"InputCaptions\": {\n      \"MergePolicy\": \"Override\",\n      \"CaptionSources\": [\n        {\n          \"Key\": \"<string>\",\n          \"Language\": \"<string>\",\n          \"TimeOffset\": \"07:7:4\",\n          \"Label\": \"<string>\",\n          \"Encryption\": {\n            \"Mode\": \"aes-cbc-pkcs7\",\n            \"Key\": \"VpiOK4XDGl==\",\n            \"KeyMd5\": \"ot167yGH3Jm60mIiL3oSkI4=\",\n            \"InitializationVector\": \"<string>\"\n          }\n        }\n      ]\n    },\n    \"DetectedProperties\": {\n      \"Width\": \"<integer>\",\n      \"Height\": \"<integer>\",\n      \"FrameRate\": \"47\",\n      \"FileSize\": \"<integer>\",\n      \"DurationMillis\": \"<integer>\"\n    }\n  },\n  \"Inputs\": [\n    {\n      \"Key\": \"<string>\",\n      \"FrameRate\": \"30\",\n      \"Resolution\": \"23x23563\",\n      \"AspectRatio\": \"3:2\",\n      \"Interlaced\": \"auto\",\n      \"Container\": \"wav\",\n      \"Encryption\": {\n        \"Mode\": \"s3\",\n        \"Key\": \"S318VZDG\",\n        \"KeyMd5\": \"kW/xemN5C1wK+aLCSlXxJjFxeWAYiMLw0p7I\",\n        \"InitializationVector\": \"<string>\"\n      },\n      \"TimeSpan\": {\n        \"StartTime\": \"64.191\",\n        \"Duration\": \"1:7\"\n      },\n      \"InputCaptions\": {\n        \"MergePolicy\": \"Override\",\n        \"CaptionSources\": [\n          {\n            \"Key\": \"<string>\",\n            \"Language\": \"<string>\",\n            \"TimeOffset\": \"30\",\n            \"Label\": \"<string>\",\n            \"Encryption\": {\n              \"Mode\": \"aes-gcm\",\n              \"Key\": \"\",\n              \"KeyMd5\": \"\",\n              \"InitializationVector\": \"<string>\"\n            }\n          }\n        ]\n      },\n      \"DetectedProperties\": {\n        \"Width\": \"<integer>\",\n        \"Height\": \"<integer>\",\n        \"FrameRate\": \"681.250\",\n        \"FileSize\": \"<integer>\",\n        \"DurationMillis\": \"<integer>\"\n      }\n    }\n  ],\n  \"Output\": {\n    \"Key\": \"<string>\",\n    \"ThumbnailPattern\": \"{count}l-V>\\\"ink\",\n    \"ThumbnailEncryption\": {\n      \"Mode\": \"aes-ctr\",\n      \"Key\": \"\",\n      \"KeyMd5\": \"\",\n      \"InitializationVector\": \"<string>\"\n    },\n    \"Rotate\": \"0\",\n    \"PresetId\": \"0488729810017-R6Ln9K\",\n    \"SegmentDuration\": \"37.09371\",\n    \"Watermarks\": [\n      {\n        \"PresetWatermarkId\": \"<string>\",\n        \"InputKey\": \"JJ\\\\a471hY\\\"!9G#;Zwn.I]qP8[OdDe:#O_iQ\\\\Er>^qci^FcaaKL<Nf@(#eSggP/5vO`Gp&/-pIv4Kc,>/b37Cam(;,tpD%bVI+H-6%FA7Uo _VvB.%r;um5#/S?D09b8d69O`H '5.^Z^{Q++Llp68*8>=#,Ac?[}{j[LF+h|y+@LJ,%c+IsHq%(Y%{cBPeLtq-M#_f`XKw2+^s> BtRO]3H+j;Tc-LVC8@-]t0MgjkbQ\\\\cxaMi5}lC!s39Z4}r4U\",\n        \"Encryption\": {\n          \"Mode\": \"s3-aws-kms\",\n          \"Key\": \"\",\n          \"KeyMd5\": \"hreRo8rALyQVHqEg912lB4pD6OHLs6Xschr=\",\n          \"InitializationVector\": \"<string>\"\n        }\n      }\n    ],\n    \"AlbumArt\": {\n      \"MergePolicy\": \"Replace\",\n      \"Artwork\": [\n        {\n          \"InputKey\": \"gdd(n7]s?:y}j#PEllD7F( tn%<6:E3dF?{\\\\9N68pC'@[FboS?N0BG?WcSpnuM`z9U_J:d1SPud_cM':%ryieDq:q:Q4huE1xhiSb<[z:'yQx+@*raUXD^6EV,8?\\\"`Zboi~PQ#nH59Tmvnx0V<{d|gdzHE*;P/>G;*yL %]z*'~p/HmM]&A4Xf52i *8GJb$sa$HMFvhugu{EU++)Usx|^-c[#\\\"X$ViPN/~dR%e>Ac;PGJ.mThD19$>YF&?&88L2\",\n          \"MaxWidth\": \"auto\",\n          \"MaxHeight\": \"auto\",\n          \"SizingPolicy\": \"Stretch\",\n          \"PaddingPolicy\": \"Pad\",\n          \"AlbumArtFormat\": \"jpg\",\n          \"Encryption\": {\n            \"Mode\": \"aes-cbc-pkcs7\",\n            \"Key\": \"YOEEElQEPURlD+3LbVCvHTY7VAB8H/JHwd==\",\n            \"KeyMd5\": \"\",\n            \"InitializationVector\": \"<string>\"\n          }\n        }\n      ]\n    },\n    \"Composition\": [\n      {\n        \"TimeSpan\": {\n          \"StartTime\": \"21:02.7\",\n          \"Duration\": \"3\"\n        }\n      }\n    ],\n    \"Captions\": {\n      \"MergePolicy\": \"MergeOverride\",\n      \"CaptionSources\": [\n        {\n          \"Key\": \"<string>\",\n          \"Language\": \"<string>\",\n          \"TimeOffset\": \"01:7.632\",\n          \"Label\": \"<string>\",\n          \"Encryption\": {\n            \"Mode\": \"s3-aws-kms\",\n            \"Key\": \"4gHCZXSNue/r9IHMFCqoFFLYUIbKsr5qDSnR\",\n            \"KeyMd5\": \"\",\n            \"InitializationVector\": \"<string>\"\n          }\n        }\n      ],\n      \"CaptionFormats\": [\n        {\n          \"Format\": \"scc\",\n          \"Pattern\": \"[uXfp3{language}yq\",\n          \"Encryption\": {\n            \"Mode\": \"s3-aws-kms\",\n            \"Key\": \"40vgzzhtjc==\",\n            \"KeyMd5\": \"\",\n            \"InitializationVector\": \"<string>\"\n          }\n        }\n      ]\n    },\n    \"Encryption\": {\n      \"Mode\": \"aes-cbc-pkcs7\",\n      \"Key\": \"PCYnmupM3FrAqdossVPJ6jyTun1eXfTW4K==\",\n      \"KeyMd5\": \"\",\n      \"InitializationVector\": \"<string>\"\n    }\n  },\n  \"Outputs\": [\n    {\n      \"Key\": \"<string>\",\n      \"ThumbnailPattern\": \"OPLSz/bP+T{count}lWzMX}\",\n      \"ThumbnailEncryption\": {\n        \"Mode\": \"aes-cbc-pkcs7\",\n        \"Key\": \"\",\n        \"KeyMd5\": \"brfs\",\n        \"InitializationVector\": \"<string>\"\n      },\n      \"Rotate\": \"0\",\n      \"PresetId\": \"1772293399850-zQa96k\",\n      \"SegmentDuration\": \"913\",\n      \"Watermarks\": [\n        {\n          \"PresetWatermarkId\": \"<string>\",\n          \"InputKey\": \"M\\\"wSE'?v~8&Y4mj^o#5_Yx$uKFJ}q}K,o8U47@M8oe| CRmg,dms4PX0:mx*tw%k9NEVnNBu,<Z66Z1R7#j|-SXk7=p\\\\jd]BtB4WND|D^4V6X|dH%s*J1vCpD4fOm\\\"l|9CQVP'ozq`JUa:*jpg\",\n          \"Encryption\": {\n            \"Mode\": \"s3\",\n            \"Key\": \"\",\n            \"KeyMd5\": \"GqgwHaHGWikN5DDz6PRsdCyW\",\n            \"InitializationVector\": \"<string>\"\n          }\n        }\n      ],\n      \"AlbumArt\": {\n        \"MergePolicy\": \"Prepend\",\n        \"Artwork\": [\n          {\n            \"InputKey\": \"5c6ERmk_Axv|4zpXR-\\\\rG?\\\":-8B=Mt>ArmuhSO*9|~>>#ofGm(Mh]Gh1:mcNQ)R^1iW@x1D[r3 QYQ~L?!@qHUKe*kN/18O[ab_]p6g&?t<S(xKE>h\\\\N^9USOTfgtqR <-a0EUD@G$q%*gX|%Pju4<ho-m5WSF,|LxlkK=/0BuXg}54[\\\\]=^ywUM4Qw2+pxEWawrN0=^+i-5tj2~)Aj+N<eFR,9.J>*cR)'Cx.AsIPH~Nn-(YKQ| Ba~ej78&5( \",\n            \"MaxWidth\": \"auto\",\n            \"MaxHeight\": \"auto\",\n            \"SizingPolicy\": \"Stretch\",\n            \"PaddingPolicy\": \"Pad\",\n            \"AlbumArtFormat\": \"png\",\n            \"Encryption\": {\n              \"Mode\": \"aes-ctr\",\n              \"Key\": \"\",\n              \"KeyMd5\": \"\",\n              \"InitializationVector\": \"<string>\"\n            }\n          }\n        ]\n      },\n      \"Composition\": [\n        {\n          \"TimeSpan\": {\n            \"StartTime\": \"02.7\",\n            \"Duration\": \"49960.076\"\n          }\n        }\n      ],\n      \"Captions\": {\n        \"MergePolicy\": \"Override\",\n        \"CaptionSources\": [\n          {\n            \"Key\": \"<string>\",\n            \"Language\": \"<string>\",\n            \"TimeOffset\": \"22:11\",\n            \"Label\": \"<string>\",\n            \"Encryption\": {\n              \"Mode\": \"aes-gcm\",\n              \"Key\": \"\",\n              \"KeyMd5\": \"8jm0bNcipjrFBbUuiHZPYYrhEYqI\",\n              \"InitializationVector\": \"<string>\"\n            }\n          }\n        ],\n        \"CaptionFormats\": [\n          {\n            \"Format\": \"dfxp\",\n            \"Pattern\": \"W#aC~A{language}D\",\n            \"Encryption\": {\n              \"Mode\": \"s3\",\n              \"Key\": \"1pp4mTtzZvx4mMOc3pXyrebBcU+2q461rAZ0\",\n              \"KeyMd5\": \"\",\n              \"InitializationVector\": \"<string>\"\n            }\n          }\n        ]\n      },\n      \"Encryption\": {\n        \"Mode\": \"s3\",\n        \"Key\": \"92V=\",\n        \"KeyMd5\": \"/dkyKgeE1jwOaw5cGPx4hinXK6E7fG7f\",\n        \"InitializationVector\": \"<string>\"\n      }\n    }\n  ],\n  \"OutputKeyPrefix\": \"<string>\",\n  \"Playlists\": [\n    {\n      \"Name\": \"<string>\",\n      \"Format\": \"MPEG-DASH\",\n      \"OutputKeys\": [\n        \"<string>\"\n      ],\n      \"HlsContentProtection\": {\n        \"Method\": \"aes-128\",\n        \"Key\": \"\",\n        \"KeyMd5\": \"dP5XWqGu084+/IH2AY==\",\n        \"InitializationVector\": \"<string>\",\n        \"LicenseAcquisitionUrl\": \"<string>\",\n        \"KeyStoragePolicy\": \"NoStore\"\n      },\n      \"PlayReadyDrm\": {\n        \"Format\": \"microsoft\",\n        \"Key\": \"NDB5CZNeKByJwyyJH8JyLfDHRSzNvCt7wOK7whPS\",\n        \"KeyMd5\": \"3z4OJl7KsVSN\",\n        \"KeyId\": \"52FF2746dACF1dAEcBCf8F42BF5DCbBa\",\n        \"InitializationVector\": \"<string>\",\n        \"LicenseAcquisitionUrl\": \"<string>\"\n      }\n    }\n  ],\n  \"UserMetadata\": {\n    \"officia4\": \"<string>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/2012-09-25/jobs",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "2012-09-25",
+                        "jobs"
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:20:16.000Z",
+                  "updatedAt": "2026-07-28T10:20:16.000Z",
+                  "uid": "35240-9152188e-93d2-415d-bf80-7a342ef1702d"
+                },
+                {
+                  "id": "c9cfe342-5286-4dbb-8184-125c646dc597",
+                  "name": "AccessDeniedException",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"PipelineId\": \"2865168124720-bhlpJt\",\n  \"Input\": {\n    \"Key\": \"<string>\",\n    \"FrameRate\": \"60\",\n    \"Resolution\": \"auto\",\n    \"AspectRatio\": \"1:1\",\n    \"Interlaced\": \"false\",\n    \"Container\": \"mpeg-ps\",\n    \"Encryption\": {\n      \"Mode\": \"aes-cbc-pkcs7\",\n      \"Key\": \"UbPeroTmiIXa8vP2QZpOt3MWbzS6fcn0uAqey3hu\",\n      \"KeyMd5\": \"\",\n      \"InitializationVector\": \"<string>\"\n    },\n    \"TimeSpan\": {\n      \"StartTime\": \"54578\",\n      \"Duration\": \"08040\"\n    },\n    \"InputCaptions\": {\n      \"MergePolicy\": \"Override\",\n      \"CaptionSources\": [\n        {\n          \"Key\": \"<string>\",\n          \"Language\": \"<string>\",\n          \"TimeOffset\": \"07:7:4\",\n          \"Label\": \"<string>\",\n          \"Encryption\": {\n            \"Mode\": \"aes-cbc-pkcs7\",\n            \"Key\": \"VpiOK4XDGl==\",\n            \"KeyMd5\": \"ot167yGH3Jm60mIiL3oSkI4=\",\n            \"InitializationVector\": \"<string>\"\n          }\n        }\n      ]\n    },\n    \"DetectedProperties\": {\n      \"Width\": \"<integer>\",\n      \"Height\": \"<integer>\",\n      \"FrameRate\": \"47\",\n      \"FileSize\": \"<integer>\",\n      \"DurationMillis\": \"<integer>\"\n    }\n  },\n  \"Inputs\": [\n    {\n      \"Key\": \"<string>\",\n      \"FrameRate\": \"30\",\n      \"Resolution\": \"23x23563\",\n      \"AspectRatio\": \"3:2\",\n      \"Interlaced\": \"auto\",\n      \"Container\": \"wav\",\n      \"Encryption\": {\n        \"Mode\": \"s3\",\n        \"Key\": \"S318VZDG\",\n        \"KeyMd5\": \"kW/xemN5C1wK+aLCSlXxJjFxeWAYiMLw0p7I\",\n        \"InitializationVector\": \"<string>\"\n      },\n      \"TimeSpan\": {\n        \"StartTime\": \"64.191\",\n        \"Duration\": \"1:7\"\n      },\n      \"InputCaptions\": {\n        \"MergePolicy\": \"Override\",\n        \"CaptionSources\": [\n          {\n            \"Key\": \"<string>\",\n            \"Language\": \"<string>\",\n            \"TimeOffset\": \"30\",\n            \"Label\": \"<string>\",\n            \"Encryption\": {\n              \"Mode\": \"aes-gcm\",\n              \"Key\": \"\",\n              \"KeyMd5\": \"\",\n              \"InitializationVector\": \"<string>\"\n            }\n          }\n        ]\n      },\n      \"DetectedProperties\": {\n        \"Width\": \"<integer>\",\n        \"Height\": \"<integer>\",\n        \"FrameRate\": \"681.250\",\n        \"FileSize\": \"<integer>\",\n        \"DurationMillis\": \"<integer>\"\n      }\n    }\n  ],\n  \"Output\": {\n    \"Key\": \"<string>\",\n    \"ThumbnailPattern\": \"{count}l-V>\\\"ink\",\n    \"ThumbnailEncryption\": {\n      \"Mode\": \"aes-ctr\",\n      \"Key\": \"\",\n      \"KeyMd5\": \"\",\n      \"InitializationVector\": \"<string>\"\n    },\n    \"Rotate\": \"0\",\n    \"PresetId\": \"0488729810017-R6Ln9K\",\n    \"SegmentDuration\": \"37.09371\",\n    \"Watermarks\": [\n      {\n        \"PresetWatermarkId\": \"<string>\",\n        \"InputKey\": \"JJ\\\\a471hY\\\"!9G#;Zwn.I]qP8[OdDe:#O_iQ\\\\Er>^qci^FcaaKL<Nf@(#eSggP/5vO`Gp&/-pIv4Kc,>/b37Cam(;,tpD%bVI+H-6%FA7Uo _VvB.%r;um5#/S?D09b8d69O`H '5.^Z^{Q++Llp68*8>=#,Ac?[}{j[LF+h|y+@LJ,%c+IsHq%(Y%{cBPeLtq-M#_f`XKw2+^s> BtRO]3H+j;Tc-LVC8@-]t0MgjkbQ\\\\cxaMi5}lC!s39Z4}r4U\",\n        \"Encryption\": {\n          \"Mode\": \"s3-aws-kms\",\n          \"Key\": \"\",\n          \"KeyMd5\": \"hreRo8rALyQVHqEg912lB4pD6OHLs6Xschr=\",\n          \"InitializationVector\": \"<string>\"\n        }\n      }\n    ],\n    \"AlbumArt\": {\n      \"MergePolicy\": \"Replace\",\n      \"Artwork\": [\n        {\n          \"InputKey\": \"gdd(n7]s?:y}j#PEllD7F( tn%<6:E3dF?{\\\\9N68pC'@[FboS?N0BG?WcSpnuM`z9U_J:d1SPud_cM':%ryieDq:q:Q4huE1xhiSb<[z:'yQx+@*raUXD^6EV,8?\\\"`Zboi~PQ#nH59Tmvnx0V<{d|gdzHE*;P/>G;*yL %]z*'~p/HmM]&A4Xf52i *8GJb$sa$HMFvhugu{EU++)Usx|^-c[#\\\"X$ViPN/~dR%e>Ac;PGJ.mThD19$>YF&?&88L2\",\n          \"MaxWidth\": \"auto\",\n          \"MaxHeight\": \"auto\",\n          \"SizingPolicy\": \"Stretch\",\n          \"PaddingPolicy\": \"Pad\",\n          \"AlbumArtFormat\": \"jpg\",\n          \"Encryption\": {\n            \"Mode\": \"aes-cbc-pkcs7\",\n            \"Key\": \"YOEEElQEPURlD+3LbVCvHTY7VAB8H/JHwd==\",\n            \"KeyMd5\": \"\",\n            \"InitializationVector\": \"<string>\"\n          }\n        }\n      ]\n    },\n    \"Composition\": [\n      {\n        \"TimeSpan\": {\n          \"StartTime\": \"21:02.7\",\n          \"Duration\": \"3\"\n        }\n      }\n    ],\n    \"Captions\": {\n      \"MergePolicy\": \"MergeOverride\",\n      \"CaptionSources\": [\n        {\n          \"Key\": \"<string>\",\n          \"Language\": \"<string>\",\n          \"TimeOffset\": \"01:7.632\",\n          \"Label\": \"<string>\",\n          \"Encryption\": {\n            \"Mode\": \"s3-aws-kms\",\n            \"Key\": \"4gHCZXSNue/r9IHMFCqoFFLYUIbKsr5qDSnR\",\n            \"KeyMd5\": \"\",\n            \"InitializationVector\": \"<string>\"\n          }\n        }\n      ],\n      \"CaptionFormats\": [\n        {\n          \"Format\": \"scc\",\n          \"Pattern\": \"[uXfp3{language}yq\",\n          \"Encryption\": {\n            \"Mode\": \"s3-aws-kms\",\n            \"Key\": \"40vgzzhtjc==\",\n            \"KeyMd5\": \"\",\n            \"InitializationVector\": \"<string>\"\n          }\n        }\n      ]\n    },\n    \"Encryption\": {\n      \"Mode\": \"aes-cbc-pkcs7\",\n      \"Key\": \"PCYnmupM3FrAqdossVPJ6jyTun1eXfTW4K==\",\n      \"KeyMd5\": \"\",\n      \"InitializationVector\": \"<string>\"\n    }\n  },\n  \"Outputs\": [\n    {\n      \"Key\": \"<string>\",\n      \"ThumbnailPattern\": \"OPLSz/bP+T{count}lWzMX}\",\n      \"ThumbnailEncryption\": {\n        \"Mode\": \"aes-cbc-pkcs7\",\n        \"Key\": \"\",\n        \"KeyMd5\": \"brfs\",\n        \"InitializationVector\": \"<string>\"\n      },\n      \"Rotate\": \"0\",\n      \"PresetId\": \"1772293399850-zQa96k\",\n      \"SegmentDuration\": \"913\",\n      \"Watermarks\": [\n        {\n          \"PresetWatermarkId\": \"<string>\",\n          \"InputKey\": \"M\\\"wSE'?v~8&Y4mj^o#5_Yx$uKFJ}q}K,o8U47@M8oe| CRmg,dms4PX0:mx*tw%k9NEVnNBu,<Z66Z1R7#j|-SXk7=p\\\\jd]BtB4WND|D^4V6X|dH%s*J1vCpD4fOm\\\"l|9CQVP'ozq`JUa:*jpg\",\n          \"Encryption\": {\n            \"Mode\": \"s3\",\n            \"Key\": \"\",\n            \"KeyMd5\": \"GqgwHaHGWikN5DDz6PRsdCyW\",\n            \"InitializationVector\": \"<string>\"\n          }\n        }\n      ],\n      \"AlbumArt\": {\n        \"MergePolicy\": \"Prepend\",\n        \"Artwork\": [\n          {\n            \"InputKey\": \"5c6ERmk_Axv|4zpXR-\\\\rG?\\\":-8B=Mt>ArmuhSO*9|~>>#ofGm(Mh]Gh1:mcNQ)R^1iW@x1D[r3 QYQ~L?!@qHUKe*kN/18O[ab_]p6g&?t<S(xKE>h\\\\N^9USOTfgtqR <-a0EUD@G$q%*gX|%Pju4<ho-m5WSF,|LxlkK=/0BuXg}54[\\\\]=^ywUM4Qw2+pxEWawrN0=^+i-5tj2~)Aj+N<eFR,9.J>*cR)'Cx.AsIPH~Nn-(YKQ| Ba~ej78&5( \",\n            \"MaxWidth\": \"auto\",\n            \"MaxHeight\": \"auto\",\n            \"SizingPolicy\": \"Stretch\",\n            \"PaddingPolicy\": \"Pad\",\n            \"AlbumArtFormat\": \"png\",\n            \"Encryption\": {\n              \"Mode\": \"aes-ctr\",\n              \"Key\": \"\",\n              \"KeyMd5\": \"\",\n              \"InitializationVector\": \"<string>\"\n            }\n          }\n        ]\n      },\n      \"Composition\": [\n        {\n          \"TimeSpan\": {\n            \"StartTime\": \"02.7\",\n            \"Duration\": \"49960.076\"\n          }\n        }\n      ],\n      \"Captions\": {\n        \"MergePolicy\": \"Override\",\n        \"CaptionSources\": [\n          {\n            \"Key\": \"<string>\",\n            \"Language\": \"<string>\",\n            \"TimeOffset\": \"22:11\",\n            \"Label\": \"<string>\",\n            \"Encryption\": {\n              \"Mode\": \"aes-gcm\",\n              \"Key\": \"\",\n              \"KeyMd5\": \"8jm0bNcipjrFBbUuiHZPYYrhEYqI\",\n              \"InitializationVector\": \"<string>\"\n            }\n          }\n        ],\n        \"CaptionFormats\": [\n          {\n            \"Format\": \"dfxp\",\n            \"Pattern\": \"W#aC~A{language}D\",\n            \"Encryption\": {\n              \"Mode\": \"s3\",\n              \"Key\": \"1pp4mTtzZvx4mMOc3pXyrebBcU+2q461rAZ0\",\n              \"KeyMd5\": \"\",\n              \"InitializationVector\": \"<string>\"\n            }\n          }\n        ]\n      },\n      \"Encryption\": {\n        \"Mode\": \"s3\",\n        \"Key\": \"92V=\",\n        \"KeyMd5\": \"/dkyKgeE1jwOaw5cGPx4hinXK6E7fG7f\",\n        \"InitializationVector\": \"<string>\"\n      }\n    }\n  ],\n  \"OutputKeyPrefix\": \"<string>\",\n  \"Playlists\": [\n    {\n      \"Name\": \"<string>\",\n      \"Format\": \"MPEG-DASH\",\n      \"OutputKeys\": [\n        \"<string>\"\n      ],\n      \"HlsContentProtection\": {\n        \"Method\": \"aes-128\",\n        \"Key\": \"\",\n        \"KeyMd5\": \"dP5XWqGu084+/IH2AY==\",\n        \"InitializationVector\": \"<string>\",\n        \"LicenseAcquisitionUrl\": \"<string>\",\n        \"KeyStoragePolicy\": \"NoStore\"\n      },\n      \"PlayReadyDrm\": {\n        \"Format\": \"microsoft\",\n        \"Key\": \"NDB5CZNeKByJwyyJH8JyLfDHRSzNvCt7wOK7whPS\",\n        \"KeyMd5\": \"3z4OJl7KsVSN\",\n        \"KeyId\": \"52FF2746dACF1dAEcBCf8F42BF5DCbBa\",\n        \"InitializationVector\": \"<string>\",\n        \"LicenseAcquisitionUrl\": \"<string>\"\n      }\n    }\n  ],\n  \"UserMetadata\": {\n    \"officia4\": \"<string>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/2012-09-25/jobs",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "2012-09-25",
+                        "jobs"
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:20:16.000Z",
+                  "updatedAt": "2026-07-28T10:20:16.000Z",
+                  "uid": "35240-c9cfe342-5286-4dbb-8184-125c646dc597"
+                },
+                {
+                  "id": "e126b12e-dc41-4a07-99b9-87434de528e2",
+                  "name": "LimitExceededException",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"PipelineId\": \"2865168124720-bhlpJt\",\n  \"Input\": {\n    \"Key\": \"<string>\",\n    \"FrameRate\": \"60\",\n    \"Resolution\": \"auto\",\n    \"AspectRatio\": \"1:1\",\n    \"Interlaced\": \"false\",\n    \"Container\": \"mpeg-ps\",\n    \"Encryption\": {\n      \"Mode\": \"aes-cbc-pkcs7\",\n      \"Key\": \"UbPeroTmiIXa8vP2QZpOt3MWbzS6fcn0uAqey3hu\",\n      \"KeyMd5\": \"\",\n      \"InitializationVector\": \"<string>\"\n    },\n    \"TimeSpan\": {\n      \"StartTime\": \"54578\",\n      \"Duration\": \"08040\"\n    },\n    \"InputCaptions\": {\n      \"MergePolicy\": \"Override\",\n      \"CaptionSources\": [\n        {\n          \"Key\": \"<string>\",\n          \"Language\": \"<string>\",\n          \"TimeOffset\": \"07:7:4\",\n          \"Label\": \"<string>\",\n          \"Encryption\": {\n            \"Mode\": \"aes-cbc-pkcs7\",\n            \"Key\": \"VpiOK4XDGl==\",\n            \"KeyMd5\": \"ot167yGH3Jm60mIiL3oSkI4=\",\n            \"InitializationVector\": \"<string>\"\n          }\n        }\n      ]\n    },\n    \"DetectedProperties\": {\n      \"Width\": \"<integer>\",\n      \"Height\": \"<integer>\",\n      \"FrameRate\": \"47\",\n      \"FileSize\": \"<integer>\",\n      \"DurationMillis\": \"<integer>\"\n    }\n  },\n  \"Inputs\": [\n    {\n      \"Key\": \"<string>\",\n      \"FrameRate\": \"30\",\n      \"Resolution\": \"23x23563\",\n      \"AspectRatio\": \"3:2\",\n      \"Interlaced\": \"auto\",\n      \"Container\": \"wav\",\n      \"Encryption\": {\n        \"Mode\": \"s3\",\n        \"Key\": \"S318VZDG\",\n        \"KeyMd5\": \"kW/xemN5C1wK+aLCSlXxJjFxeWAYiMLw0p7I\",\n        \"InitializationVector\": \"<string>\"\n      },\n      \"TimeSpan\": {\n        \"StartTime\": \"64.191\",\n        \"Duration\": \"1:7\"\n      },\n      \"InputCaptions\": {\n        \"MergePolicy\": \"Override\",\n        \"CaptionSources\": [\n          {\n            \"Key\": \"<string>\",\n            \"Language\": \"<string>\",\n            \"TimeOffset\": \"30\",\n            \"Label\": \"<string>\",\n            \"Encryption\": {\n              \"Mode\": \"aes-gcm\",\n              \"Key\": \"\",\n              \"KeyMd5\": \"\",\n              \"InitializationVector\": \"<string>\"\n            }\n          }\n        ]\n      },\n      \"DetectedProperties\": {\n        \"Width\": \"<integer>\",\n        \"Height\": \"<integer>\",\n        \"FrameRate\": \"681.250\",\n        \"FileSize\": \"<integer>\",\n        \"DurationMillis\": \"<integer>\"\n      }\n    }\n  ],\n  \"Output\": {\n    \"Key\": \"<string>\",\n    \"ThumbnailPattern\": \"{count}l-V>\\\"ink\",\n    \"ThumbnailEncryption\": {\n      \"Mode\": \"aes-ctr\",\n      \"Key\": \"\",\n      \"KeyMd5\": \"\",\n      \"InitializationVector\": \"<string>\"\n    },\n    \"Rotate\": \"0\",\n    \"PresetId\": \"0488729810017-R6Ln9K\",\n    \"SegmentDuration\": \"37.09371\",\n    \"Watermarks\": [\n      {\n        \"PresetWatermarkId\": \"<string>\",\n        \"InputKey\": \"JJ\\\\a471hY\\\"!9G#;Zwn.I]qP8[OdDe:#O_iQ\\\\Er>^qci^FcaaKL<Nf@(#eSggP/5vO`Gp&/-pIv4Kc,>/b37Cam(;,tpD%bVI+H-6%FA7Uo _VvB.%r;um5#/S?D09b8d69O`H '5.^Z^{Q++Llp68*8>=#,Ac?[}{j[LF+h|y+@LJ,%c+IsHq%(Y%{cBPeLtq-M#_f`XKw2+^s> BtRO]3H+j;Tc-LVC8@-]t0MgjkbQ\\\\cxaMi5}lC!s39Z4}r4U\",\n        \"Encryption\": {\n          \"Mode\": \"s3-aws-kms\",\n          \"Key\": \"\",\n          \"KeyMd5\": \"hreRo8rALyQVHqEg912lB4pD6OHLs6Xschr=\",\n          \"InitializationVector\": \"<string>\"\n        }\n      }\n    ],\n    \"AlbumArt\": {\n      \"MergePolicy\": \"Replace\",\n      \"Artwork\": [\n        {\n          \"InputKey\": \"gdd(n7]s?:y}j#PEllD7F( tn%<6:E3dF?{\\\\9N68pC'@[FboS?N0BG?WcSpnuM`z9U_J:d1SPud_cM':%ryieDq:q:Q4huE1xhiSb<[z:'yQx+@*raUXD^6EV,8?\\\"`Zboi~PQ#nH59Tmvnx0V<{d|gdzHE*;P/>G;*yL %]z*'~p/HmM]&A4Xf52i *8GJb$sa$HMFvhugu{EU++)Usx|^-c[#\\\"X$ViPN/~dR%e>Ac;PGJ.mThD19$>YF&?&88L2\",\n          \"MaxWidth\": \"auto\",\n          \"MaxHeight\": \"auto\",\n          \"SizingPolicy\": \"Stretch\",\n          \"PaddingPolicy\": \"Pad\",\n          \"AlbumArtFormat\": \"jpg\",\n          \"Encryption\": {\n            \"Mode\": \"aes-cbc-pkcs7\",\n            \"Key\": \"YOEEElQEPURlD+3LbVCvHTY7VAB8H/JHwd==\",\n            \"KeyMd5\": \"\",\n            \"InitializationVector\": \"<string>\"\n          }\n        }\n      ]\n    },\n    \"Composition\": [\n      {\n        \"TimeSpan\": {\n          \"StartTime\": \"21:02.7\",\n          \"Duration\": \"3\"\n        }\n      }\n    ],\n    \"Captions\": {\n      \"MergePolicy\": \"MergeOverride\",\n      \"CaptionSources\": [\n        {\n          \"Key\": \"<string>\",\n          \"Language\": \"<string>\",\n          \"TimeOffset\": \"01:7.632\",\n          \"Label\": \"<string>\",\n          \"Encryption\": {\n            \"Mode\": \"s3-aws-kms\",\n            \"Key\": \"4gHCZXSNue/r9IHMFCqoFFLYUIbKsr5qDSnR\",\n            \"KeyMd5\": \"\",\n            \"InitializationVector\": \"<string>\"\n          }\n        }\n      ],\n      \"CaptionFormats\": [\n        {\n          \"Format\": \"scc\",\n          \"Pattern\": \"[uXfp3{language}yq\",\n          \"Encryption\": {\n            \"Mode\": \"s3-aws-kms\",\n            \"Key\": \"40vgzzhtjc==\",\n            \"KeyMd5\": \"\",\n            \"InitializationVector\": \"<string>\"\n          }\n        }\n      ]\n    },\n    \"Encryption\": {\n      \"Mode\": \"aes-cbc-pkcs7\",\n      \"Key\": \"PCYnmupM3FrAqdossVPJ6jyTun1eXfTW4K==\",\n      \"KeyMd5\": \"\",\n      \"InitializationVector\": \"<string>\"\n    }\n  },\n  \"Outputs\": [\n    {\n      \"Key\": \"<string>\",\n      \"ThumbnailPattern\": \"OPLSz/bP+T{count}lWzMX}\",\n      \"ThumbnailEncryption\": {\n        \"Mode\": \"aes-cbc-pkcs7\",\n        \"Key\": \"\",\n        \"KeyMd5\": \"brfs\",\n        \"InitializationVector\": \"<string>\"\n      },\n      \"Rotate\": \"0\",\n      \"PresetId\": \"1772293399850-zQa96k\",\n      \"SegmentDuration\": \"913\",\n      \"Watermarks\": [\n        {\n          \"PresetWatermarkId\": \"<string>\",\n          \"InputKey\": \"M\\\"wSE'?v~8&Y4mj^o#5_Yx$uKFJ}q}K,o8U47@M8oe| CRmg,dms4PX0:mx*tw%k9NEVnNBu,<Z66Z1R7#j|-SXk7=p\\\\jd]BtB4WND|D^4V6X|dH%s*J1vCpD4fOm\\\"l|9CQVP'ozq`JUa:*jpg\",\n          \"Encryption\": {\n            \"Mode\": \"s3\",\n            \"Key\": \"\",\n            \"KeyMd5\": \"GqgwHaHGWikN5DDz6PRsdCyW\",\n            \"InitializationVector\": \"<string>\"\n          }\n        }\n      ],\n      \"AlbumArt\": {\n        \"MergePolicy\": \"Prepend\",\n        \"Artwork\": [\n          {\n            \"InputKey\": \"5c6ERmk_Axv|4zpXR-\\\\rG?\\\":-8B=Mt>ArmuhSO*9|~>>#ofGm(Mh]Gh1:mcNQ)R^1iW@x1D[r3 QYQ~L?!@qHUKe*kN/18O[ab_]p6g&?t<S(xKE>h\\\\N^9USOTfgtqR <-a0EUD@G$q%*gX|%Pju4<ho-m5WSF,|LxlkK=/0BuXg}54[\\\\]=^ywUM4Qw2+pxEWawrN0=^+i-5tj2~)Aj+N<eFR,9.J>*cR)'Cx.AsIPH~Nn-(YKQ| Ba~ej78&5( \",\n            \"MaxWidth\": \"auto\",\n            \"MaxHeight\": \"auto\",\n            \"SizingPolicy\": \"Stretch\",\n            \"PaddingPolicy\": \"Pad\",\n            \"AlbumArtFormat\": \"png\",\n            \"Encryption\": {\n              \"Mode\": \"aes-ctr\",\n              \"Key\": \"\",\n              \"KeyMd5\": \"\",\n              \"InitializationVector\": \"<string>\"\n            }\n          }\n        ]\n      },\n      \"Composition\": [\n        {\n          \"TimeSpan\": {\n            \"StartTime\": \"02.7\",\n            \"Duration\": \"49960.076\"\n          }\n        }\n      ],\n      \"Captions\": {\n        \"MergePolicy\": \"Override\",\n        \"CaptionSources\": [\n          {\n            \"Key\": \"<string>\",\n            \"Language\": \"<string>\",\n            \"TimeOffset\": \"22:11\",\n            \"Label\": \"<string>\",\n            \"Encryption\": {\n              \"Mode\": \"aes-gcm\",\n              \"Key\": \"\",\n              \"KeyMd5\": \"8jm0bNcipjrFBbUuiHZPYYrhEYqI\",\n              \"InitializationVector\": \"<string>\"\n            }\n          }\n        ],\n        \"CaptionFormats\": [\n          {\n            \"Format\": \"dfxp\",\n            \"Pattern\": \"W#aC~A{language}D\",\n            \"Encryption\": {\n              \"Mode\": \"s3\",\n              \"Key\": \"1pp4mTtzZvx4mMOc3pXyrebBcU+2q461rAZ0\",\n              \"KeyMd5\": \"\",\n              \"InitializationVector\": \"<string>\"\n            }\n          }\n        ]\n      },\n      \"Encryption\": {\n        \"Mode\": \"s3\",\n        \"Key\": \"92V=\",\n        \"KeyMd5\": \"/dkyKgeE1jwOaw5cGPx4hinXK6E7fG7f\",\n        \"InitializationVector\": \"<string>\"\n      }\n    }\n  ],\n  \"OutputKeyPrefix\": \"<string>\",\n  \"Playlists\": [\n    {\n      \"Name\": \"<string>\",\n      \"Format\": \"MPEG-DASH\",\n      \"OutputKeys\": [\n        \"<string>\"\n      ],\n      \"HlsContentProtection\": {\n        \"Method\": \"aes-128\",\n        \"Key\": \"\",\n        \"KeyMd5\": \"dP5XWqGu084+/IH2AY==\",\n        \"InitializationVector\": \"<string>\",\n        \"LicenseAcquisitionUrl\": \"<string>\",\n        \"KeyStoragePolicy\": \"NoStore\"\n      },\n      \"PlayReadyDrm\": {\n        \"Format\": \"microsoft\",\n        \"Key\": \"NDB5CZNeKByJwyyJH8JyLfDHRSzNvCt7wOK7whPS\",\n        \"KeyMd5\": \"3z4OJl7KsVSN\",\n        \"KeyId\": \"52FF2746dACF1dAEcBCf8F42BF5DCbBa\",\n        \"InitializationVector\": \"<string>\",\n        \"LicenseAcquisitionUrl\": \"<string>\"\n      }\n    }\n  ],\n  \"UserMetadata\": {\n    \"officia4\": \"<string>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/2012-09-25/jobs",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "2012-09-25",
+                        "jobs"
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:20:16.000Z",
+                  "updatedAt": "2026-07-28T10:20:16.000Z",
+                  "uid": "35240-e126b12e-dc41-4a07-99b9-87434de528e2"
+                },
+                {
+                  "id": "4ab805ec-c297-46ac-8241-e9c5e2259b0e",
+                  "name": "InternalServiceException",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"PipelineId\": \"2865168124720-bhlpJt\",\n  \"Input\": {\n    \"Key\": \"<string>\",\n    \"FrameRate\": \"60\",\n    \"Resolution\": \"auto\",\n    \"AspectRatio\": \"1:1\",\n    \"Interlaced\": \"false\",\n    \"Container\": \"mpeg-ps\",\n    \"Encryption\": {\n      \"Mode\": \"aes-cbc-pkcs7\",\n      \"Key\": \"UbPeroTmiIXa8vP2QZpOt3MWbzS6fcn0uAqey3hu\",\n      \"KeyMd5\": \"\",\n      \"InitializationVector\": \"<string>\"\n    },\n    \"TimeSpan\": {\n      \"StartTime\": \"54578\",\n      \"Duration\": \"08040\"\n    },\n    \"InputCaptions\": {\n      \"MergePolicy\": \"Override\",\n      \"CaptionSources\": [\n        {\n          \"Key\": \"<string>\",\n          \"Language\": \"<string>\",\n          \"TimeOffset\": \"07:7:4\",\n          \"Label\": \"<string>\",\n          \"Encryption\": {\n            \"Mode\": \"aes-cbc-pkcs7\",\n            \"Key\": \"VpiOK4XDGl==\",\n            \"KeyMd5\": \"ot167yGH3Jm60mIiL3oSkI4=\",\n            \"InitializationVector\": \"<string>\"\n          }\n        }\n      ]\n    },\n    \"DetectedProperties\": {\n      \"Width\": \"<integer>\",\n      \"Height\": \"<integer>\",\n      \"FrameRate\": \"47\",\n      \"FileSize\": \"<integer>\",\n      \"DurationMillis\": \"<integer>\"\n    }\n  },\n  \"Inputs\": [\n    {\n      \"Key\": \"<string>\",\n      \"FrameRate\": \"30\",\n      \"Resolution\": \"23x23563\",\n      \"AspectRatio\": \"3:2\",\n      \"Interlaced\": \"auto\",\n      \"Container\": \"wav\",\n      \"Encryption\": {\n        \"Mode\": \"s3\",\n        \"Key\": \"S318VZDG\",\n        \"KeyMd5\": \"kW/xemN5C1wK+aLCSlXxJjFxeWAYiMLw0p7I\",\n        \"InitializationVector\": \"<string>\"\n      },\n      \"TimeSpan\": {\n        \"StartTime\": \"64.191\",\n        \"Duration\": \"1:7\"\n      },\n      \"InputCaptions\": {\n        \"MergePolicy\": \"Override\",\n        \"CaptionSources\": [\n          {\n            \"Key\": \"<string>\",\n            \"Language\": \"<string>\",\n            \"TimeOffset\": \"30\",\n            \"Label\": \"<string>\",\n            \"Encryption\": {\n              \"Mode\": \"aes-gcm\",\n              \"Key\": \"\",\n              \"KeyMd5\": \"\",\n              \"InitializationVector\": \"<string>\"\n            }\n          }\n        ]\n      },\n      \"DetectedProperties\": {\n        \"Width\": \"<integer>\",\n        \"Height\": \"<integer>\",\n        \"FrameRate\": \"681.250\",\n        \"FileSize\": \"<integer>\",\n        \"DurationMillis\": \"<integer>\"\n      }\n    }\n  ],\n  \"Output\": {\n    \"Key\": \"<string>\",\n    \"ThumbnailPattern\": \"{count}l-V>\\\"ink\",\n    \"ThumbnailEncryption\": {\n      \"Mode\": \"aes-ctr\",\n      \"Key\": \"\",\n      \"KeyMd5\": \"\",\n      \"InitializationVector\": \"<string>\"\n    },\n    \"Rotate\": \"0\",\n    \"PresetId\": \"0488729810017-R6Ln9K\",\n    \"SegmentDuration\": \"37.09371\",\n    \"Watermarks\": [\n      {\n        \"PresetWatermarkId\": \"<string>\",\n        \"InputKey\": \"JJ\\\\a471hY\\\"!9G#;Zwn.I]qP8[OdDe:#O_iQ\\\\Er>^qci^FcaaKL<Nf@(#eSggP/5vO`Gp&/-pIv4Kc,>/b37Cam(;,tpD%bVI+H-6%FA7Uo _VvB.%r;um5#/S?D09b8d69O`H '5.^Z^{Q++Llp68*8>=#,Ac?[}{j[LF+h|y+@LJ,%c+IsHq%(Y%{cBPeLtq-M#_f`XKw2+^s> BtRO]3H+j;Tc-LVC8@-]t0MgjkbQ\\\\cxaMi5}lC!s39Z4}r4U\",\n        \"Encryption\": {\n          \"Mode\": \"s3-aws-kms\",\n          \"Key\": \"\",\n          \"KeyMd5\": \"hreRo8rALyQVHqEg912lB4pD6OHLs6Xschr=\",\n          \"InitializationVector\": \"<string>\"\n        }\n      }\n    ],\n    \"AlbumArt\": {\n      \"MergePolicy\": \"Replace\",\n      \"Artwork\": [\n        {\n          \"InputKey\": \"gdd(n7]s?:y}j#PEllD7F( tn%<6:E3dF?{\\\\9N68pC'@[FboS?N0BG?WcSpnuM`z9U_J:d1SPud_cM':%ryieDq:q:Q4huE1xhiSb<[z:'yQx+@*raUXD^6EV,8?\\\"`Zboi~PQ#nH59Tmvnx0V<{d|gdzHE*;P/>G;*yL %]z*'~p/HmM]&A4Xf52i *8GJb$sa$HMFvhugu{EU++)Usx|^-c[#\\\"X$ViPN/~dR%e>Ac;PGJ.mThD19$>YF&?&88L2\",\n          \"MaxWidth\": \"auto\",\n          \"MaxHeight\": \"auto\",\n          \"SizingPolicy\": \"Stretch\",\n          \"PaddingPolicy\": \"Pad\",\n          \"AlbumArtFormat\": \"jpg\",\n          \"Encryption\": {\n            \"Mode\": \"aes-cbc-pkcs7\",\n            \"Key\": \"YOEEElQEPURlD+3LbVCvHTY7VAB8H/JHwd==\",\n            \"KeyMd5\": \"\",\n            \"InitializationVector\": \"<string>\"\n          }\n        }\n      ]\n    },\n    \"Composition\": [\n      {\n        \"TimeSpan\": {\n          \"StartTime\": \"21:02.7\",\n          \"Duration\": \"3\"\n        }\n      }\n    ],\n    \"Captions\": {\n      \"MergePolicy\": \"MergeOverride\",\n      \"CaptionSources\": [\n        {\n          \"Key\": \"<string>\",\n          \"Language\": \"<string>\",\n          \"TimeOffset\": \"01:7.632\",\n          \"Label\": \"<string>\",\n          \"Encryption\": {\n            \"Mode\": \"s3-aws-kms\",\n            \"Key\": \"4gHCZXSNue/r9IHMFCqoFFLYUIbKsr5qDSnR\",\n            \"KeyMd5\": \"\",\n            \"InitializationVector\": \"<string>\"\n          }\n        }\n      ],\n      \"CaptionFormats\": [\n        {\n          \"Format\": \"scc\",\n          \"Pattern\": \"[uXfp3{language}yq\",\n          \"Encryption\": {\n            \"Mode\": \"s3-aws-kms\",\n            \"Key\": \"40vgzzhtjc==\",\n            \"KeyMd5\": \"\",\n            \"InitializationVector\": \"<string>\"\n          }\n        }\n      ]\n    },\n    \"Encryption\": {\n      \"Mode\": \"aes-cbc-pkcs7\",\n      \"Key\": \"PCYnmupM3FrAqdossVPJ6jyTun1eXfTW4K==\",\n      \"KeyMd5\": \"\",\n      \"InitializationVector\": \"<string>\"\n    }\n  },\n  \"Outputs\": [\n    {\n      \"Key\": \"<string>\",\n      \"ThumbnailPattern\": \"OPLSz/bP+T{count}lWzMX}\",\n      \"ThumbnailEncryption\": {\n        \"Mode\": \"aes-cbc-pkcs7\",\n        \"Key\": \"\",\n        \"KeyMd5\": \"brfs\",\n        \"InitializationVector\": \"<string>\"\n      },\n      \"Rotate\": \"0\",\n      \"PresetId\": \"1772293399850-zQa96k\",\n      \"SegmentDuration\": \"913\",\n      \"Watermarks\": [\n        {\n          \"PresetWatermarkId\": \"<string>\",\n          \"InputKey\": \"M\\\"wSE'?v~8&Y4mj^o#5_Yx$uKFJ}q}K,o8U47@M8oe| CRmg,dms4PX0:mx*tw%k9NEVnNBu,<Z66Z1R7#j|-SXk7=p\\\\jd]BtB4WND|D^4V6X|dH%s*J1vCpD4fOm\\\"l|9CQVP'ozq`JUa:*jpg\",\n          \"Encryption\": {\n            \"Mode\": \"s3\",\n            \"Key\": \"\",\n            \"KeyMd5\": \"GqgwHaHGWikN5DDz6PRsdCyW\",\n            \"InitializationVector\": \"<string>\"\n          }\n        }\n      ],\n      \"AlbumArt\": {\n        \"MergePolicy\": \"Prepend\",\n        \"Artwork\": [\n          {\n            \"InputKey\": \"5c6ERmk_Axv|4zpXR-\\\\rG?\\\":-8B=Mt>ArmuhSO*9|~>>#ofGm(Mh]Gh1:mcNQ)R^1iW@x1D[r3 QYQ~L?!@qHUKe*kN/18O[ab_]p6g&?t<S(xKE>h\\\\N^9USOTfgtqR <-a0EUD@G$q%*gX|%Pju4<ho-m5WSF,|LxlkK=/0BuXg}54[\\\\]=^ywUM4Qw2+pxEWawrN0=^+i-5tj2~)Aj+N<eFR,9.J>*cR)'Cx.AsIPH~Nn-(YKQ| Ba~ej78&5( \",\n            \"MaxWidth\": \"auto\",\n            \"MaxHeight\": \"auto\",\n            \"SizingPolicy\": \"Stretch\",\n            \"PaddingPolicy\": \"Pad\",\n            \"AlbumArtFormat\": \"png\",\n            \"Encryption\": {\n              \"Mode\": \"aes-ctr\",\n              \"Key\": \"\",\n              \"KeyMd5\": \"\",\n              \"InitializationVector\": \"<string>\"\n            }\n          }\n        ]\n      },\n      \"Composition\": [\n        {\n          \"TimeSpan\": {\n            \"StartTime\": \"02.7\",\n            \"Duration\": \"49960.076\"\n          }\n        }\n      ],\n      \"Captions\": {\n        \"MergePolicy\": \"Override\",\n        \"CaptionSources\": [\n          {\n            \"Key\": \"<string>\",\n            \"Language\": \"<string>\",\n            \"TimeOffset\": \"22:11\",\n            \"Label\": \"<string>\",\n            \"Encryption\": {\n              \"Mode\": \"aes-gcm\",\n              \"Key\": \"\",\n              \"KeyMd5\": \"8jm0bNcipjrFBbUuiHZPYYrhEYqI\",\n              \"InitializationVector\": \"<string>\"\n            }\n          }\n        ],\n        \"CaptionFormats\": [\n          {\n            \"Format\": \"dfxp\",\n            \"Pattern\": \"W#aC~A{language}D\",\n            \"Encryption\": {\n              \"Mode\": \"s3\",\n              \"Key\": \"1pp4mTtzZvx4mMOc3pXyrebBcU+2q461rAZ0\",\n              \"KeyMd5\": \"\",\n              \"InitializationVector\": \"<string>\"\n            }\n          }\n        ]\n      },\n      \"Encryption\": {\n        \"Mode\": \"s3\",\n        \"Key\": \"92V=\",\n        \"KeyMd5\": \"/dkyKgeE1jwOaw5cGPx4hinXK6E7fG7f\",\n        \"InitializationVector\": \"<string>\"\n      }\n    }\n  ],\n  \"OutputKeyPrefix\": \"<string>\",\n  \"Playlists\": [\n    {\n      \"Name\": \"<string>\",\n      \"Format\": \"MPEG-DASH\",\n      \"OutputKeys\": [\n        \"<string>\"\n      ],\n      \"HlsContentProtection\": {\n        \"Method\": \"aes-128\",\n        \"Key\": \"\",\n        \"KeyMd5\": \"dP5XWqGu084+/IH2AY==\",\n        \"InitializationVector\": \"<string>\",\n        \"LicenseAcquisitionUrl\": \"<string>\",\n        \"KeyStoragePolicy\": \"NoStore\"\n      },\n      \"PlayReadyDrm\": {\n        \"Format\": \"microsoft\",\n        \"Key\": \"NDB5CZNeKByJwyyJH8JyLfDHRSzNvCt7wOK7whPS\",\n        \"KeyMd5\": \"3z4OJl7KsVSN\",\n        \"KeyId\": \"52FF2746dACF1dAEcBCf8F42BF5DCbBa\",\n        \"InitializationVector\": \"<string>\",\n        \"LicenseAcquisitionUrl\": \"<string>\"\n      }\n    }\n  ],\n  \"UserMetadata\": {\n    \"officia4\": \"<string>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/2012-09-25/jobs",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "2012-09-25",
+                        "jobs"
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:20:16.000Z",
+                  "updatedAt": "2026-07-28T10:20:16.000Z",
+                  "uid": "35240-4ab805ec-c297-46ac-8241-e9c5e2259b0e"
+                }
+              ],
+              "createdAt": "2026-07-28T10:20:16.000Z",
+              "updatedAt": "2026-07-28T10:20:16.000Z",
+              "uid": "35240-c46b4ebf-469e-4d15-8f9b-5a6e4c2316cd"
+            }
+          ],
+          "id": "94fbebcc-2810-463b-aa47-de4d1af1a035",
+          "createdAt": "2026-07-28T10:20:16.000Z",
+          "updatedAt": "2026-07-28T10:20:16.000Z",
+          "uid": "35240-94fbebcc-2810-463b-aa47-de4d1af1a035"
+        }
+      ],
+      "id": "36ee776e-2488-49bc-9aa8-8b12f95518f1",
+      "createdAt": "2026-07-28T10:20:16.000Z",
+      "updatedAt": "2026-07-28T10:20:16.000Z",
+      "uid": "35240-36ee776e-2488-49bc-9aa8-8b12f95518f1"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "region",
+      "value": "us-east-1"
+    },
+    {
+      "key": "baseUrl",
+      "value": "http://elastictranscoder.{{region}}.amazonaws.com"
+    }
+  ]
+}

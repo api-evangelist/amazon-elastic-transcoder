@@ -1,0 +1,636 @@
+{
+  "info": {
+    "_postman_id": "952c44f6-9e79-4b34-a123-4c0089c9dea4",
+    "name": "Amazon Elastic Transcoder Jobs RoleTests API",
+    "description": "<fullname>AWS Elastic Transcoder Service</fullname> <p>The AWS Elastic Transcoder Service.</p>\n\nContact Support:\n Name: Mike Ralphson\n Email: mike.ralphson@gmail.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T10:20:37.000Z",
+    "updatedAt": "2026-07-28T10:20:38.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-952c44f6-9e79-4b34-a123-4c0089c9dea4"
+  },
+  "item": [
+    {
+      "name": "2012-09-25",
+      "item": [
+        {
+          "name": "roleTests",
+          "item": [
+            {
+              "name": "Amazon Elastic Transcoder TestRole",
+              "id": "9ee5f557-3124-4bdf-a18b-2a97ccb39f2e",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Role\": \"arn:aws:iam::EfnugIjZiT9A:role/U4\",\n  \"InputBucket\": \"..--..-6..-.-yj.--.--O....------7.--hP-E------j---.W--....QzR-.k.J....J3..-..-KP--..-.--i.-....-.-6..--...S-z-x.-.--.-.-ru..GQ..F.f-n..--...-.X-ia-.7.-N--ML-MR----3b--U..l..v\",\n  \"OutputBucket\": \".y---s.T-...-Y.-..-YaD..-.c.3..--d..\",\n  \"Topics\": [\n    \"\",\n    \"arn:aws:sns:T>@;$WD:4QACyOK5TWmN:uM-H*++H&r\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/2012-09-25/roleTests",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "2012-09-25",
+                    "roleTests"
+                  ]
+                },
+                "description": "<p>The TestRole operation tests the IAM role used to create the pipeline.</p> <p>The <code>TestRole</code> action lets you determine whether the IAM role you are using has sufficient permissions to let Elastic Transcoder perform tasks associated with the transcoding process. The action attempts to assume the specified IAM role, checks read access to the input and output buckets, and tries to send a test notification to Amazon SNS topics that you specify.</p>"
+              },
+              "response": [
+                {
+                  "id": "bf41c467-abfc-4c28-9c35-56b9d7efd355",
+                  "name": "Success",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"Role\": \"arn:aws:iam::EfnugIjZiT9A:role/U4\",\n  \"InputBucket\": \"..--..-6..-.-yj.--.--O....------7.--hP-E------j---.W--....QzR-.k.J....J3..-..-KP--..-.--i.-....-.-6..--...S-z-x.-.--.-.-ru..GQ..F.f-n..--...-.X-ia-.7.-N--ML-MR----3b--U..l..v\",\n  \"OutputBucket\": \".y---s.T-...-Y.-..-YaD..-.c.3..--d..\",\n  \"Topics\": [\n    \"\",\n    \"arn:aws:sns:T>@;$WD:4QACyOK5TWmN:uM-H*++H&r\"\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/2012-09-25/roleTests",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "2012-09-25",
+                        "roleTests"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Success\": \"false\",\n  \"Messages\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "createdAt": "2026-07-28T10:20:38.000Z",
+                  "updatedAt": "2026-07-28T10:20:38.000Z",
+                  "uid": "35240-bf41c467-abfc-4c28-9c35-56b9d7efd355"
+                },
+                {
+                  "id": "8e10e971-3277-4d00-9004-be05a4f8177b",
+                  "name": "ValidationException",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"Role\": \"arn:aws:iam::EfnugIjZiT9A:role/U4\",\n  \"InputBucket\": \"..--..-6..-.-yj.--.--O....------7.--hP-E------j---.W--....QzR-.k.J....J3..-..-KP--..-.--i.-....-.-6..--...S-z-x.-.--.-.-ru..GQ..F.f-n..--...-.X-ia-.7.-N--ML-MR----3b--U..l..v\",\n  \"OutputBucket\": \".y---s.T-...-Y.-..-YaD..-.c.3..--d..\",\n  \"Topics\": [\n    \"\",\n    \"arn:aws:sns:T>@;$WD:4QACyOK5TWmN:uM-H*++H&r\"\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/2012-09-25/roleTests",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "2012-09-25",
+                        "roleTests"
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:20:38.000Z",
+                  "updatedAt": "2026-07-28T10:20:38.000Z",
+                  "uid": "35240-8e10e971-3277-4d00-9004-be05a4f8177b"
+                },
+                {
+                  "id": "0a9188e2-5b96-4507-acf2-f30403e70701",
+                  "name": "IncompatibleVersionException",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"Role\": \"arn:aws:iam::EfnugIjZiT9A:role/U4\",\n  \"InputBucket\": \"..--..-6..-.-yj.--.--O....------7.--hP-E------j---.W--....QzR-.k.J....J3..-..-KP--..-.--i.-....-.-6..--...S-z-x.-.--.-.-ru..GQ..F.f-n..--...-.X-ia-.7.-N--ML-MR----3b--U..l..v\",\n  \"OutputBucket\": \".y---s.T-...-Y.-..-YaD..-.c.3..--d..\",\n  \"Topics\": [\n    \"\",\n    \"arn:aws:sns:T>@;$WD:4QACyOK5TWmN:uM-H*++H&r\"\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/2012-09-25/roleTests",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "2012-09-25",
+                        "roleTests"
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:20:38.000Z",
+                  "updatedAt": "2026-07-28T10:20:38.000Z",
+                  "uid": "35240-0a9188e2-5b96-4507-acf2-f30403e70701"
+                },
+                {
+                  "id": "0da2aa57-4b2b-471f-bba3-63529e0fbf58",
+                  "name": "ResourceNotFoundException",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"Role\": \"arn:aws:iam::EfnugIjZiT9A:role/U4\",\n  \"InputBucket\": \"..--..-6..-.-yj.--.--O....------7.--hP-E------j---.W--....QzR-.k.J....J3..-..-KP--..-.--i.-....-.-6..--...S-z-x.-.--.-.-ru..GQ..F.f-n..--...-.X-ia-.7.-N--ML-MR----3b--U..l..v\",\n  \"OutputBucket\": \".y---s.T-...-Y.-..-YaD..-.c.3..--d..\",\n  \"Topics\": [\n    \"\",\n    \"arn:aws:sns:T>@;$WD:4QACyOK5TWmN:uM-H*++H&r\"\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/2012-09-25/roleTests",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "2012-09-25",
+                        "roleTests"
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:20:38.000Z",
+                  "updatedAt": "2026-07-28T10:20:38.000Z",
+                  "uid": "35240-0da2aa57-4b2b-471f-bba3-63529e0fbf58"
+                },
+                {
+                  "id": "6c7fd633-4e07-4edb-8330-551b9382b8e0",
+                  "name": "AccessDeniedException",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"Role\": \"arn:aws:iam::EfnugIjZiT9A:role/U4\",\n  \"InputBucket\": \"..--..-6..-.-yj.--.--O....------7.--hP-E------j---.W--....QzR-.k.J....J3..-..-KP--..-.--i.-....-.-6..--...S-z-x.-.--.-.-ru..GQ..F.f-n..--...-.X-ia-.7.-N--ML-MR----3b--U..l..v\",\n  \"OutputBucket\": \".y---s.T-...-Y.-..-YaD..-.c.3..--d..\",\n  \"Topics\": [\n    \"\",\n    \"arn:aws:sns:T>@;$WD:4QACyOK5TWmN:uM-H*++H&r\"\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/2012-09-25/roleTests",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "2012-09-25",
+                        "roleTests"
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:20:38.000Z",
+                  "updatedAt": "2026-07-28T10:20:38.000Z",
+                  "uid": "35240-6c7fd633-4e07-4edb-8330-551b9382b8e0"
+                },
+                {
+                  "id": "fdc2de9f-0fd1-48cf-9247-3d4f0bdd5631",
+                  "name": "InternalServiceException",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"Role\": \"arn:aws:iam::EfnugIjZiT9A:role/U4\",\n  \"InputBucket\": \"..--..-6..-.-yj.--.--O....------7.--hP-E------j---.W--....QzR-.k.J....J3..-..-KP--..-.--i.-....-.-6..--...S-z-x.-.--.-.-ru..GQ..F.f-n..--...-.X-ia-.7.-N--ML-MR----3b--U..l..v\",\n  \"OutputBucket\": \".y---s.T-...-Y.-..-YaD..-.c.3..--d..\",\n  \"Topics\": [\n    \"\",\n    \"arn:aws:sns:T>@;$WD:4QACyOK5TWmN:uM-H*++H&r\"\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/2012-09-25/roleTests",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "2012-09-25",
+                        "roleTests"
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:20:38.000Z",
+                  "updatedAt": "2026-07-28T10:20:38.000Z",
+                  "uid": "35240-fdc2de9f-0fd1-48cf-9247-3d4f0bdd5631"
+                }
+              ],
+              "createdAt": "2026-07-28T10:20:38.000Z",
+              "updatedAt": "2026-07-28T10:20:38.000Z",
+              "uid": "35240-9ee5f557-3124-4bdf-a18b-2a97ccb39f2e"
+            }
+          ],
+          "id": "9685f42c-723f-4e80-9c8c-c00eccebbd1e",
+          "createdAt": "2026-07-28T10:20:38.000Z",
+          "updatedAt": "2026-07-28T10:20:38.000Z",
+          "uid": "35240-9685f42c-723f-4e80-9c8c-c00eccebbd1e"
+        }
+      ],
+      "id": "37c1e281-0bac-4ab4-85f7-c3bc476f10a2",
+      "createdAt": "2026-07-28T10:20:38.000Z",
+      "updatedAt": "2026-07-28T10:20:38.000Z",
+      "uid": "35240-37c1e281-0bac-4ab4-85f7-c3bc476f10a2"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "region",
+      "value": "us-east-1"
+    },
+    {
+      "key": "baseUrl",
+      "value": "http://elastictranscoder.{{region}}.amazonaws.com"
+    }
+  ]
+}
