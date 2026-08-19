@@ -1,0 +1,383 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Amazon Elastic Transcoder Jobs Pipelines API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Pipelines",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amazon Elastic Transcoder ListPipelines",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://elastictranscoder.{region}.amazonaws.com/2012-09-25/pipelines",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "Ascending",
+                "value": "",
+                "type": "query",
+                "description": "To list pipelines in chronological order by the date and time that they were created, enter <code>true</code>. To list pipelines in reverse chronological order, enter <code>false</code>."
+              },
+              {
+                "name": "PageToken",
+                "value": "",
+                "type": "query",
+                "description": "When Elastic Transcoder returns more than one page of results, use <code>pageToken</code> in subsequent <code>GET</code> requests to get each successive page of results. "
+              }
+            ]
+          },
+          "docs": "The ListPipelines operation gets a list of the pipelines associated with the current AWS account."
+        },
+        {
+          "info": {
+            "name": "Amazon Elastic Transcoder CreatePipeline",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://elastictranscoder.{region}.amazonaws.com/2012-09-25/pipelines",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "The CreatePipeline operation creates a pipeline with settings that you specify."
+        },
+        {
+          "info": {
+            "name": "Amazon Elastic Transcoder ReadPipeline",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://elastictranscoder.{region}.amazonaws.com/2012-09-25/pipelines/:Id",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "Id",
+                "value": "",
+                "type": "path",
+                "description": "The identifier of the pipeline to read."
+              }
+            ]
+          },
+          "docs": "The ReadPipeline operation gets detailed information about a pipeline."
+        },
+        {
+          "info": {
+            "name": "Amazon Elastic Transcoder UpdatePipeline",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "http://elastictranscoder.{region}.amazonaws.com/2012-09-25/pipelines/:Id",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "Id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the pipeline that you want to update."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "<p> Use the <code>UpdatePipeline</code> operation to update settings for a pipeline.</p> <important> <p>When you change pipeline settings, your changes take effect immediately. Jobs that you have already submitted and that Elastic Transcoder has not started to process are affected in addition to jobs that you submit after you change settings. </p> </important>"
+        },
+        {
+          "info": {
+            "name": "Amazon Elastic Transcoder DeletePipeline",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "http://elastictranscoder.{region}.amazonaws.com/2012-09-25/pipelines/:Id",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "Id",
+                "value": "",
+                "type": "path",
+                "description": "The identifier of the pipeline that you want to delete."
+              }
+            ]
+          },
+          "docs": "<p>The DeletePipeline operation removes a pipeline.</p> <p> You can only delete a pipeline that has never been used or that is not currently in use (doesn't contain any active jobs). If the pipeline is currently in use, <code>DeletePipeline</code> returns an error. </p>"
+        },
+        {
+          "info": {
+            "name": "Amazon Elastic Transcoder UpdatePipelineNotifications",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://elastictranscoder.{region}.amazonaws.com/2012-09-25/pipelines/:Id/notifications",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "Id",
+                "value": "",
+                "type": "path",
+                "description": "The identifier of the pipeline for which you want to change notification settings."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "<p>With the UpdatePipelineNotifications operation, you can update Amazon Simple Notification Service (Amazon SNS) notifications for a pipeline.</p> <p>When you update notifications for a pipeline, Elastic Transcoder returns the values that you specified in the request.</p>"
+        },
+        {
+          "info": {
+            "name": "Amazon Elastic Transcoder UpdatePipelineStatus",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://elastictranscoder.{region}.amazonaws.com/2012-09-25/pipelines/:Id/status",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "Id",
+                "value": "",
+                "type": "path",
+                "description": "The identifier of the pipeline to update."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "<p>The UpdatePipelineStatus operation pauses or reactivates a pipeline, so that the pipeline stops or restarts the processing of jobs.</p> <p>Changing the pipeline status is useful if you want to cancel one or more jobs. You can't cancel jobs after Elastic Transcoder has started processing them; if you pause the pipeline to which you submitted the jobs, you have more time to get the job IDs for the jobs that you want to cancel, and to send a <a>CancelJob</a> request. </p>"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

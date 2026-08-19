@@ -1,0 +1,224 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Amazon Elastic Transcoder Jobs Presets API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Presets",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amazon Elastic Transcoder ListPresets",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://elastictranscoder.{region}.amazonaws.com/2012-09-25/presets",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "Ascending",
+                "value": "",
+                "type": "query",
+                "description": "To list presets in chronological order by the date and time that they were created, enter <code>true</code>. To list presets in reverse chronological order, enter <code>false</code>."
+              },
+              {
+                "name": "PageToken",
+                "value": "",
+                "type": "query",
+                "description": "When Elastic Transcoder returns more than one page of results, use <code>pageToken</code> in subsequent <code>GET</code> requests to get each successive page of results. "
+              }
+            ]
+          },
+          "docs": "The ListPresets operation gets a list of the default presets included with Elastic Transcoder and the presets that you've added in an AWS region."
+        },
+        {
+          "info": {
+            "name": "Amazon Elastic Transcoder CreatePreset",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://elastictranscoder.{region}.amazonaws.com/2012-09-25/presets",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "<p>The CreatePreset operation creates a preset with settings that you specify.</p> <important> <p>Elastic Transcoder checks the CreatePreset settings to ensure that they meet Elastic Transcoder requirements and to determine whether they comply with H.264 standards. If your settings are not valid for Elastic Transcoder, Elastic Transcoder returns an HTTP 400 response (<code>ValidationException</code>) and does not create the preset. If the settings are valid for Elastic Transcoder but aren't stri"
+        },
+        {
+          "info": {
+            "name": "Amazon Elastic Transcoder ReadPreset",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://elastictranscoder.{region}.amazonaws.com/2012-09-25/presets/:Id",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "Id",
+                "value": "",
+                "type": "path",
+                "description": "The identifier of the preset for which you want to get detailed information."
+              }
+            ]
+          },
+          "docs": "The ReadPreset operation gets detailed information about a preset."
+        },
+        {
+          "info": {
+            "name": "Amazon Elastic Transcoder DeletePreset",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "http://elastictranscoder.{region}.amazonaws.com/2012-09-25/presets/:Id",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "Id",
+                "value": "",
+                "type": "path",
+                "description": "The identifier of the preset for which you want to get detailed information."
+              }
+            ]
+          },
+          "docs": "<p>The DeletePreset operation removes a preset that you've added in an AWS region.</p> <note> <p>You can't delete the default presets that are included with Elastic Transcoder.</p> </note>"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
