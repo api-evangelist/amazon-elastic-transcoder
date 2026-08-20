@@ -34,6 +34,8 @@ apis:
   humanURL: https://aws.amazon.com/elastictranscoder/
   baseURL: https://elastictranscoder.amazonaws.com
   tags:
+  - Job
+  tags_raw:
   - Jobs
   properties:
   - type: OpenAPI
