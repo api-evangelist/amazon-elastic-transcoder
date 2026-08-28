@@ -10,8 +10,14 @@ info:
     executed without opening the underlying OpenAPI description.
   version: 1.0.0
 sourceDescriptions:
-- name: elasticTranscoderApi
-  url: ../openapi/amazon-elastic-transcoder-openapi.yml
+- name: jobsApi
+  url: ../openapi/amazon-elastic-transcoder-jobs-api-openapi.yml
+  type: openapi
+- name: jobsbypipelineApi
+  url: ../openapi/amazon-elastic-transcoder-jobsbypipeline-api-openapi.yml
+  type: openapi
+- name: pipelinesApi
+  url: ../openapi/amazon-elastic-transcoder-pipelines-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: list-jobs-by-pipeline-read

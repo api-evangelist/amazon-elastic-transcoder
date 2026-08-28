@@ -11,8 +11,11 @@ info:
     read and executed without opening the underlying OpenAPI description.
   version: 1.0.0
 sourceDescriptions:
-- name: elasticTranscoderApi
-  url: ../openapi/amazon-elastic-transcoder-openapi.yml
+- name: jobsApi
+  url: ../openapi/amazon-elastic-transcoder-jobs-api-openapi.yml
+  type: openapi
+- name: jobsbystatusApi
+  url: ../openapi/amazon-elastic-transcoder-jobsbystatus-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: cancel-submitted-job-by-status
