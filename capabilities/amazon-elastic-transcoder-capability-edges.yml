@@ -1,0 +1,62 @@
+slug: amazon-elastic-transcoder
+provider: Amazon Elastic Transcoder
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Media, Entertainment & Telecom Content
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 5
+edges:
+- tag: Jobs
+  spec_file: amazon-elastic-transcoder-jobs-api-openapi.yml
+  capability_id: BC-3710.40
+  capability_id_l1: BC-3710
+  capability_name: Transcoding & Format Conversion
+  confidence: 0.9
+  evidence: CreateJob / ReadJob / CancelJob with schemas JobInput, JobOutput, HlsContentProtection, CaptionFormatFormat
+    — 'convert or transcode media files from their source format into versions that will play back on
+    devices'
+  reason: Transcoding jobs producing distribution renditions maps directly to Transcoding & Format Conversion.
+- tag: JobsByPipeline
+  spec_file: amazon-elastic-transcoder-jobsbypipeline-api-openapi.yml
+  capability_id: BC-3710.40
+  capability_id_l1: BC-3710
+  capability_name: Transcoding & Format Conversion
+  confidence: 0.85
+  evidence: ListJobsByPipeline with schemas Job, JobInput, JobOutput, MergePolicy, HlsContentProtection
+  reason: Listing transcode jobs per pipeline is part of the transcoding/packaging pipeline surface.
+- tag: Presets
+  spec_file: amazon-elastic-transcoder-presets-api-openapi.yml
+  capability_id: BC-3710.40
+  capability_id_l1: BC-3710
+  capability_name: Transcoding & Format Conversion
+  confidence: 0.85
+  evidence: CreatePreset with schemas VideoCodec, AudioParameters, FrameRate, Resolution, PresetWatermarks,
+    FixedGOP
+  reason: Presets define encoding parameters (codec, bitrate, resolution) for output renditions — squarely
+    transcoding and format conversion.
+- tag: JobsByStatus
+  spec_file: amazon-elastic-transcoder-jobsbystatus-api-openapi.yml
+  capability_id: BC-3710.40
+  capability_id_l1: BC-3710
+  capability_name: Transcoding & Format Conversion
+  confidence: 0.8
+  evidence: ListJobsByStatus with schemas JobStatus, JobInput, JobOutput
+  reason: Monitoring transcode job status within the media transcoding pipeline; same capability as Jobs,
+    slightly thinner as it is a query surface.
+- tag: Pipelines
+  spec_file: amazon-elastic-transcoder-pipelines-api-openapi.yml
+  capability_id: BC-3710.40
+  capability_id_l1: BC-3710
+  capability_name: Transcoding & Format Conversion
+  confidence: 0.8
+  evidence: CreatePipeline / UpdatePipelineStatus with schemas Pipeline, PipelineOutputConfig, StorageClass,
+    BucketName
+  reason: Pipelines configure the transcoding workflow (input/output buckets, output config) for media
+    conversion — packaging/transcoding pipeline configuration.

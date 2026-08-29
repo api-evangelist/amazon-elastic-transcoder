@@ -212,6 +212,9 @@ apis:
   - type: JSONLD
     url: json-ld/amazon-elastic-transcoder-context.jsonld
 common:
+  - type: CapabilityMap
+    url: capabilities/amazon-elastic-transcoder-capability-edges.yml
+    name: Amazon Elastic Transcoder Business Capability Map
   - type: AgenticAccess
     url: agentic-access/amazon-elastic-transcoder-agentic-access.yml
   - type: TrustCenter
