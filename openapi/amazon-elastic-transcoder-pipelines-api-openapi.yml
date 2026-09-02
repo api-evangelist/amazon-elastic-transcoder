@@ -1,6 +1,6 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  version: "1.0.0"
+  version: 1.0.0
   x-release: v4
   title: Amazon Elastic Transcoder Jobs Pipelines API
   description: <fullname>AWS Elastic Transcoder Service</fullname> <p>The AWS Elastic Transcoder Service.</p>
@@ -1029,189 +1029,10 @@ paths:
       - Pipelines
 components:
   schemas:
-    SnsTopic:
-      type: string
-      pattern: (^$)|(^arn:aws:sns:.*:\w{12}:.+$)
+    ResourceInUseException: {}
     BucketName:
       type: string
       pattern: ^(\w|\.|-){1,255}$
-    Notifications:
-      type: object
-      properties:
-        Progressing:
-          allOf:
-          - $ref: '#/components/schemas/SnsTopic'
-          - description: The Amazon Simple Notification Service (Amazon SNS) topic that you want to notify when Elastic Transcoder has started to process the job.
-        Completed:
-          allOf:
-          - $ref: '#/components/schemas/SnsTopic'
-          - description: The Amazon SNS topic that you want to notify when Elastic Transcoder has finished processing the job.
-        Warning:
-          allOf:
-          - $ref: '#/components/schemas/SnsTopic'
-          - description: The Amazon SNS topic that you want to notify when Elastic Transcoder encounters a warning condition.
-        Error:
-          allOf:
-          - $ref: '#/components/schemas/SnsTopic'
-          - description: The Amazon SNS topic that you want to notify when Elastic Transcoder encounters an error condition.
-      description: <p>The Amazon Simple Notification Service (Amazon SNS) topic or topics to notify in order to report job status.</p> <important> <p>To receive notifications, you must also subscribe to the new topic in the Amazon SNS console.</p> </important>
-    AccessControl:
-      type: string
-      pattern: (^FullControl$)|(^Read$)|(^ReadAcp$)|(^WriteAcp$)
-    ReadPipelineResponse:
-      type: object
-      properties:
-        Pipeline:
-          allOf:
-          - $ref: '#/components/schemas/Pipeline'
-          - description: A section of the response body that provides information about the pipeline.
-        Warnings:
-          allOf:
-          - $ref: '#/components/schemas/Warnings'
-          - description: <p>Elastic Transcoder returns a warning if the resources used by your pipeline are not in the same region as the pipeline.</p> <p>Using resources in the same region, such as your Amazon S3 buckets, Amazon SNS notification topics, and AWS KMS key, reduces processing time and prevents cross-regional charges.</p>
-      description: The <code>ReadPipelineResponse</code> structure.
-    InternalServiceException: {}
-    ResourceNotFoundException: {}
-    ValidationException: {}
-    Name:
-      type: string
-      minLength: 1
-      maxLength: 40
-    Pipelines:
-      type: array
-      items:
-        $ref: '#/components/schemas/Pipeline'
-    IncompatibleVersionException: {}
-    Grantee:
-      type: string
-      minLength: 1
-      maxLength: 255
-    UpdatePipelineResponse:
-      type: object
-      properties:
-        Pipeline:
-          allOf:
-          - $ref: '#/components/schemas/Pipeline'
-          - description: The pipeline updated by this <code>UpdatePipelineResponse</code> call.
-        Warnings:
-          allOf:
-          - $ref: '#/components/schemas/Warnings'
-          - description: <p>Elastic Transcoder returns a warning if the resources used by your pipeline are not in the same region as the pipeline.</p> <p>Using resources in the same region, such as your Amazon S3 buckets, Amazon SNS notification topics, and AWS KMS key, reduces processing time and prevents cross-regional charges.</p>
-      description: When you update a pipeline, Elastic Transcoder returns the values that you specified in the request.
-    UpdatePipelineNotificationsResponse:
-      type: object
-      properties:
-        Pipeline:
-          allOf:
-          - $ref: '#/components/schemas/Pipeline'
-          - description: A section of the response body that provides information about the pipeline associated with this notification.
-      description: The <code>UpdatePipelineNotificationsResponse</code> structure.
-    DeletePipelineResponse:
-      type: object
-      properties: {}
-      description: The <code>DeletePipelineResponse</code> structure.
-    Permission:
-      type: object
-      properties:
-        GranteeType:
-          allOf:
-          - $ref: '#/components/schemas/GranteeType'
-          - description: '<p>The type of value that appears in the Grantee object:</p> <ul> <li> <p> <code>Canonical</code>: Either the canonical user ID for an AWS account or an origin access identity for an Amazon CloudFront distribution.</p> <important> <p>A canonical user ID is not the same as an AWS account number.</p> </important> </li> <li> <p> <code>Email</code>: The registered email address of an AWS account.</p> </li> <li> <p> <code>Group</code>: One of the following predefined Amazon S3 groups: <code>AllUsers</code>, <code>AuthenticatedUsers</code>, or <code>LogDelivery</code>.</p> </li> </ul>'
-        Grantee:
-          allOf:
-          - $ref: '#/components/schemas/Grantee'
-          - description: The AWS user or group that you want to have access to transcoded files and playlists. To identify the user or group, you can specify the canonical user ID for an AWS account, an origin access identity for a CloudFront distribution, the registered email address of an AWS account, or a predefined Amazon S3 group.
-        Access:
-          allOf:
-          - $ref: '#/components/schemas/AccessControls'
-          - description: '<p> The permission that you want to give to the AWS user that is listed in Grantee. Valid values include: </p> <ul> <li> <p> <code>READ</code>: The grantee can read the thumbnails and metadata for thumbnails that Elastic Transcoder adds to the Amazon S3 bucket.</p> </li> <li> <p> <code>READ_ACP</code>: The grantee can read the object ACL for thumbnails that Elastic Transcoder adds to the Amazon S3 bucket.</p> </li> <li> <p> <code>WRITE_ACP</code>: The grantee can write the ACL for the thumbnails that Elastic Transcoder adds to the Amazon S3 bucket.</p> </li> <li> <p> <code>FULL_CONTROL</code>: The grantee has READ, READ_ACP, and WRITE_ACP permissions for the thumbnails that Elastic Transcoder adds to the Amazon S3 bucket.</p> </li> </ul>'
-      description: The <code>Permission</code> structure.
-    AccessControls:
-      type: array
-      items:
-        $ref: '#/components/schemas/AccessControl'
-      maxItems: 30
-    String:
-      type: string
-    StorageClass:
-      type: string
-      pattern: (^ReducedRedundancy$)|(^Standard$)
-    Role:
-      type: string
-      pattern: ^arn:aws:iam::\w{12}:role/.+$
-    Warnings:
-      type: array
-      items:
-        $ref: '#/components/schemas/Warning'
-    PipelineOutputConfig:
-      type: object
-      properties:
-        Bucket:
-          allOf:
-          - $ref: '#/components/schemas/BucketName'
-          - description: <p> The Amazon S3 bucket in which you want Elastic Transcoder to save the transcoded files. Specify this value when all of the following are true:</p> <ul> <li> <p>You want to save transcoded files, thumbnails (if any), and playlists (if any) together in one bucket.</p> </li> <li> <p>You do not want to specify the users or groups who have access to the transcoded files, thumbnails, and playlists.</p> </li> <li> <p>You do not want to specify the permissions that Elastic Transcoder grants to the files.</p> </li> <li> <p>You want to associate the transcoded files and thumbnails with the Amazon S3 Standard storage class.</p> </li> </ul> <p>If you want to save transcoded files and playlists in one bucket and thumbnails in another bucket, specify which users can access the transcoded files or the permissions the users have, or change the Amazon S3 storage class, omit OutputBucket and specify values for <code>ContentConfig</code> and <code>ThumbnailConfig</code> instead. </p>
-        StorageClass:
-          allOf:
-          - $ref: '#/components/schemas/StorageClass'
-          - description: ' The Amazon S3 storage class, <code>Standard</code> or <code>ReducedRedundancy</code>, that you want Elastic Transcoder to assign to the video files and playlists that it stores in your Amazon S3 bucket. '
-        Permissions:
-          allOf:
-          - $ref: '#/components/schemas/Permissions'
-          - description: <p>Optional. The <code>Permissions</code> object specifies which users and/or predefined Amazon S3 groups you want to have access to transcoded files and playlists, and the type of access you want them to have. You can grant permissions to a maximum of 30 users and/or predefined Amazon S3 groups.</p> <p>If you include <code>Permissions</code>, Elastic Transcoder grants only the permissions that you specify. It does not grant full permissions to the owner of the role specified by <code>Role</code>. If you want that user to have full control, you must explicitly grant full control to the user.</p> <p> If you omit <code>Permissions</code>, Elastic Transcoder grants full control over the transcoded files and playlists to the owner of the role specified by <code>Role</code>, and grants no other permissions to any other user or group.</p>
-      description: The <code>PipelineOutputConfig</code> structure.
-    PipelineStatus:
-      type: string
-      pattern: (^Active$)|(^Paused$)
-    UpdatePipelineStatusResponse:
-      type: object
-      properties:
-        Pipeline:
-          allOf:
-          - $ref: '#/components/schemas/Pipeline'
-          - description: A section of the response body that provides information about the pipeline.
-      description: When you update status for a pipeline, Elastic Transcoder returns the values that you specified in the request.
-    KeyArn:
-      type: string
-      minLength: 0
-      maxLength: 255
-    LimitExceededException: {}
-    ResourceInUseException: {}
-    Permissions:
-      type: array
-      items:
-        $ref: '#/components/schemas/Permission'
-      maxItems: 30
-    GranteeType:
-      type: string
-      pattern: (^Canonical$)|(^Email$)|(^Group$)
-    Id:
-      type: string
-      pattern: ^\d{13}-\w{6}$
-    ListPipelinesResponse:
-      type: object
-      properties:
-        Pipelines:
-          allOf:
-          - $ref: '#/components/schemas/Pipelines'
-          - description: An array of <code>Pipeline</code> objects.
-        NextPageToken:
-          allOf:
-          - $ref: '#/components/schemas/Id'
-          - description: A value that you use to access the second and subsequent pages of results, if any. When the pipelines fit on one page or when you've reached the last page of results, the value of <code>NextPageToken</code> is <code>null</code>.
-      description: A list of the pipelines associated with the current AWS account.
-    CreatePipelineResponse:
-      type: object
-      properties:
-        Pipeline:
-          allOf:
-          - $ref: '#/components/schemas/Pipeline'
-          - description: A section of the response body that provides information about the pipeline that is created.
-        Warnings:
-          allOf:
-          - $ref: '#/components/schemas/Warnings'
-          - description: <p>Elastic Transcoder returns a warning if the resources used by your pipeline are not in the same region as the pipeline.</p> <p>Using resources in the same region, such as your Amazon S3 buckets, Amazon SNS notification topics, and AWS KMS key, reduces processing time and prevents cross-regional charges.</p>
-      description: When you create a pipeline, Elastic Transcoder returns the values that you specified in the request.
-    AccessDeniedException: {}
     Warning:
       type: object
       properties:
@@ -1224,6 +1045,39 @@ components:
           - $ref: '#/components/schemas/String'
           - description: <p>The message explaining what resources are in a different region from the pipeline.</p> <note> <p>AWS KMS keys must be in the same region as the pipeline.</p> </note>
       description: <p>Elastic Transcoder returns a warning if the resources used by your pipeline are not in the same region as the pipeline.</p> <p>Using resources in the same region, such as your Amazon S3 buckets, Amazon SNS notification topics, and AWS KMS key, reduces processing time and prevents cross-regional charges.</p>
+    UpdatePipelineNotificationsResponse:
+      type: object
+      properties:
+        Pipeline:
+          allOf:
+          - $ref: '#/components/schemas/Pipeline'
+          - description: A section of the response body that provides information about the pipeline associated with this notification.
+      description: The <code>UpdatePipelineNotificationsResponse</code> structure.
+    ListPipelinesResponse:
+      type: object
+      properties:
+        Pipelines:
+          allOf:
+          - $ref: '#/components/schemas/Pipelines'
+          - description: An array of <code>Pipeline</code> objects.
+        NextPageToken:
+          allOf:
+          - $ref: '#/components/schemas/Id'
+          - description: A value that you use to access the second and subsequent pages of results, if any. When the pipelines fit on one page or when you've reached the last page of results, the value of <code>NextPageToken</code> is <code>null</code>.
+      description: A list of the pipelines associated with the current AWS account.
+    IncompatibleVersionException: {}
+    InternalServiceException: {}
+    AccessControl:
+      type: string
+      pattern: (^FullControl$)|(^Read$)|(^ReadAcp$)|(^WriteAcp$)
+    GranteeType:
+      type: string
+      pattern: (^Canonical$)|(^Email$)|(^Group$)
+    AccessControls:
+      type: array
+      items:
+        $ref: '#/components/schemas/AccessControl'
+      maxItems: 30
     Pipeline:
       type: object
       properties:
@@ -1272,15 +1126,161 @@ components:
           - $ref: '#/components/schemas/PipelineOutputConfig'
           - description: '<p>Information about the Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files. Either you specify both <code>ContentConfig</code> and <code>ThumbnailConfig</code>, or you specify <code>OutputBucket</code>.</p> <ul> <li> <p> <code>Bucket</code>: The Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files. </p> </li> <li> <p> <code>Permissions</code>: A list of the users and/or predefined Amazon S3 groups you want to have access to thumbnail files, and the type of access that you want them to have. </p> <ul> <li> <p>GranteeType: The type of value that appears in the Grantee object:</p> <ul> <li> <p> <code>Canonical</code>: Either the canonical user ID for an AWS account or an origin access identity for an Amazon CloudFront distribution.</p> <important> <p>A canonical user ID is not the same as an AWS account number.</p> </important> </li> <li> <p> <code>Email</code>: The registered email address of an AWS account.</p> </li> <li> <p> <code>Group</code>: One of the following predefined Amazon S3 groups: <code>AllUsers</code>, <code>AuthenticatedUsers</code>, or <code>LogDelivery</code>.</p> </li> </ul> </li> <li> <p> <code>Grantee</code>: The AWS user or group that you want to have access to thumbnail files.</p> </li> <li> <p>Access: The permission that you want to give to the AWS user that is listed in Grantee. Valid values include: </p> <ul> <li> <p> <code>READ</code>: The grantee can read the thumbnails and metadata for thumbnails that Elastic Transcoder adds to the Amazon S3 bucket.</p> </li> <li> <p> <code>READ_ACP</code>: The grantee can read the object ACL for thumbnails that Elastic Transcoder adds to the Amazon S3 bucket.</p> </li> <li> <p> <code>WRITE_ACP</code>: The grantee can write the ACL for the thumbnails that Elastic Transcoder adds to the Amazon S3 bucket.</p> </li> <li> <p> <code>FULL_CONTROL</code>: The grantee has READ, READ_ACP, and WRITE_ACP permissions for the thumbnails that Elastic Transcoder adds to the Amazon S3 bucket.</p> </li> </ul> </li> </ul> </li> <li> <p> <code>StorageClass</code>: The Amazon S3 storage class, <code>Standard</code> or <code>ReducedRedundancy</code>, that you want Elastic Transcoder to assign to the thumbnails that it stores in your Amazon S3 bucket.</p> </li> </ul>'
       description: The pipeline (queue) that is used to manage jobs.
+    Grantee:
+      type: string
+      minLength: 1
+      maxLength: 255
+    Role:
+      type: string
+      pattern: ^arn:aws:iam::\w{12}:role/.+$
+    PipelineStatus:
+      type: string
+      pattern: (^Active$)|(^Paused$)
+    StorageClass:
+      type: string
+      pattern: (^ReducedRedundancy$)|(^Standard$)
+    PipelineOutputConfig:
+      type: object
+      properties:
+        Bucket:
+          allOf:
+          - $ref: '#/components/schemas/BucketName'
+          - description: <p> The Amazon S3 bucket in which you want Elastic Transcoder to save the transcoded files. Specify this value when all of the following are true:</p> <ul> <li> <p>You want to save transcoded files, thumbnails (if any), and playlists (if any) together in one bucket.</p> </li> <li> <p>You do not want to specify the users or groups who have access to the transcoded files, thumbnails, and playlists.</p> </li> <li> <p>You do not want to specify the permissions that Elastic Transcoder grants to the files.</p> </li> <li> <p>You want to associate the transcoded files and thumbnails with the Amazon S3 Standard storage class.</p> </li> </ul> <p>If you want to save transcoded files and playlists in one bucket and thumbnails in another bucket, specify which users can access the transcoded files or the permissions the users have, or change the Amazon S3 storage class, omit OutputBucket and specify values for <code>ContentConfig</code> and <code>ThumbnailConfig</code> instead. </p>
+        StorageClass:
+          allOf:
+          - $ref: '#/components/schemas/StorageClass'
+          - description: ' The Amazon S3 storage class, <code>Standard</code> or <code>ReducedRedundancy</code>, that you want Elastic Transcoder to assign to the video files and playlists that it stores in your Amazon S3 bucket. '
+        Permissions:
+          allOf:
+          - $ref: '#/components/schemas/Permissions'
+          - description: <p>Optional. The <code>Permissions</code> object specifies which users and/or predefined Amazon S3 groups you want to have access to transcoded files and playlists, and the type of access you want them to have. You can grant permissions to a maximum of 30 users and/or predefined Amazon S3 groups.</p> <p>If you include <code>Permissions</code>, Elastic Transcoder grants only the permissions that you specify. It does not grant full permissions to the owner of the role specified by <code>Role</code>. If you want that user to have full control, you must explicitly grant full control to the user.</p> <p> If you omit <code>Permissions</code>, Elastic Transcoder grants full control over the transcoded files and playlists to the owner of the role specified by <code>Role</code>, and grants no other permissions to any other user or group.</p>
+      description: The <code>PipelineOutputConfig</code> structure.
+    Id:
+      type: string
+      pattern: ^\d{13}-\w{6}$
+    DeletePipelineResponse:
+      type: object
+      properties: {}
+      description: The <code>DeletePipelineResponse</code> structure.
+    Permission:
+      type: object
+      properties:
+        GranteeType:
+          allOf:
+          - $ref: '#/components/schemas/GranteeType'
+          - description: '<p>The type of value that appears in the Grantee object:</p> <ul> <li> <p> <code>Canonical</code>: Either the canonical user ID for an AWS account or an origin access identity for an Amazon CloudFront distribution.</p> <important> <p>A canonical user ID is not the same as an AWS account number.</p> </important> </li> <li> <p> <code>Email</code>: The registered email address of an AWS account.</p> </li> <li> <p> <code>Group</code>: One of the following predefined Amazon S3 groups: <code>AllUsers</code>, <code>AuthenticatedUsers</code>, or <code>LogDelivery</code>.</p> </li> </ul>'
+        Grantee:
+          allOf:
+          - $ref: '#/components/schemas/Grantee'
+          - description: The AWS user or group that you want to have access to transcoded files and playlists. To identify the user or group, you can specify the canonical user ID for an AWS account, an origin access identity for a CloudFront distribution, the registered email address of an AWS account, or a predefined Amazon S3 group.
+        Access:
+          allOf:
+          - $ref: '#/components/schemas/AccessControls'
+          - description: '<p> The permission that you want to give to the AWS user that is listed in Grantee. Valid values include: </p> <ul> <li> <p> <code>READ</code>: The grantee can read the thumbnails and metadata for thumbnails that Elastic Transcoder adds to the Amazon S3 bucket.</p> </li> <li> <p> <code>READ_ACP</code>: The grantee can read the object ACL for thumbnails that Elastic Transcoder adds to the Amazon S3 bucket.</p> </li> <li> <p> <code>WRITE_ACP</code>: The grantee can write the ACL for the thumbnails that Elastic Transcoder adds to the Amazon S3 bucket.</p> </li> <li> <p> <code>FULL_CONTROL</code>: The grantee has READ, READ_ACP, and WRITE_ACP permissions for the thumbnails that Elastic Transcoder adds to the Amazon S3 bucket.</p> </li> </ul>'
+      description: The <code>Permission</code> structure.
+    String:
+      type: string
+    Warnings:
+      type: array
+      items:
+        $ref: '#/components/schemas/Warning'
+    Notifications:
+      type: object
+      properties:
+        Progressing:
+          allOf:
+          - $ref: '#/components/schemas/SnsTopic'
+          - description: The Amazon Simple Notification Service (Amazon SNS) topic that you want to notify when Elastic Transcoder has started to process the job.
+        Completed:
+          allOf:
+          - $ref: '#/components/schemas/SnsTopic'
+          - description: The Amazon SNS topic that you want to notify when Elastic Transcoder has finished processing the job.
+        Warning:
+          allOf:
+          - $ref: '#/components/schemas/SnsTopic'
+          - description: The Amazon SNS topic that you want to notify when Elastic Transcoder encounters a warning condition.
+        Error:
+          allOf:
+          - $ref: '#/components/schemas/SnsTopic'
+          - description: The Amazon SNS topic that you want to notify when Elastic Transcoder encounters an error condition.
+      description: <p>The Amazon Simple Notification Service (Amazon SNS) topic or topics to notify in order to report job status.</p> <important> <p>To receive notifications, you must also subscribe to the new topic in the Amazon SNS console.</p> </important>
+    ResourceNotFoundException: {}
+    Permissions:
+      type: array
+      items:
+        $ref: '#/components/schemas/Permission'
+      maxItems: 30
+    SnsTopic:
+      type: string
+      pattern: (^$)|(^arn:aws:sns:.*:\w{12}:.+$)
+    ReadPipelineResponse:
+      type: object
+      properties:
+        Pipeline:
+          allOf:
+          - $ref: '#/components/schemas/Pipeline'
+          - description: A section of the response body that provides information about the pipeline.
+        Warnings:
+          allOf:
+          - $ref: '#/components/schemas/Warnings'
+          - description: <p>Elastic Transcoder returns a warning if the resources used by your pipeline are not in the same region as the pipeline.</p> <p>Using resources in the same region, such as your Amazon S3 buckets, Amazon SNS notification topics, and AWS KMS key, reduces processing time and prevents cross-regional charges.</p>
+      description: The <code>ReadPipelineResponse</code> structure.
+    AccessDeniedException: {}
+    LimitExceededException: {}
+    ValidationException: {}
+    KeyArn:
+      type: string
+      minLength: 0
+      maxLength: 255
+    UpdatePipelineStatusResponse:
+      type: object
+      properties:
+        Pipeline:
+          allOf:
+          - $ref: '#/components/schemas/Pipeline'
+          - description: A section of the response body that provides information about the pipeline.
+      description: When you update status for a pipeline, Elastic Transcoder returns the values that you specified in the request.
+    Pipelines:
+      type: array
+      items:
+        $ref: '#/components/schemas/Pipeline'
+    UpdatePipelineResponse:
+      type: object
+      properties:
+        Pipeline:
+          allOf:
+          - $ref: '#/components/schemas/Pipeline'
+          - description: The pipeline updated by this <code>UpdatePipelineResponse</code> call.
+        Warnings:
+          allOf:
+          - $ref: '#/components/schemas/Warnings'
+          - description: <p>Elastic Transcoder returns a warning if the resources used by your pipeline are not in the same region as the pipeline.</p> <p>Using resources in the same region, such as your Amazon S3 buckets, Amazon SNS notification topics, and AWS KMS key, reduces processing time and prevents cross-regional charges.</p>
+      description: When you update a pipeline, Elastic Transcoder returns the values that you specified in the request.
+    CreatePipelineResponse:
+      type: object
+      properties:
+        Pipeline:
+          allOf:
+          - $ref: '#/components/schemas/Pipeline'
+          - description: A section of the response body that provides information about the pipeline that is created.
+        Warnings:
+          allOf:
+          - $ref: '#/components/schemas/Warnings'
+          - description: <p>Elastic Transcoder returns a warning if the resources used by your pipeline are not in the same region as the pipeline.</p> <p>Using resources in the same region, such as your Amazon S3 buckets, Amazon SNS notification topics, and AWS KMS key, reduces processing time and prevents cross-regional charges.</p>
+      description: When you create a pipeline, Elastic Transcoder returns the values that you specified in the request.
+    Name:
+      type: string
+      minLength: 1
+      maxLength: 40
   parameters:
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
       in: header
       schema:
         type: string
       required: false
-    X-Amz-Date:
-      name: X-Amz-Date
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
       in: header
       schema:
         type: string
@@ -1291,14 +1291,8 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
       in: header
       schema:
         type: string
@@ -1309,8 +1303,14 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
       in: header
       schema:
         type: string

@@ -1,8 +1,8 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  version: "1.0.0"
+  version: 1.0.0
   x-release: v4
-  title: Amazon Elastic Transcoder Jobs JobsByPipeline API
+  title: Amazon Elastic Transcoder Jobs Jobs By Pipeline API
   description: <fullname>AWS Elastic Transcoder Service</fullname> <p>The AWS Elastic Transcoder Service.</p>
   x-logo:
     url: https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png
@@ -224,212 +224,30 @@ paths:
       - JobsByPipeline
 components:
   schemas:
-    InputCaptions:
-      type: object
-      properties:
-        MergePolicy:
-          allOf:
-          - $ref: '#/components/schemas/CaptionMergePolicy'
-          - description: <p>A policy that determines how Elastic Transcoder handles the existence of multiple captions.</p> <ul> <li> <p> <b>MergeOverride:</b> Elastic Transcoder transcodes both embedded and sidecar captions into outputs. If captions for a language are embedded in the input file and also appear in a sidecar file, Elastic Transcoder uses the sidecar captions and ignores the embedded captions for that language.</p> </li> <li> <p> <b>MergeRetain:</b> Elastic Transcoder transcodes both embedded and sidecar captions into outputs. If captions for a language are embedded in the input file and also appear in a sidecar file, Elastic Transcoder uses the embedded captions and ignores the sidecar captions for that language. If <code>CaptionSources</code> is empty, Elastic Transcoder omits all sidecar captions from the output files.</p> </li> <li> <p> <b>Override:</b> Elastic Transcoder transcodes only the sidecar captions that you specify in <code>CaptionSources</code>.</p> </li> </ul> <p> <code>MergePolicy</code> cannot be null.</p>
-        CaptionSources:
-          allOf:
-          - $ref: '#/components/schemas/CaptionSources'
-          - description: Source files for the input sidecar captions used during the transcoding process. To omit all sidecar captions, leave <code>CaptionSources</code> blank.
-      description: The captions to be created, if any.
-    MergePolicy:
-      type: string
-      pattern: (^Replace$)|(^Prepend$)|(^Append$)|(^Fallback$)
-    NullableLong:
-      type: integer
-    Job:
-      type: object
-      properties:
-        Id:
-          allOf:
-          - $ref: '#/components/schemas/Id'
-          - description: The identifier that Elastic Transcoder assigned to the job. You use this value to get settings for the job or to delete the job.
-        Arn:
-          allOf:
-          - $ref: '#/components/schemas/String'
-          - description: The Amazon Resource Name (ARN) for the job.
-        PipelineId:
-          allOf:
-          - $ref: '#/components/schemas/Id'
-          - description: ' The <code>Id</code> of the pipeline that you want Elastic Transcoder to use for transcoding. The pipeline determines several settings, including the Amazon S3 bucket from which Elastic Transcoder gets the files to transcode and the bucket into which Elastic Transcoder puts the transcoded files. '
-        Input:
-          allOf:
-          - $ref: '#/components/schemas/JobInput'
-          - description: A section of the request or response body that provides information about the file that is being transcoded.
-        Inputs:
-          allOf:
-          - $ref: '#/components/schemas/JobInputs'
-          - description: Information about the files that you're transcoding. If you specified multiple files for this job, Elastic Transcoder stitches the files together to make one output.
-        Output:
-          allOf:
-          - $ref: '#/components/schemas/JobOutput'
-          - description: <p>If you specified one output for a job, information about that output. If you specified multiple outputs for a job, the Output object lists information about the first output. This duplicates the information that is listed for the first output in the Outputs object.</p> <important> <p>Outputs recommended instead.</p> </important> <p>A section of the request or response body that provides information about the transcoded (target) file. </p>
-        Outputs:
-          allOf:
-          - $ref: '#/components/schemas/JobOutputs'
-          - description: <p>Information about the output files. We recommend that you use the <code>Outputs</code> syntax for all jobs, even when you want Elastic Transcoder to transcode a file into only one format. Do not use both the <code>Outputs</code> and <code>Output</code> syntaxes in the same request. You can create a maximum of 30 outputs per job. </p> <p>If you specify more than one output for a job, Elastic Transcoder creates the files for each output in the order in which you specify them in the job.</p>
-        OutputKeyPrefix:
-          allOf:
-          - $ref: '#/components/schemas/Key'
-          - description: The value, if any, that you want Elastic Transcoder to prepend to the names of all files that this job creates, including output files, thumbnails, and playlists. We recommend that you add a / or some other delimiter to the end of the <code>OutputKeyPrefix</code>.
-        Playlists:
-          allOf:
-          - $ref: '#/components/schemas/Playlists'
-          - description: <important> <p>Outputs in Fragmented MP4 or MPEG-TS format only.</p> </important> <p>If you specify a preset in <code>PresetId</code> for which the value of <code>Container</code> is fmp4 (Fragmented MP4) or ts (MPEG-TS), <code>Playlists</code> contains information about the master playlists that you want Elastic Transcoder to create.</p> <p>The maximum number of master playlists in a job is 30.</p>
-        Status:
-          allOf:
-          - $ref: '#/components/schemas/JobStatus'
-          - description: ' The status of the job: <code>Submitted</code>, <code>Progressing</code>, <code>Complete</code>, <code>Canceled</code>, or <code>Error</code>. '
-        UserMetadata:
-          allOf:
-          - $ref: '#/components/schemas/UserMetadata'
-          - description: '<p>User-defined metadata that you want to associate with an Elastic Transcoder job. You specify metadata in <code>key/value</code> pairs, and you can add up to 10 <code>key/value</code> pairs per job. Elastic Transcoder does not guarantee that <code>key/value</code> pairs are returned in the same order in which you specify them.</p> <p>Metadata <code>keys</code> and <code>values</code> must use characters from the following list:</p> <ul> <li> <p> <code>0-9</code> </p> </li> <li> <p> <code>A-Z</code> and <code>a-z</code> </p> </li> <li> <p> <code>Space</code> </p> </li> <li> <p>The following symbols: <code>_.:/=+-%@</code> </p> </li> </ul>'
-        Timing:
-          allOf:
-          - $ref: '#/components/schemas/Timing'
-          - description: Details about the timing of a job.
-      description: A section of the response body that provides information about the job that is created.
-    ResourceNotFoundException: {}
-    Rotate:
-      type: string
-      pattern: (^auto$)|(^0$)|(^90$)|(^180$)|(^270$)
-    CaptionSource:
-      type: object
-      properties:
-        Key:
-          allOf:
-          - $ref: '#/components/schemas/LongKey'
-          - description: The name of the sidecar caption file that you want Elastic Transcoder to include in the output file.
-        Language:
-          allOf:
-          - $ref: '#/components/schemas/Key'
-          - description: <p>A string that specifies the language of the caption. If you specified multiple inputs with captions, the caption language must match in order to be included in the output. Specify this as one of:</p> <ul> <li> <p>2-character ISO 639-1 code</p> </li> <li> <p>3-character ISO 639-2 code</p> </li> </ul> <p>For more information on ISO language codes and language names, see the List of ISO 639-1 codes.</p>
-        TimeOffset:
-          allOf:
-          - $ref: '#/components/schemas/TimeOffset'
-          - description: <p>For clip generation or captions that do not start at the same time as the associated video file, the <code>TimeOffset</code> tells Elastic Transcoder how much of the video to encode before including captions.</p> <p>Specify the TimeOffset in the form [+-]SS.sss or [+-]HH:mm:SS.ss.</p>
-        Label:
-          allOf:
-          - $ref: '#/components/schemas/Name'
-          - description: The label of the caption shown in the player when choosing a language. We recommend that you put the caption language name here, in the language of the captions.
-        Encryption:
-          allOf:
-          - $ref: '#/components/schemas/Encryption'
-          - description: The encryption settings, if any, that Elastic Transcoder needs to decyrpt your caption sources, or that you want Elastic Transcoder to apply to your caption sources.
-      description: A source file for the input sidecar captions used during the transcoding process.
-    JobInputs:
-      type: array
-      items:
-        $ref: '#/components/schemas/JobInput'
-      maxItems: 200
-    Artwork:
-      type: object
-      properties:
-        InputKey:
-          allOf:
-          - $ref: '#/components/schemas/WatermarkKey'
-          - description: <p>The name of the file to be used as album art. To determine which Amazon S3 bucket contains the specified file, Elastic Transcoder checks the pipeline specified by <code>PipelineId</code>; the <code>InputBucket</code> object in that pipeline identifies the bucket.</p> <p>If the file name includes a prefix, for example, <code>cooking/pie.jpg</code>, include the prefix in the key. If the file isn't in the specified bucket, Elastic Transcoder returns an error.</p>
-        MaxWidth:
-          allOf:
-          - $ref: '#/components/schemas/DigitsOrAuto'
-          - description: The maximum width of the output album art in pixels. If you specify <code>auto</code>, Elastic Transcoder uses 600 as the default value. If you specify a numeric value, enter an even integer between 32 and 4096, inclusive.
-        MaxHeight:
-          allOf:
-          - $ref: '#/components/schemas/DigitsOrAuto'
-          - description: The maximum height of the output album art in pixels. If you specify <code>auto</code>, Elastic Transcoder uses 600 as the default value. If you specify a numeric value, enter an even integer between 32 and 3072, inclusive.
-        SizingPolicy:
-          allOf:
-          - $ref: '#/components/schemas/SizingPolicy'
-          - description: <p>Specify one of the following values to control scaling of the output album art:</p> <ul> <li> <p> <code>Fit:</code> Elastic Transcoder scales the output art so it matches the value that you specified in either <code>MaxWidth</code> or <code>MaxHeight</code> without exceeding the other value.</p> </li> <li> <p> <code>Fill:</code> Elastic Transcoder scales the output art so it matches the value that you specified in either <code>MaxWidth</code> or <code>MaxHeight</code> and matches or exceeds the other value. Elastic Transcoder centers the output art and then crops it in the dimension (if any) that exceeds the maximum value. </p> </li> <li> <p> <code>Stretch:</code> Elastic Transcoder stretches the output art to match the values that you specified for <code>MaxWidth</code> and <code>MaxHeight</code>. If the relative proportions of the input art and the output art are different, the output art will be distorted.</p> </li> <li> <p> <code>Keep:</code> Elastic Transcoder does not scale the output art. If either dimension of the input art exceeds the values that you specified for <code>MaxWidth</code> and <code>MaxHeight</code>, Elastic Transcoder crops the output art.</p> </li> <li> <p> <code>ShrinkToFit:</code> Elastic Transcoder scales the output art down so that its dimensions match the values that you specified for at least one of <code>MaxWidth</code> and <code>MaxHeight</code> without exceeding either value. If you specify this option, Elastic Transcoder does not scale the art up.</p> </li> <li> <p> <code>ShrinkToFill</code> Elastic Transcoder scales the output art down so that its dimensions match the values that you specified for at least one of <code>MaxWidth</code> and <code>MaxHeight</code> without dropping below either value. If you specify this option, Elastic Transcoder does not scale the art up.</p> </li> </ul>
-        PaddingPolicy:
-          allOf:
-          - $ref: '#/components/schemas/PaddingPolicy'
-          - description: When you set <code>PaddingPolicy</code> to <code>Pad</code>, Elastic Transcoder may add white bars to the top and bottom and/or left and right sides of the output album art to make the total size of the output art match the values that you specified for <code>MaxWidth</code> and <code>MaxHeight</code>.
-        AlbumArtFormat:
-          allOf:
-          - $ref: '#/components/schemas/JpgOrPng'
-          - description: The format of album art, if any. Valid formats are <code>.jpg</code> and <code>.png</code>.
-        Encryption:
-          allOf:
-          - $ref: '#/components/schemas/Encryption'
-          - description: The encryption settings, if any, that you want Elastic Transcoder to apply to your artwork.
-      description: <p>The file to be used as album art. There can be multiple artworks associated with an audio file, to a maximum of 20.</p> <p>To remove artwork or leave the artwork empty, you can either set <code>Artwork</code> to null, or set the <code>Merge Policy</code> to "Replace" and use an empty <code>Artwork</code> array.</p> <p>To pass through existing artwork unchanged, set the <code>Merge Policy</code> to "Prepend", "Append", or "Fallback", and use an empty <code>Artwork</code> array.</p>
-    Playlist:
-      type: object
-      properties:
-        Name:
-          allOf:
-          - $ref: '#/components/schemas/Filename'
-          - description: <p>The name that you want Elastic Transcoder to assign to the master playlist, for example, nyc-vacation.m3u8. If the name includes a <code>/</code> character, the section of the name before the last <code>/</code> must be identical for all <code>Name</code> objects. If you create more than one master playlist, the values of all <code>Name</code> objects must be unique.</p> <note> <p>Elastic Transcoder automatically appends the relevant file extension to the file name (<code>.m3u8</code> for <code>HLSv3</code> and <code>HLSv4</code> playlists, and <code>.ism</code> and <code>.ismc</code> for <code>Smooth</code> playlists). If you include a file extension in <code>Name</code>, the file name will have two extensions.</p> </note>
-        Format:
-          allOf:
-          - $ref: '#/components/schemas/PlaylistFormat'
-          - description: The format of the output playlist. Valid formats include <code>HLSv3</code>, <code>HLSv4</code>, and <code>Smooth</code>.
-        OutputKeys:
-          allOf:
-          - $ref: '#/components/schemas/OutputKeys'
-          - description: <p>For each output in this job that you want to include in a master playlist, the value of the Outputs:Key object.</p> <ul> <li> <p>If your output is not <code>HLS</code> or does not have a segment duration set, the name of the output file is a concatenation of <code>OutputKeyPrefix</code> and <code>Outputs:Key</code>:</p> <p>OutputKeyPrefix<code>Outputs:Key</code> </p> </li> <li> <p>If your output is <code>HLSv3</code> and has a segment duration set, or is not included in a playlist, Elastic Transcoder creates an output playlist file with a file extension of <code>.m3u8</code>, and a series of <code>.ts</code> files that include a five-digit sequential counter beginning with 00000:</p> <p>OutputKeyPrefix<code>Outputs:Key</code>.m3u8</p> <p>OutputKeyPrefix<code>Outputs:Key</code>00000.ts</p> </li> <li> <p>If your output is <code>HLSv4</code>, has a segment duration set, and is included in an <code>HLSv4</code> playlist, Elastic Transcoder creates an output playlist file with a file extension of <code>_v4.m3u8</code>. If the output is video, Elastic Transcoder also creates an output file with an extension of <code>_iframe.m3u8</code>:</p> <p>OutputKeyPrefix<code>Outputs:Key</code>_v4.m3u8</p> <p>OutputKeyPrefix<code>Outputs:Key</code>_iframe.m3u8</p> <p>OutputKeyPrefix<code>Outputs:Key</code>.ts</p> </li> </ul> <p>Elastic Transcoder automatically appends the relevant file extension to the file name. If you include a file extension in Output Key, the file name will have two extensions.</p> <p>If you include more than one output in a playlist, any segment duration settings, clip settings, or caption settings must be the same for all outputs in the playlist. For <code>Smooth</code> playlists, the <code>Audio:Profile</code>, <code>Video:Profile</code>, and <code>Video:FrameRate</code> to <code>Video:KeyframesMaxDist</code> ratio must be the same for all outputs.</p>
-        HlsContentProtection:
-          allOf:
-          - $ref: '#/components/schemas/HlsContentProtection'
-          - description: The HLS content protection settings, if any, that you want Elastic Transcoder to apply to the output files associated with this playlist.
-        PlayReadyDrm:
-          allOf:
-          - $ref: '#/components/schemas/PlayReadyDrm'
-          - description: The DRM settings, if any, that you want Elastic Transcoder to apply to the output files associated with this playlist.
-        Status:
-          allOf:
-          - $ref: '#/components/schemas/JobStatus'
-          - description: The status of the job with which the playlist is associated.
-        StatusDetail:
-          allOf:
-          - $ref: '#/components/schemas/Description'
-          - description: Information that further explains the status.
-      description: ' Use Only for Fragmented MP4 or MPEG-TS Outputs. If you specify a preset for which the value of Container is <code>fmp4</code> (Fragmented MP4) or <code>ts</code> (MPEG-TS), Playlists contains information about the master playlists that you want Elastic Transcoder to create. We recommend that you create only one master playlist per output format. The maximum number of master playlists in a job is 30. '
-    DetectedProperties:
-      type: object
-      properties:
-        Width:
-          allOf:
-          - $ref: '#/components/schemas/NullableInteger'
-          - description: The detected width of the input file, in pixels.
-        Height:
-          allOf:
-          - $ref: '#/components/schemas/NullableInteger'
-          - description: The detected height of the input file, in pixels.
-        FrameRate:
-          allOf:
-          - $ref: '#/components/schemas/FloatString'
-          - description: The detected frame rate of the input file, in frames per second.
-        FileSize:
-          allOf:
-          - $ref: '#/components/schemas/NullableLong'
-          - description: The detected file size of the input file, in bytes.
-        DurationMillis:
-          allOf:
-          - $ref: '#/components/schemas/NullableLong'
-          - description: The detected duration of the input file, in milliseconds.
-      description: The detected properties of the input file. Elastic Transcoder identifies these values from the input file.
     AspectRatio:
       type: string
       pattern: (^auto$)|(^1:1$)|(^4:3$)|(^3:2$)|(^16:9$)
-    FrameRate:
-      type: string
-      pattern: (^auto$)|(^10$)|(^15$)|(^23.97$)|(^24$)|(^25$)|(^29.97$)|(^30$)|(^50$)|(^60$)
-    SizingPolicy:
-      type: string
-      pattern: (^Fit$)|(^Fill$)|(^Stretch$)|(^Keep$)|(^ShrinkToFit$)|(^ShrinkToFill$)
-    Time:
-      type: string
-      pattern: (^\d{1,5}(\.\d{0,3})?$)|(^([0-1]?[0-9]:|2[0-3]:)?([0-5]?[0-9]:)?[0-5]?[0-9](\.\d{0,3})?$)
-    ZeroTo512String:
-      type: string
-      minLength: 0
-      maxLength: 512
+    OutputKeys:
+      type: array
+      items:
+        $ref: '#/components/schemas/Key'
+      maxItems: 30
+    Timing:
+      type: object
+      properties:
+        SubmitTimeMillis:
+          allOf:
+          - $ref: '#/components/schemas/NullableLong'
+          - description: The time the job was submitted to Elastic Transcoder, in epoch milliseconds.
+        StartTimeMillis:
+          allOf:
+          - $ref: '#/components/schemas/NullableLong'
+          - description: The time the job began transcoding, in epoch milliseconds.
+        FinishTimeMillis:
+          allOf:
+          - $ref: '#/components/schemas/NullableLong'
+          - description: The time the job finished transcoding, in epoch milliseconds.
+      description: Details about the timing of a job.
     JobOutput:
       type: object
       properties:
@@ -519,152 +337,13 @@ components:
           - $ref: '#/components/schemas/String'
           - description: If Elastic Transcoder used a preset with a <code>ColorSpaceConversionMode</code> to transcode the output file, the <code>AppliedColorSpaceConversion</code> parameter shows the conversion used. If no <code>ColorSpaceConversionMode</code> was defined in the preset, this parameter is not be included in the job response.
       description: <important> <p>Outputs recommended instead.</p> </important> <p>If you specified one output for a job, information about that output. If you specified multiple outputs for a job, the <code>Output</code> object lists information about the first output. This duplicates the information that is listed for the first output in the <code>Outputs</code> object.</p>
-    Captions:
-      type: object
-      properties:
-        MergePolicy:
-          allOf:
-          - $ref: '#/components/schemas/CaptionMergePolicy'
-          - deprecated: true
-            description: <p>A policy that determines how Elastic Transcoder handles the existence of multiple captions.</p> <ul> <li> <p> <b>MergeOverride:</b> Elastic Transcoder transcodes both embedded and sidecar captions into outputs. If captions for a language are embedded in the input file and also appear in a sidecar file, Elastic Transcoder uses the sidecar captions and ignores the embedded captions for that language.</p> </li> <li> <p> <b>MergeRetain:</b> Elastic Transcoder transcodes both embedded and sidecar captions into outputs. If captions for a language are embedded in the input file and also appear in a sidecar file, Elastic Transcoder uses the embedded captions and ignores the sidecar captions for that language. If <code>CaptionSources</code> is empty, Elastic Transcoder omits all sidecar captions from the output files.</p> </li> <li> <p> <b>Override:</b> Elastic Transcoder transcodes only the sidecar captions that you specify in <code>CaptionSources</code>.</p> </li> </ul> <p> <code>MergePolicy</code> cannot be null.</p>
-        CaptionSources:
-          allOf:
-          - $ref: '#/components/schemas/CaptionSources'
-          - deprecated: true
-            description: Source files for the input sidecar captions used during the transcoding process. To omit all sidecar captions, leave <code>CaptionSources</code> blank.
-        CaptionFormats:
-          allOf:
-          - $ref: '#/components/schemas/CaptionFormats'
-          - description: The array of file formats for the output captions. If you leave this value blank, Elastic Transcoder returns an error.
-      description: The captions to be created, if any.
-    Playlists:
-      type: array
-      items:
-        $ref: '#/components/schemas/Playlist'
-    JobAlbumArt:
-      type: object
-      properties:
-        MergePolicy:
-          allOf:
-          - $ref: '#/components/schemas/MergePolicy'
-          - description: <p>A policy that determines how Elastic Transcoder handles the existence of multiple album artwork files.</p> <ul> <li> <p> <code>Replace:</code> The specified album art replaces any existing album art.</p> </li> <li> <p> <code>Prepend:</code> The specified album art is placed in front of any existing album art.</p> </li> <li> <p> <code>Append:</code> The specified album art is placed after any existing album art.</p> </li> <li> <p> <code>Fallback:</code> If the original input file contains artwork, Elastic Transcoder uses that artwork for the output. If the original input does not contain artwork, Elastic Transcoder uses the specified album art file.</p> </li> </ul>
-        Artwork:
-          allOf:
-          - $ref: '#/components/schemas/Artworks'
-          - description: 'The file to be used as album art. There can be multiple artworks associated with an audio file, to a maximum of 20. Valid formats are <code>.jpg</code> and <code>.png</code> '
-      description: The .jpg or .png file associated with an audio file.
-    Description:
-      type: string
-      minLength: 0
-      maxLength: 255
-    NonEmptyBase64EncodedString:
-      type: string
-      pattern: (^(?:[A-Za-z0-9\+/]{4})*(?:[A-Za-z0-9\+/]{2}==|[A-Za-z0-9\+/]{3}=)?$)
-    NullableInteger:
-      type: integer
-    InternalServiceException: {}
-    JobStatus:
-      type: string
-      pattern: (^Submitted$)|(^Progressing$)|(^Complete$)|(^Canceled$)|(^Error$)
-    CaptionFormats:
-      type: array
-      items:
-        $ref: '#/components/schemas/CaptionFormat'
-      maxItems: 4
-    KeyStoragePolicy:
-      type: string
-      pattern: (^NoStore$)|(^WithVariantPlaylists$)
-    CaptionMergePolicy:
-      type: string
-      pattern: (^MergeOverride$)|(^MergeRetain$)|(^Override$)
-    JobWatermarks:
-      type: array
-      items:
-        $ref: '#/components/schemas/JobWatermark'
-    Timing:
-      type: object
-      properties:
-        SubmitTimeMillis:
-          allOf:
-          - $ref: '#/components/schemas/NullableLong'
-          - description: The time the job was submitted to Elastic Transcoder, in epoch milliseconds.
-        StartTimeMillis:
-          allOf:
-          - $ref: '#/components/schemas/NullableLong'
-          - description: The time the job began transcoding, in epoch milliseconds.
-        FinishTimeMillis:
-          allOf:
-          - $ref: '#/components/schemas/NullableLong'
-          - description: The time the job finished transcoding, in epoch milliseconds.
-      description: Details about the timing of a job.
-    Filename:
+    LongKey:
       type: string
       minLength: 1
-      maxLength: 255
-    TimeOffset:
-      type: string
-      pattern: (^[+-]?\d{1,5}(\.\d{0,3})?$)|(^[+-]?([0-1]?[0-9]:|2[0-3]:)?([0-5]?[0-9]:)?[0-5]?[0-9](\.\d{0,3})?$)
-    String:
-      type: string
-    JobWatermark:
-      type: object
-      properties:
-        PresetWatermarkId:
-          allOf:
-          - $ref: '#/components/schemas/PresetWatermarkId'
-          - description: The ID of the watermark settings that Elastic Transcoder uses to add watermarks to the video during transcoding. The settings are in the preset specified by Preset for the current output. In that preset, the value of Watermarks Id tells Elastic Transcoder which settings to use.
-        InputKey:
-          allOf:
-          - $ref: '#/components/schemas/WatermarkKey'
-          - description: <p> The name of the .png or .jpg file that you want to use for the watermark. To determine which Amazon S3 bucket contains the specified file, Elastic Transcoder checks the pipeline specified by <code>Pipeline</code>; the <code>Input Bucket</code> object in that pipeline identifies the bucket.</p> <p> If the file name includes a prefix, for example, <b>logos/128x64.png</b>, include the prefix in the key. If the file isn't in the specified bucket, Elastic Transcoder returns an error. </p>
-        Encryption:
-          allOf:
-          - $ref: '#/components/schemas/Encryption'
-          - description: The encryption settings, if any, that you want Elastic Transcoder to apply to your watermarks.
-      description: Watermarks can be in .png or .jpg format. If you want to display a watermark that is not rectangular, use the .png format, which supports transparency.
-    JobOutputs:
-      type: array
-      items:
-        $ref: '#/components/schemas/JobOutput'
-    OneTo512String:
-      type: string
-      minLength: 1
-      maxLength: 512
-    PresetWatermarkId:
-      type: string
-      minLength: 1
-      maxLength: 40
-    ZeroTo255String:
-      type: string
-      minLength: 0
-      maxLength: 255
-    Clip:
-      type: object
-      deprecated: true
-      properties:
-        TimeSpan:
-          allOf:
-          - $ref: '#/components/schemas/TimeSpan'
-          - description: Settings that determine when a clip begins and how long it lasts.
-      description: Settings for one clip in a composition. All jobs in a playlist must have the same clip settings.
+      maxLength: 1024
     CaptionFormatFormat:
       type: string
       pattern: (^mov-text$)|(^srt$)|(^scc$)|(^webvtt$)|(^dfxp$)|(^cea-708$)
-    CaptionFormatPattern:
-      type: string
-      pattern: (^$)|(^.*\{language\}.*$)
-    WatermarkKey:
-      type: string
-      pattern: (^.{1,1020}.jpg$)|(^.{1,1019}.jpeg$)|(^.{1,1020}.png$)
-      minLength: 1
-      maxLength: 1024
-    JpgOrPng:
-      type: string
-      pattern: (^jpg$)|(^png$)
-    Key:
-      type: string
-      minLength: 1
-      maxLength: 255
     JobInput:
       type: object
       properties:
@@ -709,51 +388,99 @@ components:
           - $ref: '#/components/schemas/DetectedProperties'
           - description: The detected properties of the input file.
       description: Information about the file that you're transcoding.
-    Interlaced:
-      type: string
-      pattern: (^auto$)|(^true$)|(^false$)
-    PlaylistFormat:
-      type: string
-      pattern: (^HLSv3$)|(^HLSv4$)|(^Smooth$)|(^MPEG-DASH$)
-    PaddingPolicy:
-      type: string
-      pattern: (^Pad$)|(^NoPad$)
-    IncompatibleVersionException: {}
-    PlayReadyDrm:
+    Artwork:
       type: object
       properties:
-        Format:
+        InputKey:
           allOf:
-          - $ref: '#/components/schemas/PlayReadyDrmFormatString'
-          - description: The type of DRM, if any, that you want Elastic Transcoder to apply to the output files associated with this playlist.
-        Key:
+          - $ref: '#/components/schemas/WatermarkKey'
+          - description: <p>The name of the file to be used as album art. To determine which Amazon S3 bucket contains the specified file, Elastic Transcoder checks the pipeline specified by <code>PipelineId</code>; the <code>InputBucket</code> object in that pipeline identifies the bucket.</p> <p>If the file name includes a prefix, for example, <code>cooking/pie.jpg</code>, include the prefix in the key. If the file isn't in the specified bucket, Elastic Transcoder returns an error.</p>
+        MaxWidth:
           allOf:
-          - $ref: '#/components/schemas/NonEmptyBase64EncodedString'
-          - description: <p>The DRM key for your file, provided by your DRM license provider. The key must be base64-encoded, and it must be one of the following bit lengths before being base64-encoded:</p> <p> <code>128</code>, <code>192</code>, or <code>256</code>. </p> <p>The key must also be encrypted by using AWS KMS.</p>
-        KeyMd5:
+          - $ref: '#/components/schemas/DigitsOrAuto'
+          - description: The maximum width of the output album art in pixels. If you specify <code>auto</code>, Elastic Transcoder uses 600 as the default value. If you specify a numeric value, enter an even integer between 32 and 4096, inclusive.
+        MaxHeight:
           allOf:
-          - $ref: '#/components/schemas/NonEmptyBase64EncodedString'
-          - description: The MD5 digest of the key used for DRM on your file, and that you want Elastic Transcoder to use as a checksum to make sure your key was not corrupted in transit. The key MD5 must be base64-encoded, and it must be exactly 16 bytes before being base64-encoded.
-        KeyId:
+          - $ref: '#/components/schemas/DigitsOrAuto'
+          - description: The maximum height of the output album art in pixels. If you specify <code>auto</code>, Elastic Transcoder uses 600 as the default value. If you specify a numeric value, enter an even integer between 32 and 3072, inclusive.
+        SizingPolicy:
           allOf:
-          - $ref: '#/components/schemas/KeyIdGuid'
-          - description: <p>The ID for your DRM key, so that your DRM license provider knows which key to provide.</p> <p>The key ID must be provided in big endian, and Elastic Transcoder converts it to little endian before inserting it into the PlayReady DRM headers. If you are unsure whether your license server provides your key ID in big or little endian, check with your DRM provider.</p>
-        InitializationVector:
+          - $ref: '#/components/schemas/SizingPolicy'
+          - description: <p>Specify one of the following values to control scaling of the output album art:</p> <ul> <li> <p> <code>Fit:</code> Elastic Transcoder scales the output art so it matches the value that you specified in either <code>MaxWidth</code> or <code>MaxHeight</code> without exceeding the other value.</p> </li> <li> <p> <code>Fill:</code> Elastic Transcoder scales the output art so it matches the value that you specified in either <code>MaxWidth</code> or <code>MaxHeight</code> and matches or exceeds the other value. Elastic Transcoder centers the output art and then crops it in the dimension (if any) that exceeds the maximum value. </p> </li> <li> <p> <code>Stretch:</code> Elastic Transcoder stretches the output art to match the values that you specified for <code>MaxWidth</code> and <code>MaxHeight</code>. If the relative proportions of the input art and the output art are different, the output art will be distorted.</p> </li> <li> <p> <code>Keep:</code> Elastic Transcoder does not scale the output art. If either dimension of the input art exceeds the values that you specified for <code>MaxWidth</code> and <code>MaxHeight</code>, Elastic Transcoder crops the output art.</p> </li> <li> <p> <code>ShrinkToFit:</code> Elastic Transcoder scales the output art down so that its dimensions match the values that you specified for at least one of <code>MaxWidth</code> and <code>MaxHeight</code> without exceeding either value. If you specify this option, Elastic Transcoder does not scale the art up.</p> </li> <li> <p> <code>ShrinkToFill</code> Elastic Transcoder scales the output art down so that its dimensions match the values that you specified for at least one of <code>MaxWidth</code> and <code>MaxHeight</code> without dropping below either value. If you specify this option, Elastic Transcoder does not scale the art up.</p> </li> </ul>
+        PaddingPolicy:
           allOf:
-          - $ref: '#/components/schemas/ZeroTo255String'
-          - description: The series of random bits created by a random bit generator, unique for every encryption operation, that you want Elastic Transcoder to use to encrypt your files. The initialization vector must be base64-encoded, and it must be exactly 8 bytes long before being base64-encoded. If no initialization vector is provided, Elastic Transcoder generates one for you.
-        LicenseAcquisitionUrl:
+          - $ref: '#/components/schemas/PaddingPolicy'
+          - description: When you set <code>PaddingPolicy</code> to <code>Pad</code>, Elastic Transcoder may add white bars to the top and bottom and/or left and right sides of the output album art to make the total size of the output art match the values that you specified for <code>MaxWidth</code> and <code>MaxHeight</code>.
+        AlbumArtFormat:
           allOf:
-          - $ref: '#/components/schemas/OneTo512String'
-          - description: 'The location of the license key required to play DRM content. The URL must be an absolute path, and is referenced by the PlayReady header. The PlayReady header is referenced in the protection header of the client manifest for Smooth Streaming outputs, and in the EXT-X-DXDRM and EXT-XDXDRMINFO metadata tags for HLS playlist outputs. An example URL looks like this: <code>https://www.example.com/exampleKey/</code> '
-      description: <p>The PlayReady DRM settings, if any, that you want Elastic Transcoder to apply to the output files associated with this playlist.</p> <p>PlayReady DRM encrypts your media files using <code>aes-ctr</code> encryption.</p> <p>If you use DRM for an <code>HLSv3</code> playlist, your outputs must have a master playlist.</p>
-    JobContainer:
+          - $ref: '#/components/schemas/JpgOrPng'
+          - description: The format of album art, if any. Valid formats are <code>.jpg</code> and <code>.png</code>.
+        Encryption:
+          allOf:
+          - $ref: '#/components/schemas/Encryption'
+          - description: The encryption settings, if any, that you want Elastic Transcoder to apply to your artwork.
+      description: <p>The file to be used as album art. There can be multiple artworks associated with an audio file, to a maximum of 20.</p> <p>To remove artwork or leave the artwork empty, you can either set <code>Artwork</code> to null, or set the <code>Merge Policy</code> to "Replace" and use an empty <code>Artwork</code> array.</p> <p>To pass through existing artwork unchanged, set the <code>Merge Policy</code> to "Prepend", "Append", or "Fallback", and use an empty <code>Artwork</code> array.</p>
+    KeyStoragePolicy:
       type: string
-      pattern: (^auto$)|(^3gp$)|(^asf$)|(^avi$)|(^divx$)|(^flv$)|(^mkv$)|(^mov$)|(^mp4$)|(^mpeg$)|(^mpeg-ps$)|(^mpeg-ts$)|(^mxf$)|(^ogg$)|(^ts$)|(^vob$)|(^wav$)|(^webm$)|(^mp3$)|(^m4a$)|(^aac$)
-    UserMetadata:
+      pattern: (^NoStore$)|(^WithVariantPlaylists$)
+    Job:
       type: object
-      additionalProperties:
-        $ref: '#/components/schemas/String'
+      properties:
+        Id:
+          allOf:
+          - $ref: '#/components/schemas/Id'
+          - description: The identifier that Elastic Transcoder assigned to the job. You use this value to get settings for the job or to delete the job.
+        Arn:
+          allOf:
+          - $ref: '#/components/schemas/String'
+          - description: The Amazon Resource Name (ARN) for the job.
+        PipelineId:
+          allOf:
+          - $ref: '#/components/schemas/Id'
+          - description: ' The <code>Id</code> of the pipeline that you want Elastic Transcoder to use for transcoding. The pipeline determines several settings, including the Amazon S3 bucket from which Elastic Transcoder gets the files to transcode and the bucket into which Elastic Transcoder puts the transcoded files. '
+        Input:
+          allOf:
+          - $ref: '#/components/schemas/JobInput'
+          - description: A section of the request or response body that provides information about the file that is being transcoded.
+        Inputs:
+          allOf:
+          - $ref: '#/components/schemas/JobInputs'
+          - description: Information about the files that you're transcoding. If you specified multiple files for this job, Elastic Transcoder stitches the files together to make one output.
+        Output:
+          allOf:
+          - $ref: '#/components/schemas/JobOutput'
+          - description: <p>If you specified one output for a job, information about that output. If you specified multiple outputs for a job, the Output object lists information about the first output. This duplicates the information that is listed for the first output in the Outputs object.</p> <important> <p>Outputs recommended instead.</p> </important> <p>A section of the request or response body that provides information about the transcoded (target) file. </p>
+        Outputs:
+          allOf:
+          - $ref: '#/components/schemas/JobOutputs'
+          - description: <p>Information about the output files. We recommend that you use the <code>Outputs</code> syntax for all jobs, even when you want Elastic Transcoder to transcode a file into only one format. Do not use both the <code>Outputs</code> and <code>Output</code> syntaxes in the same request. You can create a maximum of 30 outputs per job. </p> <p>If you specify more than one output for a job, Elastic Transcoder creates the files for each output in the order in which you specify them in the job.</p>
+        OutputKeyPrefix:
+          allOf:
+          - $ref: '#/components/schemas/Key'
+          - description: The value, if any, that you want Elastic Transcoder to prepend to the names of all files that this job creates, including output files, thumbnails, and playlists. We recommend that you add a / or some other delimiter to the end of the <code>OutputKeyPrefix</code>.
+        Playlists:
+          allOf:
+          - $ref: '#/components/schemas/Playlists'
+          - description: <important> <p>Outputs in Fragmented MP4 or MPEG-TS format only.</p> </important> <p>If you specify a preset in <code>PresetId</code> for which the value of <code>Container</code> is fmp4 (Fragmented MP4) or ts (MPEG-TS), <code>Playlists</code> contains information about the master playlists that you want Elastic Transcoder to create.</p> <p>The maximum number of master playlists in a job is 30.</p>
+        Status:
+          allOf:
+          - $ref: '#/components/schemas/JobStatus'
+          - description: ' The status of the job: <code>Submitted</code>, <code>Progressing</code>, <code>Complete</code>, <code>Canceled</code>, or <code>Error</code>. '
+        UserMetadata:
+          allOf:
+          - $ref: '#/components/schemas/UserMetadata'
+          - description: '<p>User-defined metadata that you want to associate with an Elastic Transcoder job. You specify metadata in <code>key/value</code> pairs, and you can add up to 10 <code>key/value</code> pairs per job. Elastic Transcoder does not guarantee that <code>key/value</code> pairs are returned in the same order in which you specify them.</p> <p>Metadata <code>keys</code> and <code>values</code> must use characters from the following list:</p> <ul> <li> <p> <code>0-9</code> </p> </li> <li> <p> <code>A-Z</code> and <code>a-z</code> </p> </li> <li> <p> <code>Space</code> </p> </li> <li> <p>The following symbols: <code>_.:/=+-%@</code> </p> </li> </ul>'
+        Timing:
+          allOf:
+          - $ref: '#/components/schemas/Timing'
+          - description: Details about the timing of a job.
+      description: A section of the response body that provides information about the job that is created.
+    NullableInteger:
+      type: integer
+    Key:
+      type: string
+      minLength: 1
+      maxLength: 255
     TimeSpan:
       type: object
       properties:
@@ -766,112 +493,6 @@ components:
           - $ref: '#/components/schemas/Time'
           - description: '<p>The duration of the clip. The format can be either HH:mm:ss.SSS (maximum value: 23:59:59.999; SSS is thousandths of a second) or sssss.SSS (maximum value: 86399.999). If you don''t specify a value, Elastic Transcoder creates an output file from StartTime to the end of the file.</p> <p>If you specify a value longer than the duration of the input file, Elastic Transcoder transcodes the file and returns a warning message.</p>'
       description: Settings that determine when a clip begins and how long it lasts.
-    Base64EncodedString:
-      type: string
-      pattern: ^$|(^(?:[A-Za-z0-9\+/]{4})*(?:[A-Za-z0-9\+/]{2}==|[A-Za-z0-9\+/]{3}=)?$)
-    KeyIdGuid:
-      type: string
-      pattern: (^[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}$)|(^[0-9A-Fa-f]{32}$)
-    Resolution:
-      type: string
-      pattern: (^auto$)|(^\d{1,5}x\d{1,5}$)
-    DigitsOrAuto:
-      type: string
-      pattern: (^auto$)|(^\d{2,4}$)
-    Id:
-      type: string
-      pattern: ^\d{13}-\w{6}$
-    CaptionFormat:
-      type: object
-      properties:
-        Format:
-          allOf:
-          - $ref: '#/components/schemas/CaptionFormatFormat'
-          - description: '<p>The format you specify determines whether Elastic Transcoder generates an embedded or sidecar caption for this output.</p> <ul> <li> <p> <b>Valid Embedded Caption Formats:</b> </p> <ul> <li> <p> <b>for FLAC</b>: None</p> </li> <li> <p> <b>For MP3</b>: None</p> </li> <li> <p> <b>For MP4</b>: mov-text</p> </li> <li> <p> <b>For MPEG-TS</b>: None</p> </li> <li> <p> <b>For ogg</b>: None</p> </li> <li> <p> <b>For webm</b>: None</p> </li> </ul> </li> <li> <p> <b>Valid Sidecar Caption Formats:</b> Elastic Transcoder supports dfxp (first div element only), scc, srt, and webvtt. If you want ttml or smpte-tt compatible captions, specify dfxp as your output format.</p> <ul> <li> <p> <b>For FMP4</b>: dfxp</p> </li> <li> <p> <b>Non-FMP4 outputs</b>: All sidecar types</p> </li> </ul> <p> <code>fmp4</code> captions have an extension of <code>.ismt</code> </p> </li> </ul>'
-        Pattern:
-          allOf:
-          - $ref: '#/components/schemas/CaptionFormatPattern'
-          - description: <p>The prefix for caption filenames, in the form <i>description</i>-<code>{language}</code>, where:</p> <ul> <li> <p> <i>description</i> is a description of the video.</p> </li> <li> <p> <code>{language}</code> is a literal value that Elastic Transcoder replaces with the two- or three-letter code for the language of the caption in the output file names.</p> </li> </ul> <p>If you don't include <code>{language}</code> in the file name pattern, Elastic Transcoder automatically appends "<code>{language}</code>" to the value that you specify for the description. In addition, Elastic Transcoder automatically appends the count to the end of the segment files.</p> <p>For example, suppose you're transcoding into srt format. When you enter "Sydney-{language}-sunrise", and the language of the captions is English (en), the name of the first caption file is be Sydney-en-sunrise00000.srt.</p>
-        Encryption:
-          allOf:
-          - $ref: '#/components/schemas/Encryption'
-          - description: The encryption settings, if any, that you want Elastic Transcoder to apply to your caption formats.
-      description: The file format of the output captions. If you leave this value blank, Elastic Transcoder returns an error.
-    Jobs:
-      type: array
-      items:
-        $ref: '#/components/schemas/Job'
-    HlsContentProtectionMethod:
-      type: string
-      pattern: (^aes-128$)
-    Artworks:
-      type: array
-      items:
-        $ref: '#/components/schemas/Artwork'
-    ValidationException: {}
-    Composition:
-      type: array
-      deprecated: true
-      items:
-        $ref: '#/components/schemas/Clip'
-    ListJobsByPipelineResponse:
-      type: object
-      properties:
-        Jobs:
-          allOf:
-          - $ref: '#/components/schemas/Jobs'
-          - description: An array of <code>Job</code> objects that are in the specified pipeline.
-        NextPageToken:
-          allOf:
-          - $ref: '#/components/schemas/Id'
-          - description: ' A value that you use to access the second and subsequent pages of results, if any. When the jobs in the specified pipeline fit on one page or when you''ve reached the last page of results, the value of <code>NextPageToken</code> is <code>null</code>. '
-      description: The <code>ListJobsByPipelineResponse</code> structure.
-    Name:
-      type: string
-      minLength: 1
-      maxLength: 40
-    FloatString:
-      type: string
-      pattern: ^\d{1,5}(\.\d{0,5})?$
-    EncryptionMode:
-      type: string
-      pattern: (^s3$)|(^s3-aws-kms$)|(^aes-cbc-pkcs7$)|(^aes-ctr$)|(^aes-gcm$)
-    PlayReadyDrmFormatString:
-      type: string
-      pattern: (^microsoft$)|(^discretix-3.0$)
-    OutputKeys:
-      type: array
-      items:
-        $ref: '#/components/schemas/Key'
-      maxItems: 30
-    ThumbnailPattern:
-      type: string
-      pattern: (^$)|(^.*\{count\}.*$)
-    Encryption:
-      type: object
-      properties:
-        Mode:
-          allOf:
-          - $ref: '#/components/schemas/EncryptionMode'
-          - description: <p>The specific server-side encryption mode that you want Elastic Transcoder to use when decrypting your input files or encrypting your output files. Elastic Transcoder supports the following options:</p> <ul> <li> <p> <b>s3:</b> Amazon S3 creates and manages the keys used for encrypting your files.</p> </li> <li> <p> <b>s3-aws-kms:</b> Amazon S3 calls the Amazon Key Management Service, which creates and manages the keys that are used for encrypting your files. If you specify <code>s3-aws-kms</code> and you don't want to use the default key, you must add the AWS-KMS key that you want to use to your pipeline.</p> </li> <li> <p> <b>aes-cbc-pkcs7:</b> A padded cipher-block mode of operation originally used for HLS files.</p> </li> <li> <p> <b>aes-ctr:</b> AES Counter Mode.</p> </li> <li> <p> <b>aes-gcm:</b> AES Galois Counter Mode, a mode of operation that is an authenticated encryption format, meaning that a file, key, or initialization vector that has been tampered with fails the decryption process.</p> </li> </ul> <p>For all three AES options, you must provide the following settings, which must be base64-encoded:</p> <ul> <li> <p> <b>Key</b> </p> </li> <li> <p> <b>Key MD5</b> </p> </li> <li> <p> <b>Initialization Vector</b> </p> </li> </ul> <important> <p>For the AES modes, your private encryption keys and your unencrypted data are never stored by AWS; therefore, it is important that you safely manage your encryption keys. If you lose them, you won't be able to unencrypt your data.</p> </important>
-        Key:
-          allOf:
-          - $ref: '#/components/schemas/Base64EncodedString'
-          - description: <p>The data encryption key that you want Elastic Transcoder to use to encrypt your output file, or that was used to encrypt your input file. The key must be base64-encoded and it must be one of the following bit lengths before being base64-encoded:</p> <p> <code>128</code>, <code>192</code>, or <code>256</code>. </p> <p>The key must also be encrypted by using the Amazon Key Management Service.</p>
-        KeyMd5:
-          allOf:
-          - $ref: '#/components/schemas/Base64EncodedString'
-          - description: The MD5 digest of the key that you used to encrypt your input file, or that you want Elastic Transcoder to use to encrypt your output file. Elastic Transcoder uses the key digest as a checksum to make sure your key was not corrupted in transit. The key MD5 must be base64-encoded, and it must be exactly 16 bytes long before being base64-encoded.
-        InitializationVector:
-          allOf:
-          - $ref: '#/components/schemas/ZeroTo255String'
-          - description: The series of random bits created by a random bit generator, unique for every encryption operation, that you used to encrypt your input files or that you want Elastic Transcoder to use to encrypt your output files. The initialization vector must be base64-encoded, and it must be exactly 16 bytes long before being base64-encoded.
-      description: The encryption settings, if any, that are used for decrypting your input files or encrypting your output files. If your input file is encrypted, you must specify the mode that Elastic Transcoder uses to decrypt your file, otherwise you must specify the mode you want Elastic Transcoder to use to encrypt your output files.
-    LongKey:
-      type: string
-      minLength: 1
-      maxLength: 1024
-    AccessDeniedException: {}
     HlsContentProtection:
       type: object
       properties:
@@ -900,26 +521,393 @@ components:
           - $ref: '#/components/schemas/KeyStoragePolicy'
           - description: Specify whether you want Elastic Transcoder to write your HLS license key to an Amazon S3 bucket. If you choose <code>WithVariantPlaylists</code>, <code>LicenseAcquisitionUrl</code> must be left blank and Elastic Transcoder writes your data key into the same bucket as the associated playlist.
       description: The HLS content protection settings, if any, that you want Elastic Transcoder to apply to your output files.
+    JobStatus:
+      type: string
+      pattern: (^Submitted$)|(^Progressing$)|(^Complete$)|(^Canceled$)|(^Error$)
+    ZeroTo512String:
+      type: string
+      minLength: 0
+      maxLength: 512
+    Name:
+      type: string
+      minLength: 1
+      maxLength: 40
+    CaptionFormatPattern:
+      type: string
+      pattern: (^$)|(^.*\{language\}.*$)
+    NonEmptyBase64EncodedString:
+      type: string
+      pattern: (^(?:[A-Za-z0-9\+/]{4})*(?:[A-Za-z0-9\+/]{2}==|[A-Za-z0-9\+/]{3}=)?$)
+    MergePolicy:
+      type: string
+      pattern: (^Replace$)|(^Prepend$)|(^Append$)|(^Fallback$)
+    CaptionMergePolicy:
+      type: string
+      pattern: (^MergeOverride$)|(^MergeRetain$)|(^Override$)
+    UserMetadata:
+      type: object
+      additionalProperties:
+        $ref: '#/components/schemas/String'
     CaptionSources:
       type: array
       items:
         $ref: '#/components/schemas/CaptionSource'
       maxItems: 20
+    Description:
+      type: string
+      minLength: 0
+      maxLength: 255
+    HlsContentProtectionMethod:
+      type: string
+      pattern: (^aes-128$)
+    Base64EncodedString:
+      type: string
+      pattern: ^$|(^(?:[A-Za-z0-9\+/]{4})*(?:[A-Za-z0-9\+/]{2}==|[A-Za-z0-9\+/]{3}=)?$)
+    DigitsOrAuto:
+      type: string
+      pattern: (^auto$)|(^\d{2,4}$)
+    Playlist:
+      type: object
+      properties:
+        Name:
+          allOf:
+          - $ref: '#/components/schemas/Filename'
+          - description: <p>The name that you want Elastic Transcoder to assign to the master playlist, for example, nyc-vacation.m3u8. If the name includes a <code>/</code> character, the section of the name before the last <code>/</code> must be identical for all <code>Name</code> objects. If you create more than one master playlist, the values of all <code>Name</code> objects must be unique.</p> <note> <p>Elastic Transcoder automatically appends the relevant file extension to the file name (<code>.m3u8</code> for <code>HLSv3</code> and <code>HLSv4</code> playlists, and <code>.ism</code> and <code>.ismc</code> for <code>Smooth</code> playlists). If you include a file extension in <code>Name</code>, the file name will have two extensions.</p> </note>
+        Format:
+          allOf:
+          - $ref: '#/components/schemas/PlaylistFormat'
+          - description: The format of the output playlist. Valid formats include <code>HLSv3</code>, <code>HLSv4</code>, and <code>Smooth</code>.
+        OutputKeys:
+          allOf:
+          - $ref: '#/components/schemas/OutputKeys'
+          - description: <p>For each output in this job that you want to include in a master playlist, the value of the Outputs:Key object.</p> <ul> <li> <p>If your output is not <code>HLS</code> or does not have a segment duration set, the name of the output file is a concatenation of <code>OutputKeyPrefix</code> and <code>Outputs:Key</code>:</p> <p>OutputKeyPrefix<code>Outputs:Key</code> </p> </li> <li> <p>If your output is <code>HLSv3</code> and has a segment duration set, or is not included in a playlist, Elastic Transcoder creates an output playlist file with a file extension of <code>.m3u8</code>, and a series of <code>.ts</code> files that include a five-digit sequential counter beginning with 00000:</p> <p>OutputKeyPrefix<code>Outputs:Key</code>.m3u8</p> <p>OutputKeyPrefix<code>Outputs:Key</code>00000.ts</p> </li> <li> <p>If your output is <code>HLSv4</code>, has a segment duration set, and is included in an <code>HLSv4</code> playlist, Elastic Transcoder creates an output playlist file with a file extension of <code>_v4.m3u8</code>. If the output is video, Elastic Transcoder also creates an output file with an extension of <code>_iframe.m3u8</code>:</p> <p>OutputKeyPrefix<code>Outputs:Key</code>_v4.m3u8</p> <p>OutputKeyPrefix<code>Outputs:Key</code>_iframe.m3u8</p> <p>OutputKeyPrefix<code>Outputs:Key</code>.ts</p> </li> </ul> <p>Elastic Transcoder automatically appends the relevant file extension to the file name. If you include a file extension in Output Key, the file name will have two extensions.</p> <p>If you include more than one output in a playlist, any segment duration settings, clip settings, or caption settings must be the same for all outputs in the playlist. For <code>Smooth</code> playlists, the <code>Audio:Profile</code>, <code>Video:Profile</code>, and <code>Video:FrameRate</code> to <code>Video:KeyframesMaxDist</code> ratio must be the same for all outputs.</p>
+        HlsContentProtection:
+          allOf:
+          - $ref: '#/components/schemas/HlsContentProtection'
+          - description: The HLS content protection settings, if any, that you want Elastic Transcoder to apply to the output files associated with this playlist.
+        PlayReadyDrm:
+          allOf:
+          - $ref: '#/components/schemas/PlayReadyDrm'
+          - description: The DRM settings, if any, that you want Elastic Transcoder to apply to the output files associated with this playlist.
+        Status:
+          allOf:
+          - $ref: '#/components/schemas/JobStatus'
+          - description: The status of the job with which the playlist is associated.
+        StatusDetail:
+          allOf:
+          - $ref: '#/components/schemas/Description'
+          - description: Information that further explains the status.
+      description: ' Use Only for Fragmented MP4 or MPEG-TS Outputs. If you specify a preset for which the value of Container is <code>fmp4</code> (Fragmented MP4) or <code>ts</code> (MPEG-TS), Playlists contains information about the master playlists that you want Elastic Transcoder to create. We recommend that you create only one master playlist per output format. The maximum number of master playlists in a job is 30. '
+    Filename:
+      type: string
+      minLength: 1
+      maxLength: 255
+    Jobs:
+      type: array
+      items:
+        $ref: '#/components/schemas/Job'
+    String:
+      type: string
+    PresetWatermarkId:
+      type: string
+      minLength: 1
+      maxLength: 40
+    Rotate:
+      type: string
+      pattern: (^auto$)|(^0$)|(^90$)|(^180$)|(^270$)
+    Artworks:
+      type: array
+      items:
+        $ref: '#/components/schemas/Artwork'
+    JobAlbumArt:
+      type: object
+      properties:
+        MergePolicy:
+          allOf:
+          - $ref: '#/components/schemas/MergePolicy'
+          - description: <p>A policy that determines how Elastic Transcoder handles the existence of multiple album artwork files.</p> <ul> <li> <p> <code>Replace:</code> The specified album art replaces any existing album art.</p> </li> <li> <p> <code>Prepend:</code> The specified album art is placed in front of any existing album art.</p> </li> <li> <p> <code>Append:</code> The specified album art is placed after any existing album art.</p> </li> <li> <p> <code>Fallback:</code> If the original input file contains artwork, Elastic Transcoder uses that artwork for the output. If the original input does not contain artwork, Elastic Transcoder uses the specified album art file.</p> </li> </ul>
+        Artwork:
+          allOf:
+          - $ref: '#/components/schemas/Artworks'
+          - description: 'The file to be used as album art. There can be multiple artworks associated with an audio file, to a maximum of 20. Valid formats are <code>.jpg</code> and <code>.png</code> '
+      description: The .jpg or .png file associated with an audio file.
+    Composition:
+      type: array
+      deprecated: true
+      items:
+        $ref: '#/components/schemas/Clip'
+    DetectedProperties:
+      type: object
+      properties:
+        Width:
+          allOf:
+          - $ref: '#/components/schemas/NullableInteger'
+          - description: The detected width of the input file, in pixels.
+        Height:
+          allOf:
+          - $ref: '#/components/schemas/NullableInteger'
+          - description: The detected height of the input file, in pixels.
+        FrameRate:
+          allOf:
+          - $ref: '#/components/schemas/FloatString'
+          - description: The detected frame rate of the input file, in frames per second.
+        FileSize:
+          allOf:
+          - $ref: '#/components/schemas/NullableLong'
+          - description: The detected file size of the input file, in bytes.
+        DurationMillis:
+          allOf:
+          - $ref: '#/components/schemas/NullableLong'
+          - description: The detected duration of the input file, in milliseconds.
+      description: The detected properties of the input file. Elastic Transcoder identifies these values from the input file.
+    TimeOffset:
+      type: string
+      pattern: (^[+-]?\d{1,5}(\.\d{0,3})?$)|(^[+-]?([0-1]?[0-9]:|2[0-3]:)?([0-5]?[0-9]:)?[0-5]?[0-9](\.\d{0,3})?$)
+    Playlists:
+      type: array
+      items:
+        $ref: '#/components/schemas/Playlist'
+    JobInputs:
+      type: array
+      items:
+        $ref: '#/components/schemas/JobInput'
+      maxItems: 200
+    JobWatermark:
+      type: object
+      properties:
+        PresetWatermarkId:
+          allOf:
+          - $ref: '#/components/schemas/PresetWatermarkId'
+          - description: The ID of the watermark settings that Elastic Transcoder uses to add watermarks to the video during transcoding. The settings are in the preset specified by Preset for the current output. In that preset, the value of Watermarks Id tells Elastic Transcoder which settings to use.
+        InputKey:
+          allOf:
+          - $ref: '#/components/schemas/WatermarkKey'
+          - description: <p> The name of the .png or .jpg file that you want to use for the watermark. To determine which Amazon S3 bucket contains the specified file, Elastic Transcoder checks the pipeline specified by <code>Pipeline</code>; the <code>Input Bucket</code> object in that pipeline identifies the bucket.</p> <p> If the file name includes a prefix, for example, <b>logos/128x64.png</b>, include the prefix in the key. If the file isn't in the specified bucket, Elastic Transcoder returns an error. </p>
+        Encryption:
+          allOf:
+          - $ref: '#/components/schemas/Encryption'
+          - description: The encryption settings, if any, that you want Elastic Transcoder to apply to your watermarks.
+      description: Watermarks can be in .png or .jpg format. If you want to display a watermark that is not rectangular, use the .png format, which supports transparency.
+    InputCaptions:
+      type: object
+      properties:
+        MergePolicy:
+          allOf:
+          - $ref: '#/components/schemas/CaptionMergePolicy'
+          - description: <p>A policy that determines how Elastic Transcoder handles the existence of multiple captions.</p> <ul> <li> <p> <b>MergeOverride:</b> Elastic Transcoder transcodes both embedded and sidecar captions into outputs. If captions for a language are embedded in the input file and also appear in a sidecar file, Elastic Transcoder uses the sidecar captions and ignores the embedded captions for that language.</p> </li> <li> <p> <b>MergeRetain:</b> Elastic Transcoder transcodes both embedded and sidecar captions into outputs. If captions for a language are embedded in the input file and also appear in a sidecar file, Elastic Transcoder uses the embedded captions and ignores the sidecar captions for that language. If <code>CaptionSources</code> is empty, Elastic Transcoder omits all sidecar captions from the output files.</p> </li> <li> <p> <b>Override:</b> Elastic Transcoder transcodes only the sidecar captions that you specify in <code>CaptionSources</code>.</p> </li> </ul> <p> <code>MergePolicy</code> cannot be null.</p>
+        CaptionSources:
+          allOf:
+          - $ref: '#/components/schemas/CaptionSources'
+          - description: Source files for the input sidecar captions used during the transcoding process. To omit all sidecar captions, leave <code>CaptionSources</code> blank.
+      description: The captions to be created, if any.
+    JpgOrPng:
+      type: string
+      pattern: (^jpg$)|(^png$)
+    CaptionSource:
+      type: object
+      properties:
+        Key:
+          allOf:
+          - $ref: '#/components/schemas/LongKey'
+          - description: The name of the sidecar caption file that you want Elastic Transcoder to include in the output file.
+        Language:
+          allOf:
+          - $ref: '#/components/schemas/Key'
+          - description: <p>A string that specifies the language of the caption. If you specified multiple inputs with captions, the caption language must match in order to be included in the output. Specify this as one of:</p> <ul> <li> <p>2-character ISO 639-1 code</p> </li> <li> <p>3-character ISO 639-2 code</p> </li> </ul> <p>For more information on ISO language codes and language names, see the List of ISO 639-1 codes.</p>
+        TimeOffset:
+          allOf:
+          - $ref: '#/components/schemas/TimeOffset'
+          - description: <p>For clip generation or captions that do not start at the same time as the associated video file, the <code>TimeOffset</code> tells Elastic Transcoder how much of the video to encode before including captions.</p> <p>Specify the TimeOffset in the form [+-]SS.sss or [+-]HH:mm:SS.ss.</p>
+        Label:
+          allOf:
+          - $ref: '#/components/schemas/Name'
+          - description: The label of the caption shown in the player when choosing a language. We recommend that you put the caption language name here, in the language of the captions.
+        Encryption:
+          allOf:
+          - $ref: '#/components/schemas/Encryption'
+          - description: The encryption settings, if any, that Elastic Transcoder needs to decyrpt your caption sources, or that you want Elastic Transcoder to apply to your caption sources.
+      description: A source file for the input sidecar captions used during the transcoding process.
+    WatermarkKey:
+      type: string
+      pattern: (^.{1,1020}.jpg$)|(^.{1,1019}.jpeg$)|(^.{1,1020}.png$)
+      minLength: 1
+      maxLength: 1024
+    JobOutputs:
+      type: array
+      items:
+        $ref: '#/components/schemas/JobOutput'
+    Time:
+      type: string
+      pattern: (^\d{1,5}(\.\d{0,3})?$)|(^([0-1]?[0-9]:|2[0-3]:)?([0-5]?[0-9]:)?[0-5]?[0-9](\.\d{0,3})?$)
+    ListJobsByPipelineResponse:
+      type: object
+      properties:
+        Jobs:
+          allOf:
+          - $ref: '#/components/schemas/Jobs'
+          - description: An array of <code>Job</code> objects that are in the specified pipeline.
+        NextPageToken:
+          allOf:
+          - $ref: '#/components/schemas/Id'
+          - description: ' A value that you use to access the second and subsequent pages of results, if any. When the jobs in the specified pipeline fit on one page or when you''ve reached the last page of results, the value of <code>NextPageToken</code> is <code>null</code>. '
+      description: The <code>ListJobsByPipelineResponse</code> structure.
+    KeyIdGuid:
+      type: string
+      pattern: (^[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}$)|(^[0-9A-Fa-f]{32}$)
+    JobWatermarks:
+      type: array
+      items:
+        $ref: '#/components/schemas/JobWatermark'
+    Encryption:
+      type: object
+      properties:
+        Mode:
+          allOf:
+          - $ref: '#/components/schemas/EncryptionMode'
+          - description: <p>The specific server-side encryption mode that you want Elastic Transcoder to use when decrypting your input files or encrypting your output files. Elastic Transcoder supports the following options:</p> <ul> <li> <p> <b>s3:</b> Amazon S3 creates and manages the keys used for encrypting your files.</p> </li> <li> <p> <b>s3-aws-kms:</b> Amazon S3 calls the Amazon Key Management Service, which creates and manages the keys that are used for encrypting your files. If you specify <code>s3-aws-kms</code> and you don't want to use the default key, you must add the AWS-KMS key that you want to use to your pipeline.</p> </li> <li> <p> <b>aes-cbc-pkcs7:</b> A padded cipher-block mode of operation originally used for HLS files.</p> </li> <li> <p> <b>aes-ctr:</b> AES Counter Mode.</p> </li> <li> <p> <b>aes-gcm:</b> AES Galois Counter Mode, a mode of operation that is an authenticated encryption format, meaning that a file, key, or initialization vector that has been tampered with fails the decryption process.</p> </li> </ul> <p>For all three AES options, you must provide the following settings, which must be base64-encoded:</p> <ul> <li> <p> <b>Key</b> </p> </li> <li> <p> <b>Key MD5</b> </p> </li> <li> <p> <b>Initialization Vector</b> </p> </li> </ul> <important> <p>For the AES modes, your private encryption keys and your unencrypted data are never stored by AWS; therefore, it is important that you safely manage your encryption keys. If you lose them, you won't be able to unencrypt your data.</p> </important>
+        Key:
+          allOf:
+          - $ref: '#/components/schemas/Base64EncodedString'
+          - description: <p>The data encryption key that you want Elastic Transcoder to use to encrypt your output file, or that was used to encrypt your input file. The key must be base64-encoded and it must be one of the following bit lengths before being base64-encoded:</p> <p> <code>128</code>, <code>192</code>, or <code>256</code>. </p> <p>The key must also be encrypted by using the Amazon Key Management Service.</p>
+        KeyMd5:
+          allOf:
+          - $ref: '#/components/schemas/Base64EncodedString'
+          - description: The MD5 digest of the key that you used to encrypt your input file, or that you want Elastic Transcoder to use to encrypt your output file. Elastic Transcoder uses the key digest as a checksum to make sure your key was not corrupted in transit. The key MD5 must be base64-encoded, and it must be exactly 16 bytes long before being base64-encoded.
+        InitializationVector:
+          allOf:
+          - $ref: '#/components/schemas/ZeroTo255String'
+          - description: The series of random bits created by a random bit generator, unique for every encryption operation, that you used to encrypt your input files or that you want Elastic Transcoder to use to encrypt your output files. The initialization vector must be base64-encoded, and it must be exactly 16 bytes long before being base64-encoded.
+      description: The encryption settings, if any, that are used for decrypting your input files or encrypting your output files. If your input file is encrypted, you must specify the mode that Elastic Transcoder uses to decrypt your file, otherwise you must specify the mode you want Elastic Transcoder to use to encrypt your output files.
+    PaddingPolicy:
+      type: string
+      pattern: (^Pad$)|(^NoPad$)
+    CaptionFormats:
+      type: array
+      items:
+        $ref: '#/components/schemas/CaptionFormat'
+      maxItems: 4
+    ResourceNotFoundException: {}
+    PlayReadyDrmFormatString:
+      type: string
+      pattern: (^microsoft$)|(^discretix-3.0$)
+    Clip:
+      type: object
+      deprecated: true
+      properties:
+        TimeSpan:
+          allOf:
+          - $ref: '#/components/schemas/TimeSpan'
+          - description: Settings that determine when a clip begins and how long it lasts.
+      description: Settings for one clip in a composition. All jobs in a playlist must have the same clip settings.
+    AccessDeniedException: {}
+    ValidationException: {}
+    PlaylistFormat:
+      type: string
+      pattern: (^HLSv3$)|(^HLSv4$)|(^Smooth$)|(^MPEG-DASH$)
+    ZeroTo255String:
+      type: string
+      minLength: 0
+      maxLength: 255
+    IncompatibleVersionException: {}
+    Resolution:
+      type: string
+      pattern: (^auto$)|(^\d{1,5}x\d{1,5}$)
+    FloatString:
+      type: string
+      pattern: ^\d{1,5}(\.\d{0,5})?$
+    Captions:
+      type: object
+      properties:
+        MergePolicy:
+          allOf:
+          - $ref: '#/components/schemas/CaptionMergePolicy'
+          - deprecated: true
+            description: <p>A policy that determines how Elastic Transcoder handles the existence of multiple captions.</p> <ul> <li> <p> <b>MergeOverride:</b> Elastic Transcoder transcodes both embedded and sidecar captions into outputs. If captions for a language are embedded in the input file and also appear in a sidecar file, Elastic Transcoder uses the sidecar captions and ignores the embedded captions for that language.</p> </li> <li> <p> <b>MergeRetain:</b> Elastic Transcoder transcodes both embedded and sidecar captions into outputs. If captions for a language are embedded in the input file and also appear in a sidecar file, Elastic Transcoder uses the embedded captions and ignores the sidecar captions for that language. If <code>CaptionSources</code> is empty, Elastic Transcoder omits all sidecar captions from the output files.</p> </li> <li> <p> <b>Override:</b> Elastic Transcoder transcodes only the sidecar captions that you specify in <code>CaptionSources</code>.</p> </li> </ul> <p> <code>MergePolicy</code> cannot be null.</p>
+        CaptionSources:
+          allOf:
+          - $ref: '#/components/schemas/CaptionSources'
+          - deprecated: true
+            description: Source files for the input sidecar captions used during the transcoding process. To omit all sidecar captions, leave <code>CaptionSources</code> blank.
+        CaptionFormats:
+          allOf:
+          - $ref: '#/components/schemas/CaptionFormats'
+          - description: The array of file formats for the output captions. If you leave this value blank, Elastic Transcoder returns an error.
+      description: The captions to be created, if any.
+    InternalServiceException: {}
+    FrameRate:
+      type: string
+      pattern: (^auto$)|(^10$)|(^15$)|(^23.97$)|(^24$)|(^25$)|(^29.97$)|(^30$)|(^50$)|(^60$)
+    SizingPolicy:
+      type: string
+      pattern: (^Fit$)|(^Fill$)|(^Stretch$)|(^Keep$)|(^ShrinkToFit$)|(^ShrinkToFill$)
+    EncryptionMode:
+      type: string
+      pattern: (^s3$)|(^s3-aws-kms$)|(^aes-cbc-pkcs7$)|(^aes-ctr$)|(^aes-gcm$)
+    Id:
+      type: string
+      pattern: ^\d{13}-\w{6}$
+    NullableLong:
+      type: integer
+    Interlaced:
+      type: string
+      pattern: (^auto$)|(^true$)|(^false$)
+    OneTo512String:
+      type: string
+      minLength: 1
+      maxLength: 512
+    CaptionFormat:
+      type: object
+      properties:
+        Format:
+          allOf:
+          - $ref: '#/components/schemas/CaptionFormatFormat'
+          - description: '<p>The format you specify determines whether Elastic Transcoder generates an embedded or sidecar caption for this output.</p> <ul> <li> <p> <b>Valid Embedded Caption Formats:</b> </p> <ul> <li> <p> <b>for FLAC</b>: None</p> </li> <li> <p> <b>For MP3</b>: None</p> </li> <li> <p> <b>For MP4</b>: mov-text</p> </li> <li> <p> <b>For MPEG-TS</b>: None</p> </li> <li> <p> <b>For ogg</b>: None</p> </li> <li> <p> <b>For webm</b>: None</p> </li> </ul> </li> <li> <p> <b>Valid Sidecar Caption Formats:</b> Elastic Transcoder supports dfxp (first div element only), scc, srt, and webvtt. If you want ttml or smpte-tt compatible captions, specify dfxp as your output format.</p> <ul> <li> <p> <b>For FMP4</b>: dfxp</p> </li> <li> <p> <b>Non-FMP4 outputs</b>: All sidecar types</p> </li> </ul> <p> <code>fmp4</code> captions have an extension of <code>.ismt</code> </p> </li> </ul>'
+        Pattern:
+          allOf:
+          - $ref: '#/components/schemas/CaptionFormatPattern'
+          - description: <p>The prefix for caption filenames, in the form <i>description</i>-<code>{language}</code>, where:</p> <ul> <li> <p> <i>description</i> is a description of the video.</p> </li> <li> <p> <code>{language}</code> is a literal value that Elastic Transcoder replaces with the two- or three-letter code for the language of the caption in the output file names.</p> </li> </ul> <p>If you don't include <code>{language}</code> in the file name pattern, Elastic Transcoder automatically appends "<code>{language}</code>" to the value that you specify for the description. In addition, Elastic Transcoder automatically appends the count to the end of the segment files.</p> <p>For example, suppose you're transcoding into srt format. When you enter "Sydney-{language}-sunrise", and the language of the captions is English (en), the name of the first caption file is be Sydney-en-sunrise00000.srt.</p>
+        Encryption:
+          allOf:
+          - $ref: '#/components/schemas/Encryption'
+          - description: The encryption settings, if any, that you want Elastic Transcoder to apply to your caption formats.
+      description: The file format of the output captions. If you leave this value blank, Elastic Transcoder returns an error.
+    PlayReadyDrm:
+      type: object
+      properties:
+        Format:
+          allOf:
+          - $ref: '#/components/schemas/PlayReadyDrmFormatString'
+          - description: The type of DRM, if any, that you want Elastic Transcoder to apply to the output files associated with this playlist.
+        Key:
+          allOf:
+          - $ref: '#/components/schemas/NonEmptyBase64EncodedString'
+          - description: <p>The DRM key for your file, provided by your DRM license provider. The key must be base64-encoded, and it must be one of the following bit lengths before being base64-encoded:</p> <p> <code>128</code>, <code>192</code>, or <code>256</code>. </p> <p>The key must also be encrypted by using AWS KMS.</p>
+        KeyMd5:
+          allOf:
+          - $ref: '#/components/schemas/NonEmptyBase64EncodedString'
+          - description: The MD5 digest of the key used for DRM on your file, and that you want Elastic Transcoder to use as a checksum to make sure your key was not corrupted in transit. The key MD5 must be base64-encoded, and it must be exactly 16 bytes before being base64-encoded.
+        KeyId:
+          allOf:
+          - $ref: '#/components/schemas/KeyIdGuid'
+          - description: <p>The ID for your DRM key, so that your DRM license provider knows which key to provide.</p> <p>The key ID must be provided in big endian, and Elastic Transcoder converts it to little endian before inserting it into the PlayReady DRM headers. If you are unsure whether your license server provides your key ID in big or little endian, check with your DRM provider.</p>
+        InitializationVector:
+          allOf:
+          - $ref: '#/components/schemas/ZeroTo255String'
+          - description: The series of random bits created by a random bit generator, unique for every encryption operation, that you want Elastic Transcoder to use to encrypt your files. The initialization vector must be base64-encoded, and it must be exactly 8 bytes long before being base64-encoded. If no initialization vector is provided, Elastic Transcoder generates one for you.
+        LicenseAcquisitionUrl:
+          allOf:
+          - $ref: '#/components/schemas/OneTo512String'
+          - description: 'The location of the license key required to play DRM content. The URL must be an absolute path, and is referenced by the PlayReady header. The PlayReady header is referenced in the protection header of the client manifest for Smooth Streaming outputs, and in the EXT-X-DXDRM and EXT-XDXDRMINFO metadata tags for HLS playlist outputs. An example URL looks like this: <code>https://www.example.com/exampleKey/</code> '
+      description: <p>The PlayReady DRM settings, if any, that you want Elastic Transcoder to apply to the output files associated with this playlist.</p> <p>PlayReady DRM encrypts your media files using <code>aes-ctr</code> encryption.</p> <p>If you use DRM for an <code>HLSv3</code> playlist, your outputs must have a master playlist.</p>
+    ThumbnailPattern:
+      type: string
+      pattern: (^$)|(^.*\{count\}.*$)
+    JobContainer:
+      type: string
+      pattern: (^auto$)|(^3gp$)|(^asf$)|(^avi$)|(^divx$)|(^flv$)|(^mkv$)|(^mov$)|(^mp4$)|(^mpeg$)|(^mpeg-ps$)|(^mpeg-ts$)|(^mxf$)|(^ogg$)|(^ts$)|(^vob$)|(^wav$)|(^webm$)|(^mp3$)|(^m4a$)|(^aac$)
   parameters:
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
     X-Amz-SignedHeaders:
       name: X-Amz-SignedHeaders
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
       in: header
       schema:
         type: string
@@ -936,14 +924,26 @@ components:
       schema:
         type: string
       required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
     X-Amz-Content-Sha256:
       name: X-Amz-Content-Sha256
       in: header
       schema:
         type: string
       required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
+    X-Amz-Signature:
+      name: X-Amz-Signature
       in: header
       schema:
         type: string
