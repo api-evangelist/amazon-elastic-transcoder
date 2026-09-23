@@ -1,9 +1,11 @@
 openapi: 3.2.0
 info:
-  version: 1.0.0
+  version: 2012-09-25
   x-release: v4
-  title: Amazon Elastic Transcoder Jobs Role Tests API
-  description: <fullname>AWS Elastic Transcoder Service</fullname> <p>The AWS Elastic Transcoder Service.</p>
+  title: Amazon Elastic Transcoder Role Tests API
+  description: 'AWS Elastic Transcoder Service
+
+    The AWS Elastic Transcoder Service.'
   x-logo:
     url: https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png
     backgroundColor: '#FFFFFF'
@@ -23,6 +25,7 @@ info:
     url: https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/elastictranscoder-2012-09-25.normal.json
     converter:
       url: https://github.com/mermade/aws2openapi
+      version: 1.0.0
     x-apisguru-driver: external
   x-apiClientRegistration:
     url: https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct
@@ -125,7 +128,10 @@ paths:
     post:
       deprecated: true
       operationId: TestRole
-      description: <p>The TestRole operation tests the IAM role used to create the pipeline.</p> <p>The <code>TestRole</code> action lets you determine whether the IAM role you are using has sufficient permissions to let Elastic Transcoder perform tasks associated with the transcoding process. The action attempts to assume the specified IAM role, checks read access to the input and output buckets, and tries to send a test notification to Amazon SNS topics that you specify.</p>
+      description: 'The TestRole operation tests the IAM role used to create the pipeline.
+
+
+        The TestRole action lets you determine whether the IAM role you are using has sufficient permissions to let Elastic Transcoder perform tasks associated with the transcoding process. The action attempts to assume the specified IAM role, checks read access to the input and output buckets, and tries to send a test notification to Amazon SNS topics that you specify.'
       responses:
         '200':
           description: Success
@@ -243,17 +249,21 @@ paths:
       - RoleTests
 components:
   schemas:
-    SnsTopic:
-      type: string
-      pattern: (^$)|(^arn:aws:sns:.*:\w{12}:.+$)
-    InternalServiceException: {}
     Success:
       type: string
       pattern: (^true$)|(^false$)
+    InternalServiceException: {}
     String:
       type: string
-    AccessDeniedException: {}
+    ExceptionMessages:
+      type: array
+      items:
+        $ref: '#/components/schemas/String'
     ResourceNotFoundException: {}
+    AccessDeniedException: {}
+    SnsTopic:
+      type: string
+      pattern: (^$)|(^arn:aws:sns:.*:\w{12}:.+$)
     TestRoleResponse:
       type: object
       deprecated: true
@@ -267,27 +277,17 @@ components:
           - $ref: '#/components/schemas/ExceptionMessages'
           - description: If the <code>Success</code> element contains <code>false</code>, this value is an array of one or more error messages that were generated during the test process.
       description: The <code>TestRoleResponse</code> structure.
-    ValidationException: {}
-    ExceptionMessages:
-      type: array
-      items:
-        $ref: '#/components/schemas/String'
     IncompatibleVersionException: {}
+    ValidationException: {}
   parameters:
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
       in: header
       schema:
         type: string
       required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
+    X-Amz-Credential:
+      name: X-Amz-Credential
       in: header
       schema:
         type: string
@@ -298,8 +298,8 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
       in: header
       schema:
         type: string
@@ -310,8 +310,14 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
       in: header
       schema:
         type: string
