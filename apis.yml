@@ -40,6 +40,7 @@ tags:
 - Media
 - Transcoding
 - Video
+- Defunct
 apis:
 - aid: amazon-elastic-transcoder:amazon-elastic-transcoder-jobs-api
   name: Amazon Elastic Transcoder Jobs API
@@ -336,5 +337,8 @@ integrations:
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
-x-parent: aws
+x-parent: amazon-web-services
 x-relationship: product
+x-status: defunct
+x-status-detail: 'AWS service support ended 2025-11-13 (AWS, Services in Full Shutdown).'
+x-status-source: https://docs.aws.amazon.com/general/latest/gr/full_shutdown_services.html

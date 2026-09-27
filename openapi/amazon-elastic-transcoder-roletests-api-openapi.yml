@@ -249,21 +249,8 @@ paths:
       - RoleTests
 components:
   schemas:
-    Success:
-      type: string
-      pattern: (^true$)|(^false$)
-    InternalServiceException: {}
-    String:
-      type: string
-    ExceptionMessages:
-      type: array
-      items:
-        $ref: '#/components/schemas/String'
     ResourceNotFoundException: {}
-    AccessDeniedException: {}
-    SnsTopic:
-      type: string
-      pattern: (^$)|(^arn:aws:sns:.*:\w{12}:.+$)
+    ValidationException: {}
     TestRoleResponse:
       type: object
       deprecated: true
@@ -277,8 +264,21 @@ components:
           - $ref: '#/components/schemas/ExceptionMessages'
           - description: If the <code>Success</code> element contains <code>false</code>, this value is an array of one or more error messages that were generated during the test process.
       description: The <code>TestRoleResponse</code> structure.
+    String:
+      type: string
+    InternalServiceException: {}
     IncompatibleVersionException: {}
-    ValidationException: {}
+    AccessDeniedException: {}
+    ExceptionMessages:
+      type: array
+      items:
+        $ref: '#/components/schemas/String'
+    Success:
+      type: string
+      pattern: (^true$)|(^false$)
+    SnsTopic:
+      type: string
+      pattern: (^$)|(^arn:aws:sns:.*:\w{12}:.+$)
   parameters:
     X-Amz-Algorithm:
       name: X-Amz-Algorithm
@@ -286,8 +286,20 @@ components:
       schema:
         type: string
       required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
     X-Amz-Credential:
       name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
       in: header
       schema:
         type: string
@@ -300,18 +312,6 @@ components:
       required: false
     X-Amz-Security-Token:
       name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Date:
-      name: X-Amz-Date
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
       in: header
       schema:
         type: string
