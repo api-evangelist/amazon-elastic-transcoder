@@ -637,169 +637,101 @@ paths:
       - Presets
 components:
   schemas:
-    AudioCodecOptions:
-      type: object
-      properties:
-        Profile:
-          allOf:
-          - $ref: '#/components/schemas/AudioCodecProfile'
-          - description: '<p>You can only choose an audio profile when you specify AAC for the value of Audio:Codec.</p> <p>Specify the AAC profile for the output file. Elastic Transcoder supports the following profiles:</p> <ul> <li> <p> <code>auto</code>: If you specify <code>auto</code>, Elastic Transcoder selects the profile based on the bit rate selected for the output file.</p> </li> <li> <p> <code>AAC-LC</code>: The most common AAC profile. Use for bit rates larger than 64 kbps.</p> </li> <li> <p> <code>HE-AAC</code>: Not supported on some older players and devices. Use for bit rates between 40 and 80 kbps.</p> </li> <li> <p> <code>HE-AACv2</code>: Not supported on some players and devices. Use for bit rates less than 48 kbps.</p> </li> </ul> <p>All outputs in a <code>Smooth</code> playlist must have the same value for <code>Profile</code>.</p> <note> <p>If you created any presets before AAC profiles were added, Elastic Transcoder automatically updated your presets to use AAC-LC. You can change the value as required.</p> </note>'
-        BitDepth:
-          allOf:
-          - $ref: '#/components/schemas/AudioBitDepth'
-          - description: <p>You can only choose an audio bit depth when you specify <code>flac</code> or <code>pcm</code> for the value of Audio:Codec.</p> <p>The bit depth of a sample is how many bits of information are included in the audio samples. The higher the bit depth, the better the audio, but the larger the file.</p> <p>Valid values are <code>16</code> and <code>24</code>.</p> <p>The most common bit depth is <code>24</code>.</p>
-        BitOrder:
-          allOf:
-          - $ref: '#/components/schemas/AudioBitOrder'
-          - description: <p>You can only choose an audio bit order when you specify <code>pcm</code> for the value of Audio:Codec.</p> <p>The order the bits of a PCM sample are stored in.</p> <p>The supported value is <code>LittleEndian</code>.</p>
-        Signed:
-          allOf:
-          - $ref: '#/components/schemas/AudioSigned'
-          - description: <p>You can only choose whether an audio sample is signed when you specify <code>pcm</code> for the value of Audio:Codec.</p> <p>Whether audio samples are represented with negative and positive numbers (signed) or only positive numbers (unsigned).</p> <p>The supported value is <code>Signed</code>.</p>
-      description: Options associated with your audio codec.
-    AspectRatio:
+    Digits:
       type: string
-      pattern: (^auto$)|(^1:1$)|(^4:3$)|(^3:2$)|(^16:9$)
-    FixedGOP:
+      pattern: ^\d{1,5}$
+    DigitsOrAuto:
       type: string
-      pattern: (^true$)|(^false$)
-    Thumbnails:
-      type: object
-      properties:
-        Format:
-          allOf:
-          - $ref: '#/components/schemas/JpgOrPng'
-          - description: <p>The format of thumbnails, if any. Valid values are <code>jpg</code> and <code>png</code>. </p> <p>You specify whether you want Elastic Transcoder to create thumbnails when you create a job.</p>
-        Interval:
-          allOf:
-          - $ref: '#/components/schemas/Digits'
-          - description: The approximate number of seconds between thumbnails. Specify an integer value.
-        Resolution:
-          allOf:
-          - $ref: '#/components/schemas/ThumbnailResolution'
-          - description: <important> <p>To better control resolution and aspect ratio of thumbnails, we recommend that you use the values <code>MaxWidth</code>, <code>MaxHeight</code>, <code>SizingPolicy</code>, and <code>PaddingPolicy</code> instead of <code>Resolution</code> and <code>AspectRatio</code>. The two groups of settings are mutually exclusive. Do not use them together.</p> </important> <p>The width and height of thumbnail files in pixels. Specify a value in the format <code> <i>width</i> </code> x <code> <i>height</i> </code> where both values are even integers. The values cannot exceed the width and height that you specified in the <code>Video:Resolution</code> object.</p>
-        AspectRatio:
-          allOf:
-          - $ref: '#/components/schemas/AspectRatio'
-          - description: <important> <p>To better control resolution and aspect ratio of thumbnails, we recommend that you use the values <code>MaxWidth</code>, <code>MaxHeight</code>, <code>SizingPolicy</code>, and <code>PaddingPolicy</code> instead of <code>Resolution</code> and <code>AspectRatio</code>. The two groups of settings are mutually exclusive. Do not use them together.</p> </important> <p>The aspect ratio of thumbnails. Valid values include:</p> <p> <code>auto</code>, <code>1:1</code>, <code>4:3</code>, <code>3:2</code>, <code>16:9</code> </p> <p>If you specify <code>auto</code>, Elastic Transcoder tries to preserve the aspect ratio of the video in the output file.</p>
-        MaxWidth:
-          allOf:
-          - $ref: '#/components/schemas/DigitsOrAuto'
-          - description: The maximum width of thumbnails in pixels. If you specify auto, Elastic Transcoder uses 1920 (Full HD) as the default value. If you specify a numeric value, enter an even integer between 32 and 4096.
-        MaxHeight:
-          allOf:
-          - $ref: '#/components/schemas/DigitsOrAuto'
-          - description: The maximum height of thumbnails in pixels. If you specify auto, Elastic Transcoder uses 1080 (Full HD) as the default value. If you specify a numeric value, enter an even integer between 32 and 3072.
-        SizingPolicy:
-          allOf:
-          - $ref: '#/components/schemas/SizingPolicy'
-          - description: '<p>Specify one of the following values to control scaling of thumbnails:</p> <ul> <li> <p> <code>Fit</code>: Elastic Transcoder scales thumbnails so they match the value that you specified in thumbnail MaxWidth or MaxHeight settings without exceeding the other value. </p> </li> <li> <p> <code>Fill</code>: Elastic Transcoder scales thumbnails so they match the value that you specified in thumbnail <code>MaxWidth</code> or <code>MaxHeight</code> settings and matches or exceeds the other value. Elastic Transcoder centers the image in thumbnails and then crops in the dimension (if any) that exceeds the maximum value.</p> </li> <li> <p> <code>Stretch</code>: Elastic Transcoder stretches thumbnails to match the values that you specified for thumbnail <code>MaxWidth</code> and <code>MaxHeight</code> settings. If the relative proportions of the input video and thumbnails are different, the thumbnails will be distorted.</p> </li> <li> <p> <code>Keep</code>: Elastic Transcoder does not scale thumbnails. If either dimension of the input video exceeds the values that you specified for thumbnail <code>MaxWidth</code> and <code>MaxHeight</code> settings, Elastic Transcoder crops the thumbnails.</p> </li> <li> <p> <code>ShrinkToFit</code>: Elastic Transcoder scales thumbnails down so that their dimensions match the values that you specified for at least one of thumbnail <code>MaxWidth</code> and <code>MaxHeight</code> without exceeding either value. If you specify this option, Elastic Transcoder does not scale thumbnails up.</p> </li> <li> <p> <code>ShrinkToFill</code>: Elastic Transcoder scales thumbnails down so that their dimensions match the values that you specified for at least one of <code>MaxWidth</code> and <code>MaxHeight</code> without dropping below either value. If you specify this option, Elastic Transcoder does not scale thumbnails up.</p> </li> </ul>'
-        PaddingPolicy:
-          allOf:
-          - $ref: '#/components/schemas/PaddingPolicy'
-          - description: When you set <code>PaddingPolicy</code> to <code>Pad</code>, Elastic Transcoder may add black bars to the top and bottom and/or left and right sides of thumbnails to make the total size of the thumbnails match the values that you specified for thumbnail <code>MaxWidth</code> and <code>MaxHeight</code> settings.
-      description: Thumbnails for videos.
+      pattern: (^auto$)|(^\d{2,4}$)
+    Resolution:
+      type: string
+      pattern: (^auto$)|(^\d{1,5}x\d{1,5}$)
     AudioSampleRate:
       type: string
       pattern: (^auto$)|(^22050$)|(^32000$)|(^44100$)|(^48000$)|(^96000$)|(^192000$)
-    Opacity:
-      type: string
-      pattern: ^\d{1,3}(\.\d{0,20})?$
-    AccessDeniedException: {}
-    PresetWatermark:
+    CodecOptions:
       type: object
-      properties:
-        Id:
-          allOf:
-          - $ref: '#/components/schemas/PresetWatermarkId'
-          - description: ' A unique identifier for the settings for one watermark. The value of <code>Id</code> can be up to 40 characters long. '
-        MaxWidth:
-          allOf:
-          - $ref: '#/components/schemas/PixelsOrPercent'
-          - description: '<p>The maximum width of the watermark in one of the following formats: </p> <ul> <li> <p>number of pixels (px): The minimum value is 16 pixels, and the maximum value is the value of <code>MaxWidth</code>.</p> </li> <li> <p>integer percentage (%): The range of valid values is 0 to 100. Use the value of <code>Target</code> to specify whether you want Elastic Transcoder to include the black bars that are added by Elastic Transcoder, if any, in the calculation.</p> <p>If you specify the value in pixels, it must be less than or equal to the value of <code>MaxWidth</code>.</p> </li> </ul>'
-        MaxHeight:
-          allOf:
-          - $ref: '#/components/schemas/PixelsOrPercent'
-          - description: '<p>The maximum height of the watermark in one of the following formats: </p> <ul> <li> <p>number of pixels (px): The minimum value is 16 pixels, and the maximum value is the value of <code>MaxHeight</code>.</p> </li> <li> <p>integer percentage (%): The range of valid values is 0 to 100. Use the value of <code>Target</code> to specify whether you want Elastic Transcoder to include the black bars that are added by Elastic Transcoder, if any, in the calculation.</p> </li> </ul> <p>If you specify the value in pixels, it must be less than or equal to the value of <code>MaxHeight</code>.</p>'
-        SizingPolicy:
-          allOf:
-          - $ref: '#/components/schemas/WatermarkSizingPolicy'
-          - description: '<p>A value that controls scaling of the watermark: </p> <ul> <li> <p> <b>Fit</b>: Elastic Transcoder scales the watermark so it matches the value that you specified in either <code>MaxWidth</code> or <code>MaxHeight</code> without exceeding the other value.</p> </li> <li> <p> <b>Stretch</b>: Elastic Transcoder stretches the watermark to match the values that you specified for <code>MaxWidth</code> and <code>MaxHeight</code>. If the relative proportions of the watermark and the values of <code>MaxWidth</code> and <code>MaxHeight</code> are different, the watermark will be distorted.</p> </li> <li> <p> <b>ShrinkToFit</b>: Elastic Transcoder scales the watermark down so that its dimensions match the values that you specified for at least one of <code>MaxWidth</code> and <code>MaxHeight</code> without exceeding either value. If you specify this option, Elastic Transcoder does not scale the watermark up.</p> </li> </ul>'
-        HorizontalAlign:
-          allOf:
-          - $ref: '#/components/schemas/HorizontalAlign'
-          - description: '<p>The horizontal position of the watermark unless you specify a non-zero value for <code>HorizontalOffset</code>: </p> <ul> <li> <p> <b>Left</b>: The left edge of the watermark is aligned with the left border of the video.</p> </li> <li> <p> <b>Right</b>: The right edge of the watermark is aligned with the right border of the video.</p> </li> <li> <p> <b>Center</b>: The watermark is centered between the left and right borders.</p> </li> </ul>'
-        HorizontalOffset:
-          allOf:
-          - $ref: '#/components/schemas/PixelsOrPercent'
-          - description: '<p>The amount by which you want the horizontal position of the watermark to be offset from the position specified by HorizontalAlign: </p> <ul> <li> <p>number of pixels (px): The minimum value is 0 pixels, and the maximum value is the value of MaxWidth.</p> </li> <li> <p>integer percentage (%): The range of valid values is 0 to 100.</p> </li> </ul> <p>For example, if you specify Left for <code>HorizontalAlign</code> and 5px for <code>HorizontalOffset</code>, the left side of the watermark appears 5 pixels from the left border of the output video.</p> <p> <code>HorizontalOffset</code> is only valid when the value of <code>HorizontalAlign</code> is <code>Left</code> or <code>Right</code>. If you specify an offset that causes the watermark to extend beyond the left or right border and Elastic Transcoder has not added black bars, the watermark is cropped. If Elastic Transcoder has added black bars, the watermark extends into the black bars. If the watermark extends beyond the black bars, it is cropped.</p> <p>Use the value of <code>Target</code> to specify whether you want to include the black bars that are added by Elastic Transcoder, if any, in the offset calculation.</p>'
-        VerticalAlign:
-          allOf:
-          - $ref: '#/components/schemas/VerticalAlign'
-          - description: '<p>The vertical position of the watermark unless you specify a non-zero value for <code>VerticalOffset</code>: </p> <ul> <li> <p> <b>Top</b>: The top edge of the watermark is aligned with the top border of the video.</p> </li> <li> <p> <b>Bottom</b>: The bottom edge of the watermark is aligned with the bottom border of the video.</p> </li> <li> <p> <b>Center</b>: The watermark is centered between the top and bottom borders.</p> </li> </ul>'
-        VerticalOffset:
-          allOf:
-          - $ref: '#/components/schemas/PixelsOrPercent'
-          - description: '<p> <code>VerticalOffset</code> </p> <p>The amount by which you want the vertical position of the watermark to be offset from the position specified by VerticalAlign:</p> <ul> <li> <p>number of pixels (px): The minimum value is 0 pixels, and the maximum value is the value of <code>MaxHeight</code>.</p> </li> <li> <p>integer percentage (%): The range of valid values is 0 to 100.</p> </li> </ul> <p>For example, if you specify <code>Top</code> for <code>VerticalAlign</code> and <code>5px</code> for <code>VerticalOffset</code>, the top of the watermark appears 5 pixels from the top border of the output video.</p> <p> <code>VerticalOffset</code> is only valid when the value of VerticalAlign is Top or Bottom.</p> <p>If you specify an offset that causes the watermark to extend beyond the top or bottom border and Elastic Transcoder has not added black bars, the watermark is cropped. If Elastic Transcoder has added black bars, the watermark extends into the black bars. If the watermark extends beyond the black bars, it is cropped.</p> <p>Use the value of <code>Target</code> to specify whether you want Elastic Transcoder to include the black bars that are added by Elastic Transcoder, if any, in the offset calculation.</p>'
-        Opacity:
-          allOf:
-          - $ref: '#/components/schemas/Opacity'
-          - description: <p>A percentage that indicates how much you want a watermark to obscure the video in the location where it appears. Valid values are 0 (the watermark is invisible) to 100 (the watermark completely obscures the video in the specified location). The datatype of <code>Opacity</code> is float.</p> <p>Elastic Transcoder supports transparent .png graphics. If you use a transparent .png, the transparent portion of the video appears as if you had specified a value of 0 for <code>Opacity</code>. The .jpg file format doesn't support transparency.</p>
-        Target:
-          allOf:
-          - $ref: '#/components/schemas/Target'
-          - description: '<p>A value that determines how Elastic Transcoder interprets values that you specified for <code>HorizontalOffset</code>, <code>VerticalOffset</code>, <code>MaxWidth</code>, and <code>MaxHeight</code>:</p> <ul> <li> <p> <b>Content</b>: <code>HorizontalOffset</code> and <code>VerticalOffset</code> values are calculated based on the borders of the video excluding black bars added by Elastic Transcoder, if any. In addition, <code>MaxWidth</code> and <code>MaxHeight</code>, if specified as a percentage, are calculated based on the borders of the video excluding black bars added by Elastic Transcoder, if any.</p> </li> <li> <p> <b>Frame</b>: <code>HorizontalOffset</code> and <code>VerticalOffset</code> values are calculated based on the borders of the video including black bars added by Elastic Transcoder, if any. In addition, <code>MaxWidth</code> and <code>MaxHeight</code>, if specified as a percentage, are calculated based on the borders of the video including black bars added by Elastic Transcoder, if any.</p> </li> </ul>'
-      description: <p>Settings for the size, location, and opacity of graphics that you want Elastic Transcoder to overlay over videos that are transcoded using this preset. You can specify settings for up to four watermarks. Watermarks appear in the specified size and location, and with the specified opacity for the duration of the transcoded video.</p> <p>Watermarks can be in .png or .jpg format. If you want to display a watermark that is not rectangular, use the .png format, which supports transparency.</p> <p>When you create a job that uses this preset, you specify the .png or .jpg graphics that you want Elastic Transcoder to include in the transcoded videos. You can specify fewer graphics in the job than you specify watermark settings in the preset, which allows you to use the same preset for up to four watermarks that have different dimensions.</p>
-    PresetContainer:
+      maxProperties: 30
+      additionalProperties:
+        $ref: '#/components/schemas/CodecOption'
+    AudioBitOrder:
       type: string
-      pattern: (^mp4$)|(^ts$)|(^webm$)|(^mp3$)|(^flac$)|(^oga$)|(^ogg$)|(^fmp4$)|(^mpg$)|(^flv$)|(^gif$)|(^mxf$)|(^wav$)|(^mp2$)
-    AudioBitDepth:
+      pattern: (^LittleEndian$)
+    AudioChannels:
       type: string
-      pattern: (^8$)|(^16$)|(^24$)|(^32$)
-    JpgOrPng:
-      type: string
-      pattern: (^jpg$)|(^png$)
-    MaxFrameRate:
-      type: string
-      pattern: (^10$)|(^15$)|(^23.97$)|(^24$)|(^25$)|(^29.97$)|(^30$)|(^50$)|(^60$)
-    String:
-      type: string
-    InternalServiceException: {}
-    LimitExceededException: {}
+      pattern: (^auto$)|(^0$)|(^1$)|(^2$)
     KeyframesMaxDist:
       type: string
       pattern: ^\d{1,6}$
-    ValidationException: {}
-    AudioSigned:
-      type: string
-      pattern: (^Unsigned$)|(^Signed$)
-    AudioCodec:
-      type: string
-      pattern: (^AAC$)|(^vorbis$)|(^mp3$)|(^mp2$)|(^pcm$)|(^flac$)
-    AudioPackingMode:
-      type: string
-      pattern: (^SingleTrack$)|(^OneChannelPerTrack$)|(^OneChannelPerTrackWithMosTo8Tracks$)
-    HorizontalAlign:
-      type: string
-      pattern: (^Left$)|(^Right$)|(^Center$)
     PixelsOrPercent:
       type: string
       pattern: (^\d{1,3}(\.\d{0,5})?%$)|(^\d{1,4}?px$)
-    Name:
+    String:
+      type: string
+    FixedGOP:
+      type: string
+      pattern: (^true$)|(^false$)
+    AudioCodecProfile:
+      type: string
+      pattern: (^auto$)|(^AAC-LC$)|(^HE-AAC$)|(^HE-AACv2$)
+    SizingPolicy:
+      type: string
+      pattern: (^Fit$)|(^Fill$)|(^Stretch$)|(^Keep$)|(^ShrinkToFit$)|(^ShrinkToFill$)
+    CodecOption:
       type: string
       minLength: 1
-      maxLength: 40
-    PresetWatermarks:
+      maxLength: 255
+    CreatePresetResponse:
+      type: object
+      properties:
+        Preset:
+          allOf:
+          - $ref: '#/components/schemas/Preset'
+          - description: A section of the response body that provides information about the preset that is created.
+        Warning:
+          allOf:
+          - $ref: '#/components/schemas/String'
+          - description: If the preset settings don't comply with the standards for the video codec but Elastic Transcoder created the preset, this message explains the reason the preset settings don't meet the standard. Elastic Transcoder created the preset because the settings might produce acceptable output.
+      description: The <code>CreatePresetResponse</code> structure.
+    Presets:
       type: array
       items:
-        $ref: '#/components/schemas/PresetWatermark'
-    WatermarkSizingPolicy:
-      type: string
-      pattern: (^Fit$)|(^Stretch$)|(^ShrinkToFit$)
+        $ref: '#/components/schemas/Preset'
     PresetWatermarkId:
       type: string
       minLength: 1
       maxLength: 40
+    DeletePresetResponse:
+      type: object
+      properties: {}
+      description: The <code>DeletePresetResponse</code> structure.
+    InternalServiceException: {}
+    PresetContainer:
+      type: string
+      pattern: (^mp4$)|(^ts$)|(^webm$)|(^mp3$)|(^flac$)|(^oga$)|(^ogg$)|(^fmp4$)|(^mpg$)|(^flv$)|(^gif$)|(^mxf$)|(^wav$)|(^mp2$)
+    PresetWatermarks:
+      type: array
+      items:
+        $ref: '#/components/schemas/PresetWatermark'
+    Name:
+      type: string
+      minLength: 1
+      maxLength: 40
+    ThumbnailResolution:
+      type: string
+      pattern: ^\d{1,5}x\d{1,5}$
+    HorizontalAlign:
+      type: string
+      pattern: (^Left$)|(^Right$)|(^Center$)
+    FrameRate:
+      type: string
+      pattern: (^auto$)|(^10$)|(^15$)|(^23.97$)|(^24$)|(^25$)|(^29.97$)|(^30$)|(^50$)|(^60$)
+    VideoBitRate:
+      type: string
+      pattern: (^\d{2,5}$)|(^auto$)
+    AudioBitDepth:
+      type: string
+      pattern: (^8$)|(^16$)|(^24$)|(^32$)
     VideoParameters:
       type: object
       properties:
@@ -864,6 +796,46 @@ components:
           - $ref: '#/components/schemas/PresetWatermarks'
           - description: <p>Settings for the size, location, and opacity of graphics that you want Elastic Transcoder to overlay over videos that are transcoded using this preset. You can specify settings for up to four watermarks. Watermarks appear in the specified size and location, and with the specified opacity for the duration of the transcoded video.</p> <p>Watermarks can be in .png or .jpg format. If you want to display a watermark that is not rectangular, use the .png format, which supports transparency.</p> <p>When you create a job that uses this preset, you specify the .png or .jpg graphics that you want Elastic Transcoder to include in the transcoded videos. You can specify fewer graphics in the job than you specify watermark settings in the preset, which allows you to use the same preset for up to four watermarks that have different dimensions.</p>
       description: The <code>VideoParameters</code> structure.
+    AudioPackingMode:
+      type: string
+      pattern: (^SingleTrack$)|(^OneChannelPerTrack$)|(^OneChannelPerTrackWithMosTo8Tracks$)
+    PaddingPolicy:
+      type: string
+      pattern: (^Pad$)|(^NoPad$)
+    IncompatibleVersionException: {}
+    JpgOrPng:
+      type: string
+      pattern: (^jpg$)|(^png$)
+    VerticalAlign:
+      type: string
+      pattern: (^Top$)|(^Bottom$)|(^Center$)
+    WatermarkSizingPolicy:
+      type: string
+      pattern: (^Fit$)|(^Stretch$)|(^ShrinkToFit$)
+    MaxFrameRate:
+      type: string
+      pattern: (^10$)|(^15$)|(^23.97$)|(^24$)|(^25$)|(^29.97$)|(^30$)|(^50$)|(^60$)
+    PresetType:
+      type: string
+      pattern: (^System$)|(^Custom$)
+    AudioCodec:
+      type: string
+      pattern: (^AAC$)|(^vorbis$)|(^mp3$)|(^mp2$)|(^pcm$)|(^flac$)
+    ValidationException: {}
+    ReadPresetResponse:
+      type: object
+      properties:
+        Preset:
+          allOf:
+          - $ref: '#/components/schemas/Preset'
+          - description: A section of the response body that provides information about the preset.
+      description: The <code>ReadPresetResponse</code> structure.
+    Target:
+      type: string
+      pattern: (^Content$)|(^Frame$)
+    Opacity:
+      type: string
+      pattern: ^\d{1,3}(\.\d{0,20})?$
     AudioParameters:
       type: object
       properties:
@@ -892,91 +864,82 @@ components:
           - $ref: '#/components/schemas/AudioCodecOptions'
           - description: <p>If you specified <code>AAC</code> for <code>Audio:Codec</code>, this is the <code>AAC</code> compression profile to use. Valid values include:</p> <p> <code>auto</code>, <code>AAC-LC</code>, <code>HE-AAC</code>, <code>HE-AACv2</code> </p> <p>If you specify <code>auto</code>, Elastic Transcoder chooses a profile based on the bit rate of the output file.</p>
       description: Parameters required for transcoding audio.
-    AudioBitOrder:
+    AudioSigned:
       type: string
-      pattern: (^LittleEndian$)
-    DigitsOrAuto:
-      type: string
-      pattern: (^auto$)|(^\d{2,4}$)
-    VideoCodec:
-      type: string
-      pattern: (^H\.264$)|(^vp8$)|(^vp9$)|(^mpeg2$)|(^gif$)
-    Presets:
-      type: array
-      items:
-        $ref: '#/components/schemas/Preset'
-    AudioChannels:
-      type: string
-      pattern: (^auto$)|(^0$)|(^1$)|(^2$)
-    Target:
-      type: string
-      pattern: (^Content$)|(^Frame$)
-    PaddingPolicy:
-      type: string
-      pattern: (^Pad$)|(^NoPad$)
-    CodecOptions:
+      pattern: (^Unsigned$)|(^Signed$)
+    AudioCodecOptions:
       type: object
-      maxProperties: 30
-      additionalProperties:
-        $ref: '#/components/schemas/CodecOption'
-    DeletePresetResponse:
-      type: object
-      properties: {}
-      description: The <code>DeletePresetResponse</code> structure.
-    VideoBitRate:
+      properties:
+        Profile:
+          allOf:
+          - $ref: '#/components/schemas/AudioCodecProfile'
+          - description: '<p>You can only choose an audio profile when you specify AAC for the value of Audio:Codec.</p> <p>Specify the AAC profile for the output file. Elastic Transcoder supports the following profiles:</p> <ul> <li> <p> <code>auto</code>: If you specify <code>auto</code>, Elastic Transcoder selects the profile based on the bit rate selected for the output file.</p> </li> <li> <p> <code>AAC-LC</code>: The most common AAC profile. Use for bit rates larger than 64 kbps.</p> </li> <li> <p> <code>HE-AAC</code>: Not supported on some older players and devices. Use for bit rates between 40 and 80 kbps.</p> </li> <li> <p> <code>HE-AACv2</code>: Not supported on some players and devices. Use for bit rates less than 48 kbps.</p> </li> </ul> <p>All outputs in a <code>Smooth</code> playlist must have the same value for <code>Profile</code>.</p> <note> <p>If you created any presets before AAC profiles were added, Elastic Transcoder automatically updated your presets to use AAC-LC. You can change the value as required.</p> </note>'
+        BitDepth:
+          allOf:
+          - $ref: '#/components/schemas/AudioBitDepth'
+          - description: <p>You can only choose an audio bit depth when you specify <code>flac</code> or <code>pcm</code> for the value of Audio:Codec.</p> <p>The bit depth of a sample is how many bits of information are included in the audio samples. The higher the bit depth, the better the audio, but the larger the file.</p> <p>Valid values are <code>16</code> and <code>24</code>.</p> <p>The most common bit depth is <code>24</code>.</p>
+        BitOrder:
+          allOf:
+          - $ref: '#/components/schemas/AudioBitOrder'
+          - description: <p>You can only choose an audio bit order when you specify <code>pcm</code> for the value of Audio:Codec.</p> <p>The order the bits of a PCM sample are stored in.</p> <p>The supported value is <code>LittleEndian</code>.</p>
+        Signed:
+          allOf:
+          - $ref: '#/components/schemas/AudioSigned'
+          - description: <p>You can only choose whether an audio sample is signed when you specify <code>pcm</code> for the value of Audio:Codec.</p> <p>Whether audio samples are represented with negative and positive numbers (signed) or only positive numbers (unsigned).</p> <p>The supported value is <code>Signed</code>.</p>
+      description: Options associated with your audio codec.
+    AudioBitRate:
       type: string
-      pattern: (^\d{2,5}$)|(^auto$)
+      pattern: ^\d{1,3}$
+    AccessDeniedException: {}
     Description:
       type: string
       minLength: 0
       maxLength: 255
-    ReadPresetResponse:
+    PresetWatermark:
       type: object
       properties:
-        Preset:
+        Id:
           allOf:
-          - $ref: '#/components/schemas/Preset'
-          - description: A section of the response body that provides information about the preset.
-      description: The <code>ReadPresetResponse</code> structure.
-    ThumbnailResolution:
-      type: string
-      pattern: ^\d{1,5}x\d{1,5}$
-    IncompatibleVersionException: {}
-    CodecOption:
-      type: string
-      minLength: 1
-      maxLength: 255
-    Id:
-      type: string
-      pattern: ^\d{13}-\w{6}$
-    SizingPolicy:
-      type: string
-      pattern: (^Fit$)|(^Fill$)|(^Stretch$)|(^Keep$)|(^ShrinkToFit$)|(^ShrinkToFill$)
-    CreatePresetResponse:
-      type: object
-      properties:
-        Preset:
+          - $ref: '#/components/schemas/PresetWatermarkId'
+          - description: ' A unique identifier for the settings for one watermark. The value of <code>Id</code> can be up to 40 characters long. '
+        MaxWidth:
           allOf:
-          - $ref: '#/components/schemas/Preset'
-          - description: A section of the response body that provides information about the preset that is created.
-        Warning:
+          - $ref: '#/components/schemas/PixelsOrPercent'
+          - description: '<p>The maximum width of the watermark in one of the following formats: </p> <ul> <li> <p>number of pixels (px): The minimum value is 16 pixels, and the maximum value is the value of <code>MaxWidth</code>.</p> </li> <li> <p>integer percentage (%): The range of valid values is 0 to 100. Use the value of <code>Target</code> to specify whether you want Elastic Transcoder to include the black bars that are added by Elastic Transcoder, if any, in the calculation.</p> <p>If you specify the value in pixels, it must be less than or equal to the value of <code>MaxWidth</code>.</p> </li> </ul>'
+        MaxHeight:
           allOf:
-          - $ref: '#/components/schemas/String'
-          - description: If the preset settings don't comply with the standards for the video codec but Elastic Transcoder created the preset, this message explains the reason the preset settings don't meet the standard. Elastic Transcoder created the preset because the settings might produce acceptable output.
-      description: The <code>CreatePresetResponse</code> structure.
-    Resolution:
-      type: string
-      pattern: (^auto$)|(^\d{1,5}x\d{1,5}$)
-    VerticalAlign:
-      type: string
-      pattern: (^Top$)|(^Bottom$)|(^Center$)
-    FrameRate:
-      type: string
-      pattern: (^auto$)|(^10$)|(^15$)|(^23.97$)|(^24$)|(^25$)|(^29.97$)|(^30$)|(^50$)|(^60$)
-    ResourceNotFoundException: {}
-    PresetType:
-      type: string
-      pattern: (^System$)|(^Custom$)
+          - $ref: '#/components/schemas/PixelsOrPercent'
+          - description: '<p>The maximum height of the watermark in one of the following formats: </p> <ul> <li> <p>number of pixels (px): The minimum value is 16 pixels, and the maximum value is the value of <code>MaxHeight</code>.</p> </li> <li> <p>integer percentage (%): The range of valid values is 0 to 100. Use the value of <code>Target</code> to specify whether you want Elastic Transcoder to include the black bars that are added by Elastic Transcoder, if any, in the calculation.</p> </li> </ul> <p>If you specify the value in pixels, it must be less than or equal to the value of <code>MaxHeight</code>.</p>'
+        SizingPolicy:
+          allOf:
+          - $ref: '#/components/schemas/WatermarkSizingPolicy'
+          - description: '<p>A value that controls scaling of the watermark: </p> <ul> <li> <p> <b>Fit</b>: Elastic Transcoder scales the watermark so it matches the value that you specified in either <code>MaxWidth</code> or <code>MaxHeight</code> without exceeding the other value.</p> </li> <li> <p> <b>Stretch</b>: Elastic Transcoder stretches the watermark to match the values that you specified for <code>MaxWidth</code> and <code>MaxHeight</code>. If the relative proportions of the watermark and the values of <code>MaxWidth</code> and <code>MaxHeight</code> are different, the watermark will be distorted.</p> </li> <li> <p> <b>ShrinkToFit</b>: Elastic Transcoder scales the watermark down so that its dimensions match the values that you specified for at least one of <code>MaxWidth</code> and <code>MaxHeight</code> without exceeding either value. If you specify this option, Elastic Transcoder does not scale the watermark up.</p> </li> </ul>'
+        HorizontalAlign:
+          allOf:
+          - $ref: '#/components/schemas/HorizontalAlign'
+          - description: '<p>The horizontal position of the watermark unless you specify a non-zero value for <code>HorizontalOffset</code>: </p> <ul> <li> <p> <b>Left</b>: The left edge of the watermark is aligned with the left border of the video.</p> </li> <li> <p> <b>Right</b>: The right edge of the watermark is aligned with the right border of the video.</p> </li> <li> <p> <b>Center</b>: The watermark is centered between the left and right borders.</p> </li> </ul>'
+        HorizontalOffset:
+          allOf:
+          - $ref: '#/components/schemas/PixelsOrPercent'
+          - description: '<p>The amount by which you want the horizontal position of the watermark to be offset from the position specified by HorizontalAlign: </p> <ul> <li> <p>number of pixels (px): The minimum value is 0 pixels, and the maximum value is the value of MaxWidth.</p> </li> <li> <p>integer percentage (%): The range of valid values is 0 to 100.</p> </li> </ul> <p>For example, if you specify Left for <code>HorizontalAlign</code> and 5px for <code>HorizontalOffset</code>, the left side of the watermark appears 5 pixels from the left border of the output video.</p> <p> <code>HorizontalOffset</code> is only valid when the value of <code>HorizontalAlign</code> is <code>Left</code> or <code>Right</code>. If you specify an offset that causes the watermark to extend beyond the left or right border and Elastic Transcoder has not added black bars, the watermark is cropped. If Elastic Transcoder has added black bars, the watermark extends into the black bars. If the watermark extends beyond the black bars, it is cropped.</p> <p>Use the value of <code>Target</code> to specify whether you want to include the black bars that are added by Elastic Transcoder, if any, in the offset calculation.</p>'
+        VerticalAlign:
+          allOf:
+          - $ref: '#/components/schemas/VerticalAlign'
+          - description: '<p>The vertical position of the watermark unless you specify a non-zero value for <code>VerticalOffset</code>: </p> <ul> <li> <p> <b>Top</b>: The top edge of the watermark is aligned with the top border of the video.</p> </li> <li> <p> <b>Bottom</b>: The bottom edge of the watermark is aligned with the bottom border of the video.</p> </li> <li> <p> <b>Center</b>: The watermark is centered between the top and bottom borders.</p> </li> </ul>'
+        VerticalOffset:
+          allOf:
+          - $ref: '#/components/schemas/PixelsOrPercent'
+          - description: '<p> <code>VerticalOffset</code> </p> <p>The amount by which you want the vertical position of the watermark to be offset from the position specified by VerticalAlign:</p> <ul> <li> <p>number of pixels (px): The minimum value is 0 pixels, and the maximum value is the value of <code>MaxHeight</code>.</p> </li> <li> <p>integer percentage (%): The range of valid values is 0 to 100.</p> </li> </ul> <p>For example, if you specify <code>Top</code> for <code>VerticalAlign</code> and <code>5px</code> for <code>VerticalOffset</code>, the top of the watermark appears 5 pixels from the top border of the output video.</p> <p> <code>VerticalOffset</code> is only valid when the value of VerticalAlign is Top or Bottom.</p> <p>If you specify an offset that causes the watermark to extend beyond the top or bottom border and Elastic Transcoder has not added black bars, the watermark is cropped. If Elastic Transcoder has added black bars, the watermark extends into the black bars. If the watermark extends beyond the black bars, it is cropped.</p> <p>Use the value of <code>Target</code> to specify whether you want Elastic Transcoder to include the black bars that are added by Elastic Transcoder, if any, in the offset calculation.</p>'
+        Opacity:
+          allOf:
+          - $ref: '#/components/schemas/Opacity'
+          - description: <p>A percentage that indicates how much you want a watermark to obscure the video in the location where it appears. Valid values are 0 (the watermark is invisible) to 100 (the watermark completely obscures the video in the specified location). The datatype of <code>Opacity</code> is float.</p> <p>Elastic Transcoder supports transparent .png graphics. If you use a transparent .png, the transparent portion of the video appears as if you had specified a value of 0 for <code>Opacity</code>. The .jpg file format doesn't support transparency.</p>
+        Target:
+          allOf:
+          - $ref: '#/components/schemas/Target'
+          - description: '<p>A value that determines how Elastic Transcoder interprets values that you specified for <code>HorizontalOffset</code>, <code>VerticalOffset</code>, <code>MaxWidth</code>, and <code>MaxHeight</code>:</p> <ul> <li> <p> <b>Content</b>: <code>HorizontalOffset</code> and <code>VerticalOffset</code> values are calculated based on the borders of the video excluding black bars added by Elastic Transcoder, if any. In addition, <code>MaxWidth</code> and <code>MaxHeight</code>, if specified as a percentage, are calculated based on the borders of the video excluding black bars added by Elastic Transcoder, if any.</p> </li> <li> <p> <b>Frame</b>: <code>HorizontalOffset</code> and <code>VerticalOffset</code> values are calculated based on the borders of the video including black bars added by Elastic Transcoder, if any. In addition, <code>MaxWidth</code> and <code>MaxHeight</code>, if specified as a percentage, are calculated based on the borders of the video including black bars added by Elastic Transcoder, if any.</p> </li> </ul>'
+      description: <p>Settings for the size, location, and opacity of graphics that you want Elastic Transcoder to overlay over videos that are transcoded using this preset. You can specify settings for up to four watermarks. Watermarks appear in the specified size and location, and with the specified opacity for the duration of the transcoded video.</p> <p>Watermarks can be in .png or .jpg format. If you want to display a watermark that is not rectangular, use the .png format, which supports transparency.</p> <p>When you create a job that uses this preset, you specify the .png or .jpg graphics that you want Elastic Transcoder to include in the transcoded videos. You can specify fewer graphics in the job than you specify watermark settings in the preset, which allows you to use the same preset for up to four watermarks that have different dimensions.</p>
+    LimitExceededException: {}
     ListPresetsResponse:
       type: object
       properties:
@@ -989,15 +952,9 @@ components:
           - $ref: '#/components/schemas/Id'
           - description: A value that you use to access the second and subsequent pages of results, if any. When the presets fit on one page or when you've reached the last page of results, the value of <code>NextPageToken</code> is <code>null</code>.
       description: The <code>ListPresetsResponse</code> structure.
-    AudioBitRate:
+    AspectRatio:
       type: string
-      pattern: ^\d{1,3}$
-    AudioCodecProfile:
-      type: string
-      pattern: (^auto$)|(^AAC-LC$)|(^HE-AAC$)|(^HE-AACv2$)
-    Digits:
-      type: string
-      pattern: ^\d{1,5}$
+      pattern: (^auto$)|(^1:1$)|(^4:3$)|(^3:2$)|(^16:9$)
     Preset:
       type: object
       properties:
@@ -1038,7 +995,62 @@ components:
           - $ref: '#/components/schemas/PresetType'
           - description: Whether the preset is a default preset provided by Elastic Transcoder (<code>System</code>) or a preset that you have defined (<code>Custom</code>).
       description: Presets are templates that contain most of the settings for transcoding media files from one format to another. Elastic Transcoder includes some default presets for common formats, for example, several iPod and iPhone versions. You can also create your own presets for formats that aren't included among the default presets. You specify which preset you want to use when you create a job.
+    Id:
+      type: string
+      pattern: ^\d{13}-\w{6}$
+    Thumbnails:
+      type: object
+      properties:
+        Format:
+          allOf:
+          - $ref: '#/components/schemas/JpgOrPng'
+          - description: <p>The format of thumbnails, if any. Valid values are <code>jpg</code> and <code>png</code>. </p> <p>You specify whether you want Elastic Transcoder to create thumbnails when you create a job.</p>
+        Interval:
+          allOf:
+          - $ref: '#/components/schemas/Digits'
+          - description: The approximate number of seconds between thumbnails. Specify an integer value.
+        Resolution:
+          allOf:
+          - $ref: '#/components/schemas/ThumbnailResolution'
+          - description: <important> <p>To better control resolution and aspect ratio of thumbnails, we recommend that you use the values <code>MaxWidth</code>, <code>MaxHeight</code>, <code>SizingPolicy</code>, and <code>PaddingPolicy</code> instead of <code>Resolution</code> and <code>AspectRatio</code>. The two groups of settings are mutually exclusive. Do not use them together.</p> </important> <p>The width and height of thumbnail files in pixels. Specify a value in the format <code> <i>width</i> </code> x <code> <i>height</i> </code> where both values are even integers. The values cannot exceed the width and height that you specified in the <code>Video:Resolution</code> object.</p>
+        AspectRatio:
+          allOf:
+          - $ref: '#/components/schemas/AspectRatio'
+          - description: <important> <p>To better control resolution and aspect ratio of thumbnails, we recommend that you use the values <code>MaxWidth</code>, <code>MaxHeight</code>, <code>SizingPolicy</code>, and <code>PaddingPolicy</code> instead of <code>Resolution</code> and <code>AspectRatio</code>. The two groups of settings are mutually exclusive. Do not use them together.</p> </important> <p>The aspect ratio of thumbnails. Valid values include:</p> <p> <code>auto</code>, <code>1:1</code>, <code>4:3</code>, <code>3:2</code>, <code>16:9</code> </p> <p>If you specify <code>auto</code>, Elastic Transcoder tries to preserve the aspect ratio of the video in the output file.</p>
+        MaxWidth:
+          allOf:
+          - $ref: '#/components/schemas/DigitsOrAuto'
+          - description: The maximum width of thumbnails in pixels. If you specify auto, Elastic Transcoder uses 1920 (Full HD) as the default value. If you specify a numeric value, enter an even integer between 32 and 4096.
+        MaxHeight:
+          allOf:
+          - $ref: '#/components/schemas/DigitsOrAuto'
+          - description: The maximum height of thumbnails in pixels. If you specify auto, Elastic Transcoder uses 1080 (Full HD) as the default value. If you specify a numeric value, enter an even integer between 32 and 3072.
+        SizingPolicy:
+          allOf:
+          - $ref: '#/components/schemas/SizingPolicy'
+          - description: '<p>Specify one of the following values to control scaling of thumbnails:</p> <ul> <li> <p> <code>Fit</code>: Elastic Transcoder scales thumbnails so they match the value that you specified in thumbnail MaxWidth or MaxHeight settings without exceeding the other value. </p> </li> <li> <p> <code>Fill</code>: Elastic Transcoder scales thumbnails so they match the value that you specified in thumbnail <code>MaxWidth</code> or <code>MaxHeight</code> settings and matches or exceeds the other value. Elastic Transcoder centers the image in thumbnails and then crops in the dimension (if any) that exceeds the maximum value.</p> </li> <li> <p> <code>Stretch</code>: Elastic Transcoder stretches thumbnails to match the values that you specified for thumbnail <code>MaxWidth</code> and <code>MaxHeight</code> settings. If the relative proportions of the input video and thumbnails are different, the thumbnails will be distorted.</p> </li> <li> <p> <code>Keep</code>: Elastic Transcoder does not scale thumbnails. If either dimension of the input video exceeds the values that you specified for thumbnail <code>MaxWidth</code> and <code>MaxHeight</code> settings, Elastic Transcoder crops the thumbnails.</p> </li> <li> <p> <code>ShrinkToFit</code>: Elastic Transcoder scales thumbnails down so that their dimensions match the values that you specified for at least one of thumbnail <code>MaxWidth</code> and <code>MaxHeight</code> without exceeding either value. If you specify this option, Elastic Transcoder does not scale thumbnails up.</p> </li> <li> <p> <code>ShrinkToFill</code>: Elastic Transcoder scales thumbnails down so that their dimensions match the values that you specified for at least one of <code>MaxWidth</code> and <code>MaxHeight</code> without dropping below either value. If you specify this option, Elastic Transcoder does not scale thumbnails up.</p> </li> </ul>'
+        PaddingPolicy:
+          allOf:
+          - $ref: '#/components/schemas/PaddingPolicy'
+          - description: When you set <code>PaddingPolicy</code> to <code>Pad</code>, Elastic Transcoder may add black bars to the top and bottom and/or left and right sides of thumbnails to make the total size of the thumbnails match the values that you specified for thumbnail <code>MaxWidth</code> and <code>MaxHeight</code> settings.
+      description: Thumbnails for videos.
+    ResourceNotFoundException: {}
+    VideoCodec:
+      type: string
+      pattern: (^H\.264$)|(^vp8$)|(^vp9$)|(^mpeg2$)|(^gif$)
   parameters:
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
     X-Amz-Content-Sha256:
       name: X-Amz-Content-Sha256
       in: header
@@ -1047,18 +1059,6 @@ components:
       required: false
     X-Amz-Signature:
       name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Date:
-      name: X-Amz-Date
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
       in: header
       schema:
         type: string
@@ -1075,8 +1075,8 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
+    X-Amz-Date:
+      name: X-Amz-Date
       in: header
       schema:
         type: string

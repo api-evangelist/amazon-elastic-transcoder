@@ -249,8 +249,22 @@ paths:
       - RoleTests
 components:
   schemas:
+    ExceptionMessages:
+      type: array
+      items:
+        $ref: '#/components/schemas/String'
+    IncompatibleVersionException: {}
+    AccessDeniedException: {}
     ResourceNotFoundException: {}
+    SnsTopic:
+      type: string
+      pattern: (^$)|(^arn:aws:sns:.*:\w{12}:.+$)
     ValidationException: {}
+    Success:
+      type: string
+      pattern: (^true$)|(^false$)
+    String:
+      type: string
     TestRoleResponse:
       type: object
       deprecated: true
@@ -264,24 +278,10 @@ components:
           - $ref: '#/components/schemas/ExceptionMessages'
           - description: If the <code>Success</code> element contains <code>false</code>, this value is an array of one or more error messages that were generated during the test process.
       description: The <code>TestRoleResponse</code> structure.
-    String:
-      type: string
     InternalServiceException: {}
-    IncompatibleVersionException: {}
-    AccessDeniedException: {}
-    ExceptionMessages:
-      type: array
-      items:
-        $ref: '#/components/schemas/String'
-    Success:
-      type: string
-      pattern: (^true$)|(^false$)
-    SnsTopic:
-      type: string
-      pattern: (^$)|(^arn:aws:sns:.*:\w{12}:.+$)
   parameters:
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
+    X-Amz-Credential:
+      name: X-Amz-Credential
       in: header
       schema:
         type: string
@@ -292,14 +292,14 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
       in: header
       schema:
         type: string
       required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
       in: header
       schema:
         type: string
@@ -310,14 +310,14 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
       in: header
       schema:
         type: string
       required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
       in: header
       schema:
         type: string
