@@ -213,6 +213,12 @@ apis:
   - type: JSONLD
     url: json-ld/amazon-elastic-transcoder-context.jsonld
 common:
+- type: Plans
+  url: plans/amazon-elastic-transcoder-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/amazon-elastic-transcoder-rate-limits.yml
+- type: FinOps
+  url: finops/amazon-elastic-transcoder-finops.yml
 - type: Website
   url: https://amazon.com
 - type: CapabilityMap
