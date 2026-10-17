@@ -248,40 +248,9 @@ paths:
       tags:
       - RoleTests
 components:
-  schemas:
-    Success:
-      type: string
-      pattern: (^true$)|(^false$)
-    InternalServiceException: {}
-    ValidationException: {}
-    IncompatibleVersionException: {}
-    String:
-      type: string
-    SnsTopic:
-      type: string
-      pattern: (^$)|(^arn:aws:sns:.*:\w{12}:.+$)
-    ResourceNotFoundException: {}
-    ExceptionMessages:
-      type: array
-      items:
-        $ref: '#/components/schemas/String'
-    AccessDeniedException: {}
-    TestRoleResponse:
-      type: object
-      deprecated: true
-      properties:
-        Success:
-          allOf:
-          - $ref: '#/components/schemas/Success'
-          - description: If the operation is successful, this value is <code>true</code>; otherwise, the value is <code>false</code>.
-        Messages:
-          allOf:
-          - $ref: '#/components/schemas/ExceptionMessages'
-          - description: If the <code>Success</code> element contains <code>false</code>, this value is an array of one or more error messages that were generated during the test process.
-      description: The <code>TestRoleResponse</code> structure.
   parameters:
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
       in: header
       schema:
         type: string
@@ -292,8 +261,8 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
       in: header
       schema:
         type: string
@@ -310,18 +279,49 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Date:
-      name: X-Amz-Date
-      in: header
-      schema:
-        type: string
-      required: false
     X-Amz-Credential:
       name: X-Amz-Credential
       in: header
       schema:
         type: string
       required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+  schemas:
+    Success:
+      type: string
+      pattern: (^true$)|(^false$)
+    ValidationException: {}
+    ExceptionMessages:
+      type: array
+      items:
+        $ref: '#/components/schemas/String'
+    SnsTopic:
+      type: string
+      pattern: (^$)|(^arn:aws:sns:.*:\w{12}:.+$)
+    String:
+      type: string
+    InternalServiceException: {}
+    IncompatibleVersionException: {}
+    AccessDeniedException: {}
+    TestRoleResponse:
+      type: object
+      deprecated: true
+      properties:
+        Success:
+          allOf:
+          - $ref: '#/components/schemas/Success'
+          - description: If the operation is successful, this value is <code>true</code>; otherwise, the value is <code>false</code>.
+        Messages:
+          allOf:
+          - $ref: '#/components/schemas/ExceptionMessages'
+          - description: If the <code>Success</code> element contains <code>false</code>, this value is an array of one or more error messages that were generated during the test process.
+      description: The <code>TestRoleResponse</code> structure.
+    ResourceNotFoundException: {}
   securitySchemes:
     hmac:
       type: apiKey
